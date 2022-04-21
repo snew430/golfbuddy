@@ -94,6 +94,11 @@ a:hover {
 
 header {
   background: var(--dark);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header a {
@@ -151,6 +156,10 @@ li {
   list-style: none;
 }
 
+nav {
+  width: 100%;
+}
+
 nav a:hover {
   text-decoration: none;
 }
@@ -176,6 +185,7 @@ textarea {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .space-between {
@@ -296,12 +306,25 @@ a {
 
 .jumbo {
   height: 20vh;
+  background-image: url("./assets/images/Course.jpg");
+  background-position: 10% 70%;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
 }
 
-.jumbo img {
-  object-fit: cover;
-  object-position: 10% 70%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.board {
+  height: 60vh;
+  width: 80%;
+  background-color: #fff;
+  color: black;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.dom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
