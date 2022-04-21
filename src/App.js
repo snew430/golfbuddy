@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Jumbotron from "./components/Jumbotron";
+import Nav from "./components/Nav";
 
 function App() {
+  const [categories] = useState([
+    {
+      name: "Trip Info",
+      description: "Layout of the week",
+    },
+    {
+      name: "Course Info",
+      description: "Where we will be going",
+    },
+    {
+      name: "Sign Up",
+      description: "Put your name either as going or waitlist",
+    },
+    {
+      name: "Rules",
+      description: "You know them if your old. Please read if youre new",
+    },
+    {
+      name: "Info Board",
+      description: "Shoutouts we need",
+    },
+  ]);
+
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Jumbotron />
+      <Nav
+        categories={categories}
+        setCurrentCategory={setCurrentCategory}
+        currentCategory={currentCategory}
+      />
     </div>
   );
 }
