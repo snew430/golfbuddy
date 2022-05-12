@@ -1,5 +1,6 @@
 import React from "react";
 import { Rules, History, Nav, Tournament } from './components';
+import './App.scss';
 
 function App() {
   return (

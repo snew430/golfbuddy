@@ -1,43 +1,49 @@
-import React, { useEffect } from "react";
-import { capitalizeFirstLetter } from "../../utils/helpers";
+import React, { useState } from 'react';
+import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { motion } from 'framer-motion';
 
-function Nav({ categories = [], setCurrentCategory, currentCategory }) {
-  useEffect(() => {
-    document.title = capitalizeFirstLetter(currentCategory.name);
-  }, [currentCategory]);
+import './Nav.scss';
+
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
 
   return (
-    <header className="flex-row px-1">
-      <h2>
-        <a data-testid="link" href="/">
-          <span role="img" aria-label="flag">
-            ⛳️
-          </span>
-          It Takes Balls
-        </a>
-      </h2>
-      <nav>
-        <ul className="flex-row">
-          {categories.map((category) => (
-            <li
-              className={`mx-1 ${
-                currentCategory.name === category.name && "navActive"
-              }`}
-              key={category.name}
-            >
-              <span
-                onClick={() => {
-                  setCurrentCategory(category);
-                }}
-              >
-                {capitalizeFirstLetter(category.name)}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </header>
-  );
-}
+    <nav className="app__navbar">
+      {/* <div className="app__navbar-logo">
+        <img src={images.logo} alt="logo" />
+      </div> */}
+      <ul className="app__navbar-links">
+        {['home', 'tournament', 'rules', 'history'].map((item) => (
+          <li className="app__flex p-text" key={`link-${item}`}>
+            <div />
+            <a href={`#${item}`}>{item}</a>
+          </li>
+        ))}
+      </ul>
 
-export default Nav;
+      <div className="app__navbar-menu">
+        <HiMenuAlt4 onClick={() => setToggle(true)} />
+
+        {toggle && (
+          <motion.div
+            whileInView={{ x: [300, 0] }}
+            transition={{ duration: 0.85, ease: 'easeOut' }}
+          >
+            <HiX onClick={() => setToggle(false)} />
+            <ul>
+              {['home', 'tournament', 'rules', 'history'].map((item) => (
+                <li key={item}>
+                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
