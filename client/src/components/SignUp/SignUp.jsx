@@ -65,8 +65,8 @@ const SignUp = () => {
 
       <div className='app__flex'>
         <div>
-        <button type='button' className='p-text' onClick={handleSubmit}>{'Single'}</button>
-        <button type='button' className='p-text' onClick={handleSubmit}>{'Double'}</button>
+        <button type='button' className='p-text'>{'Single'}</button>
+        <button type='button' className='p-text'>{'Double'}</button>
         </div>
       </div>
 
@@ -81,4 +81,4 @@ const SignUp = () => {
   );
 }
 
-export default SignUp; 'contact';
+export default SignUp;
