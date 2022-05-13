@@ -15,7 +15,7 @@ const Rules = () => {
 
         <ul>
             <li>Senior Tees
-                <p className='p-text'>We are all using the tees that are 5800 yards and shorter</p>
+                <p className='p-text'>We are all using the tees that are 5800 yards and shorter.</p>
             </li>
             <li> Max stroke on any hole is Par plus 3
                 <p className='p-text'>On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.</p>
@@ -30,7 +30,7 @@ const Rules = () => {
             </li>
         </ul>
 
-        <h3>Please reach out to us if you have questions. <br />Looking forward to a great trip!</h3>
+        <h3>Please Reach Out to us if You Have Questions. <br />Looking Forward to a Great Trip!</h3>
     </div>
   );
 }
