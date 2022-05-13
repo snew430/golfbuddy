@@ -5,7 +5,7 @@ import './App.scss';
 function App() {
   return (
     <div className="app">
-      <Nav />
+      {/* <Nav /> */}
       <Tournament />
       <Rules />
       <History />

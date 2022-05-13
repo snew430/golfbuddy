@@ -1,0 +1,77 @@
+#rules {   
+    .head-text-purple {
+        padding-top: 10px;
+        font-size: 3rem;
+        font-weight: 800;
+        text-align: center;
+        color: var(--white-color);
+        text-transform: capitalize;
+    
+        @media screen and (min-width: 2000px) {
+        font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+        font-size: 2.3rem;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0.75rem;
+        height: 100%;
+        width: 100%;
+  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    li {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        text-align: center;
+    
+        @media screen and (min-width: 2000px) {
+        font-size: 2rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+        font-size: 1.15 rem;
+        }
+    }
+
+    .p-text {
+        font-size: 1.75rem;
+        font-weight: 100;
+        text-align: center;
+        text-justify: inter-word;
+        color: var(--yellow-color);
+        line-height: 1.5;
+        margin: 0 50px ;
+    
+        @media screen and (max-width: 2000px) {
+        font-size: 1.15rem;
+        }
+    }
+
+    h3{
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        color: var(--white-color);
+        text-transform: capitalize;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: 2000px) {
+        font-size: 1.75rem;
+        }
+        
+        @media screen and (max-width: 450px) {
+        font-size: 1.15rem;
+        }
+    }
+}
