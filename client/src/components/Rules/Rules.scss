@@ -5,6 +5,7 @@
         font-weight: 800;
         text-align: center;
         color: var(--white-color);
+        text-shadow: -1px 0 black;
         text-transform: capitalize;
     
         @media screen and (min-width: 2000px) {
@@ -33,6 +34,7 @@
         font-size: 1.75rem;
         font-weight: 700;
         color: var(--secondary-color);
+        text-shadow: -1px 0 black;
         text-align: center;
     
         @media screen and (min-width: 2000px) {
@@ -50,6 +52,7 @@
         text-align: center;
         text-justify: inter-word;
         color: var(--yellow-color);
+        text-shadow: -1px 0 black;
         line-height: 1.5;
         margin: 0 50px ;
     
@@ -63,6 +66,7 @@
         font-weight: 400;
         text-align: center;
         color: var(--white-color);
+        text-shadow: -1px 0 black;
         padding-bottom: 10px;
 
         @media screen and (min-width: 2000px) {
