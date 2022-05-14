@@ -1,5 +1,5 @@
 import React from "react";
-import { Rules, History, Nav, Tournament } from './components';
+import { Rules, History, Nav, Tournament, SignUp } from './components';
 import './App.scss';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Tournament />
       <Rules />
       <History />
+      <SignUp />
     </div>
   );
 }
