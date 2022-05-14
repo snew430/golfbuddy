@@ -83,7 +83,14 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
     ): Hotel
-    addTournament(name: String, courses: [ID]!, hotels: [ID]!): Tournament
+    addTournament(
+      name: String!
+      startDate: String!
+      endDate: String!
+      paymentDue: String!
+      courses: [ID]!
+      hotels: [ID]!
+    ): Tournament
     addPlayerToTourney(player: ID!, tournament: ID!): Tournament
   }
 `;

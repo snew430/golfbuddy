@@ -11,6 +11,18 @@ const tourneySchema = new Schema({
     required: true,
     trim: true,
   },
+  startDate: {
+    type: String,
+    required: true,
+  },
+  endDate: {
+    type: String,
+    required: true,
+  },
+  paymentDue: {
+    type: String,
+    required: true,
+  },
   courses: [Course.schema],
   hotels: [Hotel.schema],
   players: [Player.schema],
