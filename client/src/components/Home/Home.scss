@@ -1,0 +1,47 @@
+#home {
+    padding: 6rem 2rem 0rem;
+
+    background: url("../../assets/images/golf_course1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 60rem;
+
+    .head-text-home {
+        padding-top: 4rem;
+        font-size: 9rem;
+        font-weight: 800;
+        text-align: left;
+        color: var(--white-color);
+        text-shadow: -2px 0 black;
+    
+        @media screen and (max-width: 900px) {
+            text-align: center;
+            font-size: 6rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+            text-align: center;
+        }
+    }
+
+    button {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+
+        background-color: var(--darkGreen-color);
+        font-weight: 500;
+        font-size: 1.75rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        margin: 2rem 0 0 0;
+        font-family: var(--font-base);
+        cursor: pointer;
+    }
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}

@@ -1,11 +1,12 @@
 import React from "react";
-import { Rules, History, Nav, Tournament, SignUp } from './components';
+import { Rules, History, Nav, Tournament, SignUp, Home } from './components';
 import './App.scss';
 
 function App() {
   return (
     <div className="app">
-      {/* <Nav /> */}
+      <Nav />
+      <Home />
       <Tournament />
       <Rules />
       <History />

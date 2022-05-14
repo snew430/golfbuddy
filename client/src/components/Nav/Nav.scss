@@ -6,7 +6,7 @@
     align-items: center;
   
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -54,7 +54,8 @@
       }
   
       a {
-        color: var(--gray-color);
+        color: var(--darkGreen-color);
+        text-shadow: -1px 0 black;
         text-decoration: none;
         flex-direction: column;
   
@@ -116,7 +117,7 @@
       flex-direction: column;
       
       //background: url('../../assets/bgWhite.png');
-      background-color: var(--white-color);
+      background-color: var(--darkGreen-color);
       background-size: cover;
       background-repeat: repeat;
   
@@ -145,7 +146,8 @@
           margin: 1rem;
   
           a {
-            color: var(--gray-color);
+            color: var(--yellow-color);
+            text-shadow: -1px 0 black;
             text-decoration: none;
             font-size: 1rem;
             text-transform: uppercase;
