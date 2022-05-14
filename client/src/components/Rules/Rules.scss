@@ -33,7 +33,7 @@
     li {
         font-size: 1.75rem;
         font-weight: 700;
-        color: var(--secondary-color);
+        color: var(--white-color);
         text-shadow: -1px 0 black;
         text-align: center;
     
@@ -54,10 +54,11 @@
         color: var(--yellow-color);
         text-shadow: -1px 0 black;
         line-height: 1.5;
-        margin: 0 50px ;
+        margin: 0 100px ;
     
         @media screen and (max-width: 2000px) {
         font-size: 1.15rem;
+        margin: 0;
         }
     }
 

@@ -7,10 +7,12 @@ const Rules = () => {
         <h2 className='head-text-purple'>Rules & Regulations</h2>
 
         <p className='p-text'>
-            Welcome to the guys joining us for the first time! <br/> Here's
-            information that will make your golfing more enjoyable. All competition is based on what you shoot
-            against your own the average score (or what you told us you shoot).
-            Each day has prize money, so make sure to bring your A game. You have already anteed up when you paid for your golf.
+            Welcome to the guys joining us for the first time! <br/> 
+            Here's information that will make your golfing more enjoyable. <br />
+            All competition is based on what you shoot
+            against your own the average score (or what you told us you shoot). <br />
+            Each day has prize money, so make sure to bring your A game.
+            You have already anteed up when you paid for your golf.
         </p>
 
         <ul>
