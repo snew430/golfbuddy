@@ -60,6 +60,7 @@ const typeDefs = gql`
       phoneNumber: Int!
       password: String!
     ): Auth
+
     addPlayer(
       firstName: String!
       lastName: String!
@@ -67,6 +68,7 @@ const typeDefs = gql`
       phoneNumber: Int!
       preferredRoomates: String
     ): User
+
     updatePlayer(
       _id: ID!
       firstName: String
@@ -74,8 +76,11 @@ const typeDefs = gql`
       email: String
       phoneNumber: Int
     ): Auth
+
     login(email: String!, password: String!): Auth
+
     addCourse(name: String!, address: String!, website: String!): Course
+
     addHotel(
       name: String!
       address: String!
@@ -83,6 +88,7 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
     ): Hotel
+
     addTournament(
       name: String!
       startDate: String!
@@ -91,6 +97,7 @@ const typeDefs = gql`
       courses: [ID]!
       hotels: [ID]!
     ): Tournament
+    
     addPlayerToTourney(player: ID!, tournament: ID!): Tournament
   }
 `;
