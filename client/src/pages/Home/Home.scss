@@ -4,7 +4,7 @@
     background: url("../../assets/images/golf_ball_green.jpg");
     background-size: cover;
     background-position: center;
-    height: 75rem;
+    height: 100vh;
 
     .head-text-home {
         padding-top: 4rem;
@@ -40,6 +40,9 @@
     }
     @media screen and (max-width: 900px) {
         width: 100%;
-        margin: 1rem 0;
+        background: url("../../assets/images/golf_ball_green_center.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
     }
 }
