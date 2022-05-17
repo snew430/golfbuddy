@@ -97,5 +97,6 @@ const typeDefs = gql`
 
 //should signing up a user require password or should that be emailed?
 //should addPlayerToTourney exist or add to tourney when creating Player
+//should tournament contain going, waitlist, and not going?
 
 module.exports = typeDefs;
