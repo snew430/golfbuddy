@@ -1,4 +1,19 @@
 import React from "react";
+<<<<<<< HEAD
+import { Rules, History, Nav, Tournament, SignUp, Home } from './components';
+import './App.scss';
+
+function App() {
+  return (
+    <div className="app">
+      <Nav />
+      <Home />
+      <Tournament />
+      <Rules />
+      <History />
+      <SignUp />
+    </div>
+=======
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   ApolloClient,
@@ -46,6 +61,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+>>>>>>> 65afdf0d738082cc0f183373c7c086d6a1faf409
   );
 }
 
