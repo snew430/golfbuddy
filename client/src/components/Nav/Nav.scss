@@ -14,22 +14,6 @@
     z-index: 2;
   }
   
-  .app__navbar-logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  
-    img {
-      width: 90px;
-      height: 20px;
-  
-      @media screen and (min-width: 2000px) {
-        width: 180px;
-        height: 40px;
-      }
-    }
-  }
-  
   .app__navbar-links {
     flex: 1;
     display: flex;
@@ -65,13 +49,12 @@
         transition: all 0.3s ease-in-out;
   
         &:hover {
-          color: var(--secondary-color);
-        }
-      }
-  
-      &:hover {
-        div {
-          background: var(--secondary-color);
+          color: var(--white-color);
+          background-color: var(--darkGreen-color);
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          border: none;
+
         }
       }
     }
@@ -100,23 +83,25 @@
     }
   
     div {
-      width: 5px;
-      height: 5px;
-      background: transparent;
-      border-radius: 50%;
-
-      margin-bottom: 5px;
-    }
-
-    a {
-      color: var(--gray-color);
-      text-decoration: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 5;
+  
+      padding: 1rem;
+  
+      width: 80%;
+      height: 100vh;
+      
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
       flex-direction: column;
       
-      //background: url('../../assets/bgWhite.png');
-      background-color: var(--darkGreen-color);
+      background: url("../../assets/images/white_paper.jpg");
       background-size: cover;
-      background-repeat: repeat;
+      background-position: center;
   
       box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
   
@@ -124,6 +109,7 @@
         width: 35px;
         height: 35px;
         color: var(--secondary-color);
+        margin: 0.5rem 1rem;
       }
   
       ul {
@@ -142,23 +128,30 @@
           margin: 1rem;
   
           a {
-            color: var(--yellow-color);
+            color: var(--darkGreen-color);
             text-shadow: -1px 0 black;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.75rem;
             text-transform: uppercase;
             font-weight: 500;
-  
             transition: all 0.3s ease-in-out;
   
             &:hover {
-              color: var(--secondary-color);
+              color: var(--white-color);
+              background-color: var(--darkGreen-color);
+              padding: 0.5rem 1rem;
+              border-radius: 10px;
+              border: none;
             }
           }
         }
       }
+  
+      @media screen and (min-width: 900px) {
+        display: none;
+      }
     }
-
+  
     @media screen and (min-width: 900px) {
       display: none;
     }
