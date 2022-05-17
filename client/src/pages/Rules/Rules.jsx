@@ -9,7 +9,7 @@ const Rules = () => {
         <p className='p-text'>
             Welcome to the guys joining us for the first time! <br/> 
             Here's information that will make your golfing more enjoyable. <br />
-            All competition is based on what you shoot against your own the average score (or what you told us you shoot). <br />
+            All competition is based on what you shoot against your own handicap (or what you told us you shoot). <br />
             Each day has prize money, so make sure to bring your A game.
             You have already anteed up when you paid for your golf.
         </p>
@@ -27,7 +27,14 @@ const Rules = () => {
               <p className='p-text'>Player must add a stroke for the gimme.</p>
         </div>
 
-        <p className='p-text'>
+        <p className='info-text'>
+          We have assigned the foursomes for Sunday and Wednesday's Ryder Cup Round.
+          If there is a foursome group you want to play with on Monday or Tuesday, please let us know 
+          when we meet Sunday morning, or by clicking the "Create a Foursome" button below. If there's 
+          someone you want to play with, here's your chance!
+        </p>
+
+        <p className='info-text'>          
           If you would like to take part in other daily competitions, 
           please reach out to Dr. Tim or Ken Dulaney.
           They oversee OPTIONAL daily wagers at an additonal fee. 
