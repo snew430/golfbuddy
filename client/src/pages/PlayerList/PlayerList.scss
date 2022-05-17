@@ -1,0 +1,25 @@
+#playerList {
+    background: url("../../assets/images/golf_green.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    opacity: 0.65;
+
+    h2 {
+        padding-top: 6rem;
+        font-size: 6rem;
+        font-weight: 800;
+        text-align: center;
+        color: var(--white-color);
+        text-shadow: -2px 0 black;
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 2rem;
+        }
+    }
+
+}
