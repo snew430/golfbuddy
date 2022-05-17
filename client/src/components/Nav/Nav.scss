@@ -1,4 +1,5 @@
 .app__navbar {
+
     width: 100%;
   
     display: flex;
@@ -108,6 +109,7 @@
       svg {
         width: 35px;
         height: 35px;
+
         color: var(--secondary-color);
         margin: 0.5rem 1rem;
       }
@@ -145,6 +147,7 @@
             }
           }
         }
+
       }
   
       @media screen and (min-width: 900px) {
@@ -154,5 +157,42 @@
   
     @media screen and (min-width: 900px) {
       display: none;
+
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+
+      li {
+        margin: 1rem;
+
+        a {
+          color: var(--yellow-color);
+          text-shadow: -1px 0 black;
+          text-decoration: none;
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: 500;
+
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: var(--secondary-color);
+          }
+        }
+      }
     }
   }
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+}
