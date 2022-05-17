@@ -27,8 +27,11 @@ const Rules = () => {
               <p className='p-text'>Player must add a stroke for the gimme.</p>
         </div>
 
-        <p className='p-text'>If you would like to take part in other daily competitions, please reach out to Dr. Tim or Ken Dulaney.
-          They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.
+        <p className='p-text'>
+          If you would like to take part in other daily competitions, 
+          please reach out to Dr. Tim or Ken Dulaney.
+          They oversee OPTIONAL daily wagers at an additonal fee. 
+          All wagers will be explained in detail before we tee off.
         </p>
 
         <h3>Please reach out to us if you have questions. <br />Looking forward to a great trip!</h3>
