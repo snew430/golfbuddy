@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node config/seeds.js"
+    "watch": "nodemon"
   },
   "keywords": [],
   "author": "",
