@@ -1,19 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { Rules, History, Nav, Tournament, SignUp, Home } from './components';
-import './App.scss';
-
-function App() {
-  return (
-    <div className="app">
-      <Nav />
-      <Home />
-      <Tournament />
-      <Rules />
-      <History />
-      <SignUp />
-    </div>
-=======
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   ApolloClient,
@@ -22,7 +7,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Rules, History, Tournament } from "./pages";
+import { Rules, History, Tournament, SignUp, Home } from "./pages";
 import { Nav } from "./components";
 import "./App.scss";
 
@@ -52,7 +37,7 @@ function App() {
         <div className="app">
           <Nav />
           <Routes>
-            <Route path="/" element={<Tournament />} />
+            <Route path="/" element={<Home />} />
             <Route path="/tournament" element={<Tournament />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
@@ -61,7 +46,6 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
->>>>>>> 65afdf0d738082cc0f183373c7c086d6a1faf409
   );
 }
 
