@@ -41,6 +41,7 @@ function App() {
             <Route path="/tournament" element={<Tournament />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
+            <Route path="/signup" element={<SignUp />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>
