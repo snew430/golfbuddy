@@ -34,6 +34,8 @@ const Tournament = () => {
 
       </div>
 
+      <Link to='../Administration'><button>Administrator</button></Link> 
+      
     </div>
   );
 }
