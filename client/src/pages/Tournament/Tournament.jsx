@@ -5,11 +5,14 @@ const Tournament = () => {
   return (
     <div id='tournament'>
       <div className='background'>
+
         <h2>Trip Name</h2>
         <h3>Dates</h3>
+
         <div className='app__flex'>
           <button>Sign Up for this Trip</button>
         </div>
+
         <div className='trip-details'>
           <div className='accomodations'>
             <h4>We are staying at HOTEL</h4>
@@ -24,10 +27,11 @@ const Tournament = () => {
               <p>Day Three Course: </p>
               <p>Day Four Course: </p>
           </div>
-          <p>All payments are due: DUEDATE < br/>
-            Please send payments to
-          </p>
         </div>
+
+        <h5>All payments are due: DUEDATE </h5>
+          <p>Please send payments to</p>
+
       </div>
 
     </div>
