@@ -3,7 +3,7 @@ import './Rules.scss'
 
 const Rules = () => {
   return (
-    <div id='rules' className='app__darkgreenbg'>
+    <div id='rules'>
         <h2 className='head-text-purple'>Rules & Regulations</h2>
 
         <p className='p-text'>
@@ -22,7 +22,7 @@ const Rules = () => {
             <li> Max Stroke on Any Hole is Par plus 3
                 <p className='p-text'>On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.</p>
             </li>
-            <li> Balls Hit OB, into the Water, or Any Other Hazard
+            <li> Balls Hit Out of Bounds, into the Water, or Any Other Hazard
                 <p className='p-text'>Play the ball laterally and add a stroke (if in the water drop on other side). Provisional balls not necessary.</p>
                 <p className='p-text'>For unplayable sand traps, ok to move the ball to where it can be played, but it cannot be closer to the pin</p>
                 <p className='p-text'>Ok to roll the ball in the fairway, lift and clean is ok.</p>
