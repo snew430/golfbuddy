@@ -35,10 +35,11 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/tournament" element={<Tournament />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
-            <Route path="/administration" element={<Administration />} />
+            <Route path="/administration" element={<PlayerList />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>
