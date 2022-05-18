@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Rules, History, Tournament, SignUp, Home } from "./pages";
+import { Rules, History, Tournament, SignUp, Home, PlayerList } from "./pages";
 import { Nav } from "./components";
 import "./App.scss";
 
