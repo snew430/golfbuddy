@@ -24,6 +24,10 @@ const hotelSchema = new Schema({
     type: Number,
     required: true,
   },
+  golfOnlyPrice: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Hotel = mongoose.model("Hotel", hotelSchema);
