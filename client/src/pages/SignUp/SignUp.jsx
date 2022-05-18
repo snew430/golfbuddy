@@ -62,17 +62,25 @@ const SignUp = () => {
       
           <input type='email' placeholder='email' name='email' value={email} onChange={handleChangeInput} />
       
-
+<h2 className='accommodation'>
+  Accommodations
+</h2>
      
       <div className='button_list'>
         <button type='button' >{'Single'}</button>
         <button type='button' >{'Double'}</button>
         <button type='button' >{'Golf Only'}</button>
       </div>
+
+      {/* <div className='button_list'>
+      
+        </div> */}
         
      
-
-      <button type='button' onClick={handleSubmit}>{loading ? 'Signing Up' : 'Sign Up'}</button>
+    <div className='app__flex'>
+      <button type='button' className='submitBtn' onClick={handleSubmit}>{loading ? 'Signing Up For Trip' : 'Sign Up For Trip'}</button>
+    </div>
+    
     </div>
     : 
     <div>
