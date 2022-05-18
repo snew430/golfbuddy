@@ -1,17 +1,16 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type User {
+  type Admin {
     _id: ID
     firstName: String
     lastName: String
     email: String
-    phoneNumber: Int
   }
 
   type Auth {
     token: ID!
-    user: User
+    admin: Admin
   }
 
   type Player {
@@ -20,6 +19,8 @@ const typeDefs = gql`
     lastName: String
     email: String
     phoneNumber: Int
+    preferredRoomate: String
+    lodging: Int
   }
 
   type Course {
@@ -34,30 +35,32 @@ const typeDefs = gql`
     website: String
     singlePrice: Int
     doublePrice: Int
+    golfOnlyPrice: Int
   }
 
   type Tournament {
     name: String
     courses: [Course]
     hotels: [Hotel]
-    players: [Player]
+    playersActive: [Player]
+    playersWaitlist: [Player]
   }
 
   type Query {
-    users: [User]
+    admin: [Admin]
     players: [Player]
     courses: [Course]
     hotels: [Hotel]
     tournaments: [Tournament]
     currentPlayers(tournament: ID!): [Player]
+    waitlistedPlayers(tournament: ID!): [Player]
   }
 
   type Mutation {
-    addUser(
+    addAdmin(
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: Int!
       password: String!
     ): Auth
 
@@ -66,8 +69,9 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       phoneNumber: Int!
-      preferredRoomates: String
-    ): User
+      preferredRoomate: String
+      lodging: Int!
+    ): Player
 
     updatePlayer(
       _id: ID!
@@ -75,6 +79,8 @@ const typeDefs = gql`
       lastName: String
       email: String
       phoneNumber: Int
+      preferredRoomate: String
+      lodging: Int
     ): Auth
 
     login(email: String!, password: String!): Auth
@@ -87,6 +93,7 @@ const typeDefs = gql`
       website: String!
       singlePrice: Int!
       doublePrice: Int!
+      golfOnlyPrice: Int!
     ): Hotel
 
     addTournament(
@@ -97,13 +104,23 @@ const typeDefs = gql`
       courses: [ID]!
       hotels: [ID]!
     ): Tournament
-    
-    addPlayerToTourney(player: ID!, tournament: ID!): Tournament
+
+    editTournament(
+      _id: ID!
+      name: String
+      startDate: String
+      endDate: String
+      paymentDue: String
+      courses: [ID]
+      hotels: [ID]
+    ): Tournament
+
+    deletePlayer(_id: ID!): Player
+
+    deleteTournament(_id: ID!): Tournament
+
+    addPlayerToTournament(player: ID!, tournament: ID!): Tournament
   }
 `;
-
-//should signing up a user require password or should that be emailed?
-//should addPlayerToTourney exist or add to tourney when creating Player
-//should tournament contain going, waitlist, and not going?
 
 module.exports = typeDefs;

@@ -1,7 +1,7 @@
 const Player = require("./Player");
-const User = require("./User");
+const Admin = require("./Admin");
 const Tournament = require("./Tournament");
 const Hotel = require("./Hotel");
 const Course = require("./Course");
 
-module.exports = { User, Player, Tournament, Hotel, Course };
+module.exports = { Admin, Player, Tournament, Hotel, Course };
