@@ -64,9 +64,10 @@ const SignUp = () => {
       </div>
 
       <div className='app__flex'>
-        <div>
+      <div> Accomodations <br/>
         <button type='button' className='p-text'>{'Single'}</button>
         <button type='button' className='p-text'>{'Double'}</button>
+        <button type='button' className='p-text'>{'Golf Only'}</button>
         </div>
       </div>
 

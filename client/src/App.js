@@ -1,13 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Rules, History, Tournament, SignUp, Home } from "./pages";
+
+import { Rules, History, Tournament, SignUp, Home, Administration,  PlayerList } from "./pages";
+
 import { Nav } from "./components";
 import "./App.scss";
 
@@ -42,6 +39,7 @@ function App() {
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/administration" element={<Administration />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>
