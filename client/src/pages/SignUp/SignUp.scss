@@ -1,116 +1,197 @@
-.app__signUp {
-    flex: 1;
-    width: 100%;
-    flex-direction: column;
+#signUp {
+    background: url("../../assets/images/white_paper.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 
-    @media screen and (max-width: 768px) {
-        flex-direction: column;
-      }
-}
-
-.app__signUp-cards {
-    width: 60%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 4rem 2rem 2rem;
-
-    .app__signUp-card {
-        min-width: 290px;
+    .head-text {
+        padding-top: 6rem;
+            font-size: 5.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--darkGreen-color);
+            text-shadow: -1px 0 var(--yellow-color);
+        
+            @media screen and (max-width: 900px) {
+                font-size: 4rem;
+            }
+        
+            @media screen and (max-width: 450px) {
+                font-size: 3rem;
+            }
+    }
+    
+    .app__signUp-cards {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         align-items: center;
-
-        margin: 1rem 0;
-        padding: 0;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: var(--white-color);
-        
-
-        transition: all 0.3s ease-in-out;
-
-        img {
-            width: 40px;
-            height: 40px;
-            margin: 0 0.7rem;
-        }
-
-        p {
-            font-weight: 600;
-        }
-        
-        a {
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        &:hover {
-            box-shadow: 0 0 25px #fef4f5;
-        }
-
-        @media screen and (max-width: 450px) {
-            width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        width: 100%;
-    }
-}
-
-.app__signUp-form {
-    width: 60%;
-    flex-direction: column;
-    margin: 1rem 2rem;
-
-    div {
-        width: 100%;
-        margin: 0.75rem 0;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: var(--white-color);
-
-        transition: all 0.3 ease-in-out;
-
-        input, textarea {
-            width: 100%;
-            padding: 0.95rem;
-            border: none;
-            border-radius: 7px;
+        flex-wrap: wrap;
+        margin: 4rem 2rem 2rem;
+    
+        .app__signUp-card {
+            min-width: 290px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+    
+            margin: 1rem 0;
+            padding: 0;
+            border-radius: 10px;
+            cursor: pointer;
             background-color: var(--white-color);
+            
+    
+            transition: all 0.3s ease-in-out;
+    
+            img {
+                width: 40px;
+                height: 40px;
+                margin: 0 0.7rem;
+            }
+    
+            p {
+                font-weight: 600;
+            }
+            
+            a {
+                text-decoration: none;
+                font-weight: 500;
+            }
+    
+            &:hover {
+                box-shadow: 0 0 25px #fff;
+            }
+    
+            @media screen and (max-width: 450px) {
+                width: 100%;
+            }
+        }
+    
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+    
+    .app__signUp-form  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 1rem 10rem; 
+        text-align: center;
+        
+    
+    
+            input, textarea {
 
-            font-family: var(--font-base);
-            color: var(--secondary-color);
+            margin: 0.75rem 0;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: var(--white-color);
+    
+            transition: all 0.3 ease-in-out;
+
+                
+                padding: 0.95rem;
+                border: none;
+                border-radius: 7px;
+                background-color: var(--white-color);
+    
+                font-family: var(--font-base);
+                color: var(--darkGreen-color);
+                outline: none;
+            }
+    
+            textarea {
+                height: 170px;
+            }
+    
+            // &:hover {
+            //     box-shadow: 0 0 25px var(--white-color);
+            // }
+
+        
+    
+    .button_list {
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        justify-content: flex-start;
+        // text-align: center;
+        // justify-content: center;
+        margin-bottom: 1rem;
+
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+        }
+    
+        @media screen and (max-width: 450px) {
+            flex-direction: column;
+        }
+        
+        
+        
+        button  {
+            // text-align: center;
+            // justify-content: flex-start;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--darkGreen-color);
+            font-weight: 500;
+            font-size: 1.75rem;
+            color: var(--white-color);
+            text-shadow: -1px 0 black;
             outline: none;
-        }
+            margin: 2rem;
+            font-family: var(--font-base);
+            cursor: pointer;
 
-        textarea {
-            height: 170px;
-        }
-
-        &:hover {
-            box-shadow: 0 0 25px var(--white-color);
+            @media screen and (max-width: 900px) {
+                margin: 2rem;
+            }
+        
+            @media screen and (max-width: 450px) {
+                margin: 2rem;
+            }
         }
     }
 
-    button {
+    .submitBtn {
         padding: 1rem 2rem;
         border-radius: 10px;
         border: none;
-
-        background-color: var(--secondary-color);
+        background-color: var(--darkGreen-color);
         font-weight: 500;
+        font-size: 2rem;
         color: var(--white-color);
+        text-shadow: -1px 0 black;
         outline: none;
-        margin: 2rem 0 0 0;
+        // margin: 2rem 0 0 0;
         font-family: var(--font-base);
         cursor: pointer;
+        
+        
     }
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        margin: 1rem 0;
+    .accommodation {
+        padding-top: 2rem;
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        color: var(--darkGreen-color);
+        text-decoration: underline;
     }
-}
+    
+        
+        }
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            margin: 1rem 10px;
+        }
+        
+    }
+
+
+
+

@@ -34,7 +34,7 @@ const SignUp = () => {
     // })
   }
   return (
-    <>
+    <div id="signUp">
     <h2 className='head-text'>Sign Up</h2>
 
     <div className='app__signUp-cards'>
@@ -50,34 +50,44 @@ const SignUp = () => {
 
     
     {!isFormSubmitted ? 
-    <div className='app__signUp-form app__flex'>
-      <div className='app__flex'>
-          <input className='p-text' type='text' placeholder='First Name' name='firstName' value={name} onChange={handleChangeInput} />
-      </div>
+    <div className='app__signUp-form'>
+     
+          <input type='text' placeholder='First Name' name='firstName' value={name} onChange={handleChangeInput} />
       
-      <div className='app__flex'>
-          <input className='p-text' type='text' placeholder='Last Name' name='lastName' value={name} onChange={handleChangeInput} />
+      
+      
+          <input type='text' placeholder='Last Name' name='lastName' value={name} onChange={handleChangeInput} />
+      
+
+      
+          <input type='email' placeholder='email' name='email' value={email} onChange={handleChangeInput} />
+      
+<h2 className='accommodation'>
+  Accommodations
+</h2>
+     
+      <div className='button_list'>
+        <button type='button' >{'Single'}</button>
+        <button type='button' >{'Double'}</button>
+        <button type='button' >{'Golf Only'}</button>
       </div>
 
-      <div className='app__flex'>
-          <input className='p-text' type='email' placeholder='email' name='email' value={email} onChange={handleChangeInput} />
-      </div>
-
-      <div className='app__flex'>
-        <div>
-        <button type='button' className='p-text'>{'Single'}</button>
-        <button type='button' className='p-text'>{'Double'}</button>
-        </div>
-      </div>
-
-      <button type='button' className='p-text' onClick={handleSubmit}>{loading ? 'Signing Up' : 'Sign Up'}</button>
+      {/* <div className='button_list'>
+      
+        </div> */}
+        
+     
+    <div className='app__flex'>
+      <button type='button' className='submitBtn' onClick={handleSubmit}>{loading ? 'Signing Up For Trip' : 'Sign Up For Trip'}</button>
+    </div>
+    
     </div>
     : 
     <div>
       <h3 className='head-text'>See You On The Course!</h3>
     </div>
     }
-    </>
+    </div>
   );
 }
 
