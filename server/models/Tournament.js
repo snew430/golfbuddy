@@ -25,7 +25,8 @@ const tourneySchema = new Schema({
   },
   courses: [Course.schema],
   hotels: [Hotel.schema],
-  players: [Player.schema],
+  playersActive: [Player.schema],
+  playersWaitlist: [Player.schema],
 });
 
 const Tournament = mongoose.model("Tournament", tourneySchema);
