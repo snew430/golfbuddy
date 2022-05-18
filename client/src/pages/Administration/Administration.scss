@@ -6,12 +6,14 @@
     background-position: right;
     height: 100vh;
 
+
     .head-text {
         padding-top: 4rem;
         font-size: 7rem;
         font-weight: 800;
         text-align: center;
         color: var(--white-color);
+        background-color: rgba(105, 105, 105, 0.15);
         text-shadow: -2px 0 black;
     
         @media screen and (max-width: 900px) {
