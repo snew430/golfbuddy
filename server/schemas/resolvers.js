@@ -1,10 +1,10 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Player, Course, Hotel, Tournament } = require("../models");
+const { Admin, Player, Course, Hotel, Tournament } = require("../models");
 const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
-    users: async () => {
-      return await User.find();
+    admin: async () => {
+      return await Admin.find();
     },
     players: async () => {
       return await Player.find();
@@ -24,10 +24,13 @@ const resolvers = {
     currentPlayers: async (parent, { _id }) => {
       return await Tournament.findById(_id).populate("players");
     },
+    waitlistedPlayers: async (parent, { _id }) => {
+      return await Tournament.findById(_id).populate("players");
+    },
   },
   Mutation: {
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await Admin.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError("Incorrect credentials");
@@ -45,9 +48,9 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    addUser: async (parent, args, context) => {
+    addAdmin: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.create(args);
+        const user = await Admin.create(args);
         return user;
       }
       throw new AuthenticationError("Not logged in");
@@ -61,7 +64,7 @@ const resolvers = {
     //LOGIN REQUIRED
     updatePlayer: async (parent, args, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(args._id, args, {
+        return await Player.findByIdAndUpdate(args._id, args, {
           new: true,
         });
       }
@@ -95,7 +98,22 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    addPlayerToTourney: async (parent, args) => {
+    editTournament: async (parent, args, context) => {
+      if (context.user) {
+        return await Tournament.findByIdAndUpdate(args._id, args, {
+          new: true,
+        });
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+
+    deleteTournament: async (parent, { _id }, context) => {
+      if (context.user) {
+        return await Tournament.findByIdAndDelete(_id);
+      }
+    },
+
+    addPlayerToTournament: async (parent, args) => {
       return await Tournament.findByIdAndUpdate(args._id, args, {
         new: true,
       });
@@ -103,5 +121,4 @@ const resolvers = {
   },
 };
 
-//we cant add user without being logged in. how do we create initial user? remove context, add, the add context?
 module.exports = resolvers;

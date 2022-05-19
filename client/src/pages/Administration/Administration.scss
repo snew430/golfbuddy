@@ -1,11 +1,11 @@
 #administration {
     padding: 6rem 2rem 0rem;
 
-    background: url("../../assets/images/golf_carts2.jpg");
+    background: url("../../assets/images/sand_trap.jpg");
     background-size: cover;
-    background-position: center;
-    opacity: .95;
+    background-position: right;
     height: 100vh;
+
 
     .head-text {
         padding-top: 4rem;
@@ -13,6 +13,7 @@
         font-weight: 800;
         text-align: center;
         color: var(--white-color);
+        background-color: rgba(105, 105, 105, 0.15);
         text-shadow: -2px 0 black;
     
         @media screen and (max-width: 900px) {

@@ -24,9 +24,12 @@ const playerSchema = new Schema({
     required: true,
     unique: true,
   },
-  preferredRoomates: {
+  preferredRoomate: {
     type: String,
   },
+  lodging: {
+    type: Number
+  }
 });
 
 const Player = mongoose.model("Player", playerSchema);

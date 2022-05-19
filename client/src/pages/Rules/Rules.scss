@@ -1,16 +1,25 @@
 #rules {
+<<<<<<< HEAD
     background: url("../../assets/images/white_paper.jpg");
+=======
+
+    background: url("../../assets/images/golf_green2.jpg");
+>>>>>>> main
     background-size: cover;
     background-position: center;
     height: 100%;
+
+    .background {
+        background-color: rgba(4, 57, 39, 0.8);
+    }
 
     .head-text {
         padding-top: 6rem;
         font-size: 7rem;
         font-weight: 800;
         text-align: center;
-        color: var(--darkGreen-color);
-        text-shadow: -1px 0 var(--yellow-color);
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
     
         @media screen and (max-width: 900px) {
             font-size: 4rem;
@@ -31,11 +40,11 @@
         h6 {
             margin: 0.75rem;
             padding: 0.25rem 1rem;
-            background-color: var(--darkGreen-color);
-            border-radius: 5px;
-            color: var(--white-color);
+            color: var(--yellow-color);
             text-shadow: -1px 0 black;
-            font-size: 2rem;
+            border-bottom: 5px;
+            font-size: 2.25rem;
+            font-weight: 500;
             text-align: center;
             
         }
@@ -49,16 +58,16 @@
         }
     
         @media screen and (max-width: 450px) {
-            font-size: 1.15 rem;
+            font-size: 1.5 rem;
         }
     }
 
     .p-text {
-        font-size: 1.75rem;
-        font-weight: 100;
+        font-size: 2rem;
+        font-weight: 300;
         text-align: center;
         text-justify: inter-word;
-        color: var(--darkGreen-color);
+        color: var(--white-color);
         text-shadow: -1px 0 black;
         line-height: 1.5;
         margin: 0 300px;
@@ -69,17 +78,17 @@
         }
     
         @media screen and (max-width: 450px) {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             margin: 10px;
         }
     }
 
     .info-text {
-        font-size: 1.75rem;
-        font-weight: 100;
+        font-size: 2rem;
+        font-weight: 300;
         text-align: center;
         text-justify: inter-word;
-        color: var(--darkGreen-color);
+        color: var(--white-color);
         text-shadow: -1px 0 black;
         line-height: 1.5;
         margin: 40px 300px 15px;
@@ -90,19 +99,20 @@
         }
     
         @media screen and (max-width: 450px) {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             margin: 20px 10px 10px;
         }
 
     }
 
     h3 {
-        font-size: 2.15rem;
+        font-size: 2.5rem;
         font-weight: 500;
         text-align: center;
-        color: var(--darkGreen-color);
+        color: var(--white-color);
         text-shadow: -1px 0 black;
         padding-top: 1rem;
+        padding-bottom: 2rem;
 
         @media screen and (max-width: 900px) {
         font-size: 1.75rem;
