@@ -1,1 +1,13 @@
 import { gql } from "@apollo/client";
+
+// GET PLAYERS
+
+// GET COURSES
+
+// GET HOTELS
+
+// GET TOURNAMENTS
+
+// GET CURRENT_PLAYERS
+
+// GET WAITLISTED PLAYERS 
