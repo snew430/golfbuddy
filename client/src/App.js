@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@ap
 import { setContext } from "@apollo/client/link/context";
 
 import { Rules, History, Tournament, SignUp, Home, Administration } from "./pages";
-import { PlayerList, NewTournament } from "./admin-pages";
+import { PlayerList, MasterList, NewTournament } from "./admin-pages";
 
 import { Nav } from "./components";
 import "./App.scss";
