@@ -7,7 +7,7 @@
 
     .head-text {
         padding-top: 6rem;
-            font-size: 5.5rem;
+            font-size: 5rem;
             font-weight: 800;
             text-align: center;
             color: var(--darkGreen-color);
@@ -20,6 +20,55 @@
             @media screen and (max-width: 450px) {
                 font-size: 3rem;
             }
+            
+    }
+    .tournament-text {
+        padding-top: 3rem;
+            font-size: 5.5rem;
+            font-weight: 400;
+            text-align: center;
+            color: var(--darkGreen-color);
+            text-shadow: -1px 0 var(--yellow-color);
+        
+            @media screen and (max-width: 900px) {
+                font-size: 3rem;
+            }
+        
+            @media screen and (max-width: 450px) {
+                font-size: 2rem;
+            }
+    }
+    .course-text {
+        padding-top: 2rem;
+        font-size: 4rem;
+        font-weight: 400;
+        text-align: center;
+        color: var(--darkGreen-color);
+        text-shadow: -1px 0 var(--yellow-color);
+    
+        @media screen and (max-width: 900px) {
+            font-size: 3rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 2rem;
+        }
+    }
+    .date-text {
+        padding-top: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+        color: var(--darkGreen-color);
+        text-shadow: -1px 0 var(--yellow-color);
+
+        @media screen and (max-width: 900px) {
+        font-size: 3rem;
+        }
+
+        @media screen and (max-width: 450px) {
+            font-size: 2rem;
+        }
     }
     
     .app__signUp-cards {
