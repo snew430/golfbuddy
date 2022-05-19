@@ -8,7 +8,7 @@ const courseSchema = new Schema({
     required: true,
     trim: true,
   },
-  adress: {
+  address: {
     type: String,
     required: true,
   },
