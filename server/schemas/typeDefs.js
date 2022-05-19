@@ -4,7 +4,6 @@ const typeDefs = gql`
   type Admin {
     _id: ID
     email: String
-
   }
 
   type Auth {
