@@ -39,7 +39,6 @@ export const QUERY_HOTELS = gql`
   }
 `;
 
-
 export const QUERY_TOURNAMENT = gql`
   query {
     tournament {

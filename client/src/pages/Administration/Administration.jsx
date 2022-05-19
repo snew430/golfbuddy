@@ -21,7 +21,7 @@ const Administration = () => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    document.window()
 
     try {
       const { data } = await login({
@@ -59,7 +59,7 @@ const Administration = () => {
                       value={formState.password}
                       onChange={handleChange}
                     />
-                  <button>Login</button>
+                  <button type='submit'>Login</button>
             </form>
           </div>
         {error && <div>Login failed</div>}

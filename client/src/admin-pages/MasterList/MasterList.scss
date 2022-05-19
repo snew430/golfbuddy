@@ -1,8 +1,13 @@
-#mastterList {
-    background: url("../../assets/images/golf_irons.jpg");
+#masterList {
+    background: url("../../assets/images/bucket_of_balls.jpg");
     background-size: cover;
     background-position: center;
-    height: 100rem;
+    height: 100vh;
+
+    .background {
+        background-color: rgba(4, 57, 39, 0.8);
+        height: 100vh;
+    }
 
     .head-text {
         padding-top: 6rem;
@@ -17,33 +22,44 @@
         }
     
         @media screen and (max-width: 450px) {
-            font-size: 2rem;
+            font-size: 3rem;
         }
     }
-
     .master-list {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
 
-        @media screen and (max-width: 900px) {
-            flex-direction: column;
+
+        th, td {
+            margin: 0.75rem;
+            padding: 0.25rem 1rem;
+            color: var(--yellow-color);
+            text-shadow: -1px 0 black;
+            font-size: 3.5rem;
+            text-align: center;
         }
-    
-        @media screen and (max-width: 450px) {
-            flex-direction: column;
+
+        td {
+            margin: 0.25rem;
+            color: var(--white-color);
+            text-shadow: -1px 0 black;
+            font-size: 2rem;
         }
-    }
 
-    h6 {
-        margin: 0.75rem;
-        padding: 0.25rem 1rem;
-        color: var(--white-color);
-        text-decoration: underline;
+        @media only screen and (max-width: 450px) {
+            thead th {
+                display: none;
+            }
 
-        text-shadow: -1px 0 black;
-        font-size: 2rem;
-        text-align: center;
-    }
+            td {
+                display: block;
+                font-size: 1.35rem;
+            }
+
+            td:first-child {
+                color: var(--yellow-color);
+                font-size: xx-large;
+            }
+        }
+    }     
 }

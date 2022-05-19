@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@ap
 import { setContext } from "@apollo/client/link/context";
 
 import { Rules, History, Tournament, SignUp, Home, Administration } from "./pages";
-import { PlayerList, MasterList, NewTournament } from "./admin-pages";
+import { PlayerList, MasterList, NewTournament, AdminHome } from "./admin-pages";
 
 import { Nav } from "./components";
 import "./App.scss";
@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/tournament" element={<Tournament />} />
+            <Route path="/tournament" element={<AdminHome />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
