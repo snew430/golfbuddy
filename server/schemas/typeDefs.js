@@ -3,9 +3,8 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Admin {
     _id: ID
-    firstName: String
-    lastName: String
     email: String
+
   }
 
   type Auth {
@@ -24,12 +23,14 @@ const typeDefs = gql`
   }
 
   type Course {
+    _id: ID
     name: String
     address: String
     website: String
   }
 
   type Hotel {
+    _id: ID
     name: String
     address: String
     website: String
@@ -39,6 +40,7 @@ const typeDefs = gql`
   }
 
   type Tournament {
+    _id: ID
     name: String
     courses: [Course]
     hotels: [Hotel]
