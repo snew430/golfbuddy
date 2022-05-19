@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const adminSchema = new Schema({
+
   email: {
     type: String,
     required: true,

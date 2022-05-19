@@ -98,7 +98,6 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    //LOGIN REQUIRED
     editTournament: async (parent, args, context) => {
       if (context.user) {
         return await Tournament.findByIdAndUpdate(args._id, args, {
@@ -108,14 +107,12 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    // LOGIN REQUIRED
     deleteTournament: async (parent, { _id }, context) => {
       if (context.user) {
         return await Tournament.findByIdAndDelete(_id);
       }
     },
 
-    
     addPlayerToTournament: async (parent, args) => {
       return await Tournament.findByIdAndUpdate(args._id, args, {
         new: true,
