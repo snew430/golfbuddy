@@ -13,21 +13,53 @@ const PlayerList = () => {
 
   return (
     <div id='playerList'>
-        <h2 className='head-text'>Players Going to {tournament.name}</h2>
-        <div className='player-list'>
-            <h6>Name</h6>
-            <h6>Email</h6>
-            <h6>Phone</h6>
-            <h6>Accomodations</h6>
-            <h6>Roommate Preference</h6>
-        </div>
-        <h2 className='head-text'>Waitlisted Players</h2>
-        <div className='player-list'>
-            <h6>Name</h6>
-            <h6>Email</h6>
-            <h6>Phone</h6>
-            <h6>Accomodations</h6>
-            <h6>Roommate Preference</h6>
+        <div className='background'>
+          <h2 className='head-text'>Players Going to {tournament.name}</h2>
+            <div className='player-list'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Accomodations</th>
+                    <th>Roommate Preference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{players.firstName} {players.lastName}</td>
+                    <td>{players.email}</td>
+                    <td>{players.phoneNumber}</td>
+                    <td>{players.lodging}</td>
+                    <td>{players.preferredRoomate}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <h2 className='head-text'>Waitlisted Players</h2>
+            <div className='player-list'>
+              <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Accomodations</th>
+                      <th>Roommate Preference</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{players.firstName} {players.lastName}</td>
+                      <td>{players.email}</td>
+                      <td>{players.phoneNumber}</td>
+                      <td>{players.lodging}</td>
+                      <td>{players.preferredRoomate}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
         </div>
     </div>
   );
