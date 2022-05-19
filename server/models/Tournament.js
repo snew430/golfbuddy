@@ -23,6 +23,10 @@ const tourneySchema = new Schema({
     type: String,
     required: true,
   },
+  maxPlayers: {
+    type: Number,
+    required: true
+  },
   courses: [Course.schema],
   hotels: [Hotel.schema],
   playersActive: [Player.schema],

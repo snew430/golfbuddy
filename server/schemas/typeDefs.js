@@ -41,8 +41,12 @@ const typeDefs = gql`
   type Tournament {
     _id: ID
     name: String
+    startDate: String
+    endDate: String
+    paymentDue: String
     courses: [Course]
     hotels: [Hotel]
+    maxPlayers: Int
     playersActive: [Player]
     playersWaitlist: [Player]
   }
@@ -102,8 +106,7 @@ const typeDefs = gql`
       startDate: String!
       endDate: String!
       paymentDue: String!
-      courses: [ID]!
-      hotels: [ID]!
+      maxPlayers: Int!
     ): Tournament
 
     editTournament(
@@ -121,6 +124,8 @@ const typeDefs = gql`
     deleteTournament(_id: ID!): Tournament
 
     addPlayerToTournament(player: ID!, tournament: ID!): Tournament
+    addCourseToTournament(course: ID!, tournament: ID!): Tournament
+    addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
   }
 `;
 

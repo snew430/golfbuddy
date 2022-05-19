@@ -113,10 +113,35 @@ const resolvers = {
       }
     },
 
-    addPlayerToTournament: async (parent, args) => {
-      return await Tournament.findByIdAndUpdate(args._id, args, {
-        new: true,
-      });
+    // addPlayerToTournament: async (parent, args) => {
+    //   return await Tournament.findByIdAndUpdate(args._id, args, {
+    //     new: true,
+    //   });
+    // },
+
+    addPlayerToTournament: async (parent, { player, tournament }, context) => {
+      if (context.user) {
+        // const tournament = await Tournament.findById(tournament);
+        // console.log(tournament);
+        // const activePlayers = await tournament.playersActive.length;
+        // console.log(activePlayers);
+        // const maxPlayers = await tournament.maxPlayers;
+        // console.log(maxPlayers);
+        const updatedTournament = await Tournament.findOneAndUpdate(
+          { _id: tournament },
+          {
+            $addToSet: {
+              playersActive: player,
+            },
+          },
+          { new: true }
+        )
+          .populate("courses")
+          .populate("hotels")
+          .populate("players");
+
+        return updatedTournament;
+      }
     },
   },
 };
