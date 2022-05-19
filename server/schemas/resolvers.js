@@ -3,9 +3,6 @@ const { Admin, Player, Course, Hotel, Tournament } = require("../models");
 const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
-    admin: async () => {
-      return await Admin.find();
-    },
     players: async () => {
       return await Player.find();
     },
@@ -45,15 +42,6 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    },
-
-    //LOGIN REQUIRED
-    addAdmin: async (parent, args, context) => {
-      if (context.user) {
-        const user = await Admin.create(args);
-        return user;
-      }
-      throw new AuthenticationError("Not logged in");
     },
 
     addPlayer: async (parent, args) => {

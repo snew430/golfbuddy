@@ -52,7 +52,6 @@ const typeDefs = gql`
   }
 
   type Query {
-    admin: [Admin]
     players: [Player]
     courses: [Course]
     hotels: [Hotel]
@@ -62,13 +61,6 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addAdmin(
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-    ): Auth
-
     addPlayer(
       firstName: String!
       lastName: String!
@@ -86,7 +78,7 @@ const typeDefs = gql`
       phoneNumber: Int
       preferredRoomate: String
       lodging: Int
-    ): Auth
+    ): Player
 
     login(email: String!, password: String!): Auth
 
@@ -115,8 +107,7 @@ const typeDefs = gql`
       startDate: String
       endDate: String
       paymentDue: String
-      courses: [ID]
-      hotels: [ID]
+      maxPlayers: Int
     ): Tournament
 
     deletePlayer(_id: ID!): Player
@@ -128,5 +119,9 @@ const typeDefs = gql`
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
   }
 `;
+
+//remove player from tourney
+//remove course from tourney
+//remove hotel from tourney
 
 module.exports = typeDefs;
