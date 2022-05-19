@@ -41,7 +41,7 @@ const NewTournament = () => {
     {!isFormSubmitted ? 
     <div className='app__newTournament-form'>
      
-          <input type='text' placeholder='New Tournament Name' name='firstName' value={name} onChange={handleChangeInput} />
+          <input type='text' placeholder='New Tournament Name' name='tournament' value={name} onChange={handleChangeInput} />
       
       
       
@@ -50,6 +50,28 @@ const NewTournament = () => {
 
       
           <input type='email' placeholder='End Date' name='email' value={email} onChange={handleChangeInput} />
+
+
+
+          <input type='text' placeholder='Course' name='course' value={name} onChange={handleChangeInput} />
+      
+      
+      
+          <input type='text' placeholder='Hotel' name='hotel' value={name} onChange={handleChangeInput} />
+      
+
+      
+          <input type='email' placeholder='Payment Due Date' name='payment' value={email} onChange={handleChangeInput} />
+
+          <input type='text' placeholder='Single Bed Payment Price' name='single' value={name} onChange={handleChangeInput} />
+      
+      
+      
+          <input type='text' placeholder='Double Bed Payment Price' name='double' value={name} onChange={handleChangeInput} />
+      
+
+      
+          <input type='email' placeholder='Golf Only Price' name='golfOnly' value={email} onChange={handleChangeInput} />
       
         
      

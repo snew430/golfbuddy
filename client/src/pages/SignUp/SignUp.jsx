@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
+import './SignUp.scss';
+import { Link } from "react-router-dom";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { QUERY_TOURNAMENT, QUERY_COURSES, QUERY_HOTELS } from '../../utils/queries';
+
+
+ 
 
 // import { images } from '../../constants';
 // import { client } from '../../client';
 
-import './SignUp.scss';
 
 const SignUp = () => {
   const [formData, setformData] = useState({ name: '', email: '', message: ''});
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+
+  const { tournamentData } = useQuery(QUERY_TOURNAMENT);
+  const { courseData } = useQuery(QUERY_COURSES);
+  const { hotelData } = useQuery(QUERY_HOTELS);
+
+
+const tournament = tournamentData?.query.tournaments || [];
+  const course = courseData?.query.courses || [];
+  const hotel = hotelData?.query.hotels || [];
+
 
   const {name, email } = formData;
 
@@ -35,12 +52,15 @@ const SignUp = () => {
   }
   return (
     <div id="signUp">
-    <h2 className='head-text'>Sign Up</h2>
+    <h2 className='head-text'>Sign Up For</h2>
+    <h2 className='tournament-text'> {tournament.name} </h2>
+    <h3 className='course-text'> At {tournament.course}</h3>
+    <h4 className='date-text'> From {tournament.startDate} To {tournament.endDate}</h4>
 
     <div className='app__signUp-cards'>
         <div className='app__signUp-card'>
             {/* <img src={images.email} alt="email" /> */}
-            <a href='mailto: ' className='p-text'>Club email address?????????????????</a>
+            <a href='mailto: earlybirdiegolf.com ' className='p-text'>earlybirdiegolf.com</a>
         </div>
         <div className='app__signUp-card'>
             {/* <img src={images.mobile} alt="mobile" /> */}
