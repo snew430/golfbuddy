@@ -1,8 +1,16 @@
 import React from 'react';
 import './Tournament.scss';
 import { Link } from "react-router-dom";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { QUERY_COURSES, QUERY_HOTELS } from '../../utils/queries';
 
 const Tournament = () => {
+  const { courseData } = useQuery(QUERY_COURSES);
+  const { hotelData } = useQuery(QUERY_HOTELS);
+
+  const course = courseData?.query.courses || [];
+  const hotel = hotelData?.query.hotels || [];
+  
   return (
     <div id='tournament'>
       <div className='background'>
@@ -15,14 +23,16 @@ const Tournament = () => {
         </div>
 
         <div className='trip-details'>
-          <div className='accomodations'>
-            <h4>We are staying at HOTEL</h4>
-            <a href="">link to hotel website</a>
-              <p>Price for Single Room: </p>
-              <p>Price for Double Room: </p>
-              <p>Golf Only Price: </p>
+          <div>
+            <h4>We are staying at {hotel.name}</h4>
+              <p>{hotel.address}</p>
+              <a href="{hotel.website}">{hotel.website}</a>
+              <p>Price for Single Room: ${hotel.singlePrice}</p>
+              <p>Price for Double Room: ${hotel.doublePrice}</p>
+              <p>Golf Only Price: ${hotel.golfOnlyPrice}</p>
           </div>
-          <div className='course-details'>
+          <div>
+            <h4>Courses</h4>
               <p>Day One Course: </p>
               <p>Day Two Course: </p>
               <p>Day Three Course: </p>
@@ -30,15 +40,26 @@ const Tournament = () => {
           </div>
         </div>
 
-        <h5>All payments are due: DUEDATE </h5>
-          <p>Please send payments to</p>
+        <h4>All payments are due: DUEDATE </h4>
+
+          <p className='info-text'>
+            Please send payments through Venmo @John-McKenna-145 or mail a check to 
+            <br /> John McKenna, 7278 Pebble Creek Drive, 
+            Elkridge, MD 21075
+          </p>
+
+          <p className='info-text'>We have a limited number of spaces for golfers. Preference will be given to those who made our last trip followed by a 
+            first come, first serve basis. Once we reach capacity, we will start a waitlist. We always have a few last-minute drops due to 
+            individual circumstances.
+          </p>
+
+          <p>We are looking forward to a great trip, and hope you will join us!</p>
+
+          <div className='app__flex'>
+            <Link to='../Administration'><button className='administrator'>Administrator</button></Link> 
+          </div>
 
       </div>
-
-      <div className='app_flex'>
-        <Link to='../Administration'><button>Administrator</button></Link> 
-      </div>
-      
     </div>
   );
 }

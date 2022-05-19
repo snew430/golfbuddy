@@ -4,73 +4,10 @@
     background: url("../../assets/images/sand_trap.jpg");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
 
     .background {
-        background-color: rgba(105, 105, 105, 0.5);
-    }
-
-    h2 {
-        font-size: 6rem;
-        font-weight: 800;
-        text-align: center;
-        color: black;
-        text-shadow: -1px 0 black;
-    
-        @media screen and (max-width: 900px) {
-            font-size: 4rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }
-    }
-
-    h3 {
-        font-size: 4rem;
-        font-weight: 800;
-        text-align: center;
-        color: black;
-        text-shadow: -1px 0 black;
-    
-        @media screen and (max-width: 900px) {
-            font-size: 4rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }
-    }
-
-    h4, h5 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        text-align: center;
-        color: black;
-        text-shadow: -1px 0 black;
-    
-        @media screen and (max-width: 900px) {
-            font-size: 4rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }
-    }
-
-    button {
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--darkGreen-color);
-        font-weight: 500;
-        font-size: 1.75rem;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        outline: none;
-        margin: 2rem;
-        font-family: var(--font-base);
-        cursor: pointer;
+        background-color: rgba(105, 105, 105, 0.45);
     }
 
     .trip-details {
@@ -86,5 +23,98 @@
         @media screen and (max-width: 450px) {
             flex-direction: column;
         }
+    }
+
+    h2, h3, h4, a, p {
+        font-size: 6rem;
+        font-weight: 800;
+        text-align: center;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }
+    }
+
+    h3 {
+        font-size: 4rem;
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }
+    }
+
+    h4 {
+        font-size: 3rem;
+        padding: 1rem;
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }
+    }
+
+    p, a {
+        font-size: 2.25rem;
+        padding: 0.25rem;
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }
+    }
+
+    
+    .info-text {
+        text-justify: inter-word;
+        line-height: 1.5;
+        margin: 40px 300px 15px;
+
+        @media screen and (max-width: 900px) {
+            font-size: 1.6rem;
+            margin: 40px 70px 10px;
+        }
+    
+        @media screen and (max-width: 450px) {
+            font-size: 1.25rem;
+            margin: 20px 10px 10px;
+        }
+
+    }
+
+    button {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--darkGreen-color);
+        font-weight: 500;
+        font-size: 2rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        margin: 2rem;
+        font-family: var(--font-base);
+        cursor: pointer;
+    }
+
+    .administrator {
+        padding: 0.5rem 1rem;
+        background-color: var(--secondary-color);
+        font-size: 1.5rem;
     }
 }
