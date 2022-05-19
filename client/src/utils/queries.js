@@ -38,3 +38,33 @@ export const QUERY_HOTELS = gql`
     }
   }
 `;
+
+export const QUERY_TOURNAMENT = gql`
+  query {
+    tournament {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      hotels
+      maxPlayers
+      playersActive {
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+      playersWaitlist {
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
