@@ -25,6 +25,25 @@
         }
     }
 
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25rem;
+
+        @media screen and (max-width: 450px) {
+            width: 100%;
+        }
+
+        input {
+            padding: 1rem;
+            margin: 1rem;
+            font-size: 1.5rem;
+            font-family: "Old Standard TT", serif;
+            color: #282828;
+        }
+    }
+
     button {
         padding: 1rem 2rem;
         border-radius: 10px;
@@ -35,8 +54,8 @@
         color: var(--white-color);
         text-shadow: -1px 0 black;
         outline: none;
-        margin: 2rem 0 0 0;
         font-family: var(--font-base);
         cursor: pointer;
     }
+    
 }
