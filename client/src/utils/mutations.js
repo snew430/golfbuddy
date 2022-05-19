@@ -42,6 +42,7 @@ export const UPDATE_PLAYER = gql`
     $lastName: String
     $email: String
     $phoneNumber: Int
+    $preferredRoomate: String
     $lodging: Int
   ) {
     updatePlayer(
@@ -50,12 +51,14 @@ export const UPDATE_PLAYER = gql`
       lastName: $lastName
       email: $email
       phoneNumber: $phoneNumber
+      preferredRoomate: $preferredRoomate
       lodging: $lodging
     ) {
       firstName
       lastName
       email
       phoneNumber
+      preferredRoomate
       lodging
     }
   }
@@ -103,6 +106,73 @@ export const ADD_HOTEL = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+    }
+  }
+`;
+
+
+export const EDIT_TOURNAMENT = gql`
+  mutation editTournament(
+    $id: ID!
+    $name: String
+    $startDate: String
+    $endDate: String
+    $paymentDue: String
+    $maxPlayers: Int
+  ) {
+    editTournament(
+      _id: $id
+      name: $name
+      startDate: $startDate
+      endDate: $endDate
+      paymentDue: $paymentDue
+      maxPlayers: $maxPlayers
+    ) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      maxPlayers
+      courses {
+        _id
+        name
+        website
+        address
+      }
+      hotels {
+        _id
+        name
+        website
+        address
+        singlePrice
+        doublePrice
+        golfOnlyPrice
+      }
+    }
+  }
+`;
+
+export const ADD_TOURNAMENT = gql`
+  mutation addTournament(
+    $name: String!
+    $startDate: String!
+    $endDate: String!
+    $paymentDue: String!
+    $maxPlayers: Int!
+  ) {
+    addTournament(
+      name: $name
+      startDate: $startDate
+      endDate: $endDate
+      paymentDue: $paymentDue
+      maxPlayers: $maxPlayers
+    ) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
     }
   }
 `;
