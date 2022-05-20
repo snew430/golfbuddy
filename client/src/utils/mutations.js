@@ -1,12 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
-  mutation loginUser($email: String!, $password: String!) {
+  mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
-      user {
-        _id
-      }
     }
   }
 `;
@@ -50,7 +47,7 @@ export const UPDATE_PLAYER = gql`
     $lodging: Int
   ) {
     updatePlayer(
-      _id: $id
+      id: $id
       firstName: $firstName
       lastName: $lastName
       email: $email
@@ -70,7 +67,7 @@ export const UPDATE_PLAYER = gql`
 
 export const DELETE_PLAYER = gql`
   mutation deletePlayer($id: ID!) {
-    deletePlayer(_id: $id) {
+    deletePlayer(id: $id) {
       firstName
       lastName
     }
@@ -110,7 +107,7 @@ export const EDIT_TOURNAMENT = gql`
     $golfOnlyPrice: Int
   ) {
     editTournament(
-      _id: $id
+      id: $id
       name: $name
       startDate: $startDate
       endDate: $endDate
@@ -137,46 +134,40 @@ export const EDIT_TOURNAMENT = gql`
         name
         website
         address
-        singlePrice
-        doublePrice
-        golfOnlyPrice
       }
     }
   }
 `;
 
-export const ADD_TOURNAMENT = gql`
-  mutation addTournament(
-    $name: String!
-    $startDate: String!
-    $endDate: String!
-    $paymentDue: String!
-    $maxPlayers: Int!
-    $singlePrice: Int!
-    $doublePrice: Int!
-    $golfOnlyPrice: Int!
-  ) {
-    addTournament(
-      name: $name
-      startDate: $startDate
-      endDate: $endDate
-      paymentDue: $paymentDue
-      maxPlayers: $maxPlayers
-      singlePrice: $singlePrice
-      doublePrice: $doublePrice
-      golfOnlyPrice: $golfOnlyPrice
-    ) {
-      _id
-      name
-      startDate
-      endDate
-      paymentDue
-      singlePrice
-      doublePrice
-      golfOnlyPrice
-    }
-  }
-`;
+// export const ADD_TOURNAMENT = gql`
+//   mutation addTournament(
+//     $name: String!
+//     $startDate: String!
+//     $endDate: String!
+//     $paymentDue: String!
+//     $maxPlayers: Int!
+//     $singlePrice: Int!
+//     $doublePrice: Int!
+//     $golfOnlyPrice: Int!
+//   ) {
+//     addTournament(
+//       name: $name
+//       startDate: $startDate
+//       endDate: $endDate
+//       paymentDue: $paymentDue
+//       maxPlayers: $maxPlayers
+//       singlePrice: $singlePrice
+//       doublePrice: $doublePrice
+//       golfOnlyPrice: $golfOnlyPrice
+//     ) {
+//       _id
+//       name
+//       startDate
+//       endDate
+//       paymentDue
+//     }
+//   }
+// `;
 
 export const ADD_ACTIVE_PLAYER = gql`
   mutation addPlayerToActiveTournament($player: ID!, $tournament: ID!) {
@@ -226,3 +217,4 @@ export const REMOVE_WAITLIST_PLAYER = gql`
     }
   }
 `;
+

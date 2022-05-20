@@ -30,8 +30,11 @@ const playerSchema = new Schema({
   },
   lodging: {
     type: Number,
+    required: true,
   },
 });
+
+//add paid to default false?
 
 const Player = mongoose.model("Player", playerSchema);
 
