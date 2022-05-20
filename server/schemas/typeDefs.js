@@ -16,7 +16,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    phoneNumber: Int
+    phoneNumber: String
     preferredRoomate: String
     lodging: Int
   }
@@ -65,7 +65,7 @@ const typeDefs = gql`
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: Int!
+      phoneNumber: String!
       preferredRoomate: String
       lodging: Int!
     ): Player
@@ -75,7 +75,7 @@ const typeDefs = gql`
       firstName: String
       lastName: String
       email: String
-      phoneNumber: Int
+      phoneNumber: String
       preferredRoomate: String
       lodging: Int
     ): Player
@@ -113,7 +113,8 @@ const typeDefs = gql`
 
     deleteTournament(_id: ID!): Tournament
 
-    addPlayerToTournament(player: ID!, tournament: ID!): Tournament
+    addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
+    addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
   }
@@ -122,5 +123,6 @@ const typeDefs = gql`
 //remove player from tourney
 //remove course from tourney
 //remove hotel from tourney
+//move from waitlist to active
 
 module.exports = typeDefs;
