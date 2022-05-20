@@ -61,6 +61,8 @@ function App() {
             <Route path="/administration" element={<Administration />} />
             <Route path="/playerlist" element={<PlayerList />} />
             <Route path="/masterlist" element={<MasterList />} />
+            <Route path="/tourney" element={<Tournament />} />
+            <Route path="/newtournament" element={<NewTournament />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>

@@ -59,57 +59,46 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    login(email: String!, password: String!): Auth
+
     addPlayer(
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: String!
-      preferredRoomate: String
+      phoneNumber: Int!
       lodging: Int!
+      preferredRoomate: String
     ): Player
 
     updatePlayer(
-      _id: ID!
+      id: ID!
       firstName: String
       lastName: String
       email: String
-      phoneNumber: String
+      phoneNumber: Int
       preferredRoomate: String
       lodging: Int
     ): Player
 
-    login(email: String!, password: String!): Auth
+    deletePlayer(id: ID!): Player
 
     addCourse(name: String!, address: String!, website: String!): Course
 
     addHotel(name: String!, address: String!, website: String!): Hotel
 
-    addTournament(
-      name: String!
-      startDate: String!
-      endDate: String!
-      paymentDue: String!
-      singlePrice: Int!
-      doublePrice: Int!
-      golfOnlyPrice: Int!
-      maxPlayers: Int!
-    ): Tournament
-
     editTournament(
-      _id: ID!
+      id: ID!
       name: String
       startDate: String
       endDate: String
       paymentDue: String
+      maxPlayers: Int
       singlePrice: Int
       doublePrice: Int
       golfOnlyPrice: Int
-      maxPlayers: Int
     ): Tournament
 
-    deletePlayer(_id: ID!): Player
-
-    deleteTournament(_id: ID!): Tournament
+    deleteTournament(id: ID!): Tournament
 
     addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
 
@@ -128,8 +117,19 @@ const typeDefs = gql`
     removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
   }
 `;
-//remove course from tourney
-//remove hotel from tourney
+
 //move from waitlist to active
+//move from active to waitlist
+
+    // addTournament(
+    //   name: String!
+    //   startDate: String!
+    //   endDate: String!
+    //   paymentDue: String!
+    //   maxPlayers: Int!
+    //   singlePrice: Int!
+    //   doublePrice: Int!
+    //   golfOnlyPrice: Int!
+    // ): Tournament
 
 module.exports = typeDefs;

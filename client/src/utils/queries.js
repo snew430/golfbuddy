@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_PLAYERS = gql`
-  query {
+  {
     players {
       _id
       firstName
@@ -15,7 +15,7 @@ export const QUERY_PLAYERS = gql`
 `;
 
 export const QUERY_ACTIVE_PLAYERS = gql`
-  query {
+  {
     tournaments {
       playersActive {
         _id
@@ -31,7 +31,7 @@ export const QUERY_ACTIVE_PLAYERS = gql`
 `;
 
 export const QUERY_WAITLIST_PLAYERS = gql`
-  query {
+  {
     tournaments {
       playersWaitlist {
         _id
@@ -47,7 +47,7 @@ export const QUERY_WAITLIST_PLAYERS = gql`
 `;
 
 export const QUERY_TOURNAMENT_PLAYERS = gql`
-  query {
+  {
     tournaments {
       playersActive {
         _id
@@ -72,7 +72,7 @@ export const QUERY_TOURNAMENT_PLAYERS = gql`
 `;
 
 export const QUERY_COURSES = gql`
-  query {
+  {
     courses {
       _id
       name
@@ -83,7 +83,7 @@ export const QUERY_COURSES = gql`
 `;
 
 export const QUERY_HOTELS = gql`
-  query {
+  {
     hotels {
       _id
       name
@@ -94,7 +94,7 @@ export const QUERY_HOTELS = gql`
 `;
 
 export const QUERY_TOURNAMENT = gql`
-  query tournament {
+  {
     tournaments {
       _id
       name

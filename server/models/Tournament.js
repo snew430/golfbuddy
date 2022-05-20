@@ -24,6 +24,10 @@ const tourneySchema = new Schema(
       type: String,
       required: true,
     },
+    maxPlayers: {
+      type: Number,
+      required: true,
+    },
     singlePrice: {
       type: Number,
       required: true,
@@ -33,10 +37,6 @@ const tourneySchema = new Schema(
       required: true,
     },
     golfOnlyPrice: {
-      type: Number,
-      required: true,
-    },
-    maxPlayers: {
       type: Number,
       required: true,
     },
