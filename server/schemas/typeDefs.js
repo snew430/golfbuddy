@@ -114,13 +114,22 @@ const typeDefs = gql`
     deleteTournament(_id: ID!): Tournament
 
     addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
+
+    removeActivePlayer(player: ID!, tournament: ID!): Tournament
+
     addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
+
+    removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
+
+    removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
+
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
+
+    removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
   }
 `;
-
-//remove player from tourney
 //remove course from tourney
 //remove hotel from tourney
 //move from waitlist to active

@@ -121,7 +121,24 @@ const resolvers = {
 
       return updatedTournament;
     },
-    
+
+    removeActivePlayer: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            playersActive: { _id: player },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("players");
+
+      return updatedTournament;
+    },
+
     addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
       const playerToAdd = await Player.findById(player);
       console.log(playerToAdd);
@@ -130,6 +147,23 @@ const resolvers = {
         {
           $push: {
             playersWaitlist: playerToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("players");
+
+      return updatedTournament;
+    },
+
+    removeWaitlistPlayer: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            playersWaitlist: { _id: player },
           },
         },
         { new: true }
