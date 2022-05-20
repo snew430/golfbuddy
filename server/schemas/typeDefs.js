@@ -128,8 +128,7 @@ const typeDefs = gql`
     removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
   }
 `;
-//remove course from tourney
-//remove hotel from tourney
+
 //move from waitlist to active
 
 module.exports = typeDefs;

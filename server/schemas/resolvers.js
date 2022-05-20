@@ -16,7 +16,8 @@ const resolvers = {
       return await Tournament.find()
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
     },
   },
   Mutation: {
@@ -111,7 +112,9 @@ const resolvers = {
       )
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
+        
 
       return updatedTournament;
     },
@@ -128,7 +131,8 @@ const resolvers = {
       )
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
 
       return updatedTournament;
     },
@@ -147,7 +151,8 @@ const resolvers = {
       )
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
 
       return updatedTournament;
     },
@@ -164,7 +169,8 @@ const resolvers = {
       )
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
 
       return updatedTournament;
     },

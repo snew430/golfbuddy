@@ -94,7 +94,7 @@ export const QUERY_HOTELS = gql`
 `;
 
 export const QUERY_TOURNAMENT = gql`
-  query tournament {
+  query tournaments {
     tournaments {
       _id
       name
