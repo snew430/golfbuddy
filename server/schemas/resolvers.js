@@ -18,12 +18,6 @@ const resolvers = {
         .populate("hotels")
         .populate("players");
     },
-    // currentPlayers: async (parent, { _id }) => {
-    //   return await Tournament.findById(_id).populate("players");
-    // },
-    // waitlistedPlayers: async (parent, { _id }) => {
-    //   return await Tournament.findById(_id).populate("players");
-    // },
   },
   Mutation: {
     login: async (parent, { email, password }) => {

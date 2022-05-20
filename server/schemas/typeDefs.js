@@ -56,8 +56,6 @@ const typeDefs = gql`
     courses: [Course]
     hotels: [Hotel]
     tournaments: [Tournament]
-    currentPlayers(tournament: ID!): [Player]
-    waitlistedPlayers(tournament: ID!): [Player]
   }
 
   type Mutation {

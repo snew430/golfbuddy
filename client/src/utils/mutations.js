@@ -177,3 +177,52 @@ export const ADD_TOURNAMENT = gql`
     }
   }
 `;
+
+export const ADD_ACTIVE_PLAYER = gql`
+  mutation addPlayerToActiveTournament($player: ID!, $tournament: ID!) {
+    addPlayerToActiveTournament(player: $player, tournament: $tournament) {
+      _id
+      name
+      playersActive {
+        _id
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
+export const REMOVE_ACTIVE_PLAYER = gql`
+  mutation removeActivePlayer($player: ID!, $tournament: ID!) {
+    removeActivePlayer(player: $player, tournament: $tournament) {
+      playersActive {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
+export const ADD_WAITLIST_PLAYER = gql`
+  mutation addPlayerToWaitlistTournament($player: ID!, $tournament: ID!) {
+    addPlayerToWaitlistTournament(player: $player, tournament: $tournament) {
+      _id
+      name
+      playersWaitlist {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
+export const REMOVE_WAITLIST_PLAYER = gql`
+  mutation removeWaitlistPlayer($player: ID!, $tournament: ID!) {
+    removeWaitlistPlayer(player: $player, tournament: $tournament) {
+      playersWaitlist {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
