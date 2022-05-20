@@ -33,9 +33,6 @@ const typeDefs = gql`
     name: String
     address: String
     website: String
-    singlePrice: Int
-    doublePrice: Int
-    golfOnlyPrice: Int
   }
 
   type Tournament {
@@ -44,6 +41,9 @@ const typeDefs = gql`
     startDate: String
     endDate: String
     paymentDue: String
+    singlePrice: Int
+    doublePrice: Int
+    golfOnlyPrice: Int
     courses: [Course]
     hotels: [Hotel]
     maxPlayers: Int
@@ -84,20 +84,16 @@ const typeDefs = gql`
 
     addCourse(name: String!, address: String!, website: String!): Course
 
-    addHotel(
-      name: String!
-      address: String!
-      website: String!
-      singlePrice: Int!
-      doublePrice: Int!
-      golfOnlyPrice: Int!
-    ): Hotel
+    addHotel(name: String!, address: String!, website: String!): Hotel
 
     addTournament(
       name: String!
       startDate: String!
       endDate: String!
       paymentDue: String!
+      singlePrice: Int!
+      doublePrice: Int!
+      golfOnlyPrice: Int!
       maxPlayers: Int!
     ): Tournament
 
@@ -107,6 +103,9 @@ const typeDefs = gql`
       startDate: String
       endDate: String
       paymentDue: String
+      singlePrice: Int
+      doublePrice: Int
+      golfOnlyPrice: Int
       maxPlayers: Int
     ): Tournament
 

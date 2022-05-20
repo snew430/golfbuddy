@@ -16,18 +16,6 @@ const hotelSchema = new Schema({
     type: String,
     required: true,
   },
-  singlePrice: {
-    type: Number,
-    required: true,
-  },
-  doublePrice: {
-    type: Number,
-    required: true,
-  },
-  golfOnlyPrice: {
-    type: Number,
-    required: true,
-  },
 });
 
 const Hotel = mongoose.model("Hotel", hotelSchema);

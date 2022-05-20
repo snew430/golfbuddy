@@ -24,6 +24,18 @@ const tourneySchema = new Schema(
       type: String,
       required: true,
     },
+    singlePrice: {
+      type: Number,
+      required: true,
+    },
+    doublePrice: {
+      type: Number,
+      required: true,
+    },
+    golfOnlyPrice: {
+      type: Number,
+      required: true,
+    },
     maxPlayers: {
       type: Number,
       required: true,
