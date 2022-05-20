@@ -40,7 +40,7 @@ db.once("open", async () => {
     firstName: "Sean",
     lastName: "New",
     email: "sean@sean.com",
-    phoneNumber: 4102156229,
+    phoneNumber: "4102156229",
     preferredRoomate: "John New",
     lodging: 1,
   });
@@ -49,7 +49,7 @@ db.once("open", async () => {
     firstName: "Angelo",
     lastName: "Boer",
     email: "angelo@angelo.com",
-    phoneNumber: 4106589725,
+    phoneNumber: "4106589725",
     lodging: 2,
   });
 
@@ -57,7 +57,7 @@ db.once("open", async () => {
     firstName: "John",
     lastName: "New",
     email: "john@john.com",
-    phoneNumber: 4102158669,
+    phoneNumber: "4102158669",
     preferredRoomate: "Sean New",
     lodging: 1,
   });
@@ -66,7 +66,7 @@ db.once("open", async () => {
     firstName: "John",
     lastName: "Torsino",
     email: "john@torsino.com",
-    phoneNumber: 4101118669,
+    phoneNumber: "4101118669",
     lodging: 3,
   });
 

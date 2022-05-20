@@ -14,6 +14,63 @@ export const QUERY_PLAYERS = gql`
   }
 `;
 
+export const QUERY_ACTIVE_PLAYERS = gql`
+  query {
+    tournaments {
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_WAITLIST_PLAYERS = gql`
+  query {
+    tournaments {
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_TOURNAMENT_PLAYERS = gql`
+  query {
+    tournaments {
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
 export const QUERY_COURSES = gql`
   query {
     courses {
@@ -37,7 +94,7 @@ export const QUERY_HOTELS = gql`
 `;
 
 export const QUERY_TOURNAMENT = gql`
-  query {
+  query tournament {
     tournaments {
       _id
       name

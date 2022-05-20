@@ -16,7 +16,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    phoneNumber: Int
+    phoneNumber: String
     preferredRoomate: String
     lodging: Int
   }
@@ -56,8 +56,6 @@ const typeDefs = gql`
     courses: [Course]
     hotels: [Hotel]
     tournaments: [Tournament]
-    currentPlayers(tournament: ID!): [Player]
-    waitlistedPlayers(tournament: ID!): [Player]
   }
 
   type Mutation {
@@ -65,7 +63,7 @@ const typeDefs = gql`
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: Int!
+      phoneNumber: String!
       preferredRoomate: String
       lodging: Int!
     ): Player
@@ -75,7 +73,7 @@ const typeDefs = gql`
       firstName: String
       lastName: String
       email: String
-      phoneNumber: Int
+      phoneNumber: String
       preferredRoomate: String
       lodging: Int
     ): Player
@@ -113,14 +111,25 @@ const typeDefs = gql`
 
     deleteTournament(_id: ID!): Tournament
 
-    addPlayerToTournament(player: ID!, tournament: ID!): Tournament
+    addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
+
+    removeActivePlayer(player: ID!, tournament: ID!): Tournament
+
+    addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
+
+    removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
+
+    removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
+
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
+
+    removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
   }
 `;
-
-//remove player from tourney
 //remove course from tourney
 //remove hotel from tourney
+//move from waitlist to active
 
 module.exports = typeDefs;

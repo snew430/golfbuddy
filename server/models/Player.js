@@ -20,7 +20,7 @@ const playerSchema = new Schema({
     unique: true,
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
   },
@@ -28,8 +28,8 @@ const playerSchema = new Schema({
     type: String,
   },
   lodging: {
-    type: Number
-  }
+    type: Number,
+  },
 });
 
 const Player = mongoose.model("Player", playerSchema);
