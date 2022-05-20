@@ -32,24 +32,36 @@ export const QUERY_HOTELS = gql`
       name
       website
       address
-      singlePrice
-      doublePrice
-      golfOnlyPrice
     }
   }
 `;
 
 export const QUERY_TOURNAMENT = gql`
   query {
-    tournament {
+    tournaments {
       _id
       name
       startDate
       endDate
       paymentDue
-      hotels
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
       maxPlayers
       playersActive {
+        _id
         firstName
         lastName
         email
@@ -58,6 +70,7 @@ export const QUERY_TOURNAMENT = gql`
         lodging
       }
       playersWaitlist {
+        _id
         firstName
         lastName
         email

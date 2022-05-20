@@ -18,6 +18,7 @@ export const ADD_PLAYER = gql`
     $email: String!
     $phoneNumber: Int!
     $lodging: Int!
+    $preferredRoomate: String
   ) {
     addPlayer(
       firstName: $firstName
@@ -25,12 +26,15 @@ export const ADD_PLAYER = gql`
       email: $email
       phoneNumber: $phoneNumber
       lodging: $lodging
+      preferredRoomate: $preferredRoomate
     ) {
+      _id
       firstName
       lastName
       email
       phoneNumber
       lodging
+      preferredRoomate
     }
   }
 `;
@@ -84,32 +88,14 @@ export const ADD_COURSE = gql`
 `;
 
 export const ADD_HOTEL = gql`
-  mutation addHotel(
-    $name: String!
-    $address: String!
-    $website: String!
-    $singlePrice: Int!
-    $doublePrice: Int!
-    $golfOnlyPrice: Int!
-  ) {
-    addHotel(
-      name: $name
-      address: $address
-      website: $website
-      singlePrice: $singlePrice
-      doublePrice: $doublePrice
-      golfOnlyPrice: $golfOnlyPrice
-    ) {
+  mutation addHotel($name: String!, $address: String!, $website: String!) {
+    addHotel(name: $name, address: $address, website: $website) {
       name
       address
       website
-      singlePrice
-      doublePrice
-      golfOnlyPrice
     }
   }
 `;
-
 
 export const EDIT_TOURNAMENT = gql`
   mutation editTournament(
@@ -119,6 +105,9 @@ export const EDIT_TOURNAMENT = gql`
     $endDate: String
     $paymentDue: String
     $maxPlayers: Int
+    $singlePrice: Int
+    $doublePrice: Int
+    $golfOnlyPrice: Int
   ) {
     editTournament(
       _id: $id
@@ -127,6 +116,9 @@ export const EDIT_TOURNAMENT = gql`
       endDate: $endDate
       paymentDue: $paymentDue
       maxPlayers: $maxPlayers
+      singlePrice: $singlePrice
+      doublePrice: $doublePrice
+      golfOnlyPrice: $golfOnlyPrice
     ) {
       _id
       name
@@ -160,6 +152,9 @@ export const ADD_TOURNAMENT = gql`
     $endDate: String!
     $paymentDue: String!
     $maxPlayers: Int!
+    $singlePrice: Int!
+    $doublePrice: Int!
+    $golfOnlyPrice: Int!
   ) {
     addTournament(
       name: $name
@@ -167,12 +162,18 @@ export const ADD_TOURNAMENT = gql`
       endDate: $endDate
       paymentDue: $paymentDue
       maxPlayers: $maxPlayers
+      singlePrice: $singlePrice
+      doublePrice: $doublePrice
+      golfOnlyPrice: $golfOnlyPrice
     ) {
       _id
       name
       startDate
       endDate
       paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
     }
   }
 `;
