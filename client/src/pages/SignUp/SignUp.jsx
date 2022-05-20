@@ -70,7 +70,7 @@ const tournament = tournamentData?.query.tournaments || [];
 
     
     {!isFormSubmitted ? 
-    <div className='app__signUp-form'>
+    <form className='app__signUp-form'>
      
           <input type='text' placeholder='First Name' name='firstName' value={name} onChange={handleChangeInput} />
       
@@ -101,7 +101,7 @@ const tournament = tournamentData?.query.tournaments || [];
       <button type='button' className='submitBtn' onClick={handleSubmit}>{loading ? 'Signing Up For Trip' : 'Sign Up For Trip'}</button>
     </div>
     
-    </div>
+    </form>
     : 
     <div>
       <h3 className='head-text'>See You On The Course!</h3>
