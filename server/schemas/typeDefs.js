@@ -48,6 +48,7 @@ const typeDefs = gql`
     hotels: [Hotel]
     maxPlayers: Int
     playersActive: [Player]
+    activePlayerCount: Int
     playersWaitlist: [Player]
   }
 
@@ -121,15 +122,15 @@ const typeDefs = gql`
 //move from waitlist to active
 //move from active to waitlist
 
-    // addTournament(
-    //   name: String!
-    //   startDate: String!
-    //   endDate: String!
-    //   paymentDue: String!
-    //   maxPlayers: Int!
-    //   singlePrice: Int!
-    //   doublePrice: Int!
-    //   golfOnlyPrice: Int!
-    // ): Tournament
+// addTournament(
+//   name: String!
+//   startDate: String!
+//   endDate: String!
+//   paymentDue: String!
+//   maxPlayers: Int!
+//   singlePrice: Int!
+//   doublePrice: Int!
+//   golfOnlyPrice: Int!
+// ): Tournament
 
 module.exports = typeDefs;

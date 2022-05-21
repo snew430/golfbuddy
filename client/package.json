@@ -1,7 +1,8 @@
 {
-  "name": "golfbuddy",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.6.2",
     "@apollo/react-hooks": "^4.0.0",

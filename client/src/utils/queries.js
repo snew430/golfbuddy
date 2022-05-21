@@ -126,6 +126,7 @@ export const QUERY_TOURNAMENT = gql`
         preferredRoomate
         lodging
       }
+      activePlayerCount
       playersWaitlist {
         _id
         firstName
