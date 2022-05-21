@@ -1,77 +1,41 @@
 import React, { useEffect } from "react";
 import "./PlayerList.scss";
+import List from '../../components/List/List';
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import {
-  QUERY_ACTIVE_PLAYERS,
-  QUERY_WAITLIST_PLAYERS,
-  QUERY_TOURNAMENTS,
-} from "../../utils/queries";
+import { QUERY_TOURNAMENTS } from "../../utils/queries";
+import { DELETE_PLAYER } from "../../utils/mutations";
+
 import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-  const { loading: loadTourney, data: tournamentData } =
-    useQuery(QUERY_TOURNAMENTS);
-  const { data: activePlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
-  const { data: waitlistPlayers } = useQuery(QUERY_WAITLIST_PLAYERS);
+  const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
+
+  const [deletePlayer] = useMutation(DELETE_PLAYER);
+
+  const tournament = tournamentData?.tournaments[0] || []; 
+  const activePlayers = tournament.playersActive || [];
+  const waitlistPlayers = tournament.playersWaitlist || [];
+  
   const loggedIn = Auth.loggedIn();
 
-  console.log(loadTourney);
-  console.log(tournamentData);
-  console.log(activePlayers);
-  console.log(waitlistPlayers);
   return (
     <div id="playerList">
       <div className="background">
-        {/* <h2 className="head-text">Players Going to {tournament.name}</h2> */}
+        <h2 className="head-text">Players Going to {tournament.name}</h2> 
+        {/* <div className="app__flex">
+          <button>Email Tournament Player List</button>
+        </div> */}
         <div className="player-list">
-          {/* <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Accomodations</th>
-                <th>Roommate Preference</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {players.firstName} {players.lastName}
-                </td>
-                <td>{players.email}</td>
-                <td>{players.phoneNumber}</td>
-                <td>{players.lodging}</td>
-                <td>{players.preferredRoomate}</td>
-              </tr>
-            </tbody>
-          </table>
+          <List
+            players={activePlayers} 
+          />
         </div>
         <h2 className="head-text">Waitlisted Players</h2>
         <div className="player-list">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Accomodations</th>
-                <th>Roommate Preference</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {players.firstName} {players.lastName}
-                </td>
-                <td>{players.email}</td>
-                <td>{players.phoneNumber}</td>
-                <td>{players.lodging}</td>
-                <td>{players.preferredRoomate}</td>
-              </tr>
-            </tbody>
-          </table> */}
+          <List
+            players={waitlistPlayers}
+          />
         </div>
       </div>
     </div>

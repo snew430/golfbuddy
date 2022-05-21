@@ -2,16 +2,19 @@ import React from "react";
 import "./Tournament.scss";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_BASIC_TOURNAMENTS, QUERY_TOURNAMENTS } from "../../utils/queries";
+import { QUERY_TOURNAMENTS, QUERY_PLAYERS } from "../../utils/queries";
 
 const Tournament = () => {
   //const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
   const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
+  const { data: playerData } = useQuery(QUERY_PLAYERS);
 
   const tournament = tournamentData?.tournaments[0] || []; 
+  const players = playerData?.players || [];
 
   //console.log(basicTourney);
   console.log(tournament);
+  console.log('players:', players);
 
   return (
     <div id="tournament">

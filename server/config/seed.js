@@ -42,7 +42,7 @@ db.once("open", async () => {
     email: "sean@sean.com",
     phoneNumber: "4102156229",
     preferredRoomate: "John New",
-    lodging: 1,
+    lodging: "Double",
   });
 
   const player2 = await Player.create({
@@ -50,7 +50,7 @@ db.once("open", async () => {
     lastName: "Boer",
     email: "angelo@angelo.com",
     phoneNumber: "4106589725",
-    lodging: 2,
+    lodging: "Single",
   });
 
   const player3 = await Player.create({
@@ -59,7 +59,7 @@ db.once("open", async () => {
     email: "john@john.com",
     phoneNumber: "4102158669",
     preferredRoomate: "Sean New",
-    lodging: 1,
+    lodging: "Double",
   });
 
   const player4 = await Player.create({
@@ -67,7 +67,7 @@ db.once("open", async () => {
     lastName: "Torsino",
     email: "john@torsino.com",
     phoneNumber: "4101118669",
-    lodging: 3,
+    lodging: "Golf Only",
   });
 
   const tournament = await Tournament.create({
