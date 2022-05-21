@@ -61,6 +61,21 @@
             }
         }
     }    
+
+    button {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 2rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        margin: 2rem 0 0 0;
+        font-family: var(--font-base);
+        cursor: pointer;
+    }
     
     .delete-button {
         padding: 0.3rem 0.75rem;

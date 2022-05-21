@@ -21,6 +21,7 @@ import {
   MasterList,
   NewTournament,
   AdminHome,
+  Message
 } from "./admin-pages";
 
 import { Nav } from "./components";

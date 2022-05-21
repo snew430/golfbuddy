@@ -19,6 +19,9 @@ const MasterList = () => {
     <div id="masterList">
       <div className="background">
         <h2 className="head-text">Master List</h2>
+        {/* <div className="app__flex">
+          <button>Email Master List</button>
+        </div> */}
         <div className="master-list">
           <Master 
             players={players}
