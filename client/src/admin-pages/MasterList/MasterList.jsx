@@ -4,19 +4,14 @@ import Master from '../../components/Master/Master';
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import { QUERY_PLAYERS } from "../../utils/queries";
-import { DELETE_PLAYER, UPDATE_PLAYER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-
 
 const MasterList = () => {
   const { data: playerData } = useQuery(QUERY_PLAYERS);
 
   const players = playerData?.players || [];
 
-  console.log(players)
-
-  // const [deletePlayer] = useMutation(DELETE_PLAYER);
-  // const [updatePlayer] = useMutation(UPDATE_PLAYER);
+  console.log(players);
 
   const loggedIn = Auth.loggedIn();
 
