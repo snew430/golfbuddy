@@ -57,6 +57,7 @@ const typeDefs = gql`
     courses: [Course]
     hotels: [Hotel]
     tournaments: [Tournament]
+    tournament(id: ID!): Tournament
   }
 
   type Mutation {
@@ -86,6 +87,17 @@ const typeDefs = gql`
     addCourse(name: String!, address: String!, website: String!): Course
 
     addHotel(name: String!, address: String!, website: String!): Hotel
+
+    addTournament(
+      name: String!
+      startDate: String!
+      endDate: String!
+      paymentDue: String!
+      maxPlayers: Int!
+      singlePrice: Int!
+      doublePrice: Int!
+      golfOnlyPrice: Int!
+    ): Tournament
 
     editTournament(
       id: ID!
@@ -121,16 +133,5 @@ const typeDefs = gql`
 
 //move from waitlist to active
 //move from active to waitlist
-
-// addTournament(
-//   name: String!
-//   startDate: String!
-//   endDate: String!
-//   paymentDue: String!
-//   maxPlayers: Int!
-//   singlePrice: Int!
-//   doublePrice: Int!
-//   golfOnlyPrice: Int!
-// ): Tournament
 
 module.exports = typeDefs;

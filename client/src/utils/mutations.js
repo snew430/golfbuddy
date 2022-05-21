@@ -139,35 +139,39 @@ export const EDIT_TOURNAMENT = gql`
   }
 `;
 
-// export const ADD_TOURNAMENT = gql`
-//   mutation addTournament(
-//     $name: String!
-//     $startDate: String!
-//     $endDate: String!
-//     $paymentDue: String!
-//     $maxPlayers: Int!
-//     $singlePrice: Int!
-//     $doublePrice: Int!
-//     $golfOnlyPrice: Int!
-//   ) {
-//     addTournament(
-//       name: $name
-//       startDate: $startDate
-//       endDate: $endDate
-//       paymentDue: $paymentDue
-//       maxPlayers: $maxPlayers
-//       singlePrice: $singlePrice
-//       doublePrice: $doublePrice
-//       golfOnlyPrice: $golfOnlyPrice
-//     ) {
-//       _id
-//       name
-//       startDate
-//       endDate
-//       paymentDue
-//     }
-//   }
-// `;
+export const ADD_TOURNAMENT = gql`
+  mutation addTournament(
+    $name: String!
+    $startDate: String!
+    $endDate: String!
+    $paymentDue: String!
+    $maxPlayers: Int!
+    $singlePrice: Int!
+    $doublePrice: Int!
+    $golfOnlyPrice: Int!
+  ) {
+    addTournament(
+      name: $name
+      startDate: $startDate
+      endDate: $endDate
+      paymentDue: $paymentDue
+      maxPlayers: $maxPlayers
+      singlePrice: $singlePrice
+      doublePrice: $doublePrice
+      golfOnlyPrice: $golfOnlyPrice
+    ) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      maxPlayers
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+    }
+  }
+`;
 
 export const ADD_ACTIVE_PLAYER = gql`
   mutation addPlayerToActiveTournament($player: ID!, $tournament: ID!) {
@@ -217,4 +221,3 @@ export const REMOVE_WAITLIST_PLAYER = gql`
     }
   }
 `;
-

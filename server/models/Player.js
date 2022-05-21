@@ -24,6 +24,10 @@ const playerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+      "Must enter a valid phone number",
+    ],
   },
   preferredRoomate: {
     type: String,

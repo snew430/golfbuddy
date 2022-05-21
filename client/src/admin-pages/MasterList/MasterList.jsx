@@ -5,14 +5,19 @@ import { FiEdit } from "react-icons/fi";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_PLAYERS } from "../../utils/queries";
 import { DELETE_PLAYER, UPDATE_PLAYER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+
 
 const MasterList = () => {
-  const { data: playerData } = useQuery(QUERY_PLAYERS);
+  const { loading, data: playerData } = useQuery(QUERY_PLAYERS);
   // const [deletePlayer] = useMutation(DELETE_PLAYER);
   // const [updatePlayer] = useMutation(UPDATE_PLAYER);
 
   // const players = playerData?.query.players || [];
+  console.log(loading);
   console.log(playerData);
+    const loggedIn = Auth.loggedIn();
+
   return (
     <div id="masterList">
       <div className="background">

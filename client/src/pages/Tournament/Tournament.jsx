@@ -2,11 +2,11 @@ import React from "react";
 import "./Tournament.scss";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_BASIC_TOURNAMENT, QUERY_TOURNAMENT } from "../../utils/queries";
+import { QUERY_BASIC_TOURNAMENTS, QUERY_TOURNAMENTS } from "../../utils/queries";
 
 const Tournament = () => {
-  const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENT);
-  const { data: tournamentData } = useQuery(QUERY_TOURNAMENT);
+  const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
+  const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
 
   console.log(basicTourney);
   console.log(tournamentData);

@@ -2,15 +2,21 @@ import React, { useEffect } from "react";
 import "./PlayerList.scss";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import { QUERY_ACTIVE_PLAYERS,QUERY_WAITLIST_PLAYERS, QUERY_TOURNAMENT } from "../../utils/queries";
+import {
+  QUERY_ACTIVE_PLAYERS,
+  QUERY_WAITLIST_PLAYERS,
+  QUERY_TOURNAMENTS,
+} from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-
-  const { data: tournamentData } = useQuery(QUERY_TOURNAMENT);
+  const { loading: loadTourney, data: tournamentData } =
+    useQuery(QUERY_TOURNAMENTS);
   const { data: activePlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
   const { data: waitlistPlayers } = useQuery(QUERY_WAITLIST_PLAYERS);
+  const loggedIn = Auth.loggedIn();
 
-
+  console.log(loadTourney);
   console.log(tournamentData);
   console.log(activePlayers);
   console.log(waitlistPlayers);

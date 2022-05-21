@@ -3,8 +3,8 @@ import "./SignUp.scss";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import {
-  QUERY_TOURNAMENT,
-  QUERY_BASIC_TOURNAMENT
+  QUERY_TOURNAMENTS,
+  QUERY_BASIC_TOURNAMENTS
 } from "../../utils/queries";
 
 // import { images } from '../../constants';
@@ -19,8 +19,8 @@ const SignUp = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENT);
-  const { data: tournamentData } = useQuery(QUERY_TOURNAMENT);
+  const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
+  const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
 
   console.log(basicTourney);
   console.log(tournamentData);

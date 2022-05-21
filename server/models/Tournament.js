@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const { Schema } = mongoose;
-const Course = require("./Course");
-const Hotel = require("./Hotel");
-const Player = require("./Player");
+// const Course = require("./Course");
+// const Hotel = require("./Hotel");
+// const Player = require("./Player");
 
 const tourneySchema = new Schema(
   {
@@ -40,10 +39,30 @@ const tourneySchema = new Schema(
       type: Number,
       required: true,
     },
-    courses: [Course.schema],
-    hotels: [Hotel.schema],
-    playersActive: [Player.schema],
-    playersWaitlist: [Player.schema],
+    courses: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
+    hotels: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Hotel",
+      },
+    ],
+    playersActive: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Player",
+      },
+    ],
+    playersWaitlist: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Player",
+      },
+    ],
   },
   {
     toJSON: {
@@ -56,6 +75,6 @@ tourneySchema.virtual("activePlayerCount").get(function () {
   return this.playersActive.length;
 });
 
-const Tournament = mongoose.model("Tournament", tourneySchema);
+const Tournament = model("Tournament", tourneySchema);
 
 module.exports = Tournament;
