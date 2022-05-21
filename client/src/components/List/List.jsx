@@ -44,6 +44,10 @@ const List = ({ players }) => {
         console.error(err);
         }
     };  
+  
+  if (!players || !players.length) {
+    return <h4>No Players on the List</h4>;
+  }
 
   return (
     <table>
