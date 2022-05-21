@@ -16,13 +16,15 @@ const resolvers = {
       return await Tournament.find()
         .populate("courses")
         .populate("hotels")
-        .populate("players");
+        .populate("playersActive")
+        .populate("playersWaitlist");
     },
-    currentPlayers: async (parent, { _id }) => {
-      return await Tournament.findById(_id).populate("players");
-    },
-    waitlistedPlayers: async (parent, { _id }) => {
-      return await Tournament.findById(_id).populate("players");
+    tournament: async (parent, { id }) => {
+      return await Tournament.findById(id)
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
     },
   },
   Mutation: {
@@ -52,7 +54,16 @@ const resolvers = {
     //LOGIN REQUIRED
     updatePlayer: async (parent, args, context) => {
       if (context.user) {
-        return await Player.findByIdAndUpdate(args._id, args, {
+        return await Player.findByIdAndUpdate(args.id, args, {
+          new: true,
+        });
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+
+    deletePlayer: async (parent, { id }, context) => {
+      if (context.user) {
+        return await Player.findByIdAndDelete(id, {
           new: true,
         });
       }
@@ -86,50 +97,173 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
+    //LOGIN REQUIRED
     editTournament: async (parent, args, context) => {
       if (context.user) {
-        return await Tournament.findByIdAndUpdate(args._id, args, {
+        return await Tournament.findByIdAndUpdate(args.id, args, {
           new: true,
         });
       }
       throw new AuthenticationError("Not logged in");
     },
 
-    deleteTournament: async (parent, { _id }, context) => {
+    //LOGIN REQUIRED
+    deleteTournament: async (parent, { id }, context) => {
       if (context.user) {
-        return await Tournament.findByIdAndDelete(_id);
+        return await Tournament.findByIdAndDelete(id);
       }
     },
 
-    // addPlayerToTournament: async (parent, args) => {
-    //   return await Tournament.findByIdAndUpdate(args._id, args, {
-    //     new: true,
-    //   });
-    // },
+    addPlayerToActiveTournament: async (parent, { player, tournament }) => {
+      const playerToAdd = await Player.findById(player);
 
-    addPlayerToTournament: async (parent, { player, tournament }, context) => {
-      if (context.user) {
-        // const tournament = await Tournament.findById(tournament);
-        // console.log(tournament);
-        // const activePlayers = await tournament.playersActive.length;
-        // console.log(activePlayers);
-        // const maxPlayers = await tournament.maxPlayers;
-        // console.log(maxPlayers);
-        const updatedTournament = await Tournament.findOneAndUpdate(
-          { _id: tournament },
-          {
-            $addToSet: {
-              playersActive: player,
-            },
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            playersActive: playerToAdd,
           },
-          { new: true }
-        )
-          .populate("courses")
-          .populate("hotels")
-          .populate("players");
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
 
-        return updatedTournament;
-      }
+      return updatedTournament;
+    },
+
+    removeActivePlayer: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            playersActive: { _id: player },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
+      const playerToAdd = await Player.findById(player);
+
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            playersWaitlist: playerToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    removeWaitlistPlayer: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            playersWaitlist: { _id: player },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    addCourseToTournament: async (parent, { course, tournament }) => {
+      const courseToAdd = await Course.findById(course);
+
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            courses: courseToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    removeCourseFromTourney: async (parent, { course, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            courses: { _id: course },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    addHotelToTournament: async (parent, { hotel, tournament }) => {
+      const hotelToAdd = await Hotel.findById(hotel);
+
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            hotels: hotelToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    removeHotelFromTourney: async (parent, { hotel, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $pull: {
+            hotels: { _id: hotel },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
     },
   },
 };

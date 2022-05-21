@@ -15,18 +15,10 @@ const hotelSchema = new Schema({
   website: {
     type: String,
     required: true,
-  },
-  singlePrice: {
-    type: Number,
-    required: true,
-  },
-  doublePrice: {
-    type: Number,
-    required: true,
-  },
-  golfOnlyPrice: {
-    type: Number,
-    required: true,
+    match: [
+      /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/,
+      "Must match a valid website address",
+    ],
   },
 });
 

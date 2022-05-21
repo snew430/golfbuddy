@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d74818a4.css",
+    "main.js": "/static/js/main.cd51a0dc.js",
+    "static/media/golf_green2.jpg": "/static/media/golf_green2.64970060558016fd022a.jpg",
+    "static/media/golf_course_sky2.jpg": "/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg",
+    "static/media/golf_ball_green.jpg": "/static/media/golf_ball_green.127cfd034f36f27451fd.jpg",
+    "static/media/golf_ball_green_center.jpg": "/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg",
+    "static/media/white_paper.jpg": "/static/media/white_paper.1fb415ab365cac81397d.jpg",
+    "static/media/sand_trap.jpg": "/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg",
+    "static/media/bucket_of_balls.jpg": "/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg",
+    "index.html": "/index.html",
+    "main.d74818a4.css.map": "/static/css/main.d74818a4.css.map",
+    "main.cd51a0dc.js.map": "/static/js/main.cd51a0dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d74818a4.css",
+    "static/js/main.cd51a0dc.js"
+  ]
+}

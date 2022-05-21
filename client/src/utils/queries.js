@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_PLAYERS = gql`
-  query {
+  {
     players {
       _id
       firstName
@@ -14,8 +14,65 @@ export const QUERY_PLAYERS = gql`
   }
 `;
 
+export const QUERY_ACTIVE_PLAYERS = gql`
+  {
+    tournaments {
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_WAITLIST_PLAYERS = gql`
+  {
+    tournaments {
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_TOURNAMENT_PLAYERS = gql`
+  {
+    tournaments {
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
 export const QUERY_COURSES = gql`
-  query {
+  {
     courses {
       _id
       name
@@ -26,31 +83,42 @@ export const QUERY_COURSES = gql`
 `;
 
 export const QUERY_HOTELS = gql`
-  query {
+  {
     hotels {
       _id
       name
       website
       address
-      singlePrice
-      doublePrice
-      golfOnlyPrice
     }
   }
 `;
 
-
-export const QUERY_TOURNAMENT = gql`
-  query {
-    tournament {
+export const QUERY_TOURNAMENTS = gql`
+  {
+    tournaments {
       _id
       name
       startDate
       endDate
       paymentDue
-      hotels
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
       maxPlayers
       playersActive {
+        _id
         firstName
         lastName
         email
@@ -58,7 +126,9 @@ export const QUERY_TOURNAMENT = gql`
         preferredRoomate
         lodging
       }
+      activePlayerCount
       playersWaitlist {
+        _id
         firstName
         lastName
         email
@@ -66,6 +136,111 @@ export const QUERY_TOURNAMENT = gql`
         preferredRoomate
         lodging
       }
+    }
+  }
+`;
+
+export const QUERY_BASIC_TOURNAMENTS = gql`
+  {
+    tournaments {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      activePlayerCount
+    }
+  }
+`;
+
+export const QUERY_TOURNAMENT = gql`
+  query tournament($tournamentId: ID!) {
+    tournament(id: $tournamentId) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+      activePlayerCount
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_BASIC_TOURNAMENT = gql`
+  query tournament($tournamentId: ID!) {
+    tournament(id: $tournamentId) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      activePlayerCount
     }
   }
 `;

@@ -16,7 +16,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    phoneNumber: Int
+    phoneNumber: String
     preferredRoomate: String
     lodging: Int
   }
@@ -33,9 +33,6 @@ const typeDefs = gql`
     name: String
     address: String
     website: String
-    singlePrice: Int
-    doublePrice: Int
-    golfOnlyPrice: Int
   }
 
   type Tournament {
@@ -44,10 +41,14 @@ const typeDefs = gql`
     startDate: String
     endDate: String
     paymentDue: String
+    singlePrice: Int
+    doublePrice: Int
+    golfOnlyPrice: Int
     courses: [Course]
     hotels: [Hotel]
     maxPlayers: Int
     playersActive: [Player]
+    activePlayerCount: Int
     playersWaitlist: [Player]
   }
 
@@ -56,22 +57,23 @@ const typeDefs = gql`
     courses: [Course]
     hotels: [Hotel]
     tournaments: [Tournament]
-    currentPlayers(tournament: ID!): [Player]
-    waitlistedPlayers(tournament: ID!): [Player]
+    tournament(id: ID!): Tournament
   }
 
   type Mutation {
+    login(email: String!, password: String!): Auth
+
     addPlayer(
       firstName: String!
       lastName: String!
       email: String!
       phoneNumber: Int!
-      preferredRoomate: String
       lodging: Int!
+      preferredRoomate: String
     ): Player
 
     updatePlayer(
-      _id: ID!
+      id: ID!
       firstName: String
       lastName: String
       email: String
@@ -80,18 +82,11 @@ const typeDefs = gql`
       lodging: Int
     ): Player
 
-    login(email: String!, password: String!): Auth
+    deletePlayer(id: ID!): Player
 
     addCourse(name: String!, address: String!, website: String!): Course
 
-    addHotel(
-      name: String!
-      address: String!
-      website: String!
-      singlePrice: Int!
-      doublePrice: Int!
-      golfOnlyPrice: Int!
-    ): Hotel
+    addHotel(name: String!, address: String!, website: String!): Hotel
 
     addTournament(
       name: String!
@@ -99,29 +94,44 @@ const typeDefs = gql`
       endDate: String!
       paymentDue: String!
       maxPlayers: Int!
+      singlePrice: Int!
+      doublePrice: Int!
+      golfOnlyPrice: Int!
     ): Tournament
 
     editTournament(
-      _id: ID!
+      id: ID!
       name: String
       startDate: String
       endDate: String
       paymentDue: String
       maxPlayers: Int
+      singlePrice: Int
+      doublePrice: Int
+      golfOnlyPrice: Int
     ): Tournament
 
-    deletePlayer(_id: ID!): Player
+    deleteTournament(id: ID!): Tournament
 
-    deleteTournament(_id: ID!): Tournament
+    addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
 
-    addPlayerToTournament(player: ID!, tournament: ID!): Tournament
+    removeActivePlayer(player: ID!, tournament: ID!): Tournament
+
+    addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
+
+    removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
+
+    removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
+
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
+
+    removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
   }
 `;
 
-//remove player from tourney
-//remove course from tourney
-//remove hotel from tourney
+//move from waitlist to active
+//move from active to waitlist
 
 module.exports = typeDefs;

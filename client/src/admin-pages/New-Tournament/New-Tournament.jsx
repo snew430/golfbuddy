@@ -1,5 +1,7 @@
 import React, { useState} from 'react';
 import './New-Tournament.scss';
+import Auth from "../../utils/auth";
+
 
 const NewTournament = () => {
 
@@ -8,6 +10,9 @@ const NewTournament = () => {
   const [loading, setLoading] = useState(false);
 
   const {name, email } = formData;
+
+  const loggedIn = Auth.loggedIn();
+
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;

@@ -18,19 +18,27 @@ const playerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
+    match: [
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+      "Must enter a valid phone number",
+    ],
   },
   preferredRoomate: {
     type: String,
   },
   lodging: {
-    type: Number
-  }
+    type: Number,
+    required: true,
+  },
 });
+
+//add paid to default false?
 
 const Player = mongoose.model("Player", playerSchema);
 
