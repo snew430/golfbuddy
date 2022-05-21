@@ -40,10 +40,15 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+console.log("AUTHLINK", authLink);
+console.log("HTTPLINK", httpLink);
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+console.log("LINK", client);
 
 function App() {
   return (
@@ -54,7 +59,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/tournament" element={<AdminHome />} />
+            <Route path="/tournament" element={<PlayerList />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />

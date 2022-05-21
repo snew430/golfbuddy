@@ -54,9 +54,9 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    deletePlayer: async (parent, args, context) => {
+    deletePlayer: async (parent, { id }, context) => {
       if (context.user) {
-        return await Player.findByIdAndDelete(args.id, {
+        return await Player.findByIdAndDelete(id, {
           new: true,
         });
       }
@@ -109,7 +109,7 @@ const resolvers = {
 
     addPlayerToActiveTournament: async (parent, { player, tournament }) => {
       const playerToAdd = await Player.findById(player);
-      console.log(playerToAdd);
+
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
@@ -147,7 +147,7 @@ const resolvers = {
 
     addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
       const playerToAdd = await Player.findById(player);
-      console.log(playerToAdd);
+
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
@@ -185,7 +185,7 @@ const resolvers = {
 
     addCourseToTournament: async (parent, { course, tournament }) => {
       const courseToAdd = await Course.findById(course);
-      console.log(courseToAdd);
+
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
@@ -223,7 +223,7 @@ const resolvers = {
 
     addHotelToTournament: async (parent, { hotel, tournament }) => {
       const hotelToAdd = await Hotel.findById(hotel);
-      console.log(hotelToAdd);
+
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
