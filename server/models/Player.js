@@ -33,7 +33,7 @@ const playerSchema = new Schema({
     type: String,
   },
   lodging: {
-    type: Number,
+    type: String,
     required: true,
   },
 });

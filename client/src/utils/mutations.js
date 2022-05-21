@@ -14,7 +14,7 @@ export const ADD_PLAYER = gql`
     $lastName: String!
     $email: String!
     $phoneNumber: Int!
-    $lodging: Int!
+    $lodging: String!
     $preferredRoomate: String
   ) {
     addPlayer(
@@ -44,7 +44,7 @@ export const UPDATE_PLAYER = gql`
     $email: String
     $phoneNumber: Int
     $preferredRoomate: String
-    $lodging: Int
+    $lodging: String
   ) {
     updatePlayer(
       id: $id
