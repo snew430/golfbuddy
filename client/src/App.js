@@ -56,7 +56,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/tournament" element={<PlayerList />} />
+            <Route path="/tournament" element={<Tournament />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
@@ -65,6 +65,7 @@ function App() {
             <Route path="/masterlist" element={<MasterList />} />
             <Route path="/tourney" element={<Tournament />} />
             <Route path="/newtournament" element={<NewTournament />} />
+            <Route path="/administrationhome" element={<AdminHome />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>
