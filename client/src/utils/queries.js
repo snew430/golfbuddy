@@ -139,3 +139,32 @@ export const QUERY_TOURNAMENT = gql`
     }
   }
 `;
+
+export const QUERY_BASIC_TOURNAMENT = gql`
+  {
+    tournaments {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      activePlayerCount
+    }
+  }
+`;

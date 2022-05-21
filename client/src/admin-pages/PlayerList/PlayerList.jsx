@@ -2,20 +2,18 @@ import React, { useEffect } from "react";
 import "./PlayerList.scss";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import { QUERY_PLAYERS, QUERY_TOURNAMENT } from "../../utils/queries";
+import { QUERY_ACTIVE_PLAYERS,QUERY_WAITLIST_PLAYERS, QUERY_TOURNAMENT } from "../../utils/queries";
 
 const PlayerList = () => {
-  // const { data: playerData } = useQuery(QUERY_PLAYERS);
+
   const { data: tournamentData } = useQuery(QUERY_TOURNAMENT);
-  //ACTIVE and WAITLISTED
+  const { data: activePlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
+  const { data: waitlistPlayers } = useQuery(QUERY_WAITLIST_PLAYERS);
 
-  // const players = playerData?.query.players || [];
-  // const tournament = tournamentData?.tournament || [];
 
-  // const { data } = useQuery(QUERY_TOURNAMENT);
-  // const { data: players } = useQuery(QUERY_PLAYERS);
-  // console.log(players);
   console.log(tournamentData);
+  console.log(activePlayers);
+  console.log(waitlistPlayers);
   return (
     <div id="playerList">
       <div className="background">
