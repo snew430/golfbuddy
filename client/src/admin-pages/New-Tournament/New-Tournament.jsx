@@ -4,12 +4,23 @@ import Auth from "../../utils/auth";
 
 
 const NewTournament = () => {
-
-  const [formData, setformData] = useState({ name: '', email: '', message: ''});
+//edit form data to meet specifications from tournament query
+  const [formData, setformData] = useState({ 
+    tournament: '',
+      startDate: '',
+      endDate: '',
+      course: '',
+      hotel: '',
+      payment: '',
+      single: '',
+      double: '',
+      golfOnly: ''
+  });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const {name, email } = formData;
+  //edit form data to meet specifications from query
+  const { tournament, startDate, endDate, course, hotel, payment, single, double, golfOnly } = formData;
 
   const loggedIn = Auth.loggedIn();
 
@@ -24,12 +35,18 @@ const NewTournament = () => {
     setLoading(true);
 
 
-    ///////////////////////////////hold up
+    ///////////////////////////////add tournament specifications from tournament query
     const contact = {
       _type: 'contact',
-      firstName: name,
-      lastName: name,
-      email: email,
+      tournament: tournament,
+      startDate: startDate,
+      endDate: endDate,
+      course: course,
+      hotel: hotel,
+      payment: payment,
+      single: single,
+      double: double,
+      golfOnly: golfOnly
     }
     // client.create(contact)
     // .then(() => {
@@ -44,39 +61,39 @@ const NewTournament = () => {
     <h2 className='head-text'>Create New Tournament</h2>
     
     {!isFormSubmitted ? 
-    <div className='app__newTournament-form'>
+    <div className='app__newTourmament-form'>
      
-          <input type='text' placeholder='New Tournament Name' name='tournament' value={name} onChange={handleChangeInput} />
+          <input type='text' placeholder='New Tournament Name' name='tournament' value={tournament} onChange={handleChangeInput} />
       
       
       
-          <input type='text' placeholder='Start Date' name='lastName' value={name} onChange={handleChangeInput} />
-      
-
-      
-          <input type='email' placeholder='End Date' name='email' value={email} onChange={handleChangeInput} />
-
-
-
-          <input type='text' placeholder='Course' name='course' value={name} onChange={handleChangeInput} />
-      
-      
-      
-          <input type='text' placeholder='Hotel' name='hotel' value={name} onChange={handleChangeInput} />
+          <input type='text' placeholder='Start Date' name='startDate' value={startDate} onChange={handleChangeInput} />
       
 
       
-          <input type='email' placeholder='Payment Due Date' name='payment' value={email} onChange={handleChangeInput} />
+          <input type='email' placeholder='End Date' name='endDate' value={endDate} onChange={handleChangeInput} />
 
-          <input type='text' placeholder='Single Bed Payment Price' name='single' value={name} onChange={handleChangeInput} />
+
+
+          <input type='text' placeholder='Course' name='course' value={course} onChange={handleChangeInput} />
       
       
       
-          <input type='text' placeholder='Double Bed Payment Price' name='double' value={name} onChange={handleChangeInput} />
+          <input type='text' placeholder='Hotel' name='hotel' value={hotel} onChange={handleChangeInput} />
       
 
       
-          <input type='email' placeholder='Golf Only Price' name='golfOnly' value={email} onChange={handleChangeInput} />
+          <input type='email' placeholder='Payment Due Date' name='payment' value={payment} onChange={handleChangeInput} />
+
+          <input type='text' placeholder='Single Bed Payment Price' name='single' value={single} onChange={handleChangeInput} />
+      
+      
+      
+          <input type='text' placeholder='Double Bed Payment Price' name='double' value={double} onChange={handleChangeInput} />
+      
+
+      
+          <input type='email' placeholder='Golf Only Price' name='golfOnly' value={golfOnly} onChange={handleChangeInput} />
       
         
      
