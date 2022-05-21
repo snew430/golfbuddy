@@ -1,5 +1,4 @@
 #rules {
-
     background: url("../../assets/images/golf_green2.jpg");
     background-size: cover;
     background-position: center;
@@ -18,7 +17,7 @@
         text-shadow: -1px 0 black;
     
         @media screen and (max-width: 900px) {
-            font-size: 4rem;
+            font-size: 5rem;
         }
     
         @media screen and (max-width: 450px) {
