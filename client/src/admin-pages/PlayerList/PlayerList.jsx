@@ -6,7 +6,8 @@ import { QUERY_PLAYERS, QUERY_TOURNAMENT } from "../../utils/queries";
 
 const PlayerList = () => {
   // const { data: playerData } = useQuery(QUERY_PLAYERS);
-  const { data } = useQuery(QUERY_TOURNAMENT);
+  const { data: tournamentData } = useQuery(QUERY_TOURNAMENT);
+  //ACTIVE and WAITLISTED
 
   // const players = playerData?.query.players || [];
   // const tournament = tournamentData?.tournament || [];
@@ -14,7 +15,7 @@ const PlayerList = () => {
   // const { data } = useQuery(QUERY_TOURNAMENT);
   // const { data: players } = useQuery(QUERY_PLAYERS);
   // console.log(players);
-  console.log(data);
+  console.log(tournamentData);
   return (
     <div id="playerList">
       <div className="background">
