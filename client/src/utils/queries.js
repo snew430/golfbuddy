@@ -93,7 +93,7 @@ export const QUERY_HOTELS = gql`
   }
 `;
 
-export const QUERY_TOURNAMENT = gql`
+export const QUERY_TOURNAMENTS = gql`
   {
     tournaments {
       _id
@@ -136,6 +136,111 @@ export const QUERY_TOURNAMENT = gql`
         preferredRoomate
         lodging
       }
+    }
+  }
+`;
+
+export const QUERY_BASIC_TOURNAMENTS = gql`
+  {
+    tournaments {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      activePlayerCount
+    }
+  }
+`;
+
+export const QUERY_TOURNAMENT = gql`
+  query tournament($tournamentId: ID!) {
+    tournament(id: $tournamentId) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+      activePlayerCount
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+      }
+    }
+  }
+`;
+
+export const QUERY_BASIC_TOURNAMENT = gql`
+  query tournament($tournamentId: ID!) {
+    tournament(id: $tournamentId) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotels {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      activePlayerCount
     }
   }
 `;

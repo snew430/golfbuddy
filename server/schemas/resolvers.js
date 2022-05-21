@@ -19,6 +19,13 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
     },
+    tournament: async (parent, { id }) => {
+      return await Tournament.findById(id)
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+    },
   },
   Mutation: {
     login: async (parent, { email, password }) => {
@@ -82,13 +89,13 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    // addTournament: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const tournament = await Tournament.create(args);
-    //     return tournament;
-    //   }
-    //   throw new AuthenticationError("Not logged in");
-    // },
+    addTournament: async (parent, args, context) => {
+      if (context.user) {
+        const tournament = await Tournament.create(args);
+        return tournament;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
 
     //LOGIN REQUIRED
     editTournament: async (parent, args, context) => {
