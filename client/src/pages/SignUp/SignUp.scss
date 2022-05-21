@@ -23,7 +23,7 @@
             
     }
     .tournament-text {
-        padding-top: 3rem;
+        padding-top: 1rem;
             font-size: 5.5rem;
             font-weight: 400;
             text-align: center;
@@ -39,7 +39,7 @@
             }
     }
     .course-text {
-        padding-top: 2rem;
+        padding-top: 0rem;
         font-size: 4rem;
         font-weight: 400;
         text-align: center;
@@ -55,12 +55,12 @@
         }
     }
     .date-text {
-        padding-top: 1.5rem;
+        padding-top: 0rem;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 600;
         text-align: center;
         color: var(--darkGreen-color);
-        text-shadow: -1px 0 var(--yellow-color);
+        // text-shadow: -1px 0 var(--yellow-color);
 
         @media screen and (max-width: 900px) {
         font-size: 3rem;
@@ -90,7 +90,7 @@
             padding: 0;
             border-radius: 10px;
             cursor: pointer;
-            background-color: var(--white-color);
+            background-color: var(--darkGreen-color);
             
     
             transition: all 0.3s ease-in-out;
@@ -99,6 +99,16 @@
                 text-decoration: none;
                 font-weight: 500;
             }
+            .signup-text {
+                font-size: 0.8rem;
+                text-align: left;
+                color: var(--white-color);
+                line-height: 1.5;
+              
+                @media screen and (min-width: 900px) {
+                  font-size: 1.75rem;
+                }
+              }
     
             &:hover {
                 box-shadow: 0 0 25px #fff;
@@ -121,11 +131,30 @@
         justify-content: center;
         margin: 1rem 10rem; 
         text-align: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 25rem;
+    
+            @media screen and (max-width: 450px) {
+                width: 100%;
+            }
+    
+            input {
+                padding: 1rem;
+                margin: 1rem;
+                font-size: 1.5rem;
+                font-family: "Old Standard TT", serif;
+                color: #282828;
+            }
+        }
+    
         
     
     
             input, textarea {
-
             margin: 0.75rem 0;
             border-radius: 10px;
             cursor: pointer;
@@ -146,6 +175,7 @@
     
             textarea {
                 height: 170px;
+                
             }
 
             @media screen and (max-width: 900px) {

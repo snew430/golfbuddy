@@ -7,14 +7,17 @@ import {
   QUERY_BASIC_TOURNAMENTS
 } from "../../utils/queries";
 
-// import { images } from '../../constants';
+//add player and add player to tournament
+
+
 // import { client } from '../../client';
 
 const SignUp = () => {
   const [formData, setformData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    message: "",
+    
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,10 +25,12 @@ const SignUp = () => {
   const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
   const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
 
+  const tournament = tournamentData?.tournaments[0] || [];
+
   console.log(basicTourney);
   console.log(tournamentData);
 
-  const { name, email } = formData;
+  const { firstName, lastName, email } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -38,8 +43,8 @@ const SignUp = () => {
 
     const contact = {
       _type: "contact",
-      firstName: name,
-      lastName: name,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
     };
     // client.create(contact)
@@ -51,23 +56,23 @@ const SignUp = () => {
   return (
     <div id="signUp">
       <h2 className="head-text">Sign Up For</h2>
-      {/* <h2 className="tournament-text"> {tournament.name} </h2>
-      <h3 className="course-text"> At {tournament.course}</h3>
+      <h2 className="tournament-text"> {tournament.name} </h2>
+      {/* <h3 className="course-text"> At {tournament.course}</h3> */}
       <h4 className="date-text">
         {" "}
         From {tournament.startDate} To {tournament.endDate}
-      </h4> */}
+      </h4>
 
       <div className="app__signUp-cards">
         <div className="app__signUp-card">
           {/* <img src={images.email} alt="email" /> */}
-          <a href="mailto: earlybirdiegolf.com " className="p-text">
-            earlybirdiegolf.com
+          <a href="mailto: whatsmyteetime@gmail.com" className="signup-text">
+            whatsmyteetime@gmail.com
           </a>
         </div>
         <div className="app__signUp-card">
           {/* <img src={images.mobile} alt="mobile" /> */}
-          <a href="tel: +1 " className="p-text">
+          <a href="tel: +1 " className="signup-text">
             Club Phone???????
           </a>
         </div>
@@ -79,7 +84,7 @@ const SignUp = () => {
             type="text"
             placeholder="First Name"
             name="firstName"
-            value={name}
+            value={firstName}
             onChange={handleChangeInput}
           />
 
@@ -87,7 +92,7 @@ const SignUp = () => {
             type="text"
             placeholder="Last Name"
             name="lastName"
-            value={name}
+            value={lastName}
             onChange={handleChangeInput}
           />
 

@@ -1,4 +1,4 @@
-#newTourmament {
+#newTournament {
     background: url("../../assets/images/white_paper.jpg");
     background-size: cover;
     background-position: center;
@@ -20,50 +20,6 @@
             @media screen and (max-width: 450px) {
                 font-size: 3rem;
             }
-    }
-    
-    .app__newTourmament-cards {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 4rem 2rem 2rem;
-    
-        .app__newTourmament-card {
-            min-width: 290px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            
-    
-            margin: 1rem 0;
-            padding: 0;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: var(--white-color);
-            
-    
-            transition: all 0.3s ease-in-out;
-            
-            a {
-                text-decoration: none;
-                font-weight: 500;
-            }
-    
-            &:hover {
-                box-shadow: 0 0 25px #fff;
-            }
-    
-            @media screen and (max-width: 450px) {
-                width: 100%;
-                
-            }
-        }
-    
-        @media screen and (max-width: 768px) {
-            width: 100%;
-        }
     }
     
     .app__newTourmament-form  {
@@ -111,53 +67,6 @@
             //     box-shadow: 0 0 25px var(--white-color);
             // }
 
-        
-    
-    .button_list {
-        // display: flex;
-        // flex-direction: row;
-        // flex-wrap: wrap;
-        justify-content: flex-start;
-        // text-align: center;
-        // justify-content: center;
-        margin-bottom: 1rem;
-
-        @media screen and (max-width: 900px) {
-            flex-direction: column;
-        }
-    
-        @media screen and (max-width: 450px) {
-            flex-direction: column;
-        }
-        
-        
-        
-        button  {
-            // text-align: center;
-            // justify-content: flex-start;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            border: none;
-            background-color: var(--darkGreen-color);
-            font-weight: 500;
-            font-size: 1.75rem;
-            color: var(--white-color);
-            text-shadow: -1px 0 black;
-            outline: none;
-            margin: 2rem;
-            font-family: var(--font-base);
-            cursor: pointer;
-
-            @media screen and (max-width: 900px) {
-                margin: 2rem;
-            }
-        
-            @media screen and (max-width: 450px) {
-                margin: 2rem;
-            }
-        }
-        
-    }
 
     .submitBtn {
         padding: 1rem 2rem;
@@ -175,15 +84,6 @@
         
         
     }
-    .accommodation {
-        padding-top: 2rem;
-        font-size: 2rem;
-        font-weight: 800;
-        text-align: center;
-        color: var(--darkGreen-color);
-        text-decoration: underline;
-    }
-    
         
         }
         @media screen and (max-width: 768px) {

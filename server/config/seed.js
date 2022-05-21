@@ -9,8 +9,8 @@ db.once("open", async () => {
   await Tournament.deleteMany();
 
   const admin = await Admin.create({
-    email: "earlybirdiegolf@gmail.com",
-    password: "EarlyB!rdie1",
+    email: "whatsmyteetime@gmail.com",
+    password: "What$myt33time",
   });
 
   const course1 = await Course.create({
