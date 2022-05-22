@@ -1,6 +1,10 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Admin, Player, Course, Hotel, Tournament } = require("../models");
 const { signToken } = require("../utils/auth");
+
+require("dotenv").config();
+let nodemailer = require("nodemailer");
+
 const resolvers = {
   Query: {
     players: async () => {
@@ -264,6 +268,43 @@ const resolvers = {
         .populate("playersWaitlist");
 
       return updatedTournament;
+    },
+
+    sendMessage: async (parent, { recipients, subject, message }) => {
+      nodemailer.createTransport({
+        host: "mail.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.PASS,
+        },
+      });
+
+      // verifying the connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Server is ready to take our messages!");
+        }
+      });
+
+      const mail = {
+        from: process.env.EMAIL,
+        to: recipients,
+        message: subject,
+        text: message,
+      };
+
+      transporter.sendMail(mail, (err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("success");
+        }
+      });
+      return Admin;
     },
   },
 };

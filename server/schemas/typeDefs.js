@@ -46,6 +46,7 @@ const typeDefs = gql`
     activePlayerCount: Int
     playersWaitlist: [Player]
   }
+
   type Query {
     players: [Player]
     courses: [Course]
@@ -53,13 +54,14 @@ const typeDefs = gql`
     tournaments: [Tournament]
     tournament(id: ID!): Tournament
   }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addPlayer(
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: Int!
+      phoneNumber: String!
       lodging: String!
       preferredRoomate: String
     ): Player
@@ -68,7 +70,7 @@ const typeDefs = gql`
       firstName: String
       lastName: String
       email: String
-      phoneNumber: Int
+      phoneNumber: String
       preferredRoomate: String
       lodging: String
     ): Player
@@ -105,6 +107,7 @@ const typeDefs = gql`
     removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
     removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
+    sendMessage(recipients: String!, subject: String!, message: String!): Admin
   }
 `;
 

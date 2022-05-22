@@ -41,7 +41,7 @@ const Navbar = () => {
             <li className="app__flex p-text">
               <Link to={"/newtourney"}>Create New Tourney</Link>
             </li>
-            <a href="/" onClick={logout}>
+            <a className="app__flex p-text" href="/" onClick={logout}>
               Logout
             </a>
           </>
@@ -53,7 +53,7 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-menu">
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
+        <HiMenuAlt4 onClick={() => setToggle(!toggle)} />
 
         {toggle && (
           <motion.div
