@@ -33,7 +33,7 @@ const PlayerList = () => {
         <div className="player-list">
           <List players={tournament.playersActive} status={"active"} />
         </div>
-        <h2 className="head-text">Waitlisted Players</h2>
+        <h2 className="secondary-text">Waitlisted Players</h2>
         <div className="player-list">
           <List players={tournament.playersWaitlist} status={"waitlist"} />
         </div>
