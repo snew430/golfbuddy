@@ -6,6 +6,7 @@ import {
   QUERY_TOURNAMENTS,
   QUERY_BASIC_TOURNAMENTS
 } from "../../utils/queries";
+import { PlayerList } from "../../admin-pages";
 
 //add player and add player to tournament
 
@@ -118,6 +119,8 @@ const SignUp = () => {
 
           <div className="app__flex">
             <button type="button" className="submitBtn" onClick={handleSubmit}>
+              // ????????????????????????????????
+              {/* { {PlayerList} ? =< 40 {loading ? "Signing Up For Trip" : "Sign Up For Trip"} : {loading ? "Joining Waitlist" : "Join Waitlist"}} */}
               {loading ? "Signing Up For Trip" : "Sign Up For Trip"}
             </button>
           </div>

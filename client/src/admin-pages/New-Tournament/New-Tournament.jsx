@@ -71,7 +71,7 @@ const NewTournament = () => {
       
 
       
-          <input type='email' placeholder='End Date' name='endDate' value={endDate} onChange={handleChangeInput} />
+          <input type='text' placeholder='End Date' name='endDate' value={endDate} onChange={handleChangeInput} />
 
 
 
@@ -83,7 +83,7 @@ const NewTournament = () => {
       
 
       
-          <input type='email' placeholder='Payment Due Date' name='payment' value={payment} onChange={handleChangeInput} />
+          <input type='text' placeholder='Payment Due Date' name='payment' value={payment} onChange={handleChangeInput} />
 
           <input type='text' placeholder='Single Bed Payment Price' name='single' value={single} onChange={handleChangeInput} />
       
@@ -93,7 +93,7 @@ const NewTournament = () => {
       
 
       
-          <input type='email' placeholder='Golf Only Price' name='golfOnly' value={golfOnly} onChange={handleChangeInput} />
+          <input type='text' placeholder='Golf Only Price' name='golfOnly' value={golfOnly} onChange={handleChangeInput} />
       
         
      
