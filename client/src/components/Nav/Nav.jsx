@@ -47,7 +47,7 @@ const Navbar = () => {
           </>
         ) : (
           <li className="app__flex p-text">
-            <Link to={"/administrationhome"}>Admin Login</Link>
+            <Link to={"/administration"}>Admin Login</Link>
           </li>
         )}
       </ul>

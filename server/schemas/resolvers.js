@@ -271,7 +271,7 @@ const resolvers = {
     },
 
     sendMessage: async (parent, { recipients, subject, message }) => {
-      console.log(recipients, subject, message);
+
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -288,6 +288,8 @@ const resolvers = {
           console.log("Server is ready to take our messages!");
         }
       });
+
+  
 
       const mail = {
         from: process.env.EMAIL,
