@@ -271,10 +271,9 @@ const resolvers = {
     },
 
     sendMessage: async (parent, { recipients, subject, message }) => {
-      nodemailer.createTransport({
-        host: "mail.gmail.com",
-        port: 587,
-        secure: false,
+      console.log(recipients, subject, message);
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
         auth: {
           user: process.env.EMAIL,
           pass: process.env.PASS,
