@@ -26,17 +26,7 @@ const Navbar = () => {
         {loggedIn ? (
           <>
             <li className="app__flex p-text">
-              <Link to={"/administrationhome"}>Admin Home</Link>
-            </li>
-
-            <li className="app__flex p-text">
-              <Link to={"/masterlist"}>Master List</Link>
-            </li>
-            <li className="app__flex p-text">
-              <Link to={"/playerlist"}>Tournament Player List</Link>
-            </li>
-            <li className="app__flex p-text">
-              <Link to={"/newtourney"}>Create New Tournament</Link>
+              <Link to={"/administrationhome"}>Administration</Link>
             </li>
             <li className="app__flex p-text">
               <a href="/" onClick={logout}>
@@ -76,6 +66,9 @@ const Navbar = () => {
                   </li>
                   <li className="app__flex">
                     <Link to={"/playerlist"}>Tournament Player List</Link>
+                  </li>
+                  <li className="app__flex">
+                    <Link to={"/message"}>Email the Players</Link>
                   </li>
                   <li className="app__flex">
                     <Link to={"/newtourney"}>Create New Tournament</Link>
