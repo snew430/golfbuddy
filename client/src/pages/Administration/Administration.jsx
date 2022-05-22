@@ -49,7 +49,7 @@ const Administration = () => {
   return (
     <div id="administration">
       <h2 className="head-text">
-        If you are a website administrator, <br /> please use this page to login
+        If You are a Website Administrator, <br /> Please Use This Page to Login
       </h2>
       {error && <span className="ml-2">Wrong credentials, try again</span>}
       <div className="app__flex">
