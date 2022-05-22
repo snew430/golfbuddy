@@ -17,10 +17,9 @@ const Navbar = () => {
 
   return (
     <nav className="app__navbar">
-      <ul className="app__navbar-links">
+       <ul className="app__navbar-links">
         {["home", "tournament", "rules"].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
             <Link to={`/${item}`}>{item}</Link>
           </li>
         ))}
@@ -29,21 +28,21 @@ const Navbar = () => {
             <li className="app__flex p-text">
               <Link to={"/administrationhome"}>Admin Home</Link>
             </li>
+
             <li className="app__flex p-text">
-              <Link to={"/masterlist"}>Masterlist</Link>
+              <Link to={"/masterlist"}>Master List</Link>
             </li>
             <li className="app__flex p-text">
-              <Link to={"/playerlist"}>Tourney Player List</Link>
+              <Link to={"/playerlist"}>Tournament Player List</Link>
             </li>
             <li className="app__flex p-text">
-              <Link to={"/message"}>Send Messages</Link>
+              <Link to={"/newtourney"}>Create New Tournament</Link>
             </li>
             <li className="app__flex p-text">
-              <Link to={"/newtourney"}>Create New Tourney</Link>
-            </li>
-            <a className="app__flex p-text" href="/" onClick={logout}>
+              <a href="/" onClick={logout}>
               Logout
-            </a>
+              </a>
+            </li>
           </>
         ) : (
           <li className="app__flex p-text">
@@ -69,28 +68,27 @@ const Navbar = () => {
               ))}
               {loggedIn ? (
                 <>
-                  <li className="app__flex p-text">
-                    <Link to={"/administrationhome"}>Admin Home</Link>
+                  <li className="app__flex">
+                    <Link to={"/administrationhome"}>Administrator Home</Link>
                   </li>
-                  <li className="app__flex p-text">
-                    <Link to={"/masterlist"}>Masterlist</Link>
+                  <li className="app__flex">
+                    <Link to={"/masterlist"}>Master List</Link>
                   </li>
-                  <li className="app__flex p-text">
-                    <Link to={"/playerlist"}>Tourney Player List</Link>
+                  <li className="app__flex">
+                    <Link to={"/playerlist"}>Tournament Player List</Link>
                   </li>
-                  <li className="app__flex p-text">
-                    <Link to={"/message"}>Send Messages</Link>
+                  <li className="app__flex">
+                    <Link to={"/newtourney"}>Create New Tournament</Link>
                   </li>
-                  <li className="app__flex p-text">
-                    <Link to={"/newtourney"}>Create New Tourney</Link>
+                  <li className="app__flex">
+                    <a href="/" onClick={logout}>
+                      Logout
+                    </a>
                   </li>
-                  <a href="/" onClick={logout}>
-                    Logout
-                  </a>
                 </>
               ) : (
                 <li className="app__flex p-text">
-                  <Link to={"/administration"}>Admin Login</Link>
+                  <Link to={"/administration"}>Administrator Login</Link>
                 </li>
               )}
             </ul>
