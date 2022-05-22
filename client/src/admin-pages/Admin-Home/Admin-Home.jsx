@@ -6,6 +6,16 @@ import Auth from "../../utils/auth";
 const AdminHome = () => {
   const loggedIn = Auth.loggedIn();
 
+  if (!loggedIn) {
+    return (
+      <div>
+        You need to log in first. Dont cheat to look at something you're not
+        supposed to. <br />
+        Makes me think you cheat at golf too
+      </div>
+    );
+  }
+
   return (
     <div id="adminHome">
       <h2 className="head-text-home">Hello Administrator</h2>

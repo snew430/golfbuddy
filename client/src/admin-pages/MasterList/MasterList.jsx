@@ -1,6 +1,6 @@
 import React from "react";
 import "./MasterList.scss";
-import Master from '../../components/Master/Master';
+import Master from "../../components/Master/Master";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import { QUERY_PLAYERS } from "../../utils/queries";
@@ -15,6 +15,16 @@ const MasterList = () => {
 
   const loggedIn = Auth.loggedIn();
 
+  if (!loggedIn) {
+    return (
+      <div>
+        You need to log in first. Dont cheat to look at something you're not
+        supposed to. <br />
+        Makes me think you cheat at golf too
+      </div>
+    );
+  }
+
   return (
     <div id="masterList">
       <div className="background">
@@ -23,9 +33,7 @@ const MasterList = () => {
           <button>Email Master List</button>
         </div> */}
         <div className="master-list">
-          <Master 
-            players={players}
-          />
+          <Master players={players} />
         </div>
       </div>
     </div>
