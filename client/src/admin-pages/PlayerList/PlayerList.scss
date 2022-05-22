@@ -11,14 +11,14 @@
 
     .head-text {
         padding-top: 6rem;
-        font-size: 6rem;
+        font-size: 5rem;
         font-weight: 800;
         text-align: center;
         color: var(--white-color);
         text-shadow: -2px 0 black;
     
-        @media screen and (max-width: 1200px) {
-            font-size: 3rem;
+        @media screen and (max-width: 1250px) {
+            font-size: 4rem;
         }
     
         @media screen and (max-width: 450px) {
@@ -30,11 +30,11 @@
         justify-content: space-evenly;
 
         th, td {
-            margin: 0.75rem;
-            padding: 0.25rem 1rem;
+            margin: 0.5rem;
+            padding: 0.25rem 0.75rem;
             color: var(--yellow-color);
             text-shadow: -1px 0 black;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             text-align: center;
         }
 
@@ -45,7 +45,23 @@
             font-size: 2rem;
         }
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1250px) {
+            thead th {
+                display: none;
+            }
+
+            td {
+                display: block;
+                font-size: 3rem;
+            }
+
+            td:first-child {
+                color: var(--yellow-color);
+                font-size: 4rem;
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
             thead th {
                 display: none;
             }
@@ -68,7 +84,7 @@
         font-size: 3rem;
         padding-top: 1rem;
     
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1250px) {
             font-size: 3.5rem;
         }
     

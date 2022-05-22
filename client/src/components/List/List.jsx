@@ -83,18 +83,20 @@ const List = ({ players, status }) => {
             <td>{player.phoneNumber}</td>
             <td>{player.lodging}</td>
             <td>{player.preferredRoomate}</td>
-            <button
-              className="delete-button"
-              onClick={() => handleDeletePlayer(player.playerId, status)}
-            >
-              Delete
-            </button>
-            <button
-              className="edit-button"
-              onClick={() => handleEditPlayer(player.playerId)}
-            >
-              Edit
-            </button>
+            <div className="app__flex">
+              <button
+                className="delete-button"
+                onClick={() => handleDeletePlayer(player.playerId, status)}
+              >
+                Delete
+              </button>
+              <button
+                className="edit-button"
+                onClick={() => handleEditPlayer(player.playerId)}
+              >
+                Edit
+              </button>
+            </div>
           </tr>
         ))}
       </tbody>
