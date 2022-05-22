@@ -13,9 +13,8 @@ export const ADD_PLAYER = gql`
     $firstName: String!
     $lastName: String!
     $email: String!
-    $phoneNumber: Int!
+    $phoneNumber: String!
     $lodging: String!
-    $preferredRoomate: String
   ) {
     addPlayer(
       firstName: $firstName
@@ -23,7 +22,6 @@ export const ADD_PLAYER = gql`
       email: $email
       phoneNumber: $phoneNumber
       lodging: $lodging
-      preferredRoomate: $preferredRoomate
     ) {
       _id
       firstName
@@ -31,7 +29,6 @@ export const ADD_PLAYER = gql`
       email
       phoneNumber
       lodging
-      preferredRoomate
     }
   }
 `;
@@ -42,8 +39,7 @@ export const UPDATE_PLAYER = gql`
     $firstName: String
     $lastName: String
     $email: String
-    $phoneNumber: Int
-    $preferredRoomate: String
+    $phoneNumber: String
     $lodging: String
   ) {
     updatePlayer(
@@ -52,14 +48,13 @@ export const UPDATE_PLAYER = gql`
       lastName: $lastName
       email: $email
       phoneNumber: $phoneNumber
-      preferredRoomate: $preferredRoomate
       lodging: $lodging
     ) {
+      _id
       firstName
       lastName
       email
       phoneNumber
-      preferredRoomate
       lodging
     }
   }
@@ -68,15 +63,20 @@ export const UPDATE_PLAYER = gql`
 export const DELETE_PLAYER = gql`
   mutation deletePlayer($id: ID!) {
     deletePlayer(id: $id) {
+      _id
       firstName
       lastName
+      email
+      phoneNumber
+      lodging
     }
   }
 `;
 
 export const ADD_COURSE = gql`
-  mutation addCourse($name: String!, $address: String!, $website: String!) {
+  mutation ($name: String!, $address: String!, $website: String!) {
     addCourse(name: $name, address: $address, website: $website) {
+      _id
       name
       address
       website
@@ -87,6 +87,7 @@ export const ADD_COURSE = gql`
 export const ADD_HOTEL = gql`
   mutation addHotel($name: String!, $address: String!, $website: String!) {
     addHotel(name: $name, address: $address, website: $website) {
+      _id
       name
       address
       website
@@ -182,6 +183,9 @@ export const ADD_ACTIVE_PLAYER = gql`
         _id
         firstName
         lastName
+        email
+        phoneNumber
+        lodging
       }
     }
   }
@@ -191,8 +195,12 @@ export const REMOVE_ACTIVE_PLAYER = gql`
   mutation removeActivePlayer($player: ID!, $tournament: ID!) {
     removeActivePlayer(player: $player, tournament: $tournament) {
       playersActive {
+        _id
         firstName
         lastName
+        email
+        phoneNumber
+        lodging
       }
     }
   }
@@ -204,8 +212,12 @@ export const ADD_WAITLIST_PLAYER = gql`
       _id
       name
       playersWaitlist {
+        _id
         firstName
         lastName
+        email
+        phoneNumber
+        lodging
       }
     }
   }
@@ -215,8 +227,12 @@ export const REMOVE_WAITLIST_PLAYER = gql`
   mutation removeWaitlistPlayer($player: ID!, $tournament: ID!) {
     removeWaitlistPlayer(player: $player, tournament: $tournament) {
       playersWaitlist {
+        _id
         firstName
         lastName
+        email
+        phoneNumber
+        lodging
       }
     }
   }

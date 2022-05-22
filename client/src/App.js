@@ -21,7 +21,7 @@ import {
   MasterList,
   NewTournament,
   AdminHome,
-  Message
+  Message,
 } from "./admin-pages";
 
 import { Nav } from "./components";
@@ -41,12 +41,10 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (
@@ -67,6 +65,7 @@ function App() {
             <Route path="/tourney" element={<Tournament />} />
             <Route path="/new-tournament" element={<NewTournament />} />
             <Route path="/administrationhome" element={<AdminHome />} />
+            <Route path="/message" element={<Message />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>
