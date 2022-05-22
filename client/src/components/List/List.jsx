@@ -1,7 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import {
-  DELETE_PLAYER,
   UPDATE_PLAYER,
   REMOVE_ACTIVE_PLAYER,
   REMOVE_WAITLIST_PLAYER,
