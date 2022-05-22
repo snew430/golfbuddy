@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MasterList.scss";
 import Master from "../../components/Master/Master";
 import { useQuery, useMutation } from "@apollo/react-hooks";
@@ -29,11 +30,13 @@ const MasterList = () => {
     <div id="masterList">
       <div className="background">
         <h2 className="head-text">Master List</h2>
-        {/* <div className="app__flex">
-          <button>Email Master List</button>
-        </div> */}
         <div className="master-list">
           <Master players={players} />
+        </div>
+        <div className="app__flex">
+          <Link to="../Message">
+            <button>Email the Players</button>
+          </Link>
         </div>
       </div>
     </div>

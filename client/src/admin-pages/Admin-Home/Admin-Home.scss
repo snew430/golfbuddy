@@ -13,7 +13,7 @@
         background-color: rgba(105, 105, 105, 0.10);
         text-shadow: -2px 0 black;
     
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 920px) {
             font-size: 6rem;
         }
     
@@ -35,12 +35,5 @@
         margin: 2rem 0 0 0;
         font-family: var(--font-base);
         cursor: pointer;
-    }
-    @media screen and (max-width: 900px) {
-        width: 100%;
-        background: url("../../assets/images/golf_ball_green_center.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
     }
 }

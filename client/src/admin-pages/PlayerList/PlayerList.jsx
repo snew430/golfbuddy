@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
 import { useQuery, useMutation } from "@apollo/react-hooks";
@@ -29,15 +30,17 @@ const PlayerList = () => {
     <div id="playerList">
       <div className="background">
         <h2 className="head-text">Players Going to {tournament.name}</h2>
-        {/* <div className="app__flex">
-          <button>Email Tournament Player List</button>
-        </div> */}
         <div className="player-list">
           <List players={tournament.playersActive} status={"active"} />
         </div>
         <h2 className="head-text">Waitlisted Players</h2>
         <div className="player-list">
           <List players={tournament.playersWaitlist} status={"waitlist"} />
+        </div>
+        <div className="app__flex">
+          <Link to="../Message">
+            <button>Email the Players</button>
+          </Link>
         </div>
       </div>
     </div>
