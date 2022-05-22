@@ -69,8 +69,8 @@ const List = ({ players, status }) => {
           <th>Name</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>Accomodations</th>
-          <th>Roommate Preference</th>
+          <th>Lodging</th>
+          <th>Roommate</th>
         </tr>
       </thead>
       <tbody>
