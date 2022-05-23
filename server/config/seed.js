@@ -11,32 +11,29 @@ db.once("open", async () => {
   const admin = await Admin.create({
     email: process.env.EMAIL,
     password: process.env.PASS,
-
   });
-  console.log(process.env.EMAIL);
-  console.log(process.env.PASS);
-  console.log(admin);
+
   const course1 = await Course.create({
-    name: "Alpine Lake",
-    address: "123 Alpine Road",
-    website: "www.alpinelake.com",
+    name: "Rum Pointe Seaside Golf Links",
+    address: "7000 Rum Pointe Lane Berin, Maryland 21811",
+    website: "https://rumpointe.com/",
   });
   const course2 = await Course.create({
-    name: "Rocky Gap",
-    address: "456 Rocky Road",
-    website: "www.rockygap.com",
+    name: "GlenRiddle Golf Club - War Admiral",
+    address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
+    website: "https://glenriddlegolf.com/",
+  });
+
+  const course3 = await Course.create({
+    name: "GlenRiddle Golf Club - Man O' War",
+    address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
+    website: "https://glenriddlegolf.com/",
   });
 
   const hotel1 = await Hotel.create({
-    name: "Alpine Lake",
-    address: "456 Rocky Road",
-    website: "www.rockygap.com",
-  });
-
-  const hotel2 = await Hotel.create({
-    name: "Motel 6",
-    address: "789 Highway 3",
-    website: "www.motel6.com",
+    name: "The Grand Hotel",
+    address: "2100 N. Baltimore Avenue, Ocean City, Md. 21842",
+    website: "https://grandhoteloceancity.com/",
   });
 
   const player1 = await Player.create({
@@ -81,8 +78,8 @@ db.once("open", async () => {
     singlePrice: 150,
     doublePrice: 100,
     golfOnlyPrice: 50,
-    courses: [course1, course2],
-    hotels: [hotel1, hotel2],
+    courses: [course1, course2, course3],
+    hotels: [hotel1],
     maxPlayers: 40,
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],

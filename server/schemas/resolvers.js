@@ -140,12 +140,12 @@ const resolvers = {
 
     removeActivePlayer: async (parent, { player, tournament }) => {
       try {
-        console.log('test')
+        console.log("test");
         const updatedTournament = await Tournament.findOneAndUpdate(
           { _id: tournament },
           {
             $pull: {
-              playersActive: { $in:[player] },
+              playersActive: { $in: [player] },
             },
           },
           { new: true }
@@ -154,10 +154,11 @@ const resolvers = {
           .populate("hotels")
           .populate("playersActive")
           .populate("playersWaitlist");
-  
+
         return updatedTournament;
-        }
-      catch(error){console.log(error)}
+      } catch (error) {
+        console.log(error);
+      }
     },
 
     addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
@@ -275,7 +276,6 @@ const resolvers = {
     },
 
     sendMessage: async (parent, { recipients, subject, message }) => {
-
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -292,8 +292,6 @@ const resolvers = {
           console.log("Server is ready to take our messages!");
         }
       });
-
-  
 
       const mail = {
         from: process.env.EMAIL,

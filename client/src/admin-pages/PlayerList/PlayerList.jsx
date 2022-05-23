@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
 

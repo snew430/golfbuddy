@@ -21,9 +21,9 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     if (!token) {
       return;
     }
-    console.log(player, tournament);
+
     try {
-      console.log("click")
+      console.log("click");
       if (status === "active") {
         console.log("active");
         await deleteActive({
