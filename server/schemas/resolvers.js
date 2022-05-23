@@ -139,21 +139,25 @@ const resolvers = {
     },
 
     removeActivePlayer: async (parent, { player, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
-        {
-          $pull: {
-            playersActive: { _id: player },
+      try {
+        console.log('test')
+        const updatedTournament = await Tournament.findOneAndUpdate(
+          { _id: tournament },
+          {
+            $pull: {
+              playersActive: { $in:[player] },
+            },
           },
-        },
-        { new: true }
-      )
-        .populate("courses")
-        .populate("hotels")
-        .populate("playersActive")
-        .populate("playersWaitlist");
-
-      return updatedTournament;
+          { new: true }
+        )
+          .populate("courses")
+          .populate("hotels")
+          .populate("playersActive")
+          .populate("playersWaitlist");
+  
+        return updatedTournament;
+        }
+      catch(error){console.log(error)}
     },
 
     addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {

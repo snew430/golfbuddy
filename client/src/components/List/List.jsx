@@ -8,7 +8,7 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
-const List = ({ players, status }) => {
+const List = ({ players, status, tournament, refetchPlayers }) => {
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
   const [deleteActive] = useMutation(REMOVE_ACTIVE_PLAYER);
   const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
@@ -16,26 +16,27 @@ const List = ({ players, status }) => {
   console.log(players);
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
-  const handleDeletePlayer = async (playerId, status) => {
+  const handleDeletePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return;
     }
-
+    console.log(player, tournament);
     try {
       console.log("click")
       if (status === "active") {
         console.log("active");
         await deleteActive({
-          variables: { playerId },
+          variables: { tournament, player },
         });
       } else if (status === "waitlist") {
         await deleteWaitlist({
-          variables: { playerId },
+          variables: { tournament, player },
         });
       }
       // upon success, remove player's id from localStorage
-      removePlayerId(playerId);
+      removePlayerId(player);
+      refetchPlayers();
     } catch (err) {
       console.error(err);
     }
@@ -86,13 +87,13 @@ const List = ({ players, status }) => {
             <div className="app__flex">
               <button
                 className="delete-button"
-                onClick={() => handleDeletePlayer(player.playerId, status)}
+                onClick={() => handleDeletePlayer(player._id, status)}
               >
                 Delete
               </button>
               <button
                 className="edit-button"
-                onClick={() => handleEditPlayer(player.playerId)}
+                onClick={() => handleEditPlayer(player._id)}
               >
                 Edit
               </button>

@@ -9,13 +9,13 @@ import { QUERY_TOURNAMENTS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-  const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
+  const { data: tournamentData, refetch } = useQuery(QUERY_TOURNAMENTS);
 
   const tournament = tournamentData?.tournaments[0] || [];
 
   const loggedIn = Auth.loggedIn();
 
-  console.log(tournament);
+  console.log("tournament:", tournament);
 
   if (!loggedIn) {
     return (
@@ -31,11 +31,11 @@ const PlayerList = () => {
       <div className="background">
         <h2 className="head-text">Players Going to {tournament.name}</h2>
         <div className="player-list">
-          <List players={tournament.playersActive} status={"active"} />
+          <List players={tournament.playersActive} status={"active"} tournament={tournament._id} refetchPlayers={refetch}/>
         </div>
         <h2 className="secondary-text">Waitlisted Players</h2>
         <div className="player-list">
-          <List players={tournament.playersWaitlist} status={"waitlist"} />
+          <List players={tournament.playersWaitlist} status={"waitlist"} tournament={tournament._id} refetchPlayers={refetch}/>
         </div>
         <div className="app__flex">
           <Link to="../Message">
