@@ -30,19 +30,19 @@ const Tournament = () => {
 
         <div className="trip-details">
           <div>
-            {/* <h4>We are staying at <br/> {tournament.hotels[0].name}</h4>
-            <p>{tournament.hotels[0].address}</p>
-            <a href="{hotel.website}">{tournament.hotels[0].website}</a> */}
+            <h4>We are staying at <br/> {tournament.hotels[0].name}</h4>
+            <p>{tournament.hotels[0].address}</p> 
+            <a href="{hotel.website}">{tournament.hotels[0].website}</a> 
             <p>Price for Single Room: ${tournament.singlePrice}</p>
             <p>Price for Double Room: ${tournament.doublePrice}</p>
             <p>Golf Only Price: ${tournament.golfOnlyPrice}</p>
           </div>
           <div>
             <h4>Courses</h4>
-            <p>Day One: </p>
-            <p>Day Two: </p>
-            <p>Day Three: </p>
-            <p>Day Four: </p>
+            <p>Day One: {tournament.courses[0].name}</p>
+            <p>Day Two: {tournament.courses[1].name}</p>
+            <p>Day Three: {tournament.courses[2].name}</p>
+            <p>Day Four: {tournament.courses[0].name}</p>
           </div>
         </div>
 

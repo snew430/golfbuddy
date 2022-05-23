@@ -1,16 +1,20 @@
 import React, { useState} from 'react';
 import './New-Tournament.scss';
 import Auth from "../../utils/auth";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { QUERY_TOURNAMENT } from "../../utils/queries";
+import { ADD_TOURNAMENT } from "../../utils/mutations";
 
 
 const NewTournament = () => {
 //edit form data to meet specifications from tournament query
   const [formData, setformData] = useState({ 
-    tournament: '',
+      name: '',
       startDate: '',
       endDate: '',
       course: '',
       hotel: '',
+      maxPlayers: '',
       payment: '',
       single: '',
       double: '',
@@ -19,8 +23,25 @@ const NewTournament = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  //edit form data to meet specifications from query
-  const { tournament, startDate, endDate, course, hotel, payment, single, double, golfOnly } = formData;
+  const { data: newTournament } = useQuery(QUERY_TOURNAMENT);
+  const [addTournament] = useMutation(ADD_TOURNAMENT);
+
+  const tournament = newTournament?.tournaments[0] || [];
+
+  console.log(newTournament);
+
+  const { 
+    name, 
+    startDate, 
+    endDate, 
+    // course, 
+    // hotel, 
+    paymentDue,
+    maxPlayers,
+    singlePrice, 
+    doublePrice, 
+    golfOnlyPrice 
+  } = formData;
 
   const loggedIn = Auth.loggedIn();
 
@@ -37,7 +58,6 @@ const NewTournament = () => {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-
     setformData({ ...formData, [name]: value });
   }
 
@@ -46,24 +66,51 @@ const NewTournament = () => {
 
 
     ///////////////////////////////add tournament specifications from tournament query
-    const contact = {
-      _type: 'contact',
-      tournament: tournament,
+    const {
+      name: name,
       startDate: startDate,
       endDate: endDate,
-      course: course,
-      hotel: hotel,
-      payment: payment,
-      single: single,
-      double: double,
-      golfOnly: golfOnly
+      // course: course,
+      // hotel: hotel,
+      paymentDue: payment, 
+      maxPlayers: maxPlayers,
+      singlePrice: single,
+      doublePrice: double,
+      golfOnlyPrice: golfOnly
+    } = formData;
+
+    try {
+      addTournament({
+        variables: {
+          name,
+          startDate,
+          endDate,
+          // course,
+          // hotel,
+          maxPlayers,
+          paymentDue,
+          singlePrice,
+          doublePrice,
+          golfOnlyPrice
+        },
+      });
+    } catch (err) {
+      console.log(err);
     }
-    // client.create(contact)
-    // .then(() => {
-    //   setLoading(false);
-    //   setIsFormSubmitted(true);
-    // })
-  }
+
+    setformData({
+      name: '',
+      startDate: '',
+      endDate: '',
+      // course: '',
+      // hotel: '',
+      maxPlayers: '',
+      paymentDue: '',
+      singlePrice: '',
+      doublePrice: '',
+      golfOnlyPrice: ''
+    })
+  };
 
 
   return (
@@ -73,42 +120,109 @@ const NewTournament = () => {
     {!isFormSubmitted ? 
     <div className='app__newTourmament-form'>
      
-          <input type='text' placeholder='New Tournament Name' name='tournament' value={tournament} onChange={handleChangeInput} />
+          <input 
+          type='text' 
+          placeholder='New Tournament Name' 
+          name='name' 
+          value={name} 
+          onChange={handleChangeInput} 
+          />
       
       
       
-          <input type='text' placeholder='Start Date' name='startDate' value={startDate} onChange={handleChangeInput} />
-      
-
-      
-          <input type='email' placeholder='End Date' name='endDate' value={endDate} onChange={handleChangeInput} />
-
-
-
-          <input type='text' placeholder='Course' name='course' value={course} onChange={handleChangeInput} />
-      
-      
-      
-          <input type='text' placeholder='Hotel' name='hotel' value={hotel} onChange={handleChangeInput} />
-      
-
-      
-          <input type='email' placeholder='Payment Due Date' name='payment' value={payment} onChange={handleChangeInput} />
-
-          <input type='text' placeholder='Single Bed Payment Price' name='single' value={single} onChange={handleChangeInput} />
-      
-      
-      
-          <input type='text' placeholder='Double Bed Payment Price' name='double' value={double} onChange={handleChangeInput} />
+          <input 
+          type='text' 
+          placeholder='Start Date' 
+          name='startDate' 
+          value={startDate} 
+          onChange={handleChangeInput} 
+          />
       
 
       
-          <input type='email' placeholder='Golf Only Price' name='golfOnly' value={golfOnly} onChange={handleChangeInput} />
+          <input 
+          type='email' 
+          placeholder='End Date' 
+          name='endDate' 
+          value={endDate} 
+          onChange={handleChangeInput} 
+          />
+
+
+
+          {/* <input 
+          type='text' 
+          placeholder='Course' 
+          name='course' 
+          value={course} 
+          onChange={handleChangeInput} 
+          />
+      
+      
+      
+          <input 
+          type='text' 
+          placeholder='Hotel' 
+          name='hotel' 
+          value={hotel} 
+          onChange={handleChangeInput} 
+          /> */}
+      
+
+      
+          <input 
+          type='text' 
+          placeholder='Payment Due Date' 
+          name='paymentPrice' 
+          value={paymentDue} 
+          onChange={handleChangeInput} 
+          />
+
+        <input 
+          type='text' 
+          placeholder='Maximum Players' 
+          name='maxPlayers' 
+          value={maxPlayers} 
+          onChange={handleChangeInput} 
+          />
+
+          <input 
+          type='text' 
+          placeholder='Single Bed Payment Price' 
+          name='singlePrice' 
+          value={singlePrice} 
+          onChange={handleChangeInput} 
+          />
+      
+      
+      
+          <input 
+          type='text' 
+          placeholder='Double Bed Payment Price' 
+          name='doublePrice' 
+          value={doublePrice} 
+          onChange={handleChangeInput} 
+          />
+      
+
+      
+          <input 
+          type='email' 
+          placeholder='Golf Only Price' 
+          name='golfOnlyPrice' 
+          value={golfOnlyPrice} 
+          onChange={handleChangeInput} 
+          />
       
         
      
     <div className='app__flex'>
-      <button type='button' className='submitBtn' onClick={handleSubmit}>{loading ? 'Creating Tournament' : 'Create Tournament'}</button>
+      <button 
+      type='button' 
+      className='submitBtn' 
+      onClick={handleSubmit}>
+        {loading ? 'Creating Tournament' : 'Create Tournament'}
+        </button>
     </div>
     
     </div>
