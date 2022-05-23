@@ -175,8 +175,22 @@ export const ADD_TOURNAMENT = gql`
 `;
 
 export const ADD_ACTIVE_PLAYER = gql`
-  mutation addPlayerToActiveTournament($player: ID!, $tournament: ID!) {
-    addPlayerToActiveTournament(player: $player, tournament: $tournament) {
+  mutation addPlayerToActiveTournament(
+    $tournamentId: ID!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $phoneNumber: String!
+    $lodging: String!
+  ) {
+    addPlayerToActiveTournament(
+      tournamentId: $tournamentId
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      phoneNumber: $phoneNumber
+      lodging: $lodging
+    ) {
       _id
       name
       playersActive {

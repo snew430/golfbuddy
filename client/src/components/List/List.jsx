@@ -21,11 +21,9 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     if (!token) {
       return;
     }
-    console.log(player, tournament);
+
     try {
-      console.log("click")
       if (status === "active") {
-        console.log("active");
         await deleteActive({
           variables: { tournament, player },
         });
@@ -43,20 +41,22 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   };
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
-  const handleEditPlayer = async (playerId) => {
+  const handleEditPlayer = async (player) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(player);
 
     if (!token) {
       return false;
     }
 
-    try {
-      await updatePlayer({
-        variables: { playerId },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await updatePlayer({
+    //     variables: { e },
+    //   });
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   if (!players || !players.length) {
@@ -76,28 +76,34 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
       </thead>
       <tbody>
         {players.map((player) => (
-          <tr>
+          <tr key={player._id}>
             <td>
               {player.firstName} {player.lastName}
             </td>
-            <td>{player.email}</td>
-            <td>{player.phoneNumber}</td>
+            <td>
+              <a href={`mailto:${player.email}`}>{player.email}</a>
+            </td>
+            <td>
+              <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
+            </td>
             <td>{player.lodging}</td>
             <td>{player.preferredRoomate}</td>
-            <div className="app__flex">
-              <button
-                className="delete-button"
-                onClick={() => handleDeletePlayer(player._id, status)}
-              >
-                Delete
-              </button>
-              <button
-                className="edit-button"
-                onClick={() => handleEditPlayer(player._id)}
-              >
-                Edit
-              </button>
-            </div>
+            <td>
+              <div className="app__flex">
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeletePlayer(player._id, status)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="edit-button"
+                  onClick={() => handleEditPlayer(player)}
+                >
+                  Edit
+                </button>
+              </div>
+            </td>
           </tr>
         ))}
       </tbody>

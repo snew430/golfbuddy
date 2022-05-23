@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import "./SignUp.scss";
-import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import {
-  QUERY_TOURNAMENTS,
-  QUERY_BASIC_TOURNAMENTS
-} from "../../utils/queries";
+import { QUERY_BASIC_TOURNAMENTS } from "../../utils/queries";
+import { ADD_ACTIVE_PLAYER } from "../../utils/mutations";
 
 //add player and add player to tournament
-
 
 // import { client } from '../../client';
 
@@ -17,41 +13,69 @@ const SignUp = () => {
     firstName: "",
     lastName: "",
     email: "",
-    
+    phoneNumber: "",
+    preferredRoomate: "",
+    lodging: "",
   });
+  // ???????????
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
-  const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
+  const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
 
-  const tournament = tournamentData?.tournaments[0] || [];
+  const tournament = basicTourney?.tournaments[0] || [];
 
   console.log(basicTourney);
-  console.log(tournamentData);
 
-  const { firstName, lastName, email } = formData;
+  const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
+    formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-
+    console.log(name, value);
     setformData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    // ????????
     setLoading(true);
 
-    const contact = {
-      _type: "contact",
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    };
-    // client.create(contact)
-    // .then(() => {
-    //   setLoading(false);
-    //   setIsFormSubmitted(true);
-    // })
+    const tournamentId = tournament._id;
+    const {
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      preferredRoomate,
+      lodging,
+    } = formData;
+
+    try {
+      addPlayer({
+        variables: {
+          tournamentId,
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          preferredRoomate,
+          lodging,
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
+    setformData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      preferredRoomate: "",
+      lodging: "",
+    });
+    // Need to remove from local storage
   };
   return (
     <div id="signUp">
@@ -104,17 +128,58 @@ const SignUp = () => {
             onChange={handleChangeInput}
           />
 
+          <input
+            type="phone"
+            placeholder="Phone Number"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={handleChangeInput}
+          />
+
           <h2 className="accommodation">Accommodations</h2>
 
           <div className="button_list">
-            <button type="button">{"Single"}</button>
-            <button type="button">{"Double"}</button>
-            <button type="button">{"Golf Only"}</button>
+            <button
+              name="lodging"
+              type="button"
+              onClick={handleChangeInput}
+              value="Single"
+            >
+              Single
+            </button>
+            <button
+              name="lodging"
+              type="button"
+              onClick={handleChangeInput}
+              value="Double"
+            >
+              Double
+            </button>
+            <button
+              name="lodging"
+              type="button"
+              onClick={handleChangeInput}
+              value="Golf Only"
+            >
+              {"Golf Only"}
+            </button>
           </div>
 
-          {/* <div className='button_list'>
-      
-        </div> */}
+          {lodging === "Double" ? (
+            <>
+              <h3>Do you have a preferred roomate?</h3>
+
+              <input
+                type="preferredRoomate"
+                placeholder="Roomate Name"
+                name="preferredRoomate"
+                value={preferredRoomate}
+                onChange={handleChangeInput}
+              />
+            </>
+          ) : (
+            ""
+          )}
 
           <div className="app__flex">
             <button type="button" className="submitBtn" onClick={handleSubmit}>

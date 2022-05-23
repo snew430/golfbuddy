@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
 
@@ -31,11 +31,21 @@ const PlayerList = () => {
       <div className="background">
         <h2 className="head-text">Players Going to {tournament.name}</h2>
         <div className="player-list">
-          <List players={tournament.playersActive} status={"active"} tournament={tournament._id} refetchPlayers={refetch}/>
+          <List
+            players={tournament.playersActive}
+            status={"active"}
+            tournament={tournament._id}
+            refetchPlayers={refetch}
+          />
         </div>
         <h2 className="secondary-text">Waitlisted Players</h2>
         <div className="player-list">
-          <List players={tournament.playersWaitlist} status={"waitlist"} tournament={tournament._id} refetchPlayers={refetch}/>
+          <List
+            players={tournament.playersWaitlist}
+            status={"waitlist"}
+            tournament={tournament._id}
+            refetchPlayers={refetch}
+          />
         </div>
         <div className="app__flex">
           <Link to="../Message">

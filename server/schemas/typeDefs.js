@@ -87,6 +87,7 @@ const typeDefs = gql`
       doublePrice: Int!
       golfOnlyPrice: Int!
     ): Tournament
+
     editTournament(
       id: ID!
       name: String
@@ -99,14 +100,39 @@ const typeDefs = gql`
       golfOnlyPrice: Int
     ): Tournament
     deleteTournament(id: ID!): Tournament
-    addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
+
+    addPlayerToActiveTournament(
+      tournamentId: ID!
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
+      preferredRoomate: String
+      lodging: String!
+    ): Tournament
+
     removeActivePlayer(player: ID!, tournament: ID!): Tournament
-    addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
+
+    addPlayerToWaitlistTournament(
+      tournamentId: ID!
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
+      preferredRoomate: String
+      lodging: String!
+    ): Tournament
+
     removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
+
     removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
+
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
+
     removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
+
     sendMessage(recipients: String!, subject: String!, message: String!): Admin
   }
 `;
