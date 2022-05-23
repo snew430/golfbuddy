@@ -27,7 +27,6 @@ const playerSchema = new Schema({
   },
   preferredRoomate: {
     type: String,
-    default: "N/A"
   },
   lodging: {
     type: String,

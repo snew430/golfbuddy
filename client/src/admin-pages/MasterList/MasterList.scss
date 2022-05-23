@@ -1,110 +1,110 @@
 #masterList {
-    background: url("../../assets/images/bucket_of_balls.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+  background: url("../../assets/images/bucket_of_balls.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 
-    .background {
-        background-color: rgba(4, 57, 39, 0.8);
-        height: 100%;
+  .background {
+    background-color: rgba(4, 57, 39, 0.8);
+    height: 100%;
+  }
+
+  .head-text {
+    padding-top: 6rem;
+    font-size: 6rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -2px 0 black;
+
+    @media screen and (max-width: 900px) {
+      font-size: 3.75rem;
     }
 
-    .head-text {
-        padding-top: 6rem;
-        font-size: 6rem;
-        font-weight: 800;
-        text-align: center;
-        color: var(--white-color);
-        text-shadow: -2px 0 black;
-    
-        @media screen and (max-width: 900px) {
-            font-size: 3.75rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
     }
-    .master-list {
-        display: flex;
-        justify-content: space-evenly;
+  }
+  .master-list {
+    display: flex;
+    justify-content: space-evenly;
 
-
-        th, td {
-            margin: 0.75rem;
-            padding: 0.25rem 1rem;
-            color: var(--yellow-color);
-            text-shadow: -1px 0 black;
-            font-size: 3.5rem;
-            text-align: center;
-        }
-
-        td {
-            margin: 0.25rem;
-            color: var(--white-color);
-            text-shadow: -1px 0 black;
-            font-size: 2rem;
-        }
-
-        @media only screen and (max-width: 450px) {
-            thead th {
-                display: none;
-            }
-
-            td {
-                display: block;
-                font-size: 1.35rem;
-            }
-
-            td:first-child {
-                color: var(--yellow-color);
-                font-size: xx-large;
-            }
-        }
+    th,
+    td {
+      margin: 0.75rem;
+      padding: 0.25rem 1rem;
+      color: var(--yellow-color);
+      text-shadow: -1px 0 black;
+      font-size: 3.5rem;
+      text-align: center;
     }
 
-    button {
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--secondary-color);
-        font-weight: 500;
-        font-size: 2rem;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        outline: none;
-        margin: 2rem 0 0 0;
-        font-family: var(--font-base);
-        cursor: pointer;
-    }
-    
-    .delete-button {
-        padding: 0.3rem 0.75rem;
-        border-radius: 10px;
-        border: none;
-        background-color: red;
-        font-weight: 500;
-        font-size: 1.5rem;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        outline: none;
-        margin: 1rem;
-        font-family: var(--font-base);
-        cursor: pointer;
+    td {
+      margin: 0.25rem;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      font-size: 2rem;
     }
 
-    .edit-button {
-        padding: 0.3rem 0.75rem;
-        border-radius: 10px;
-        border: none;
-        background-color: #6495ED;
-        font-weight: 500;
-        font-size: 1.5rem;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        outline: none;
-        margin: 1rem;
-        font-family: var(--font-base);
-        cursor: pointer;
+    @media only screen and (max-width: 450px) {
+      thead th {
+        display: none;
+      }
+
+      td {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      td:first-child {
+        color: var(--yellow-color);
+        font-size: xx-large;
+      }
     }
+  }
+
+  button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    outline: none;
+    margin: 2rem 0 0 0;
+    font-family: var(--font-base);
+    cursor: pointer;
+  }
+
+  .delete-button {
+    padding: 0.3rem 0.75rem;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    outline: none;
+    margin: 1rem;
+    font-family: var(--font-base);
+    cursor: pointer;
+  }
+
+  .edit-button {
+    padding: 0.3rem 0.75rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #6495ed;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    outline: none;
+    margin: 1rem;
+    font-family: var(--font-base);
+    cursor: pointer;
+  }
 }

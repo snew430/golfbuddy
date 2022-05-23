@@ -66,11 +66,16 @@ const SignUp = () => {
     } catch (err) {
       console.error(err);
     }
-    // client.create(contact)
-    // .then(() => {
-    //   setLoading(false);
-    //   setIsFormSubmitted(true);
-    // })
+
+    setformData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      preferredRoomate: "",
+      lodging: "",
+    });
+    // Need to remove from local storage
   };
   return (
     <div id="signUp">
@@ -159,10 +164,6 @@ const SignUp = () => {
               {"Golf Only"}
             </button>
           </div>
-
-          {/* <div className='button_list'>
-      
-        </div> */}
 
           {lodging === "Double" ? (
             <>

@@ -62,20 +62,26 @@ const Master = ({ players }) => {
             <td>
               {player.firstName} {player.lastName}
             </td>
-            <td>{player.email}</td>
-            <td>{player.phoneNumber}</td>
-            <button
-              className="delete-button"
-              onClick={() => handleDeletePlayer(player._id)}
-            >
-              Delete
-            </button>
-            <button
-              className="edit-button"
-              onClick={() => handleEditPlayer(player._id)}
-            >
-              Edit
-            </button>
+            <td>
+              <a href={`mailto:${player.email}`}>{player.email}</a>
+            </td>
+            <td>
+              <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
+            </td>
+            <td>
+              <button
+                className="delete-button"
+                onClick={() => handleDeletePlayer(player._id)}
+              >
+                Delete
+              </button>
+              <button
+                className="edit-button"
+                onClick={() => handleEditPlayer(player._id)}
+              >
+                Edit
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
