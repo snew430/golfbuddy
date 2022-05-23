@@ -118,11 +118,29 @@ const resolvers = {
       }
     },
 
-    addPlayerToActiveTournament: async (parent, { player, tournament }) => {
-      const playerToAdd = await Player.findById(player);
+    addPlayerToActiveTournament: async (
+      parent,
+      {
+        tournamentId,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        preferredRoomate,
+        lodging,
+      }
+    ) => {
+      const playerToAdd = await Player.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        preferredRoomate: preferredRoomate,
+        lodging: lodging,
+      });
 
       const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+        { _id: tournamentId },
         {
           $push: {
             playersActive: playerToAdd,
@@ -161,11 +179,29 @@ const resolvers = {
       }
     },
 
-    addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
-      const playerToAdd = await Player.findById(player);
+    addPlayerToWaitlistTournament: async (
+      parent,
+      {
+        tournamentId,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        preferredRoomate,
+        lodging,
+      }
+    ) => {
+      const playerToAdd = await Player.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        preferredRoomate: preferredRoomate,
+        lodging: lodging,
+      });
 
       const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+        { _id: tournamentId },
         {
           $push: {
             playersWaitlist: playerToAdd,

@@ -23,9 +23,7 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     }
 
     try {
-      console.log("click");
       if (status === "active") {
-        console.log("active");
         await deleteActive({
           variables: { tournament, player },
         });
