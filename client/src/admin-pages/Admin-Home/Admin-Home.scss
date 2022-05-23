@@ -2,7 +2,8 @@
     background: url("../../assets/images/golf_course_sky2.jpg");
     background-size: cover;
     background-position: center;
-
+    height: 100vh;
+  
     .head-text-home {
         padding-top: 7rem;
         font-size: 9rem;
@@ -31,7 +32,7 @@
         color: var(--white-color);
         text-shadow: -1px 0 black;
         outline: none;
-        margin: 2rem 0 0 0;
+        margin: 2rem;
         font-family: var(--font-base);
         cursor: pointer;
     }

@@ -1,13 +1,12 @@
 #playerList {
-  background-image: url("../../assets/images/bucket_of_balls.jpg");
+  background: url("../../assets/images/bucket_of_balls.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
+  height: 100vh;
 
   .background {
     background-color: rgba(4, 57, 39, 0.8);
-    height: 100%;
   }
 
   .head-text {
@@ -19,7 +18,7 @@
     text-shadow: -2px 0 black;
 
     @media screen and (max-width: 1250px) {
-      font-size: 4rem;
+      font-size: 3.75rem;
     }
 
     @media screen and (max-width: 450px) {
@@ -36,7 +35,7 @@
     text-shadow: -2px 0 black;
 
     @media screen and (max-width: 1250px) {
-      font-size: 4rem;
+      font-size: 3.75rem;
     }
 
     @media screen and (max-width: 450px) {
@@ -48,21 +47,34 @@
     display: flex;
     justify-content: space-evenly;
 
-    th,
-    td {
+    table { 
+      table-layout:fixed;
+    }
+
+    th, td {
       margin: 0.5rem;
-      padding: 0.25rem 1rem;
+      padding: 0.25rem 0.65rem;
       color: var(--yellow-color);
       text-shadow: -1px 0 black;
       font-size: 2.5rem;
       text-align: center;
     }
 
-    td {
+    td, a {
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
       font-size: 2rem;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width: 1650px) {
+      th {
+        font-size: 2rem;
+      }
+      td {
+        font-size: 1.6rem;
+      }
     }
 
     @media only screen and (max-width: 1250px) {
@@ -156,5 +168,13 @@
     margin: 1rem;
     font-family: var(--font-base);
     cursor: pointer;
+  }
+
+  
+  @media screen and (max-width: 800px) {
+    background: url("../../assets/images/bucket_of_balls.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
   }
 }
