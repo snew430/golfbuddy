@@ -11,42 +11,30 @@ const Message = () => {
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
 
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // const handleSendTourneyPlayers = () => {
+  //   setLoading(true);
+
+  // };
+
+  // const handleSendMasterList = () => {
+  //   setLoading(true);
+
+  // };
+
   if (!loggedIn) {
     return (
       <div>
-        You need to log in first. Dont cheat to look at something you're not
+        You need to log in first. Don't cheat by looking at something you're not
         supposed to. <br />
         Makes me think you cheat at golf too
       </div>
     );
   }
-
-  // const handleSubmit = () => {
-  //     setLoading(true);
-
-  //     let transporter = nodemailer.createTransport({
-  //         service: "gmail",
-  //         auth: {
-  //           user: 'whatsmyteetime@gmail.com',
-  //           pass: 'What$myt33time',
-  //         },
-  //       });
-
-  //       let mailOptions = {
-  //         from: 'whatsmyteetime@gmail.com',
-  //         to: dbUserData.email,
-  //         subject: formData.subject,
-  //         text: formData.message,
-  //       };
-
-  //       transporter.sendMail(mailOptions, function (err, data) {
-  //         if (err) {
-  //           console.log("Error occured", err);
-  //         } else {
-  //           console.log("Email Sent");
-  //         }
-  //       });
-  //     };
 
   return (
     <div id="message">
@@ -60,8 +48,9 @@ const Message = () => {
                   className="p-text"
                   type="email"
                   placeholder="Subject"
-                  name="email"
+                  name="subject"
                   value={subject}
+                  onChange={handleChangeInput}
                 />
               </div>
               <div>
@@ -70,10 +59,20 @@ const Message = () => {
                   placeholder="Your Message"
                   value={message}
                   name="message"
+                  onChange={handleChangeInput}
                 />
               </div>
-              <button type="button">
-                {!loading ? "Send Message" : "Sending..."}
+              <button 
+                type="button"
+                // onClick={handleSendTourneyPlayers}
+              >
+                {!loading ? "Send Message to Tournament Players" : "Sending..."}
+              </button>
+              <button 
+                type="button"
+                // onClick={handleSendMasterList}
+              >
+                {!loading ? "Send Message to Master List" : "Sending..."}
               </button>
             </div>
           </div>

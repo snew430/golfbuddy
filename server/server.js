@@ -7,7 +7,6 @@ const db = require("./config/connection");
 require("./config/seed");
 
 
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 

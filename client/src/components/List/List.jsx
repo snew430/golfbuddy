@@ -1,7 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import {
-  DELETE_PLAYER,
   UPDATE_PLAYER,
   REMOVE_ACTIVE_PLAYER,
   REMOVE_WAITLIST_PLAYER,
@@ -9,7 +8,7 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
-const List = ({ players, status }) => {
+const List = ({ players, status, tournament, refetchPlayers }) => {
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
   const [deleteActive] = useMutation(REMOVE_ACTIVE_PLAYER);
   const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
@@ -17,26 +16,27 @@ const List = ({ players, status }) => {
   console.log(players);
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
-  const handleDeletePlayer = async (playerId, status) => {
+  const handleDeletePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return;
     }
-
+    console.log(player, tournament);
     try {
       console.log("click")
       if (status === "active") {
         console.log("active");
         await deleteActive({
-          variables: { playerId },
+          variables: { tournament, player },
         });
       } else if (status === "waitlist") {
         await deleteWaitlist({
-          variables: { playerId },
+          variables: { tournament, player },
         });
       }
       // upon success, remove player's id from localStorage
-      removePlayerId(playerId);
+      removePlayerId(player);
+      refetchPlayers();
     } catch (err) {
       console.error(err);
     }
@@ -70,8 +70,8 @@ const List = ({ players, status }) => {
           <th>Name</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>Accomodations</th>
-          <th>Roommate Preference</th>
+          <th>Lodging</th>
+          <th>Roommate</th>
         </tr>
       </thead>
       <tbody>
@@ -84,18 +84,20 @@ const List = ({ players, status }) => {
             <td>{player.phoneNumber}</td>
             <td>{player.lodging}</td>
             <td>{player.preferredRoomate}</td>
-            <button
-              className="delete-button"
-              onClick={() => handleDeletePlayer(player.playerId, status)}
-            >
-              Delete
-            </button>
-            <button
-              className="edit-button"
-              onClick={() => handleEditPlayer(player.playerId)}
-            >
-              Edit
-            </button>
+            <div className="app__flex">
+              <button
+                className="delete-button"
+                onClick={() => handleDeletePlayer(player._id, status)}
+              >
+                Delete
+              </button>
+              <button
+                className="edit-button"
+                onClick={() => handleEditPlayer(player._id)}
+              >
+                Edit
+              </button>
+            </div>
           </tr>
         ))}
       </tbody>

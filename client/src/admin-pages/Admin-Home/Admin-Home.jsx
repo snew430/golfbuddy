@@ -34,6 +34,11 @@ const AdminHome = () => {
           <button>Master List</button>
         </Link>
       </div>
+      <div className="app__flex">
+        <Link to="../Message">
+          <button>Email the Players</button>
+        </Link>
+      </div>
     </div>
   );
 };

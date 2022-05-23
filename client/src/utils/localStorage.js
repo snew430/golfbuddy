@@ -15,7 +15,7 @@ export const savePlayerIds = (playerIdArr) => {
 };
 
 export const removePlayerId = (playerId) => {
-    const savedPlayerIds = localStorage.getItem('saved_players')
+    const savePlayerIds = localStorage.getItem('saved_players')
       ? JSON.parse(localStorage.getItem('saved_players'))
       : null;
   

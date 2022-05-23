@@ -24,7 +24,7 @@ const Tournament = () => {
 
         <div className="app__flex">
           <Link to="../SignUp">
-            <button>Sign Up for this Trip</button>
+            <button>Sign Up for this Tournament</button>
           </Link>
         </div>
 
@@ -65,11 +65,11 @@ const Tournament = () => {
           We are looking forward to a great trip, and hope you will join us!
         </p>
 
-        <div className="app__flex">
+        {/* <div className="app__flex">
           <Link to="../Administration">
             <button className="administrator">Administrator</button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

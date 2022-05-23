@@ -11,8 +11,11 @@ db.once("open", async () => {
   const admin = await Admin.create({
     email: process.env.EMAIL,
     password: process.env.PASS,
-  });
 
+  });
+  console.log(process.env.EMAIL);
+  console.log(process.env.PASS);
+  console.log(admin);
   const course1 = await Course.create({
     name: "Alpine Lake",
     address: "123 Alpine Road",
