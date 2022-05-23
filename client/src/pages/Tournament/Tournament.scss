@@ -72,6 +72,8 @@
     p, a {
         font-size: 2.25rem;
         padding: 0.25rem;
+        
+      
     
         @media screen and (max-width: 900px) {
             font-size: 2.75rem;
@@ -81,6 +83,13 @@
             font-size: 2.25rem;
         }
     }
+
+    a {
+        &:hover {
+            color: var(--secondary-color);
+          }
+    }
+    
 
     
     .info-text {
