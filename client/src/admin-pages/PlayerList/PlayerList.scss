@@ -1,9 +1,8 @@
 #playerList {
-  background-image: url("../../assets/images/bucket_of_balls.jpg");
+  background: url("../../assets/images/bucket_of_balls.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  height: 100vh;
 
   .background {
     background-color: rgba(4, 57, 39, 0.8);
@@ -58,11 +57,12 @@
       text-align: center;
     }
 
-    td {
+    td, a {
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
       font-size: 2rem;
+      text-decoration: none;
     }
 
     @media only screen and (max-width: 1250px) {
@@ -156,5 +156,13 @@
     margin: 1rem;
     font-family: var(--font-base);
     cursor: pointer;
+  }
+
+  
+  @media screen and (max-height: 800px) {
+    background: url("../../assets/images/bucket_of_balls.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
   }
 }

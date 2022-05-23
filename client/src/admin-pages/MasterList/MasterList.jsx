@@ -19,9 +19,9 @@ const MasterList = () => {
   if (!loggedIn) {
     return (
       <div>
-        You need to log in first. Dont cheat to look at something you're not
+        You need to log in first. Don't cheat by looking at something you're not
         supposed to. <br />
-        Makes me think you cheat at golf too
+        Makes me think you cheat at golf too...
       </div>
     );
   }
