@@ -2,19 +2,12 @@ import React from "react";
 import "./Tournament.scss";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_TOURNAMENTS, QUERY_PLAYERS } from "../../utils/queries";
+import { QUERY_TOURNAMENTS } from "../../utils/queries";
 
 const Tournament = () => {
-  //const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
   const { data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
-  const { data: playerData } = useQuery(QUERY_PLAYERS);
-
   const tournament = tournamentData?.tournaments[0] || []; 
-  const players = playerData?.players || [];
-
-  //console.log(basicTourney);
   console.log(tournament);
-  console.log('players:', players);
 
   return (
     <div id="tournament">
@@ -32,17 +25,17 @@ const Tournament = () => {
           <div>
             <h4>We are staying at <br/> {tournament.hotels[0].name}</h4>
             <p>{tournament.hotels[0].address}</p> 
-            <a href="{hotel.website}">{tournament.hotels[0].website}</a> 
+            <p><a href="{hotel.website}">{tournament.hotels[0].website}</a></p>
             <p>Price for Single Room: ${tournament.singlePrice}</p>
             <p>Price for Double Room: ${tournament.doublePrice}</p>
             <p>Golf Only Price: ${tournament.golfOnlyPrice}</p>
           </div>
           <div>
             <h4>Courses</h4>
-            <p>Day One: {tournament.courses[0].name}</p>
-            <p>Day Two: {tournament.courses[1].name}</p>
-            <p>Day Three: {tournament.courses[2].name}</p>
-            <p>Day Four: {tournament.courses[0].name}</p>
+            <p>Day One: <br /> {tournament.courses[0].name}</p>
+            <p>Day Two: <br /> {tournament.courses[1].name}</p>
+            <p>Day Three: <br /> {tournament.courses[2].name}</p>
+            <p>Day Four: <br /> {tournament.courses[0].name}</p> 
           </div>
         </div>
 
@@ -65,11 +58,6 @@ const Tournament = () => {
           We are looking forward to a great trip, and hope you will join us!
         </p>
 
-        {/* <div className="app__flex">
-          <Link to="../Administration">
-            <button className="administrator">Administrator</button>
-          </Link>
-        </div> */}
       </div>
     </div>
   );
