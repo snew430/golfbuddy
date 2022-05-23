@@ -51,7 +51,10 @@ const Administration = () => {
       <h2 className="head-text">
         If You are a Website Administrator, <br /> Please Use This Page to Login
       </h2>
-      {error && <span className="ml-2">Wrong credentials, try again</span>}
+      {error && 
+        <div className="app__flex">
+          <p className="invalid-text">Invalid Credentials <br /> Please Try Again</p>
+        </div>}
       <div className="app__flex">
         <form onSubmit={handleFormSubmit}>
           <input
@@ -71,7 +74,6 @@ const Administration = () => {
           <button type="submit">Login</button>
         </form>
       </div>
-      {error && <div>Login failed</div>}
     </div>
   );
 };
