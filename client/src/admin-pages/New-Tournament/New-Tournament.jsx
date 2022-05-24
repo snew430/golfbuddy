@@ -109,10 +109,6 @@ const NewTournament = () => {
     <div id="newTournament">
       <h2 className="head-text">Create New Tournament</h2>
 
-<<<<<<< HEAD
-      
-          <input type='text' placeholder='End Date' name='endDate' value={endDate} onChange={handleChangeInput} />
-=======
       {!isFormSubmitted ? (
         <div className="app__newTourmament-form">
           <input
@@ -122,7 +118,6 @@ const NewTournament = () => {
             value={name}
             onChange={handleChangeInput}
           />
->>>>>>> 99369e1a211ec3babe3f08d1e6702640dab39319
 
           <input
             type="text"
@@ -148,10 +143,6 @@ const NewTournament = () => {
             onChange={handleChangeInput}
           />
 
-<<<<<<< HEAD
-      
-          <input type='text' placeholder='Payment Due Date' name='payment' value={payment} onChange={handleChangeInput} />
-=======
           <input
             type="text"
             placeholder="Hotel"
@@ -159,7 +150,6 @@ const NewTournament = () => {
             value={hotels}
             onChange={handleChangeInput}
           />
->>>>>>> 99369e1a211ec3babe3f08d1e6702640dab39319
 
           <input
             type="text"
@@ -169,23 +159,6 @@ const NewTournament = () => {
             onChange={handleChangeInput}
           />
 
-<<<<<<< HEAD
-      
-          <input type='text' placeholder='Golf Only Price' name='golfOnly' value={golfOnly} onChange={handleChangeInput} />
-      
-        
-     
-    <div className='app__flex'>
-      <button type='button' className='submitBtn' onClick={handleSubmit}>{loading ? 'Creating Tournament' : 'Create Tournament'}</button>
-    </div>
-    
-    </div>
-    : 
-    <div>
-      <h3 className='head-text'>See You On The Course!</h3>
-    </div>
-    }
-=======
           <input
             type="text"
             placeholder="Maximum Players"
@@ -229,7 +202,6 @@ const NewTournament = () => {
           <h3 className="head-text">See You On The Course!</h3>
         </div>
       )}
->>>>>>> 99369e1a211ec3babe3f08d1e6702640dab39319
     </div>
   );
 };
