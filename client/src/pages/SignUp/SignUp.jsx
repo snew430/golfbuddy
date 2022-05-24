@@ -37,7 +37,6 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
-    console.log(status);
     const tournamentId = tournament._id;
     if (status === "active") {
       try {
@@ -85,7 +84,7 @@ const SignUp = () => {
     setIsFormSubmitted(true);
   };
 
-  console.log(activePlayerCount, maxPlayers);
+
   return (
     <div id="signUp">
       <h2 className="head-text">Sign Up For</h2>

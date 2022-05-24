@@ -25,8 +25,6 @@ const Modal = ({ player, onClose }) => {
   const handleSubmit = async () => {
     const id = player._id;
 
-    console.log(formData);
-
     try {
       updatePlayer({
         variables: {
