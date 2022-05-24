@@ -5,8 +5,10 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
 
 const Tournament = () => {
+
   const { loading, data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
   const tournament = tournamentData?.tournaments[0] || [];
+
   console.log(tournament);
 
   if (loading) {
@@ -27,7 +29,7 @@ const Tournament = () => {
           </Link>
         </div>
 
-        <div className="trip-details">
+         <div className="trip-details">
           <div>
             <h4>
               We are staying at <br /> {tournament.hotels[0].name}
@@ -55,7 +57,7 @@ const Tournament = () => {
               Day Four: <br /> {tournament.courses[0].name}
             </p>
           </div>
-        </div>
+        </div> 
 
         <h4>All payments are due: {tournament.paymentDue} </h4>
 
