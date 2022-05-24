@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.scss";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_BASIC_TOURNAMENTS } from "../../utils/queries";
-import { ADD_ACTIVE_PLAYER } from "../../utils/mutations";
+import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
 
 //add player and add player to tournament
 
@@ -17,14 +17,16 @@ const SignUp = () => {
     preferredRoomate: "",
     lodging: "",
   });
-  // ???????????
+
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
+  const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
   const tournament = basicTourney?.tournaments[0] || [];
+
+  const { activePlayerCount, maxPlayers } = tournament;
 
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
@@ -34,26 +36,41 @@ const SignUp = () => {
     setformData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
-    // ????????
-    setLoading(true);
-
+  const handleSubmit = async (status) => {
+    console.log(status);
     const tournamentId = tournament._id;
-
-    try {
-      addPlayer({
-        variables: {
-          tournamentId,
-          firstName,
-          lastName,
-          email,
-          phoneNumber,
-          preferredRoomate,
-          lodging,
-        },
-      });
-    } catch (err) {
-      console.error(err);
+    if (status === "active") {
+      try {
+        addPlayer({
+          variables: {
+            tournamentId,
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            preferredRoomate,
+            lodging,
+          },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      try {
+        addWaitlistPlayer({
+          variables: {
+            tournamentId,
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            preferredRoomate,
+            lodging,
+          },
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     setformData({
@@ -67,6 +84,8 @@ const SignUp = () => {
     // Need to remove from local storage
     setIsFormSubmitted(true);
   };
+
+  console.log(activePlayerCount, maxPlayers);
   return (
     <div id="signUp">
       <h2 className="head-text">Sign Up For</h2>
@@ -172,8 +191,21 @@ const SignUp = () => {
           )}
 
           <div className="app__flex">
-            <button type="button" className="submitBtn" onClick={handleSubmit}>
-              {loading ? "Signing Up For Trip" : "Sign Up For Trip"}
+            {activePlayerCount < maxPlayers && (
+              <button
+                type="button"
+                className="submitBtn"
+                onClick={() => handleSubmit("active")}
+              >
+                Signup For Tournament
+              </button>
+            )}
+            <button
+              type="button"
+              className="submitBtn"
+              onClick={() => handleSubmit("waitlist")}
+            >
+              Go To Waitlist
             </button>
           </div>
         </div>

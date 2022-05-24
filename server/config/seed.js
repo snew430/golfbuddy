@@ -80,7 +80,7 @@ db.once("open", async () => {
     golfOnlyPrice: 50,
     courses: [course1, course2, course3],
     hotels: [hotel1],
-    maxPlayers: 40,
+    maxPlayers: 30,
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],
   });
