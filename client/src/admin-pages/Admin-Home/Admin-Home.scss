@@ -1,21 +1,19 @@
 #adminHome {
-    padding: 6rem 2rem 0rem;
-
     background: url("../../assets/images/golf_course_sky2.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
-
+  
     .head-text-home {
-        padding-top: 4rem;
+        padding-top: 7rem;
         font-size: 9rem;
         font-weight: 800;
         text-align: center;
         color: var(--white-color);
-        background-color: rgba(105, 105, 105, 0.15);
+        background-color: rgba(105, 105, 105, 0.10);
         text-shadow: -2px 0 black;
     
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 920px) {
             font-size: 6rem;
         }
     
@@ -34,15 +32,8 @@
         color: var(--white-color);
         text-shadow: -1px 0 black;
         outline: none;
-        margin: 2rem 0 0 0;
+        margin: 2rem;
         font-family: var(--font-base);
         cursor: pointer;
-    }
-    @media screen and (max-width: 900px) {
-        width: 100%;
-        background: url("../../assets/images/golf_ball_green_center.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
     }
 }

@@ -5,12 +5,10 @@ const typeDefs = gql`
     _id: ID
     email: String
   }
-
   type Auth {
     token: ID!
     admin: Admin
   }
-
   type Player {
     _id: ID
     firstName: String
@@ -18,23 +16,20 @@ const typeDefs = gql`
     email: String
     phoneNumber: String
     preferredRoomate: String
-    lodging: Int
+    lodging: String
   }
-
   type Course {
     _id: ID
     name: String
     address: String
     website: String
   }
-
   type Hotel {
     _id: ID
     name: String
     address: String
     website: String
   }
-
   type Tournament {
     _id: ID
     name: String
@@ -62,32 +57,26 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-
     addPlayer(
       firstName: String!
       lastName: String!
       email: String!
-      phoneNumber: Int!
-      lodging: Int!
+      phoneNumber: String!
+      lodging: String!
       preferredRoomate: String
     ): Player
-
     updatePlayer(
       id: ID!
-      firstName: String
-      lastName: String
-      email: String
-      phoneNumber: Int
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
       preferredRoomate: String
-      lodging: Int
+      lodging: String!
     ): Player
-
     deletePlayer(id: ID!): Player
-
     addCourse(name: String!, address: String!, website: String!): Course
-
     addHotel(name: String!, address: String!, website: String!): Hotel
-
     addTournament(
       name: String!
       startDate: String!
@@ -110,16 +99,33 @@ const typeDefs = gql`
       doublePrice: Int
       golfOnlyPrice: Int
     ): Tournament
-
     deleteTournament(id: ID!): Tournament
 
-    addPlayerToActiveTournament(player: ID!, tournament: ID!): Tournament
+    addPlayerToActiveTournament(
+      tournamentId: ID!
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
+      preferredRoomate: String
+      lodging: String!
+    ): Tournament
 
     removeActivePlayer(player: ID!, tournament: ID!): Tournament
+    addCurrentPlayerToActive(player: ID!, tournament: ID!): Tournament
 
-    addPlayerToWaitlistTournament(player: ID!, tournament: ID!): Tournament
+    addPlayerToWaitlistTournament(
+      tournamentId: ID!
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
+      preferredRoomate: String
+      lodging: String!
+    ): Tournament
 
     removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+    addCurrentPlayerToWaitlist(player: ID!, tournament: ID!): Tournament
 
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
 
@@ -128,6 +134,8 @@ const typeDefs = gql`
     addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
 
     removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
+
+    sendMessage(recipients: String!, subject: String!, message: String!): Admin
   }
 `;
 

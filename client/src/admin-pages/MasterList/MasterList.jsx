@@ -1,46 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MasterList.scss";
-import { RiDeleteBin5Fill } from "react-icons/ri";
-import { FiEdit } from "react-icons/fi";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import Master from "../../components/Master/Master";
+import { useQuery } from "@apollo/react-hooks";
+
 import { QUERY_PLAYERS } from "../../utils/queries";
-import { DELETE_PLAYER, UPDATE_PLAYER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
-
 const MasterList = () => {
-  const { loading, data: playerData } = useQuery(QUERY_PLAYERS);
-  // const [deletePlayer] = useMutation(DELETE_PLAYER);
-  // const [updatePlayer] = useMutation(UPDATE_PLAYER);
+  const { data: playerData } = useQuery(QUERY_PLAYERS);
 
-  // const players = playerData?.query.players || [];
-  console.log(loading);
-  console.log(playerData);
-    const loggedIn = Auth.loggedIn();
+  const players = playerData?.players || [];
+
+  const loggedIn = Auth.loggedIn();
+
+  if (!loggedIn) {
+    return (
+      <div>
+        You need to log in first. Don't cheat by looking at something you're not
+        supposed to. <br />
+        Makes me think you cheat at golf too...
+      </div>
+    );
+  }
 
   return (
     <div id="masterList">
       <div className="background">
         <h2 className="head-text">Master List</h2>
         <div className="master-list">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* <tr>
-                <td>
-                  caroline{players.firstName} {players.lastName}
-                </td>
-                <td>email{players.email}</td>
-                <td>555555555{players.phoneNumber}</td>
-              </tr> */}
-            </tbody>
-          </table>
+          <Master players={players} />
+        </div>
+        <div className="app__flex">
+          <Link to="../Message">
+            <button>Email the Players</button>
+          </Link>
         </div>
       </div>
     </div>

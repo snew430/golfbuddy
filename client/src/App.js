@@ -1,11 +1,15 @@
 import React from "react";
+import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Auth from './utils/auth';
+
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+
 import { setContext } from "@apollo/client/link/context";
 
 import {
@@ -16,15 +20,16 @@ import {
   Home,
   Administration,
 } from "./pages";
+
 import {
   PlayerList,
   MasterList,
   NewTournament,
   AdminHome,
+  Message,
 } from "./admin-pages";
 
-import { Nav } from "./components";
-import "./App.scss";
+import { Nav, AdminNav } from "./components";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -40,19 +45,23 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
-
 function App() {
+  const loggedIn = Auth.loggedIn();
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="app">
-          <Nav />
+          {loggedIn ? (
+            <AdminNav />
+          ) : (
+            <Nav />
+          )}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -66,6 +75,7 @@ function App() {
             <Route path="/tourney" element={<Tournament />} />
             <Route path="/new-tournament" element={<NewTournament />} />
             <Route path="/administrationhome" element={<AdminHome />} />
+            <Route path="/message" element={<Message />} />
             {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </div>

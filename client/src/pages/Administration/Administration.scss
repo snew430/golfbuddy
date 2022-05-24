@@ -3,9 +3,8 @@
 
     background: url("../../assets/images/sand_trap.jpg");
     background-size: cover;
-    background-position: right;
+    background-position: center;
     height: 100vh;
-
 
     .head-text {
         padding-top: 4rem;
@@ -23,6 +22,18 @@
         @media screen and (max-width: 450px) {
             font-size: 3rem;
         }
+    }
+
+    .invalid-text {
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+        text-justify: inter-word;
+        padding: 0.5rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        background-color: rgba(30, 30, 30, 0.25);
+        line-height: 1.5;
     }
 
     form {
@@ -54,8 +65,15 @@
         color: var(--white-color);
         text-shadow: -1px 0 black;
         outline: none;
+        margin: 2rem;
         font-family: var(--font-base);
         cursor: pointer;
     }
-    
+
+    @media screen and (max-height: 800px) {
+        background: url("../../assets/images/sand_trap.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+    }
 }

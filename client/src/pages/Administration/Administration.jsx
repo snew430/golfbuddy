@@ -8,6 +8,7 @@ import { LOGIN_USER } from "../../utils/mutations";
 const Administration = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
+  const loggedIn = Auth.loggedIn();
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -29,7 +30,6 @@ const Administration = () => {
       });
 
       Auth.login(data.login.token);
-      console.log("LOGGED IN")
     } catch (e) {
       console.error(e);
     }
@@ -41,11 +41,19 @@ const Administration = () => {
     });
   };
 
+  if (loggedIn) {
+    window.location.assign("/administrationhome");
+  }
+
   return (
     <div id="administration">
       <h2 className="head-text">
-        If you are a website administrator, <br /> please use this page to login
+        If You are a Website Administrator, <br /> Please Use This Page to Login
       </h2>
+      {error && 
+        <div className="app__flex">
+          <p className="invalid-text">Invalid Credentials <br /> Please Try Again</p>
+        </div>}
       <div className="app__flex">
         <form onSubmit={handleFormSubmit}>
           <input
@@ -65,7 +73,6 @@ const Administration = () => {
           <button type="submit">Login</button>
         </form>
       </div>
-      {error && <div>Login failed</div>}
     </div>
   );
 };

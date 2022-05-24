@@ -1,6 +1,10 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Admin, Player, Course, Hotel, Tournament } = require("../models");
 const { signToken } = require("../utils/auth");
+
+require("dotenv").config();
+let nodemailer = require("nodemailer");
+
 const resolvers = {
   Query: {
     players: async () => {
@@ -56,6 +60,7 @@ const resolvers = {
       if (context.user) {
         return await Player.findByIdAndUpdate(args.id, args, {
           new: true,
+          runValidators: true,
         });
       }
       throw new AuthenticationError("Not logged in");
@@ -102,6 +107,7 @@ const resolvers = {
       if (context.user) {
         return await Tournament.findByIdAndUpdate(args.id, args, {
           new: true,
+          runValidators: true,
         });
       }
       throw new AuthenticationError("Not logged in");
@@ -114,17 +120,35 @@ const resolvers = {
       }
     },
 
-    addPlayerToActiveTournament: async (parent, { player, tournament }) => {
-      const playerToAdd = await Player.findById(player);
+    addPlayerToActiveTournament: async (
+      parent,
+      {
+        tournamentId,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        preferredRoomate,
+        lodging,
+      }
+    ) => {
+      const playerToAdd = await Player.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        preferredRoomate: preferredRoomate,
+        lodging: lodging,
+      });
 
       const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+        { _id: tournamentId },
         {
           $push: {
             playersActive: playerToAdd,
           },
         },
-        { new: true }
+        { new: true, runValidators: true }
       )
         .populate("courses")
         .populate("hotels")
@@ -134,11 +158,11 @@ const resolvers = {
       return updatedTournament;
     },
 
-    removeActivePlayer: async (parent, { player, tournament }) => {
+    addCurrentPlayerToActive: async (parent, { player, tournament }) => {
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
-          $pull: {
+          $push: {
             playersActive: { _id: player },
           },
         },
@@ -152,14 +176,72 @@ const resolvers = {
       return updatedTournament;
     },
 
-    addPlayerToWaitlistTournament: async (parent, { player, tournament }) => {
-      const playerToAdd = await Player.findById(player);
+    removeActivePlayer: async (parent, { player, tournament }) => {
+      try {
+        const updatedTournament = await Tournament.findOneAndUpdate(
+          { _id: tournament },
+          {
+            $pull: {
+              playersActive: { $in: [player] },
+            },
+          },
+          { new: true }
+        )
+          .populate("courses")
+          .populate("hotels")
+          .populate("playersActive")
+          .populate("playersWaitlist");
 
+        return updatedTournament;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    addPlayerToWaitlistTournament: async (
+      parent,
+      {
+        tournamentId,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        preferredRoomate,
+        lodging,
+      }
+    ) => {
+      const playerToAdd = await Player.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        preferredRoomate: preferredRoomate,
+        lodging: lodging,
+      });
+
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournamentId },
+        {
+          $push: {
+            playersWaitlist: playerToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    addCurrentPlayerToWaitlist: async (parent, { player, tournament }) => {
       const updatedTournament = await Tournament.findOneAndUpdate(
         { _id: tournament },
         {
           $push: {
-            playersWaitlist: playerToAdd,
+            playersWaitlist: { _id: player },
           },
         },
         { new: true }
@@ -264,6 +346,41 @@ const resolvers = {
         .populate("playersWaitlist");
 
       return updatedTournament;
+    },
+
+    sendMessage: async (parent, { recipients, subject, message }) => {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.PASS,
+        },
+      });
+
+      // verifying the connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Server is ready to take our messages!");
+        }
+      });
+
+      const mail = {
+        from: process.env.EMAIL,
+        to: recipients,
+        subject: subject,
+        text: message,
+      };
+
+      transporter.sendMail(mail, (err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("success");
+        }
+      });
+      return Admin;
     },
   },
 };

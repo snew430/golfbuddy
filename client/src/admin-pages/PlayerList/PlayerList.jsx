@@ -1,77 +1,55 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./PlayerList.scss";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import List from "../../components/List/List";
 
-import {
-  QUERY_ACTIVE_PLAYERS,
-  QUERY_WAITLIST_PLAYERS,
-  QUERY_TOURNAMENTS,
-} from "../../utils/queries";
+import { useQuery } from "@apollo/react-hooks";
+
+import { QUERY_TOURNAMENTS } from "../../utils/queries";
+
 import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-  const { loading: loadTourney, data: tournamentData } =
-    useQuery(QUERY_TOURNAMENTS);
-  const { data: activePlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
-  const { data: waitlistPlayers } = useQuery(QUERY_WAITLIST_PLAYERS);
+  const { data: tournamentData, refetch } = useQuery(QUERY_TOURNAMENTS);
+
+  const tournament = tournamentData?.tournaments[0] || [];
+
   const loggedIn = Auth.loggedIn();
 
-  console.log(loadTourney);
-  console.log(tournamentData);
-  console.log(activePlayers);
-  console.log(waitlistPlayers);
+  if (!loggedIn) {
+    return (
+      <div>
+        You need to log in first. Don't cheat by looking at something you're not
+        supposed to. <br />
+        Makes me think you cheat at golf too...
+      </div>
+    );
+  }
   return (
     <div id="playerList">
       <div className="background">
-        {/* <h2 className="head-text">Players Going to {tournament.name}</h2> */}
+        <h2 className="head-text">Players Going to {tournament.name}</h2>
         <div className="player-list">
-          {/* <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Accomodations</th>
-                <th>Roommate Preference</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {players.firstName} {players.lastName}
-                </td>
-                <td>{players.email}</td>
-                <td>{players.phoneNumber}</td>
-                <td>{players.lodging}</td>
-                <td>{players.preferredRoomate}</td>
-              </tr>
-            </tbody>
-          </table>
+          <List
+            players={tournament.playersActive}
+            status={"active"}
+            tournament={tournament._id}
+            refetchPlayers={refetch}
+          />
         </div>
-        <h2 className="head-text">Waitlisted Players</h2>
+        <h2 className="secondary-text">Waitlisted Players</h2>
         <div className="player-list">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Accomodations</th>
-                <th>Roommate Preference</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {players.firstName} {players.lastName}
-                </td>
-                <td>{players.email}</td>
-                <td>{players.phoneNumber}</td>
-                <td>{players.lodging}</td>
-                <td>{players.preferredRoomate}</td>
-              </tr>
-            </tbody>
-          </table> */}
+          <List
+            players={tournament.playersWaitlist}
+            status={"waitlist"}
+            tournament={tournament._id}
+            refetchPlayers={refetch}
+          />
+        </div>
+        <div className="app__flex">
+          <Link to="../Message">
+            <button>Email the Players</button>
+          </Link>
         </div>
       </div>
     </div>
