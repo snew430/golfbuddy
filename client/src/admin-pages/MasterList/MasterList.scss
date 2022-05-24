@@ -2,7 +2,6 @@
   background: url("../../assets/images/bucket_of_balls.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-x;
   height: 100vh;
 
   .background {
@@ -125,5 +124,12 @@
       margin: 1rem;
       font-family: var(--font-base);
       cursor: pointer;
+  }
+
+  @media screen and (max-width: 1250px) {
+    background: url("../../assets/images/bucket_of_balls.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;  
   }
 }

@@ -251,3 +251,15 @@ export const REMOVE_WAITLIST_PLAYER = gql`
     }
   }
 `;
+
+export const SEND_MESSAGE = gql`
+  mutation sendMessage(
+    $recipients: String!
+    $subject: String!
+    $message: String!
+  ) {
+    sendMessage(recipients: $recipients, subject: $subject, message: $message) {
+      _id
+    }
+  }
+`;
