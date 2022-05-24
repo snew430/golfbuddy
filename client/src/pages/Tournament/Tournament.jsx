@@ -9,7 +9,6 @@ const Tournament = () => {
   const { loading, data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
   const tournament = tournamentData?.tournaments[0] || [];
 
-  console.log(tournament);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -29,35 +28,38 @@ const Tournament = () => {
           </Link>
         </div>
 
-         <div className="trip-details">
-          <div>
-            <h4>
-              We are staying at <br /> {tournament.hotels[0].name}
-            </h4>
-            <p>{tournament.hotels[0].address}</p>
-            <p>
-              <a href="{hotel.website}">{tournament.hotels[0].website}</a>
-            </p>
-            <p>Price for Single Room: ${tournament.singlePrice}</p>
-            <p>Price for Double Room: ${tournament.doublePrice}</p>
-            <p>Golf Only Price: ${tournament.golfOnlyPrice}</p>
-          </div>
-          <div>
-            <h4>Courses</h4>
-            <p>
-              Day One: <br /> {tournament.courses[0].name}
-            </p>
-            <p>
-              Day Two: <br /> {tournament.courses[1].name}
-            </p>
-            <p>
-              Day Three: <br /> {tournament.courses[2].name}
-            </p>
-            <p>
-              Day Four: <br /> {tournament.courses[0].name}
-            </p>
-          </div>
-        </div> 
+
+        
+          <div className="trip-details">
+            <div>
+              <h4>
+                We are staying at <br /> {tournament.hotels[0].name}
+              </h4>
+              <p className="p-text">{tournament.hotels[0].address}</p>
+              <p className="p-text">
+                <a className="p-text" href="{hotel.website}">{tournament.hotels[0].website}</a>
+              </p>
+              <p className="p-text">Price for Single Room: ${tournament.singlePrice}</p>
+              <p className="p-text">Price for Double Room: ${tournament.doublePrice}</p>
+              <p className="p-text">Golf Only Price: ${tournament.golfOnlyPrice}</p>
+            </div>
+            <div>
+              <h4>Courses</h4>
+              <p className="p-text">
+                Day One: <br /> {tournament.courses[0].name}
+              </p>
+              <p className="p-text">
+                Day Two: <br /> {tournament.courses[1].name}
+              </p>
+              <p className="p-text">
+                Day Three: <br /> {tournament.courses[2].name}
+              </p>
+              <p className="p-text">
+                Day Four: <br /> {tournament.courses[0].name}
+              </p>
+            </div>
+        </div>
+
 
         <h4>All payments are due: {tournament.paymentDue} </h4>
 
