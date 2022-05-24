@@ -1,7 +1,7 @@
 import React from "react";
 import "./Tournament.scss";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
 
 const Tournament = () => {
