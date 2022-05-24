@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import './New-Tournament.scss';
 import Auth from "../../utils/auth";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_TOURNAMENT } from "../../utils/queries";
+import { QUERY_TOURNAMENTS } from "../../utils/queries";
 import { ADD_TOURNAMENT } from "../../utils/mutations";
 
 
@@ -12,18 +12,18 @@ const NewTournament = () => {
       name: '',
       startDate: '',
       endDate: '',
-      course: '',
-      hotel: '',
+      courses: '',
+      hotels: '',
       maxPlayers: '',
-      payment: '',
-      single: '',
-      double: '',
-      golfOnly: ''
+      paymentDue: '',
+      singlePrice: '',
+      doublePrice: '',
+      golfOnlyPrice: ''
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { data: newTournament } = useQuery(QUERY_TOURNAMENT);
+  const { data: newTournament } = useQuery(QUERY_TOURNAMENTS);
   const [addTournament] = useMutation(ADD_TOURNAMENT);
 
   const tournament = newTournament?.tournaments[0] || [];
@@ -34,8 +34,8 @@ const NewTournament = () => {
     name, 
     startDate, 
     endDate, 
-    // course, 
-    // hotel, 
+    courses, 
+    hotels, 
     paymentDue,
     maxPlayers,
     singlePrice, 
@@ -70,13 +70,13 @@ const NewTournament = () => {
       name: name,
       startDate: startDate,
       endDate: endDate,
-      // course: course,
-      // hotel: hotel,
-      paymentDue: payment, 
+      courses: courses,
+      hotels: hotels,
+      paymentDue: paymentDue, 
       maxPlayers: maxPlayers,
-      singlePrice: single,
-      doublePrice: double,
-      golfOnlyPrice: golfOnly
+      singlePrice: singlePrice,
+      doublePrice: doublePrice,
+      golfOnlyPrice: golfOnlyPrice
     } = formData;
 
     try {
@@ -85,8 +85,8 @@ const NewTournament = () => {
           name,
           startDate,
           endDate,
-          // course,
-          // hotel,
+          courses,
+          hotels,
           maxPlayers,
           paymentDue,
           singlePrice,
@@ -102,8 +102,8 @@ const NewTournament = () => {
       name: '',
       startDate: '',
       endDate: '',
-      // course: '',
-      // hotel: '',
+      courses: '',
+      hotels: '',
       maxPlayers: '',
       paymentDue: '',
       singlePrice: '',
@@ -150,11 +150,11 @@ const NewTournament = () => {
 
 
 
-          {/* <input 
+           <input 
           type='text' 
           placeholder='Course' 
-          name='course' 
-          value={course} 
+          name='courses' 
+          value={courses} 
           onChange={handleChangeInput} 
           />
       
@@ -163,10 +163,10 @@ const NewTournament = () => {
           <input 
           type='text' 
           placeholder='Hotel' 
-          name='hotel' 
-          value={hotel} 
+          name='hotels' 
+          value={hotels} 
           onChange={handleChangeInput} 
-          /> */}
+          /> 
       
 
       

@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import "./Message.scss";
-// const nodemailer = require("nodemailer");
+
 import Auth from "../../utils/auth";
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_PLAYERS } from "../../utils/queries";
+import { QUERY_ACTIVE_PLAYERS } from "../../utils/queries";
+// import nodemailer from "nodemailer";
+
 
 const Message = () => {
   const [formData, setFormData] = useState({ subject: "", message: "" });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const { loading: allPlayersLoading, data: emailMasterlist } = useQuery(QUERY_PLAYERS);
+  const { loading: activePlayersLoading, data: emailPlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
+console.log(emailMasterlist);
+console.log(emailPlayers);
+  const masterList = emailMasterlist?.players || [];
+  const activeList = emailPlayers?.playersActive || [];
+console.log(activeList);
+  console.log(masterList);
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
 
@@ -16,15 +29,40 @@ const Message = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // const handleSendTourneyPlayers = () => {
-  //   setLoading(true);
+  // let transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     type: 'OAuth2',
+  //     user: process.env.EMAIL,
+  //     pass: process.env.PASS,
+  //     clientId: process.env.OAUTH_CLIENTID,
+  //     clientSecret: process.env.OAUTH_CLIENT_SECRET,
+  //     refreshToken: process.env.OAUTH_REFRESH_TOKEN
+  //   }
+  // });
 
-  // };
+  const handleSendTourneyPlayers = () => {
+    setLoading(true);
+    let activeEmails = activeList.email;
+    let list = ""
+    // activeEmails.forEach (email => {
 
-  // const handleSendMasterList = () => {
-  //   setLoading(true);
+    // })
+  var msg = {
+    recepients: activeList.email,
+    subject: formData.subject, 
+    message: formData.message,
+  };
+  }
 
-  // };
+  const handleSendMasterList = () => {
+    setLoading(true);
+    var msg = {
+      recepients: masterList.email,
+      subject: formData.subject, 
+      message: formData.message,
+  
+  }};
 
   if (!loggedIn) {
     return (
@@ -36,6 +74,13 @@ const Message = () => {
     );
   }
 
+  if (activePlayersLoading || allPlayersLoading) {
+    return (
+      <div>
+        Loading...
+        </div>
+    )
+  }
   return (
     <div id="message">
       <div className="background">
@@ -64,13 +109,13 @@ const Message = () => {
               </div>
               <button 
                 type="button"
-                // onClick={handleSendTourneyPlayers}
+                onClick={handleSendTourneyPlayers}
               >
                 {!loading ? "Send Message to Tournament Players" : "Sending..."}
               </button>
               <button 
                 type="button"
-                // onClick={handleSendMasterList}
+                onClick={handleSendMasterList}
               >
                 {!loading ? "Send Message to Master List" : "Sending..."}
               </button>
