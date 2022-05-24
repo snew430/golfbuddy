@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
+
 import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
@@ -12,6 +13,7 @@ const PlayerList = () => {
   const { data: tournamentData, refetch } = useQuery(QUERY_TOURNAMENTS);
 
   const tournament = tournamentData?.tournaments[0] || [];
+  console.log(tournament);
 
   const loggedIn = Auth.loggedIn();
 

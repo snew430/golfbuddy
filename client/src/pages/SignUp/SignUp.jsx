@@ -73,6 +73,7 @@ const SignUp = () => {
       lodging: "",
     });
     // Need to remove from local storage
+    setIsFormSubmitted(true);
   };
   return (
     <div id="signUp">
@@ -109,29 +110,7 @@ const SignUp = () => {
             onChange={handleChangeInput}
           />
 
-          <input
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            value={lastName}
-            onChange={handleChangeInput}
-          />
 
-          <input
-            type="email"
-            placeholder="email"
-            name="email"
-            value={email}
-            onChange={handleChangeInput}
-          />
-
-          <input
-            type="phone"
-            placeholder="Phone Number"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={handleChangeInput}
-          />
 
           <h2 className="accommodation">Accommodations</h2>
 
