@@ -102,13 +102,7 @@ const SignUp = () => {
           <a href="mailto: whatsmyteetime@gmail.com" className="signup-text">
             whatsmyteetime@gmail.com
           </a>
-        </div>
-        <div className="app__signUp-card">
-          {/* <img src={images.mobile} alt="mobile" /> */}
-          <a href="tel: +1 " className="signup-text">
-            Club Phone???????
-          </a>
-        </div>
+        </div>     
       </div>
 
       {!isFormSubmitted ? (
@@ -190,7 +184,7 @@ const SignUp = () => {
             ""
           )}
 
-          <div className="app__flex">
+          <div>
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
