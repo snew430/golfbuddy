@@ -39,14 +39,6 @@ const SignUp = () => {
     setLoading(true);
 
     const tournamentId = tournament._id;
-    const {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      preferredRoomate,
-      lodging,
-    } = formData;
 
     try {
       addPlayer({
@@ -110,7 +102,29 @@ const SignUp = () => {
             onChange={handleChangeInput}
           />
 
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            value={lastName}
+            onChange={handleChangeInput}
+          />
 
+          <input
+            type="email"
+            placeholder="email"
+            name="email"
+            value={email}
+            onChange={handleChangeInput}
+          />
+
+          <input
+            type="phone"
+            placeholder="Phone Number"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={handleChangeInput}
+          />
 
           <h2 className="accommodation">Accommodations</h2>
 

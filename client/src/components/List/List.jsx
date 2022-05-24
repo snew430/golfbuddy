@@ -48,23 +48,6 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     }
   };
 
-  // create function that accepts the player's mongo _id value as param and deletes the player from the database
-  const handleEditPlayer = async (player) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    // try {
-    //   await updatePlayer({
-    //     variables: { e },
-    //   });
-    // } catch (err) {
-    //   console.error(err);
-    // }
-  };
-
   const handleMovePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
