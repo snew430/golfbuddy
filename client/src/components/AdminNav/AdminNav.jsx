@@ -60,7 +60,7 @@ const AdminNav = () => {
                     <Link to={"/message"}>Email the Players</Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/newtourney"}>Create New Tournament</Link>
+                    <Link to={"/New-Tournament"}>Create New Tournament</Link>
                   </li>
                   <li className="app__flex">
                     <a href="/" onClick={logout}>

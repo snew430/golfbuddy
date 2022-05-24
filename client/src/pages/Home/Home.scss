@@ -8,14 +8,14 @@
 
   .head-text-home {
     padding-top: 4rem;
-    font-size: 9rem;
+    font-size: 6rem;
     font-weight: 800;
     text-align: center;
     color: var(--white-color);
     text-shadow: -2px 0 black;
 
     @media screen and (max-width: 900px) {
-      font-size: 6rem;
+      font-size: 5rem;
     }
 
     @media screen and (max-width: 450px) {
