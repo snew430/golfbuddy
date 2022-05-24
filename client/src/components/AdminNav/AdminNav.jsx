@@ -22,7 +22,7 @@ const AdminNav = () => {
               <Link to={"/administrationhome"}>Home</Link>
             </li>
             <li className="app__flex p-text">
-              <Link to={"/playerlist"}>Tournament List</Link>
+              <Link to={"/playerlist"}>Player List</Link>
             </li>
             <li className="app__flex p-text">
               <Link to={"/masterlist"}>Master List</Link>
