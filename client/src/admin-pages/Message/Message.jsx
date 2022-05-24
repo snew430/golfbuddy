@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Message.scss";
-// const nodemailer = require("nodemailer");
 import Auth from "../../utils/auth";
+import { SEND_MESSAGE } from "../../utils/mutations";
 
 const Message = () => {
   const [formData, setFormData] = useState({ subject: "", message: "" });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [recipients, setRecipients] = useState("");
 
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
@@ -62,13 +63,13 @@ const Message = () => {
                   onChange={handleChangeInput}
                 />
               </div>
-              <button 
+              <button
                 type="button"
                 // onClick={handleSendTourneyPlayers}
               >
                 {!loading ? "Send Message to Tournament Players" : "Sending..."}
               </button>
-              <button 
+              <button
                 type="button"
                 // onClick={handleSendMasterList}
               >
