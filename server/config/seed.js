@@ -39,24 +39,24 @@ db.once("open", async () => {
   const player1 = await Player.create({
     firstName: "Sean",
     lastName: "New",
-    email: "sean@sean.com",
+    email: "seanpnew@hotmail.com",
     phoneNumber: "4102156229",
     preferredRoomate: "John New",
     lodging: "Double",
   });
 
   const player2 = await Player.create({
-    firstName: "Angelo",
-    lastName: "Boer",
-    email: "angelo@angelo.com",
+    firstName: "Caroline",
+    lastName: "Kyle",
+    email: "carolinekyle21@gmail.com",
     phoneNumber: "4106589725",
     lodging: "Single",
   });
 
   const player3 = await Player.create({
-    firstName: "John",
-    lastName: "New",
-    email: "john@john.com",
+    firstName: "Reid",
+    lastName: "Schroder",
+    email: "reidschroder2@gmail.com",
     phoneNumber: "4102158669",
     preferredRoomate: "Sean New",
     lodging: "Double",

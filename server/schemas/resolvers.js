@@ -156,9 +156,26 @@ const resolvers = {
       return updatedTournament;
     },
 
+    addCurrentPlayerToActive: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            playersActive: { _id: player },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
     removeActivePlayer: async (parent, { player, tournament }) => {
       try {
-        console.log("test");
         const updatedTournament = await Tournament.findOneAndUpdate(
           { _id: tournament },
           {
@@ -205,6 +222,24 @@ const resolvers = {
         {
           $push: {
             playersWaitlist: playerToAdd,
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
+    },
+
+    addCurrentPlayerToWaitlist: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            playersWaitlist: { _id: player },
           },
         },
         { new: true }
@@ -332,7 +367,7 @@ const resolvers = {
       const mail = {
         from: process.env.EMAIL,
         to: recipients,
-        message: subject,
+        subject: subject,
         text: message,
       };
 

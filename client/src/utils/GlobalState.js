@@ -9,7 +9,6 @@ const StoreProvider = ({ value = [], ...props }) => {
     currentTournament: "",
   });
 
-  console.log(state);
   return <Provider value={[state, dispatch]} {...props} />;
 };
 

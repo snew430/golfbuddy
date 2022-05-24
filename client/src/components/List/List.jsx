@@ -4,6 +4,8 @@ import {
   UPDATE_PLAYER,
   REMOVE_ACTIVE_PLAYER,
   REMOVE_WAITLIST_PLAYER,
+  ADD_CURRENT_TO_ACTIVE,
+  ADD_CURRENT_TO_WAITLIST,
 } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
@@ -12,9 +14,8 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
   const [deleteActive] = useMutation(REMOVE_ACTIVE_PLAYER);
   const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
-  // const [moveToActive] = useMutation();
-
-  console.log(players);
+  const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
+  const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
   const handleDeletePlayer = async (player, status) => {
@@ -45,8 +46,6 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   const handleEditPlayer = async (player) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    console.log(player);
-
     if (!token) {
       return false;
     }
@@ -60,23 +59,36 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     // }
   };
 
-  // const handleMovePlayer = async (player) => {
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const handleMovePlayer = async (player, status) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   console.log(player);
-
-  //   if (!token) {
-  //     return false;
-  //   }
-
-  //   try {
-  //     await updatePlayer({
-  //       variables: { e },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    if (!token) {
+      return false;
+    }
+    if (status === "waitlist") {
+      try {
+        await deleteWaitlist({
+          variables: { player, tournament },
+        });
+        await moveToActive({
+          variables: { player, tournament },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    } else if (status === "active") {
+      try {
+        await deleteActive({
+          variables: { player, tournament },
+        });
+        await moveToWaitlist({
+          variables: { player, tournament },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
 
   if (!players || !players.length) {
     return <h4>No Players on the List</h4>;
@@ -117,20 +129,18 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
                 </button>
                 <button
                   className="edit-button"
-                  onClick={() => handleEditPlayer(player)}
+                  onClick={() => handleEditPlayer(player._id, status)}
                 >
                   Edit
                 </button>
-                {/* {status === "waitlist" ? (
-                  <button
-                    className="edit-button"
-                    onClick={() => handleMovePlayer(player)}
-                  >
-                    Move to Active
-                  </button>
-                ) : (
-                  ""
-                )} */}
+                <button
+                  className="edit-button"
+                  onClick={() => handleMovePlayer(player._id, status)}
+                >
+                  {status === "waitlist"
+                    ? "Move to Active"
+                    : "Move to Waitlist"}
+                </button>
               </div>
             </td>
           </tr>

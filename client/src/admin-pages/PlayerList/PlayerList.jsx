@@ -15,8 +15,6 @@ const PlayerList = () => {
 
   const loggedIn = Auth.loggedIn();
 
-  console.log("tournament:", tournament);
-
   if (!loggedIn) {
     return (
       <div>
