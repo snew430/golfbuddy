@@ -30,7 +30,6 @@ const Administration = () => {
       });
 
       Auth.login(data.login.token);
-      console.log("LOGGED IN");
     } catch (e) {
       console.error(e);
     }

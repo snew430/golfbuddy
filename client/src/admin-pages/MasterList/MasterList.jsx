@@ -12,8 +12,6 @@ const MasterList = () => {
 
   const players = playerData?.players || [];
 
-  console.log(players);
-
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {

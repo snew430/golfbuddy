@@ -9,8 +9,6 @@ const Tournament = () => {
   const { loading, data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
   const tournament = tournamentData?.tournaments[0] || [];
 
-  console.log(tournament);
-
   if (loading) {
     return <div>Loading...</div>;
   }

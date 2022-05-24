@@ -26,14 +26,11 @@ const SignUp = () => {
 
   const tournament = basicTourney?.tournaments[0] || [];
 
-  console.log(basicTourney);
-
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setformData({ ...formData, [name]: value });
   };
 

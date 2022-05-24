@@ -1,32 +1,24 @@
 import React, { useState } from "react";
 import "./Message.scss";
-
-
 import Auth from "../../utils/auth";
-import { useQuery } from "@apollo/react-hooks";
-import { QUERY_PLAYERS } from "../../utils/queries";
-import { QUERY_ACTIVE_PLAYERS } from "../../utils/queries";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { QUERY_PLAYERS, QUERY_ACTIVE_PLAYERS } from "../../utils/queries";
 // import nodemailer from "nodemailer";
-
-
-import Auth from "../../utils/auth";
 import { SEND_MESSAGE } from "../../utils/mutations";
-
 
 const Message = () => {
   const [formData, setFormData] = useState({ subject: "", message: "" });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [recipients, setRecipients] = useState("");
+  const [sendMessage] = useMutation(SEND_MESSAGE);
 
-  const { loading: allPlayersLoading, data: emailMasterlist } = useQuery(QUERY_PLAYERS);
-  const { loading: activePlayersLoading, data: emailPlayers } = useQuery(QUERY_ACTIVE_PLAYERS);
-console.log(emailMasterlist);
-console.log(emailPlayers);
+  const { loading: allPlayersLoading, data: emailMasterlist } =
+    useQuery(QUERY_PLAYERS);
+  const { loading: activePlayersLoading, data: emailPlayers } =
+    useQuery(QUERY_ACTIVE_PLAYERS);
+
   const masterList = emailMasterlist?.players || [];
-  const activeList = emailPlayers?.playersActive || [];
-console.log(activeList);
-  console.log(masterList);
+  const activeList = emailPlayers?.tournaments[0].playersActive || [];
+
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
 
@@ -35,40 +27,32 @@ console.log(activeList);
     setFormData({ ...formData, [name]: value });
   };
 
-  // let transporter = nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //     type: 'OAuth2',
-  //     user: process.env.EMAIL,
-  //     pass: process.env.PASS,
-  //     clientId: process.env.OAUTH_CLIENTID,
-  //     clientSecret: process.env.OAUTH_CLIENT_SECRET,
-  //     refreshToken: process.env.OAUTH_REFRESH_TOKEN
-  //   }
-  // });
+  const handleSendEmail = async (e) => {
+    const { subject, message } = formData;
 
-  const handleSendTourneyPlayers = () => {
-    setLoading(true);
-    let activeEmails = activeList.email;
-    let list = ""
-    // activeEmails.forEach (email => {
+    let recipients = "";
 
-    // })
-  var msg = {
-    recepients: activeList.email,
-    subject: formData.subject, 
-    message: formData.message,
+    let list;
+
+    if (e.target.name === "tournament") {
+      list = activeList;
+    } else {
+      list = masterList;
+    }
+    list.forEach((player) => {
+      recipients += `${player.email},`;
+    });
+
+
+    try {
+      await sendMessage({
+        variables: { recipients, subject, message },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    setIsFormSubmitted(true);
   };
-  }
-
-  const handleSendMasterList = () => {
-    setLoading(true);
-    var msg = {
-      recepients: masterList.email,
-      subject: formData.subject, 
-      message: formData.message,
-  
-  }};
 
   if (!loggedIn) {
     return (
@@ -81,11 +65,7 @@ console.log(activeList);
   }
 
   if (activePlayersLoading || allPlayersLoading) {
-    return (
-      <div>
-        Loading...
-        </div>
-    )
+    return <div>Loading...</div>;
   }
   return (
     <div id="message">
@@ -113,23 +93,17 @@ console.log(activeList);
                   onChange={handleChangeInput}
                 />
               </div>
-              <button
-                type="button"
-                onClick={handleSendTourneyPlayers}
-              >
-                {!loading ? "Send Message to Tournament Players" : "Sending..."}
+              <button type="button" name="tournament" onClick={handleSendEmail}>
+                Send to Tournament Players
               </button>
-              <button
-                type="button"
-                onClick={handleSendMasterList}
-              >
-                {!loading ? "Send Message to Master List" : "Sending..."}
+              <button type="button" name="master" onClick={handleSendEmail}>
+                Send to Master List
               </button>
             </div>
           </div>
         ) : (
           <div>
-            <h3>Email Sent!</h3>
+            <h2 className="head-text">Email Sent!</h2>
           </div>
         )}
       </div>

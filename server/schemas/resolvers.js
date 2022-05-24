@@ -176,7 +176,6 @@ const resolvers = {
 
     removeActivePlayer: async (parent, { player, tournament }) => {
       try {
-        console.log("test");
         const updatedTournament = await Tournament.findOneAndUpdate(
           { _id: tournament },
           {
@@ -368,7 +367,7 @@ const resolvers = {
       const mail = {
         from: process.env.EMAIL,
         to: recipients,
-        message: subject,
+        subject: subject,
         text: message,
       };
 

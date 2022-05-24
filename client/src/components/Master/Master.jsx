@@ -12,8 +12,6 @@ const Master = ({ players }) => {
   const handleDeletePlayer = async (id) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    console.log(id);
-
     if (!token) {
       return false;
     }

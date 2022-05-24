@@ -17,8 +17,6 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
   const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
 
-  console.log(players);
-
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
   const handleDeletePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -48,8 +46,6 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   const handleEditPlayer = async (player) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    console.log(player);
-
     if (!token) {
       return false;
     }
@@ -65,8 +61,6 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
 
   const handleMovePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    console.log(player);
 
     if (!token) {
       return false;
