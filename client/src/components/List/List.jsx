@@ -12,6 +12,7 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
   const [deleteActive] = useMutation(REMOVE_ACTIVE_PLAYER);
   const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
+  // const [moveToActive] = useMutation();
 
   console.log(players);
 
@@ -59,6 +60,24 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     // }
   };
 
+  // const handleMovePlayer = async (player) => {
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+  //   console.log(player);
+
+  //   if (!token) {
+  //     return false;
+  //   }
+
+  //   try {
+  //     await updatePlayer({
+  //       variables: { e },
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   if (!players || !players.length) {
     return <h4>No Players on the List</h4>;
   }
@@ -102,6 +121,16 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
                 >
                   Edit
                 </button>
+                {/* {status === "waitlist" ? (
+                  <button
+                    className="edit-button"
+                    onClick={() => handleMovePlayer(player)}
+                  >
+                    Move to Active
+                  </button>
+                ) : (
+                  ""
+                )} */}
               </div>
             </td>
           </tr>
