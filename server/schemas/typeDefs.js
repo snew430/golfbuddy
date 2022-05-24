@@ -112,6 +112,7 @@ const typeDefs = gql`
     ): Tournament
 
     removeActivePlayer(player: ID!, tournament: ID!): Tournament
+    addCurrentPlayerToActive(player: ID!, tournament: ID!): Tournament
 
     addPlayerToWaitlistTournament(
       tournamentId: ID!
@@ -124,6 +125,7 @@ const typeDefs = gql`
     ): Tournament
 
     removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
+    addCurrentPlayerToWaitlist(player: ID!, tournament: ID!): Tournament
 
     addCourseToTournament(course: ID!, tournament: ID!): Tournament
 

@@ -205,6 +205,21 @@ export const ADD_ACTIVE_PLAYER = gql`
   }
 `;
 
+export const ADD_CURRENT_TO_ACTIVE = gql`
+  mutation addCurrentPlayerToActive($player: ID!, $tournament: ID!) {
+    addCurrentPlayerToActive(player: $player, tournament: $tournament) {
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        lodging
+      }
+    }
+  }
+`;
+
 export const REMOVE_ACTIVE_PLAYER = gql`
   mutation removeActivePlayer($player: ID!, $tournament: ID!) {
     removeActivePlayer(player: $player, tournament: $tournament) {
@@ -226,6 +241,21 @@ export const ADD_WAITLIST_PLAYER = gql`
       _id
       name
       playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        lodging
+      }
+    }
+  }
+`;
+
+export const ADD_CURRENT_TO_WAITLIST = gql`
+  mutation addCurrentPlayerToWaitlist($player: ID!, $tournament: ID!) {
+    addCurrentPlayerToWaitlist(player: $player, tournament: $tournament) {
+      playersActive {
         _id
         firstName
         lastName
