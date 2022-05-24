@@ -30,34 +30,74 @@ const Tournament = () => {
 
 
         
-          <div className="trip-details">
-            <div>
-              <h4>
-                We are staying at <br /> {tournament.hotels[0].name}
-              </h4>
-              <p className="p-text">{tournament.hotels[0].address}</p>
-              <p className="p-text">
-                <a className="p-text" href="{hotel.website}">{tournament.hotels[0].website}</a>
-              </p>
-              <p className="p-text">Price for Single Room: ${tournament.singlePrice}</p>
-              <p className="p-text">Price for Double Room: ${tournament.doublePrice}</p>
-              <p className="p-text">Golf Only Price: ${tournament.golfOnlyPrice}</p>
-            </div>
-            <div>
-              <h4>Courses</h4>
-              <p className="p-text">
-                Day One: <br /> {tournament.courses[0].name}
-              </p>
-              <p className="p-text">
-                Day Two: <br /> {tournament.courses[1].name}
-              </p>
-              <p className="p-text">
-                Day Three: <br /> {tournament.courses[2].name}
-              </p>
-              <p className="p-text">
-                Day Four: <br /> {tournament.courses[0].name}
-              </p>
-            </div>
+        <div className="trip-details">
+          <div>
+            <h4>
+              We are staying at <br /> {tournament.hotels[0].name}
+            </h4>
+            <p className="p-text">{tournament.hotels[0].address}</p>
+            <p className="p-text">
+              <a
+                className="p-text"
+                href={tournament.hotels[0].website}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {tournament.hotels[0].website}
+              </a>
+            </p>
+            <p className="p-text">
+              Price for Single Room: ${tournament.singlePrice}
+            </p>
+            <p className="p-text">
+              Price for Double Room: ${tournament.doublePrice}
+            </p>
+            <p className="p-text">
+              Golf Only Price: ${tournament.golfOnlyPrice}
+            </p>
+          </div>
+          <div>
+            <h4>Courses</h4>
+            <p className="p-text">
+              Day One: <br />{" "}
+              <a
+                className="p-text"
+                href={tournament.courses[0].website}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {tournament.courses[0].name}
+              </a>
+            </p>
+            <p className="p-text">
+              Day Two: <br />{" "}
+              <a
+                className="p-text"
+                href={tournament.courses[1].website}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {tournament.courses[1].name}
+              </a>
+            </p>
+            <p className="p-text">
+              Day Three: <br />{" "}
+              <a
+                className="p-text"
+                href={tournament.courses[2].website}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {tournament.courses[2].name}
+              </a>
+            </p>
+            <p className="p-text">
+              Day Four: <br />{" "}
+              <a className="p-text" href={tournament.courses[0].website}>
+                {tournament.courses[0].name}
+              </a>
+            </p>
+          </div>
         </div>
 
 

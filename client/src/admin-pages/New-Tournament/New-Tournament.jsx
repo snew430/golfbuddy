@@ -58,16 +58,16 @@ const NewTournament = () => {
 
     ///////////////////////////////add tournament specifications from tournament query
     const {
-      name: name,
-      startDate: startDate,
-      endDate: endDate,
-      courses: courses,
-      hotels: hotels,
-      paymentDue: paymentDue,
-      maxPlayers: maxPlayers,
-      singlePrice: singlePrice,
-      doublePrice: doublePrice,
-      golfOnlyPrice: golfOnlyPrice,
+      name,
+      startDate,
+      endDate,
+      courses,
+      hotels,
+      paymentDue,
+      maxPlayers,
+      singlePrice,
+      doublePrice,
+      golfOnlyPrice,
     } = formData;
 
     try {
