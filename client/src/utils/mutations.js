@@ -36,11 +36,12 @@ export const ADD_PLAYER = gql`
 export const UPDATE_PLAYER = gql`
   mutation updatePlayer(
     $id: ID!
-    $firstName: String
-    $lastName: String
-    $email: String
-    $phoneNumber: String
-    $lodging: String
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $phoneNumber: String!
+    $lodging: String!
+    $preferredRoomate: String
   ) {
     updatePlayer(
       id: $id
@@ -49,6 +50,7 @@ export const UPDATE_PLAYER = gql`
       email: $email
       phoneNumber: $phoneNumber
       lodging: $lodging
+      preferredRoomate: $preferredRoomate
     ) {
       _id
       firstName

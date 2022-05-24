@@ -60,6 +60,7 @@ const resolvers = {
       if (context.user) {
         return await Player.findByIdAndUpdate(args.id, args, {
           new: true,
+          runValidators: true,
         });
       }
       throw new AuthenticationError("Not logged in");
@@ -106,6 +107,7 @@ const resolvers = {
       if (context.user) {
         return await Tournament.findByIdAndUpdate(args.id, args, {
           new: true,
+          runValidators: true,
         });
       }
       throw new AuthenticationError("Not logged in");
@@ -146,7 +148,7 @@ const resolvers = {
             playersActive: playerToAdd,
           },
         },
-        { new: true }
+        { new: true, runValidators: true }
       )
         .populate("courses")
         .populate("hotels")

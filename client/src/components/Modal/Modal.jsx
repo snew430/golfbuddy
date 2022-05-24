@@ -5,12 +5,12 @@ import "./Modal.scss";
 
 const Modal = ({ player, onClose }) => {
   const [formData, setformData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    preferredRoomate: "",
-    lodging: "",
+    firstName: player.firstName,
+    lastName: player.lastName,
+    email: player.email,
+    phoneNumber: player.phoneNumber,
+    preferredRoomate: player.preferredRoomate,
+    lodging: player.lodging,
   });
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
 
@@ -25,14 +25,7 @@ const Modal = ({ player, onClose }) => {
   const handleSubmit = async () => {
     const id = player._id;
 
-    const {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      preferredRoomate,
-      lodging,
-    } = formData;
+    console.log(formData);
 
     try {
       updatePlayer({
@@ -63,48 +56,48 @@ const Modal = ({ player, onClose }) => {
         </h3>
         <input
           type="text"
-          placeholder={player.firstName}
           name="firstName"
-          value={firstName}
+          //   value={firstName}
+          defaultValue={player.firstName}
           onChange={handleChangeInput}
         />
         <input
           type="text"
-          placeholder={player.lastName}
+          defaultValue={player.lastName}
           name="lastName"
-          value={lastName}
+          //   value={lastName}
           onChange={handleChangeInput}
         />
 
         <input
           type="email"
-          placeholder={player.email}
+          defaultValue={player.email}
           name="email"
-          value={email}
+          //   value={email}
           onChange={handleChangeInput}
         />
 
         <input
           type="phone"
-          placeholder={player.phoneNumber}
+          defaultValue={player.phoneNumber}
           name="phoneNumber"
-          value={phoneNumber}
+          //   value={phoneNumber}
           onChange={handleChangeInput}
         />
 
         <input
           type="preferredRoomate"
-          placeholder={player.preferredRoomate}
+          defaultValue={player.preferredRoomate}
           name="preferredRoomate"
-          value={preferredRoomate}
+          //   value={preferredRoomate}
           onChange={handleChangeInput}
         />
 
         <input
           type="lodging"
-          placeholder={player.lodging}
+          defaultValue={player.lodging}
           name="lodging"
-          value={lodging}
+          //   value={lodging}
           onChange={handleChangeInput}
         />
 
