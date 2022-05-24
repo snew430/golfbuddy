@@ -67,12 +67,12 @@ const typeDefs = gql`
     ): Player
     updatePlayer(
       id: ID!
-      firstName: String
-      lastName: String
-      email: String
-      phoneNumber: String
+      firstName: String!
+      lastName: String!
+      email: String!
+      phoneNumber: String!
       preferredRoomate: String
-      lodging: String
+      lodging: String!
     ): Player
     deletePlayer(id: ID!): Player
     addCourse(name: String!, address: String!, website: String!): Course

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
+
 import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_TOURNAMENTS } from "../../utils/queries";

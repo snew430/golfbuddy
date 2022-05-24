@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./New-Tournament.scss";
 import Auth from "../../utils/auth";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_TOURNAMENTS } from "../../utils/queries";
+import { useMutation } from "@apollo/react-hooks";
 import { ADD_TOURNAMENT } from "../../utils/mutations";
 
 const NewTournament = () => {
@@ -22,10 +21,7 @@ const NewTournament = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { data: newTournament } = useQuery(QUERY_TOURNAMENTS);
   const [addTournament] = useMutation(ADD_TOURNAMENT);
-
-  const tournament = newTournament?.tournaments[0] || [];
 
   const {
     name,
@@ -105,6 +101,8 @@ const NewTournament = () => {
       doublePrice: "",
       golfOnlyPrice: "",
     });
+
+    setIsFormSubmitted(true);
   };
 
   return (

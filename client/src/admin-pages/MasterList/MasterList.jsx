@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MasterList.scss";
 import Master from "../../components/Master/Master";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_PLAYERS } from "../../utils/queries";
 import Auth from "../../utils/auth";
