@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import {
-  UPDATE_PLAYER,
   REMOVE_ACTIVE_PLAYER,
   REMOVE_WAITLIST_PLAYER,
   ADD_CURRENT_TO_ACTIVE,

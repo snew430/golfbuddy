@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { DELETE_PLAYER, UPDATE_PLAYER } from "../../utils/mutations";
+import { DELETE_PLAYER } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
+import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
 const Master = ({ players }) => {
+  const [currentPlayer, setCurrentPlayer] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletePlayer] = useMutation(DELETE_PLAYER);
-  const [updatePlayer] = useMutation(UPDATE_PLAYER);
+
+  const toggleModal = (player) => {
+    setCurrentPlayer(player);
+    setIsModalOpen(!isModalOpen);
+  };
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
   const handleDeletePlayer = async (id) => {
@@ -29,61 +36,50 @@ const Master = ({ players }) => {
   };
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
-  const handleEditPlayer = async (playerId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      await updatePlayer({
-        variables: { playerId },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {players.map((player) => (
-          <tr key={player._id}>
-            <td>
-              {player.firstName} {player.lastName}
-            </td>
-            <td>
-              <a href={`mailto:${player.email}`}>{player.email}</a>
-            </td>
-            <td>
-              <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
-            </td>
-            <td>
-              <button
-                className="delete-button"
-                onClick={() => handleDeletePlayer(player._id)}
-              >
-                Delete
-              </button>
-              <button
-                className="edit-button"
-                onClick={() => handleEditPlayer(player._id)}
-              >
-                Edit
-              </button>
-            </td>
+    <>
+      {" "}
+      {isModalOpen && <Modal player={currentPlayer} onClose={toggleModal} />}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {players.map((player) => (
+            <tr key={player._id}>
+              <td>
+                {player.firstName} {player.lastName}
+              </td>
+              <td>
+                <a href={`mailto:${player.email}`}>{player.email}</a>
+              </td>
+              <td>
+                <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
+              </td>
+              <td>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeletePlayer(player._id)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="edit-button"
+                  onClick={() => toggleModal(player)}
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 
