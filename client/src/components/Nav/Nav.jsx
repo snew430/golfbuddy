@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="app__navbar">
-       <ul className="app__navbar-links">
+      <ul className="app__navbar-links">
         {["home", "tournament", "rules"].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <Link to={`/${item}`}>{item}</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
             </li>
             <li className="app__flex p-text">
               <a href="/" onClick={logout}>
-              Logout
+                Logout
               </a>
             </li>
           </>
@@ -53,35 +53,52 @@ const Navbar = () => {
             <ul>
               {["home", "tournament", "rules"].map((item) => (
                 <li key={item}>
-                  <Link to={`/${item}`}>{item}</Link>
+                  <Link to={`/${item}`} onClick={() => setToggle(false)}>
+                    {item}
+                  </Link>
                 </li>
               ))}
               {loggedIn ? (
                 <>
                   <li className="app__flex">
-                    <Link to={"/administrationhome"}>Administrator Home</Link>
+                    <Link
+                      to={"/administrationhome"}
+                      onClick={() => setToggle(false)}
+                    >
+                      Administrator Home
+                    </Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/masterlist"}>Master List</Link>
+                    <Link to={"/masterlist"} onClick={() => setToggle(false)}>
+                      Master List
+                    </Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/playerlist"}>Tournament Player List</Link>
+                    <Link to={"/playerlist"} onClick={() => setToggle(false)}>
+                      Tournament Player List
+                    </Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/message"}>Email the Players</Link>
+                    <Link to={"/message"} onClick={() => setToggle(false)}>
+                      Email the Players
+                    </Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/newtourney"}>Create New Tournament</Link>
+                    <Link to={"/newtourney"} onClick={() => setToggle(false)}>
+                      Create New Tournament
+                    </Link>
                   </li>
                   <li className="app__flex">
-                    <a href="/" onClick={logout}>
+                    <a href="/" onClick={logout} >
                       Logout
                     </a>
                   </li>
                 </>
               ) : (
                 <li className="app__flex p-text">
-                  <Link to={"/administration"}>Administrator Login</Link>
+                  <Link to={"/administration"} onClick={() => setToggle(false)}>
+                    Administrator Login
+                  </Link>
                 </li>
               )}
             </ul>
