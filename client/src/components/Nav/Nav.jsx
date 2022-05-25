@@ -12,21 +12,26 @@ const Navbar = () => {
 
   const logout = (event) => {
     event.preventDefault();
+    setToggle(false);
     Auth.logout();
   };
 
   return (
     <nav className="app__navbar">
       <ul className="app__navbar-links">
-        {["home", "tournament", "rules"].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <Link to={`/${item}`}>{item}</Link>
-          </li>
-        ))}
         {loggedIn ? (
           <>
             <li className="app__flex p-text">
-              <Link to={"/administrationhome"}>Administration</Link>
+              <Link to={"/administrationhome"}>Home</Link>
+            </li>
+            <li className="app__flex p-text">
+              <Link to={"/playerlist"}>Player List</Link>
+            </li>
+            <li className="app__flex p-text">
+              <Link to={"/masterlist"}>Master List</Link>
+            </li>
+            <li className="app__flex p-text">
+              <Link to={"/message"}>Email</Link>
             </li>
             <li className="app__flex p-text">
               <a href="/" onClick={logout}>
@@ -35,9 +40,16 @@ const Navbar = () => {
             </li>
           </>
         ) : (
-          <li className="app__flex p-text">
-            <Link to={"/administration"}>Admin Login</Link>
-          </li>
+          <>
+            {["home", "tournament", "rules"].map((item) => (
+              <li className="app__flex p-text" key={`link-${item}`}>
+                <Link to={`/${item}`}>{item}</Link>
+              </li>
+            ))}
+            <li className="app__flex p-text">
+              <Link to={"/administration"}>Admin Login</Link>
+            </li>
+          </>
         )}
       </ul>
 
@@ -51,13 +63,6 @@ const Navbar = () => {
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {["home", "tournament", "rules"].map((item) => (
-                <li key={item}>
-                  <Link to={`/${item}`} onClick={() => setToggle(false)}>
-                    {item}
-                  </Link>
-                </li>
-              ))}
               {loggedIn ? (
                 <>
                   <li className="app__flex">
@@ -65,7 +70,7 @@ const Navbar = () => {
                       to={"/administrationhome"}
                       onClick={() => setToggle(false)}
                     >
-                      Administrator Home
+                      Home
                     </Link>
                   </li>
                   <li className="app__flex">
@@ -84,22 +89,37 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="app__flex">
-                    <Link to={"/newtourney"} onClick={() => setToggle(false)}>
+                    <Link
+                      to={"/new-tournament"}
+                      onClick={() => setToggle(false)}
+                    >
                       Create New Tournament
                     </Link>
                   </li>
                   <li className="app__flex">
-                    <a href="/" onClick={logout} >
+                    <a href="/" onClick={logout}>
                       Logout
                     </a>
                   </li>
                 </>
               ) : (
-                <li className="app__flex p-text">
-                  <Link to={"/administration"} onClick={() => setToggle(false)}>
-                    Administrator Login
-                  </Link>
-                </li>
+                <>
+                  {["home", "tournament", "rules"].map((item) => (
+                    <li className="app__flex p-text" key={`link-${item}`}>
+                      <Link to={`/${item}`} onClick={() => setToggle(false)}>
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                  <li className="app__flex p-text">
+                    <Link
+                      to={"/administration"}
+                      onClick={() => setToggle(false)}
+                    >
+                      Admin Login
+                    </Link>
+                  </li>
+                </>
               )}
             </ul>
           </motion.div>
