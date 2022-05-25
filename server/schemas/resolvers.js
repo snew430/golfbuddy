@@ -158,24 +158,6 @@ const resolvers = {
       return updatedTournament;
     },
 
-    addCurrentPlayerToActive: async (parent, { player, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
-        {
-          $push: {
-            playersActive: { _id: player },
-          },
-        },
-        { new: true }
-      )
-        .populate("courses")
-        .populate("hotels")
-        .populate("playersActive")
-        .populate("playersWaitlist");
-
-      return updatedTournament;
-    },
-
     removeActivePlayer: async (parent, { player, tournament }) => {
       try {
         const updatedTournament = await Tournament.findOneAndUpdate(
@@ -196,6 +178,24 @@ const resolvers = {
       } catch (error) {
         console.log(error);
       }
+    },
+
+    addCurrentPlayerToActive: async (parent, { player, tournament }) => {
+      const updatedTournament = await Tournament.findOneAndUpdate(
+        { _id: tournament },
+        {
+          $push: {
+            playersActive: { _id: player },
+          },
+        },
+        { new: true }
+      )
+        .populate("courses")
+        .populate("hotels")
+        .populate("playersActive")
+        .populate("playersWaitlist");
+
+      return updatedTournament;
     },
 
     addPlayerToWaitlistTournament: async (
@@ -255,21 +255,26 @@ const resolvers = {
     },
 
     removeWaitlistPlayer: async (parent, { player, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
-        {
-          $pull: {
-            playersWaitlist: { _id: player },
-          },
-        },
-        { new: true }
-      )
-        .populate("courses")
-        .populate("hotels")
-        .populate("playersActive")
-        .populate("playersWaitlist");
 
-      return updatedTournament;
+      try {
+        const updatedTournament = await Tournament.findOneAndUpdate(
+          { _id: tournament },
+          {
+            $pull: {
+              playersWaitlist: { $in: [player] },
+            },
+          },
+          { new: true }
+        )
+          .populate("courses")
+          .populate("hotels")
+          .populate("playersActive")
+          .populate("playersWaitlist")
+
+        return updatedTournament;
+      } catch (error) {
+        console.log(error);
+      }
     },
 
     addCourseToTournament: async (parent, { course, tournament }) => {
