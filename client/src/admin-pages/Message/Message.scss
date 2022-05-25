@@ -6,14 +6,14 @@
 
   .head-text {
     padding-top: 6rem;
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 800;
     text-align: center;
     color: var(--white-color);
     text-shadow: -2px 0 black;
 
     @media screen and (max-width: 900px) {
-      font-size: 3.75rem;
+      font-size: 3.65rem;
     }
 
     @media screen and (max-width: 450px) {
@@ -29,7 +29,8 @@
   .email-form {
     width: 60%;
     flex-direction: column;
-    margin: 1rem 2rem;
+    justify-content: space-around;
+    height: 70vh;
 
     div {
       width: 100%;
@@ -71,23 +72,20 @@
       }
 
       @media screen and (max-width: 450px) {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
       }
     }
 
     button {
-      justify-content: center;
-      align-items: center;
       padding: 1rem 2rem;
       border-radius: 10px;
       border: none;
       background-color: var(--secondary-color);
       font-weight: 500;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
       outline: none;
-      margin: 2rem 0 0 0;
       font-family: var(--font-base);
       cursor: pointer;
     }

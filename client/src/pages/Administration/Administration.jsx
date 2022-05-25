@@ -47,13 +47,14 @@ const Administration = () => {
 
   return (
     <div id="administration">
-      <h2 className="head-text">
-        If You are a Website Administrator, <br /> Please Use This Page to Login
-      </h2>
-      {error && 
+      <h2 className="head-text">Administrators Only</h2>
+      {error && (
         <div className="app__flex">
-          <p className="invalid-text">Invalid Credentials <br /> Please Try Again</p>
-        </div>}
+          <p className="invalid-text">
+            Invalid Credentials <br /> Please Try Again
+          </p>
+        </div>
+      )}
       <div className="app__flex">
         <form onSubmit={handleFormSubmit}>
           <input

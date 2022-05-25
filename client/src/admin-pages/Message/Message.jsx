@@ -70,7 +70,7 @@ const Message = () => {
   return (
     <div id="message">
       <div className="background">
-        <h2 className="head-text">Write an Email to the Players</h2>
+        <h2 className="head-text">Email the Players</h2>
         {!isFormSubmitted ? (
           <div className="app__flex">
             <div className="app__flex email-form">
@@ -84,7 +84,7 @@ const Message = () => {
                   onChange={handleChangeInput}
                 />
               </div>
-              <div>
+              <div className="email-body">
                 <textarea
                   className="p-text"
                   placeholder="Your Message"

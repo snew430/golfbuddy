@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Auth from './utils/auth';
 
 import {
   ApolloClient,
@@ -29,7 +28,7 @@ import {
   Message,
 } from "./admin-pages";
 
-import { Nav, AdminNav } from "./components";
+import { Nav } from "./components";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -51,17 +50,12 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const loggedIn = Auth.loggedIn();
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="app">
-          {loggedIn ? (
-            <AdminNav />
-          ) : (
-            <Nav />
-          )}
+          <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
