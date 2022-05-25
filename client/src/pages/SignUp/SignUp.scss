@@ -60,8 +60,11 @@
         justify-content: center;
         text-align: center;
     
+
         input {
-            margin: 1rem 40rem;
+            display: block;
+            margin: 1rem auto;
+            width: 25rem;
             border-radius: 10px;
             cursor: pointer;
             background-color: var(--white-color);
@@ -69,6 +72,7 @@
             font-size: 1.5rem;
             font-family: "Old Standard TT", serif;
             color: #282828;
+            
     
             transition: all 0.3 ease-in-out;
 
@@ -82,25 +86,15 @@
                 color: var(--darkGreen-color);
                 outline: none;
 
-                @media screen and (max-width: 2400px) {
-                    margin: 1rem 35rem;
-                }
-
-                @media screen and (max-width: 1600px) {
-                    margin: 1rem 20rem;
-                }
-
-                @media screen and (max-width: 1250px) {
-                    margin: 1rem 12rem;
-                }
-
                 @media screen and (max-width: 900px) {
-                    margin: 1rem 2rem;
+                    width: 50%;
+                }
+
+                @media screen and (max-width: 450px) {
+                    width: 90%;
                 }
             
-                @media screen and (max-width: 450px) {
-                    margin: 0.75rem 0.25rem;
-                }
+
         }
     
 
