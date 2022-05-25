@@ -71,7 +71,7 @@
     cursor: pointer;
   }
 
-  @media screen and (max-height: 800px) {
+  @media screen and (max-width: 900px) {
     background: url("../../assets/images/sand_trap.jpg");
     background-size: cover;
     background-position: center;
