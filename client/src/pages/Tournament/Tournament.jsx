@@ -26,6 +26,8 @@ const Tournament = () => {
           </Link>
         </div>
 
+
+        
         <div className="trip-details">
           <div>
             <h4>

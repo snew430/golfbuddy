@@ -4,10 +4,6 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_BASIC_TOURNAMENTS } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
 
-//add player and add player to tournament
-
-// import { client } from '../../client';
-
 const SignUp = () => {
   const [formData, setformData] = useState({
     firstName: "",
@@ -87,28 +83,9 @@ const SignUp = () => {
 
   return (
     <div id="signUp">
-      <h2 className="head-text">Sign Up For</h2>
+      <h2 className="head-text">Sign Up for</h2>
       <h2 className="tournament-text"> {tournament.name} </h2>
-      {/* <h3 className="course-text"> At {tournament.course}</h3> */}
-      <h4 className="date-text">
-        {" "}
-        From {tournament.startDate} To {tournament.endDate}
-      </h4>
-
-      <div className="app__signUp-cards">
-        <div className="app__signUp-card">
-          {/* <img src={images.email} alt="email" /> */}
-          <a href="mailto: whatsmyteetime@gmail.com" className="signup-text">
-            whatsmyteetime@gmail.com
-          </a>
-        </div>
-        <div className="app__signUp-card">
-          {/* <img src={images.mobile} alt="mobile" /> */}
-          <a href="tel: +1 " className="signup-text">
-            Club Phone???????
-          </a>
-        </div>
-      </div>
+      <h4 className="date-text">{tournament.startDate} - {tournament.endDate}</h4>
 
       {!isFormSubmitted ? (
         <div className="app__signUp-form">
@@ -130,7 +107,7 @@ const SignUp = () => {
 
           <input
             type="email"
-            placeholder="email"
+            placeholder="Email"
             name="email"
             value={email}
             onChange={handleChangeInput}
@@ -144,7 +121,7 @@ const SignUp = () => {
             onChange={handleChangeInput}
           />
 
-          <h2 className="accommodation">Accommodations</h2>
+          <h2 className="accommodation">Accommodation Options</h2>
 
           <div className="button_list">
             <button
@@ -153,7 +130,7 @@ const SignUp = () => {
               onClick={handleChangeInput}
               value="Single"
             >
-              Single
+              Single ${tournament.singlePrice}
             </button>
             <button
               name="lodging"
@@ -161,7 +138,7 @@ const SignUp = () => {
               onClick={handleChangeInput}
               value="Double"
             >
-              Double
+              Double ${tournament.doublePrice}
             </button>
             <button
               name="lodging"
@@ -169,7 +146,7 @@ const SignUp = () => {
               onClick={handleChangeInput}
               value="Golf Only"
             >
-              {"Golf Only"}
+              Golf Only ${tournament.golfOnlyPrice}
             </button>
           </div>
 
@@ -189,14 +166,22 @@ const SignUp = () => {
             ""
           )}
 
-          <div className="app__flex">
+          <h5 className="date-text">All payments are due: {tournament.paymentDue} </h5>  
+
+          <p className="info-text">
+          Please send payments through Venmo @John-McKenna-145 or mail a check
+          to
+          <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+          </p>
+
+          <div>
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
                 className="submitBtn"
                 onClick={() => handleSubmit("active")}
               >
-                Signup For Tournament
+                Sign Up for Tournament
               </button>
             )}
             <button
@@ -204,7 +189,7 @@ const SignUp = () => {
               className="submitBtn"
               onClick={() => handleSubmit("waitlist")}
             >
-              Go To Waitlist
+              Join the Waitlist
             </button>
           </div>
         </div>
