@@ -2,7 +2,7 @@
     background: url("../../assets/images/white_paper.jpg");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
   
     .head-text {
         padding-top: 6rem;
@@ -206,7 +206,7 @@
 
     }
     
-    @media screen and (max-width: 1250px) {
+    @media screen and (max-height: 800px) {
         background: url("../../assets/images/white_paper.jpg");
         background-size: cover;
         background-position: center;
