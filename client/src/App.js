@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Auth from "./utils/auth";
 
 import {
   ApolloClient,
@@ -51,7 +50,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const loggedIn = Auth.loggedIn();
 
   return (
     <ApolloProvider client={client}>

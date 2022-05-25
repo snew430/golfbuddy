@@ -11,7 +11,6 @@ import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
 const List = ({ players, status, tournament, refetchPlayers }) => {
-  console.log(players);
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
