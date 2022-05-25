@@ -2,6 +2,7 @@
   background: url("../../assets/images/bucket_of_balls.jpg");
   background-size: cover;
   background-position: center;
+  height: 100vh;
 
   .background {
     background-color: rgba(4, 57, 39, 0.8);
@@ -46,11 +47,12 @@
     display: flex;
     justify-content: space-evenly;
 
-    table { 
-      table-layout:fixed;
+    table {
+      table-layout: fixed;
     }
 
-    th, td {
+    th,
+    td {
       margin: 0.5rem;
       padding: 0.25rem 0.65rem;
       color: var(--yellow-color);
@@ -59,7 +61,8 @@
       text-align: center;
     }
 
-    td, a {
+    td,
+    a {
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
@@ -169,11 +172,10 @@
     cursor: pointer;
   }
 
-  
   @media screen and (max-width: 1250px) {
     background: url("../../assets/images/bucket_of_balls.jpg");
     background-size: cover;
     background-position: center;
-    height: 100%;  
+    height: 100%;
   }
 }
