@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Administration.scss";
 import { useMutation } from "@apollo/react-hooks";
-
+import { motion } from "framer-motion";
 import Auth from "../../utils/auth";
 import { LOGIN_USER } from "../../utils/mutations";
 
@@ -55,7 +55,9 @@ const Administration = () => {
           </p>
         </div>
       )}
-      <div className="app__flex">
+      <motion.div className="app__flex"
+      whileInView={{ opacity: [0, 1] }}
+      transition={{ duration: 0.7 }}>
         <form onSubmit={handleFormSubmit}>
           <input
             placeholder="Administrator Email"
@@ -73,7 +75,7 @@ const Administration = () => {
           />
           <button type="submit">Login</button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

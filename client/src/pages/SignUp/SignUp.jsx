@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SignUp.scss";
+import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_BASIC_TOURNAMENTS } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
@@ -174,7 +175,9 @@ const SignUp = () => {
           <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
-          <div>
+          <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}>
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
@@ -191,7 +194,7 @@ const SignUp = () => {
             >
               Join the Waitlist
             </button>
-          </div>
+          </motion.div>
         </div>
       ) : (
         <div>

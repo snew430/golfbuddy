@@ -1,5 +1,6 @@
 import React from "react";
 import "./Tournament.scss";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
@@ -28,7 +29,9 @@ const Tournament = () => {
 
 
         
-        <div className="trip-details">
+        <motion.div className="trip-details"
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}>
           <div>
             <h4>
               We are staying at <br /> {tournament.hotels[0].name}
@@ -96,7 +99,7 @@ const Tournament = () => {
               </a>
             </p>
           </div>
-        </div>
+        </motion.div>
 
         <h4>All payments are due: {tournament.paymentDue} </h4>
 

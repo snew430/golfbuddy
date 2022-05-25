@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PlayerList.scss";
 import List from "../../components/List/List";
-
+import { motion } from "framer-motion";
 import { useQuery } from "@apollo/react-hooks";
 
 import { QUERY_TOURNAMENTS } from "../../utils/queries";
@@ -46,11 +46,15 @@ const PlayerList = () => {
             refetchPlayers={refetch}
           />
         </div>
-        <div className="app__flex">
+        <motion.div 
+        className="app__flex"
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        >
           <Link to="../Message">
             <button>Email the Players</button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

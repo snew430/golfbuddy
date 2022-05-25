@@ -1,6 +1,6 @@
 import React from 'react';
 import './Rules.scss'
-
+import { motion } from "framer-motion";
 const Rules = () => {
   return (
     <div id='rules'>
@@ -13,7 +13,9 @@ const Rules = () => {
               Each day has prize money, so make sure to bring your A game.
               You have already anteed up when you paid for your golf.
           </p>
-          <div className='rules-content'>
+          <motion.div className='rules-content'
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}>
             <h6>Senior Tees</h6>
                 <p className='p-text'>We are all using the tees that are 5800 yards and shorter.</p>
             <h6>Max Stroke on Any Hole is Par plus 3</h6>
@@ -24,7 +26,7 @@ const Rules = () => {
                 <p className='p-text'>Ok to roll the ball in the fairway, lift and clean is ok.</p>
             <h6>Putts: Gimmes are Ok</h6>
                 <p className='p-text'>Player must add a stroke for the gimme.</p>
-          </div>
+          </motion.div>
           <p className='info-text'>
             We have assigned the foursomes for Sunday and Wednesday's Ryder Cup Round.
             If there is a foursome group you want to play with on Monday or Tuesday, please let us know

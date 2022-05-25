@@ -3,7 +3,7 @@ import "./Message.scss";
 import Auth from "../../utils/auth";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_PLAYERS, QUERY_ACTIVE_PLAYERS } from "../../utils/queries";
-// import nodemailer from "nodemailer";
+import { motion } from "framer-motion";
 import { SEND_MESSAGE } from "../../utils/mutations";
 
 const Message = () => {
@@ -72,7 +72,9 @@ const Message = () => {
       <div className="background">
         <h2 className="head-text">Email the Players</h2>
         {!isFormSubmitted ? (
-          <div className="app__flex">
+          <motion.div className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}>
             <div className="app__flex email-form">
               <div className="app__flex">
                 <input
@@ -100,7 +102,7 @@ const Message = () => {
                 Send to Master List
               </button>
             </div>
-          </div>
+          </motion.div>
         ) : (
           <div>
             <h2 className="head-text">Email Sent!</h2>

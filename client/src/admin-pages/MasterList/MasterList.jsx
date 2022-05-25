@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./MasterList.scss";
 import Master from "../../components/Master/Master";
 import { useQuery } from "@apollo/react-hooks";
+import { motion } from "framer-motion";
 
 import { QUERY_PLAYERS } from "../../utils/queries";
 import Auth from "../../utils/auth";
@@ -31,11 +32,13 @@ const MasterList = () => {
         <div className="master-list">
           <Master players={players} />
         </div>
-        <div className="app__flex">
+        <motion.div className="app__flex"
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}>
           <Link to="../Message">
             <button>Email the Players</button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
