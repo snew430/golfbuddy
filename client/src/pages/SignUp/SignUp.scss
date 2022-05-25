@@ -2,126 +2,55 @@
     background: url("../../assets/images/white_paper.jpg");
     background-size: cover;
     background-position: center;
-    height: 100%;
-    width: 100%;
-
+    height: 100vh;
+  
     .head-text {
         padding-top: 6rem;
-            font-size: 5rem;
-            font-weight: 800;
-            text-align: center;
-            color: var(--darkGreen-color);
-            text-shadow: -1px 0 var(--yellow-color);
-        
-            @media screen and (max-width: 900px) {
-                font-size: 4rem;
-            }
-        
-            @media screen and (max-width: 450px) {
-                font-size: 3rem;
-            }
-            
-    }
-    .tournament-text {
-        padding-top: 1rem;
-            font-size: 5.5rem;
-            font-weight: 400;
-            text-align: center;
-            color: var(--darkGreen-color);
-            text-shadow: -1px 0 var(--yellow-color);
-        
-            @media screen and (max-width: 900px) {
-                font-size: 3rem;
-            }
-        
-            @media screen and (max-width: 450px) {
-                font-size: 2rem;
-            }
-    }
-    .course-text {
-        padding-top: 0rem;
-        font-size: 4rem;
-        font-weight: 400;
-        text-align: center;
-        color: var(--darkGreen-color);
-        text-shadow: -1px 0 var(--yellow-color);
-    
-        @media screen and (max-width: 900px) {
-            font-size: 3rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 2rem;
-        }
-    }
-    .date-text {
-        padding-top: 0rem;
-        font-size: 1.5rem;
+        font-size: 5rem;
         font-weight: 600;
         text-align: center;
         color: var(--darkGreen-color);
-        // text-shadow: -1px 0 var(--yellow-color);
+        //text-shadow: -1px 0 var(--yellow-color);
+    
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+        
+        @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }    
+    }
+
+    .tournament-text {
+        padding-top: 0.5rem;
+        font-size: 5.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: var(--darkGreen-color);
+        //text-shadow: -1px 0 var(--yellow-color);
+        
+        @media screen and (max-width: 900px) {
+            font-size: 4rem;
+        }
+        
+         @media screen and (max-width: 450px) {
+            font-size: 3rem;
+        }
+    }
+
+    .date-text {
+        font-size: 2.25rem;
+        font-weight: 600;
+        text-align: center;
+        color: var(--darkGreen-color);
+        //text-shadow: -1px 0 black;
 
         @media screen and (max-width: 900px) {
-        font-size: 3rem;
+            font-size: 3rem;
         }
 
         @media screen and (max-width: 450px) {
-            font-size: 2rem;
-        }
-    }
-    
-    .app__signUp-cards {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 4rem 2rem 2rem;
-    
-        .app__signUp-card {
-            min-width: 290px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            
-    
-            margin: 1rem 0;
-            padding: 0;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: var(--darkGreen-color);
-            
-    
-            transition: all 0.3s ease-in-out;
-            
-            a {
-                text-decoration: none;
-                font-weight: 500;
-            }
-            .signup-text {
-                font-size: 0.8rem;
-                text-align: left;
-                color: var(--white-color);
-                line-height: 1.5;
-              
-                @media screen and (min-width: 900px) {
-                  font-size: 1.75rem;
-                }
-              }
-    
-            &:hover {
-                box-shadow: 0 0 25px #fff;
-            }
-    
-            @media screen and (max-width: 450px) {
-                width: 100%;
-                
-            }
-        }
-    
-        @media screen and (max-width: 768px) {
-            justify-content: center;
+            font-size: 1.5rem;
         }
     }
     
@@ -129,36 +58,17 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 1rem 10rem; 
         text-align: center;
-
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 25rem;
     
-            @media screen and (max-width: 450px) {
-                width: 100%;
-            }
-    
-            input {
-                padding: 1rem;
-                margin: 1rem;
-                font-size: 1.5rem;
-                font-family: "Old Standard TT", serif;
-                color: #282828;
-            }
-        }
-    
-        
-    
-    
-            input, textarea {
-            margin: 0.75rem 0;
+        input {
+            margin: 1rem 40rem;
             border-radius: 10px;
             cursor: pointer;
             background-color: var(--white-color);
+
+            font-size: 1.5rem;
+            font-family: "Old Standard TT", serif;
+            color: #282828;
     
             transition: all 0.3 ease-in-out;
 
@@ -171,106 +81,144 @@
                 font-family: var(--font-base);
                 color: var(--darkGreen-color);
                 outline: none;
-            }
-    
-            textarea {
-                height: 170px;
-                
-            }
 
-            @media screen and (max-width: 900px) {
-                margin: 2rem;
+                @media screen and (max-width: 2400px) {
+                    margin: 1rem 35rem;
+                }
+
+                @media screen and (max-width: 1600px) {
+                    margin: 1rem 20rem;
+                }
+
+                @media screen and (max-width: 1250px) {
+                    margin: 1rem 12rem;
+                }
+
+                @media screen and (max-width: 900px) {
+                    margin: 1rem 2rem;
+                }
+            
+                @media screen and (max-width: 450px) {
+                    margin: 0.75rem 0.25rem;
+                }
+        }
+    
+
+
+        .info-text {
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            text-justify: inter-word;
+            color: var(--darkGreen-color);
+            text-shadow: -1px 0 black;
+            line-height: 1.5;
+            margin: 15px 300px 15px;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 2.25rem;
+                margin: 10px 70px 10px;
             }
         
             @media screen and (max-width: 450px) {
-                margin: 2rem;
+                font-size: 1.75rem;
+                margin: 10px;
             }
+
+        }
+
     
-            // &:hover {
-            //     box-shadow: 0 0 25px var(--white-color);
-            // }
+        h5 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--darkGreen-color);
+
+            @media screen and (max-width: 900px) {
+            font-size: 2.5rem;
+            }
+            
+            @media screen and (max-width: 450px) {
+            font-size: 2rem;
+            }
+        }
 
         
     
-    .button_list {
-        // display: flex;
-        // flex-direction: row;
-        // flex-wrap: wrap;
-        justify-content: flex-start;
-        // text-align: center;
-        // justify-content: center;
-        margin-bottom: 1rem;
+        .button_list {
+            justify-content: flex-start;
+            margin-bottom: 0.5rem;
 
-        @media screen and (max-width: 900px) {
-            flex-direction: column;
+            @media screen and (max-width: 900px) {
+                flex-direction: column;
+            }
+        
+            @media screen and (max-width: 450px) {
+                flex-direction: column;
+            }
+            
+            button  {
+                // text-align: center;
+                // justify-content: flex-start;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                border: none;
+                background-color: var(--darkGreen-color);
+                font-weight: 500;
+                font-size: 1.75rem;
+                color: var(--white-color);
+                text-shadow: -1px 0 black;
+                outline: none;
+                margin: 2rem;
+                font-family: var(--font-base);
+                cursor: pointer;
+
+                @media screen and (max-width: 900px) {
+                    margin: 2rem;
+                }
+            
+                @media screen and (max-width: 450px) {
+                    margin: 2rem;
+                }
+            }
+            
         }
-    
-        @media screen and (max-width: 450px) {
-            flex-direction: column;
-        }
-        
-        
-        
-        button  {
-            // text-align: center;
-            // justify-content: flex-start;
+
+        .submitBtn {
             padding: 1rem 2rem;
             border-radius: 10px;
             border: none;
             background-color: var(--darkGreen-color);
             font-weight: 500;
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--white-color);
             text-shadow: -1px 0 black;
             outline: none;
             margin: 2rem;
             font-family: var(--font-base);
             cursor: pointer;
-
-            @media screen and (max-width: 900px) {
-                margin: 2rem;
-            }
-        
-            @media screen and (max-width: 450px) {
-                margin: 2rem;
-            }
+            
+            
         }
-        
-    }
 
-    .submitBtn {
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--darkGreen-color);
-        font-weight: 500;
-        font-size: 2rem;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        outline: none;
-        margin: 2rem;
-        font-family: var(--font-base);
-        cursor: pointer;
-        
-        
-    }
-    .accommodation {
-        padding-top: 2rem;
-        font-size: 2rem;
-        font-weight: 800;
-        text-align: center;
-        color: var(--darkGreen-color);
-        text-decoration: underline;
+        .accommodation {
+            padding-top: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--darkGreen-color);
+            text-decoration: underline;
+        }
+
     }
     
-        
-        }
-        @media screen and (max-width: 768px) {
-            width: 100%;
-            margin: 1rem 10px;
-        }
-        
-    }
+    @media screen and (max-width: 1250px) {
+        background: url("../../assets/images/white_paper.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100%; 
+      }
+}
 
 
 
