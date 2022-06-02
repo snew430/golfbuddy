@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.scss";
 import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_BASIC_TRIP } from "../../utils/queries";
+import { QUERY_TRIPS } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
 
 const SignUp = () => {
@@ -17,7 +17,7 @@ const SignUp = () => {
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const { data: basicTourney } = useQuery(QUERY_BASIC_TRIP);
+  const { data: basicTourney } = useQuery(QUERY_TRIPS);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
   const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
