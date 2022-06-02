@@ -41,7 +41,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {["home", "tournament", "rules"].map((item) => (
+            {["home", "trip", "rules"].map((item) => (
               <li className="app__flex p-text" key={`link-${item}`}>
                 <Link to={`/${item}`}>{item}</Link>
               </li>
@@ -80,7 +80,7 @@ const Navbar = () => {
                   </li>
                   <li className="app__flex">
                     <Link to={"/playerlist"} onClick={() => setToggle(false)}>
-                      Tournament Player List
+                      Trip Player List
                     </Link>
                   </li>
                   <li className="app__flex">
@@ -90,10 +90,10 @@ const Navbar = () => {
                   </li>
                   <li className="app__flex">
                     <Link
-                      to={"/new-tournament"}
+                      to={"/new-trip"}
                       onClick={() => setToggle(false)}
                     >
-                      Create New Tournament
+                      Create New Trip
                     </Link>
                   </li>
                   <li className="app__flex">
@@ -104,7 +104,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  {["home", "tournament", "rules"].map((item) => (
+                  {["home", "trip", "rules"].map((item) => (
                     <li className="app__flex p-text" key={`link-${item}`}>
                       <Link to={`/${item}`} onClick={() => setToggle(false)}>
                         {item}

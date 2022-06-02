@@ -1,0 +1,86 @@
+#newTrip {
+  background: url("../../assets/images/white_paper.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+
+  .head-text {
+    padding-top: 6rem;
+    font-size: 5.5rem;
+    font-weight: 800, bolder;
+    text-align: center;
+    color: var(--darkGreen-color);
+    text-shadow: -1px 0 var(--yellow-color);
+
+    @media screen and (max-width: 900px) {
+      font-size: 4rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  .app__newTrip-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 10rem;
+    text-align: center;
+
+    input,
+    textarea {
+      margin: 0.75rem 0;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: var(--white-color);
+
+      transition: all 0.3 ease-in-out;
+
+      padding: 0.95rem;
+      border: none;
+      border-radius: 7px;
+      background-color: var(--white-color);
+
+      font-family: var(--font-base);
+      color: var(--darkGreen-color);
+      outline: none;
+    }
+
+    textarea {
+      height: 170px;
+    }
+
+    @media screen and (max-width: 900px) {
+      margin: 2rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      margin: 2rem;
+    }
+
+    &:hover {
+      box-shadow: 0 0 25px var(--white-color);
+    }
+
+    .submitBtn {
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--darkGreen-color);
+      font-weight: 500;
+      font-size: 2rem;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      outline: none;
+      // margin: 2rem 0 0 0;
+      font-family: var(--font-base);
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 1rem 10px;
+  }
+}

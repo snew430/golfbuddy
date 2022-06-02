@@ -17,7 +17,7 @@ const Message = () => {
     useQuery(QUERY_ACTIVE_PLAYERS);
 
   const masterList = emailMasterlist?.players || [];
-  const activeList = emailPlayers?.tournaments[0].playersActive || [];
+  const activeList = emailPlayers?.trips[0].playersActive || [];
 
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
@@ -30,11 +30,13 @@ const Message = () => {
   const handleSendEmail = async (e) => {
     const { subject, message } = formData;
 
+
+
     let recipients = "";
 
     let list;
 
-    if (e.target.name === "tournament") {
+    if (e.target.name === "trip") {
       list = activeList;
     } else {
       list = masterList;
@@ -42,6 +44,8 @@ const Message = () => {
     list.forEach((player) => {
       recipients += `${player.email},`;
     });
+
+
 
 
     try {
@@ -95,8 +99,8 @@ const Message = () => {
                   onChange={handleChangeInput}
                 />
               </div>
-              <button type="button" name="tournament" onClick={handleSendEmail}>
-                Send to Tournament Players
+              <button type="button" name="trip" onClick={handleSendEmail}>
+                Send to Trip Players
               </button>
               <button type="button" name="master" onClick={handleSendEmail}>
                 Send to Master List

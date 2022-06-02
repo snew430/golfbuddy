@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./New-Tournament.scss";
+import "./New-Trip.scss";
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/react-hooks";
-import { ADD_TOURNAMENT } from "../../utils/mutations";
+import { ADD_TRIP } from "../../utils/mutations";
 
-const NewTournament = () => {
-  //edit form data to meet specifications from tournament query
+const NewTrip = () => {
+  //edit form data to meet specifications from Trip query
   const [formData, setformData] = useState({
     name: "",
     startDate: "",
@@ -21,7 +21,7 @@ const NewTournament = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const [addTournament] = useMutation(ADD_TOURNAMENT);
+  const [addTrip] = useMutation(ADD_TRIP);
 
   const {
     name,
@@ -56,7 +56,7 @@ const NewTournament = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    ///////////////////////////////add tournament specifications from tournament query
+    ///////////////////////////////add Trip specifications from Trip query
     const {
       name,
       startDate,
@@ -71,7 +71,7 @@ const NewTournament = () => {
     } = formData;
 
     try {
-      addTournament({
+      addTrip({
         variables: {
           name,
           startDate,
@@ -106,14 +106,14 @@ const NewTournament = () => {
   };
 
   return (
-    <div id="newTournament">
-      <h2 className="head-text">Create New Tournament</h2>
+    <div id="newTrip">
+      <h2 className="head-text">Create New Trip</h2>
 
       {!isFormSubmitted ? (
         <div className="app__newTourmament-form">
           <input
             type="text"
-            placeholder="New Tournament Name"
+            placeholder="New Trip Name"
             name="name"
             value={name}
             onChange={handleChangeInput}
@@ -193,7 +193,7 @@ const NewTournament = () => {
 
           <div className="app__flex">
             <button type="button" className="submitBtn" onClick={handleSubmit}>
-              {loading ? "Creating Tournament" : "Create Tournament"}
+              {loading ? "Creating Trip" : "Create Trip"}
             </button>
           </div>
         </div>
@@ -206,4 +206,4 @@ const NewTournament = () => {
   );
 };
 
-export default NewTournament;
+export default NewTrip;

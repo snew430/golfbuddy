@@ -25,8 +25,8 @@ const AdminHome = () => {
       transition= {{ duration: 0.8 }}>
         <motion.div className="app__flex"
         whileHover={{scale: 1.1}}>
-          <Link to="../New-Tournament">
-            <button>Create the Next Tournament</button>
+          <Link to="../New-Trip">
+            <button>Create the Next Trip</button>
           </Link>
         </motion.div>
         <motion.div className="app__flex"

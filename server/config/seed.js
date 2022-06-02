@@ -1,12 +1,12 @@
 const db = require("./connection");
-const { Admin, Hotel, Course, Player, Tournament } = require("../models");
+const { Admin, Hotel, Course, Player, Trip } = require("../models");
 
 db.once("open", async () => {
   await Admin.deleteMany();
   await Hotel.deleteMany();
   await Course.deleteMany();
   await Player.deleteMany();
-  await Tournament.deleteMany();
+  await Trip.deleteMany();
 
   const admin = await Admin.create({
     email: process.env.EMAIL,
@@ -70,7 +70,7 @@ db.once("open", async () => {
     lodging: "Golf Only",
   });
 
-  const tournament = await Tournament.create({
+  const trip = await Trip.create({
     name: "Fall 2022 Trip",
     startDate: "10/16/2022",
     endDate: "10/19/2022",

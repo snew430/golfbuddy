@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 // const Hotel = require("./Hotel");
 // const Player = require("./Player");
 
-const tourneySchema = new Schema(
+const tripSchema = new Schema(
   {
     name: {
       type: String,
@@ -71,10 +71,10 @@ const tourneySchema = new Schema(
   }
 );
 
-tourneySchema.virtual("activePlayerCount").get(function () {
+tripSchema.virtual("activePlayerCount").get(function () {
   return this.playersActive.length;
 });
 
-const Tournament = model("Tournament", tourneySchema);
+const Trip = model("Trip", tripSchema);
 
-module.exports = Tournament;
+module.exports = Trip;

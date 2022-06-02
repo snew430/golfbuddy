@@ -97,8 +97,8 @@ export const ADD_HOTEL = gql`
   }
 `;
 
-export const EDIT_TOURNAMENT = gql`
-  mutation editTournament(
+export const EDIT_TRIP = gql`
+  mutation editTrip(
     $id: ID!
     $name: String
     $startDate: String
@@ -109,7 +109,7 @@ export const EDIT_TOURNAMENT = gql`
     $doublePrice: Int
     $golfOnlyPrice: Int
   ) {
-    editTournament(
+    editTrip(
       id: $id
       name: $name
       startDate: $startDate
@@ -142,8 +142,8 @@ export const EDIT_TOURNAMENT = gql`
   }
 `;
 
-export const ADD_TOURNAMENT = gql`
-  mutation addTournament(
+export const ADD_TRIP = gql`
+  mutation addTrip(
     $name: String!
     $startDate: String!
     $endDate: String!
@@ -153,7 +153,7 @@ export const ADD_TOURNAMENT = gql`
     $doublePrice: Int!
     $golfOnlyPrice: Int!
   ) {
-    addTournament(
+    addTrip(
       name: $name
       startDate: $startDate
       endDate: $endDate
@@ -177,16 +177,16 @@ export const ADD_TOURNAMENT = gql`
 `;
 
 export const ADD_ACTIVE_PLAYER = gql`
-  mutation addPlayerToActiveTournament(
-    $tournamentId: ID!
+  mutation addPlayerToActiveTrip(
+    $tripId: ID!
     $firstName: String!
     $lastName: String!
     $email: String!
     $phoneNumber: String!
     $lodging: String!
   ) {
-    addPlayerToActiveTournament(
-      tournamentId: $tournamentId
+    addPlayerToActiveTrip(
+      tripId: $tripId
       firstName: $firstName
       lastName: $lastName
       email: $email
@@ -208,8 +208,8 @@ export const ADD_ACTIVE_PLAYER = gql`
 `;
 
 export const ADD_CURRENT_TO_ACTIVE = gql`
-  mutation addCurrentPlayerToActive($player: ID!, $tournament: ID!) {
-    addCurrentPlayerToActive(player: $player, tournament: $tournament) {
+  mutation addCurrentPlayerToActive($player: ID!, $trip: ID!) {
+    addCurrentPlayerToActive(player: $player, trip: $trip) {
       playersActive {
         _id
         firstName
@@ -223,8 +223,8 @@ export const ADD_CURRENT_TO_ACTIVE = gql`
 `;
 
 export const REMOVE_ACTIVE_PLAYER = gql`
-  mutation removeActivePlayer($player: ID!, $tournament: ID!) {
-    removeActivePlayer(player: $player, tournament: $tournament) {
+  mutation removeActivePlayer($player: ID!, $trip: ID!) {
+    removeActivePlayer(player: $player, trip: $trip) {
       playersActive {
         _id
         firstName
@@ -238,8 +238,8 @@ export const REMOVE_ACTIVE_PLAYER = gql`
 `;
 
 export const ADD_WAITLIST_PLAYER = gql`
-  mutation addPlayerToWaitlistTournament($player: ID!, $tournament: ID!) {
-    addPlayerToWaitlistTournament(player: $player, tournament: $tournament) {
+  mutation addPlayerToWaitlistTrip($player: ID!, $trip: ID!) {
+    addPlayerToWaitlistTrip(player: $player, trip: $trip) {
       _id
       name
       playersWaitlist {
@@ -255,8 +255,8 @@ export const ADD_WAITLIST_PLAYER = gql`
 `;
 
 export const ADD_CURRENT_TO_WAITLIST = gql`
-  mutation addCurrentPlayerToWaitlist($player: ID!, $tournament: ID!) {
-    addCurrentPlayerToWaitlist(player: $player, tournament: $tournament) {
+  mutation addCurrentPlayerToWaitlist($player: ID!, $trip: ID!) {
+    addCurrentPlayerToWaitlist(player: $player, trip: $trip) {
       playersActive {
         _id
         firstName
@@ -270,8 +270,8 @@ export const ADD_CURRENT_TO_WAITLIST = gql`
 `;
 
 export const REMOVE_WAITLIST_PLAYER = gql`
-  mutation removeWaitlistPlayer($player: ID!, $tournament: ID!) {
-    removeWaitlistPlayer(player: $player, tournament: $tournament) {
+  mutation removeWaitlistPlayer($player: ID!, $trip: ID!) {
+    removeWaitlistPlayer(player: $player, trip: $trip) {
       playersWaitlist {
         _id
         firstName

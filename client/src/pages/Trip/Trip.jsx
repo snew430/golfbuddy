@@ -1,61 +1,55 @@
 import React from "react";
-import "./Tournament.scss";
+import "./Trip.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_TOURNAMENTS } from "../../utils/queries";
+import { QUERY_TRIPS } from "../../utils/queries";
 
-const Tournament = () => {
-  const { loading, data: tournamentData } = useQuery(QUERY_TOURNAMENTS);
-  const tournament = tournamentData?.tournaments[0] || [];
+const Trip = () => {
+  const { loading, data: tripData } = useQuery(QUERY_TRIPS);
+  const trip = tripData?.trips[0] || [];
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div id="tournament">
+    <div id="trip">
       <div className="background">
-        <h2 className="head-text">{tournament.name}</h2>
+        <h2 className="head-text">{trip.name}</h2>
         <h3>
-          {tournament.startDate} - {tournament.endDate}
+          {trip.startDate} - {trip.endDate}
         </h3>
 
         <div className="app__flex">
           <Link to="../SignUp">
-            <button>Sign Up for this Tournament</button>
+            <button>Sign Up for this Trip</button>
           </Link>
         </div>
 
-
-        
-        <motion.div className="trip-details"
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}>
+        <motion.div
+          className="trip-details"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
+        >
           <div>
             <h4>
-              We are staying at <br /> {tournament.hotels[0].name}
+              We are staying at <br /> {trip.hotels[0].name}
             </h4>
-            <p className="p-text">{tournament.hotels[0].address}</p>
+            <p className="p-text">{trip.hotels[0].address}</p>
             <p className="p-text">
               <a
                 className="p-text"
-                href={tournament.hotels[0].website}
+                href={trip.hotels[0].website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {tournament.hotels[0].website}
+                {trip.hotels[0].website}
               </a>
             </p>
-            <p className="p-text">
-              Price for Single Room: ${tournament.singlePrice}
-            </p>
-            <p className="p-text">
-              Price for Double Room: ${tournament.doublePrice}
-            </p>
-            <p className="p-text">
-              Golf Only Price: ${tournament.golfOnlyPrice}
-            </p>
+            <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>
+            <p className="p-text">Price for Double Room: ${trip.doublePrice}</p>
+            <p className="p-text">Golf Only Price: ${trip.golfOnlyPrice}</p>
           </div>
           <div>
             <h4>Courses</h4>
@@ -63,45 +57,45 @@ const Tournament = () => {
               Day One: <br />{" "}
               <a
                 className="p-text"
-                href={tournament.courses[0].website}
+                href={trip.courses[0].website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {tournament.courses[0].name}
+                {trip.courses[0].name}
               </a>
             </p>
             <p className="p-text">
               Day Two: <br />{" "}
               <a
                 className="p-text"
-                href={tournament.courses[1].website}
+                href={trip.courses[1].website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {tournament.courses[1].name}
+                {trip.courses[1].name}
               </a>
             </p>
             <p className="p-text">
               Day Three: <br />{" "}
               <a
                 className="p-text"
-                href={tournament.courses[2].website}
+                href={trip.courses[2].website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {tournament.courses[2].name}
+                {trip.courses[2].name}
               </a>
             </p>
             <p className="p-text">
               Day Four: <br />{" "}
-              <a className="p-text" href={tournament.courses[0].website}>
-                {tournament.courses[0].name}
+              <a className="p-text" href={trip.courses[0].website}>
+                {trip.courses[0].name}
               </a>
             </p>
           </div>
         </motion.div>
 
-        <h4>All payments are due: {tournament.paymentDue} </h4>
+        <h4>All payments are due: {trip.paymentDue} </h4>
 
         <p className="info-text">
           Please send payments through Venmo @John-McKenna-145 or mail a check
@@ -124,4 +118,4 @@ const Tournament = () => {
   );
 };
 
-export default Tournament;
+export default Trip;

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Admin, Player, Course, Hotel, Tournament } = require("../models");
+const { Admin, Player, Course, Hotel, Trip } = require("../models");
 const { signToken } = require("../utils/auth");
 
 require("dotenv").config();
@@ -16,15 +16,15 @@ const resolvers = {
     hotels: async () => {
       return await Hotel.find();
     },
-    tournaments: async () => {
-      return await Tournament.find()
+    trips: async () => {
+      return await Trip.find()
         .populate("courses")
         .populate("hotels")
         .populate("playersActive")
         .populate("playersWaitlist");
     },
-    tournament: async (parent, { id }) => {
-      return await Tournament.findById(id)
+    trip: async (parent, { id }) => {
+      return await Trip.findById(id)
         .populate("courses")
         .populate("hotels")
         .populate("playersActive")
@@ -94,18 +94,18 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    addTournament: async (parent, args, context) => {
+    addTrip: async (parent, args, context) => {
       if (context.user) {
-        const tournament = await Tournament.create(args);
-        return tournament;
+        const trip = await Trip.create(args);
+        return trip;
       }
       throw new AuthenticationError("Not logged in");
     },
 
     //LOGIN REQUIRED
-    editTournament: async (parent, args, context) => {
+    editTrip: async (parent, args, context) => {
       if (context.user) {
-        return await Tournament.findByIdAndUpdate(args.id, args, {
+        return await Trip.findByIdAndUpdate(args.id, args, {
           new: true,
           runValidators: true,
         });
@@ -114,16 +114,16 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    deleteTournament: async (parent, { id }, context) => {
+    deleteTrip: async (parent, { id }, context) => {
       if (context.user) {
-        return await Tournament.findByIdAndDelete(id);
+        return await Trip.findByIdAndDelete(id);
       }
     },
 
-    addPlayerToActiveTournament: async (
+    addPlayerToActiveTrip: async (
       parent,
       {
-        tournamentId,
+        tripId,
         firstName,
         lastName,
         email,
@@ -141,8 +141,8 @@ const resolvers = {
         lodging: lodging,
       });
 
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournamentId },
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: tripId },
         {
           $push: {
             playersActive: playerToAdd,
@@ -155,13 +155,13 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    removeActivePlayer: async (parent, { player, tournament }) => {
+    removeActivePlayer: async (parent, { player, trip }) => {
       try {
-        const updatedTournament = await Tournament.findOneAndUpdate(
-          { _id: tournament },
+        const updatedTrip = await Trip.findOneAndUpdate(
+          { _id: trip },
           {
             $pull: {
               playersActive: { $in: [player] },
@@ -174,15 +174,15 @@ const resolvers = {
           .populate("playersActive")
           .populate("playersWaitlist");
 
-        return updatedTournament;
+        return updatedTrip;
       } catch (error) {
         console.log(error);
       }
     },
 
-    addCurrentPlayerToActive: async (parent, { player, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+    addCurrentPlayerToActive: async (parent, { player, trip }) => {
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $push: {
             playersActive: { _id: player },
@@ -195,13 +195,13 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    addPlayerToWaitlistTournament: async (
+    addPlayerToWaitlistTrip: async (
       parent,
       {
-        tournamentId,
+        tripId,
         firstName,
         lastName,
         email,
@@ -219,8 +219,8 @@ const resolvers = {
         lodging: lodging,
       });
 
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournamentId },
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: tripId },
         {
           $push: {
             playersWaitlist: playerToAdd,
@@ -233,12 +233,12 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    addCurrentPlayerToWaitlist: async (parent, { player, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+    addCurrentPlayerToWaitlist: async (parent, { player, trip }) => {
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $push: {
             playersWaitlist: { _id: player },
@@ -251,14 +251,13 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    removeWaitlistPlayer: async (parent, { player, tournament }) => {
-
+    removeWaitlistPlayer: async (parent, { player, trip }) => {
       try {
-        const updatedTournament = await Tournament.findOneAndUpdate(
-          { _id: tournament },
+        const updatedTrip = await Trip.findOneAndUpdate(
+          { _id: trip },
           {
             $pull: {
               playersWaitlist: { $in: [player] },
@@ -269,19 +268,19 @@ const resolvers = {
           .populate("courses")
           .populate("hotels")
           .populate("playersActive")
-          .populate("playersWaitlist")
+          .populate("playersWaitlist");
 
-        return updatedTournament;
+        return updatedTrip;
       } catch (error) {
         console.log(error);
       }
     },
 
-    addCourseToTournament: async (parent, { course, tournament }) => {
+    addCourseToTrip: async (parent, { course, trip }) => {
       const courseToAdd = await Course.findById(course);
 
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $push: {
             courses: courseToAdd,
@@ -294,12 +293,12 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    removeCourseFromTourney: async (parent, { course, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+    removeCourseFromTrip: async (parent, { course, trip }) => {
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $pull: {
             courses: { _id: course },
@@ -312,14 +311,14 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    addHotelToTournament: async (parent, { hotel, tournament }) => {
+    addHotelToTrip: async (parent, { hotel, trip }) => {
       const hotelToAdd = await Hotel.findById(hotel);
 
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $push: {
             hotels: hotelToAdd,
@@ -332,12 +331,12 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
-    removeHotelFromTourney: async (parent, { hotel, tournament }) => {
-      const updatedTournament = await Tournament.findOneAndUpdate(
-        { _id: tournament },
+    removeHotelFromTrip: async (parent, { hotel, trip }) => {
+      const updatedTrip = await Trip.findOneAndUpdate(
+        { _id: trip },
         {
           $pull: {
             hotels: { _id: hotel },
@@ -350,7 +349,7 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
 
-      return updatedTournament;
+      return updatedTrip;
     },
 
     sendMessage: async (parent, { recipients, subject, message }) => {

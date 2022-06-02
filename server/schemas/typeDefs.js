@@ -30,7 +30,7 @@ const typeDefs = gql`
     address: String
     website: String
   }
-  type Tournament {
+  type Trip {
     _id: ID
     name: String
     startDate: String
@@ -51,8 +51,8 @@ const typeDefs = gql`
     players: [Player]
     courses: [Course]
     hotels: [Hotel]
-    tournaments: [Tournament]
-    tournament(id: ID!): Tournament
+    trips: [Trip]
+    trip(id: ID!): Trip
   }
 
   type Mutation {
@@ -77,7 +77,7 @@ const typeDefs = gql`
     deletePlayer(id: ID!): Player
     addCourse(name: String!, address: String!, website: String!): Course
     addHotel(name: String!, address: String!, website: String!): Hotel
-    addTournament(
+    addTrip(
       name: String!
       startDate: String!
       endDate: String!
@@ -86,9 +86,9 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
       golfOnlyPrice: Int!
-    ): Tournament
+    ): Trip
 
-    editTournament(
+    editTrip(
       id: ID!
       name: String
       startDate: String
@@ -98,43 +98,43 @@ const typeDefs = gql`
       singlePrice: Int
       doublePrice: Int
       golfOnlyPrice: Int
-    ): Tournament
-    deleteTournament(id: ID!): Tournament
+    ): Trip
+    deleteTrip(id: ID!): Trip
 
-    addPlayerToActiveTournament(
-      tournamentId: ID!
+    addPlayerToActiveTrip(
+      tripId: ID!
       firstName: String!
       lastName: String!
       email: String!
       phoneNumber: String!
       preferredRoomate: String
       lodging: String!
-    ): Tournament
+    ): Trip
 
-    removeActivePlayer(player: ID!, tournament: ID!): Tournament
-    addCurrentPlayerToActive(player: ID!, tournament: ID!): Tournament
+    removeActivePlayer(player: ID!, trip: ID!): Trip
+    addCurrentPlayerToActive(player: ID!, trip: ID!): Trip
 
-    addPlayerToWaitlistTournament(
-      tournamentId: ID!
+    addPlayerToWaitlistTrip(
+      tripId: ID!
       firstName: String!
       lastName: String!
       email: String!
       phoneNumber: String!
       preferredRoomate: String
       lodging: String!
-    ): Tournament
+    ): Trip
 
-    removeWaitlistPlayer(player: ID!, tournament: ID!): Tournament
-    
-    addCurrentPlayerToWaitlist(player: ID!, tournament: ID!): Tournament
+    removeWaitlistPlayer(player: ID!, trip: ID!): Trip
 
-    addCourseToTournament(course: ID!, tournament: ID!): Tournament
+    addCurrentPlayerToWaitlist(player: ID!, trip: ID!): Trip
 
-    removeCourseFromTourney(course: ID!, tournament: ID!): Tournament
+    addCourseToTrip(course: ID!, trip: ID!): Trip
 
-    addHotelToTournament(hotel: ID!, tournament: ID!): Tournament
+    removeCourseFromTrip(course: ID!, trip: ID!): Trip
 
-    removeHotelFromTourney(hotel: ID!, tournament: ID!): Tournament
+    addHotelToTrip(hotel: ID!, trip: ID!): Trip
+
+    removeHotelFromTrip(hotel: ID!, trip: ID!): Trip
 
     sendMessage(recipients: String!, subject: String!, message: String!): Admin
   }
