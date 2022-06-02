@@ -1,216 +1,205 @@
 #signUp {
+  background: url("../../assets/images/white_paper.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+
+  .head-text {
+    padding-top: 6rem;
+    font-size: 5rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--darkGreen-color);
+    //text-shadow: -1px 0 var(--yellow-color);
+
+    @media screen and (max-width: 900px) {
+      font-size: 4rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  .tournament-text {
+    padding-top: 0.5rem;
+    font-size: 5.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--darkGreen-color);
+    //text-shadow: -1px 0 var(--yellow-color);
+
+    @media screen and (max-width: 900px) {
+      font-size: 4rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  .date-text {
+    font-size: 2.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--darkGreen-color);
+    //text-shadow: -1px 0 black;
+
+    @media screen and (max-width: 900px) {
+      font-size: 3rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .app__signUp-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    input {
+      display: block;
+      margin: 1rem auto;
+      width: 25rem;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: var(--white-color);
+
+      font-size: 1.5rem;
+      font-family: "Old Standard TT", serif;
+      color: #282828;
+
+      transition: all 0.3 ease-in-out;
+
+      padding: 0.95rem;
+      border: none;
+      border-radius: 7px;
+      background-color: var(--white-color);
+
+      font-family: var(--font-base);
+      color: var(--darkGreen-color);
+      outline: none;
+
+      @media screen and (max-width: 900px) {
+        width: 50%;
+      }
+
+      @media screen and (max-width: 450px) {
+        width: 90%;
+      }
+    }
+
+    .info-text {
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+      text-justify: inter-word;
+      color: var(--darkGreen-color);
+      text-shadow: -1px 0 black;
+      line-height: 1.5;
+      margin: 15px 300px 15px;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 2.25rem;
+        margin: 10px 70px 10px;
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 1.75rem;
+        margin: 10px;
+      }
+    }
+
+    h5 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--darkGreen-color);
+
+      @media screen and (max-width: 900px) {
+        font-size: 2.5rem;
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 2rem;
+      }
+    }
+
+    .button_list {
+      justify-content: flex-start;
+      margin-bottom: 0.5rem;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+
+      @media screen and (max-width: 450px) {
+        flex-direction: column;
+      }
+
+      button {
+        // text-align: center;
+        // justify-content: flex-start;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--darkGreen-color);
+        font-weight: 500;
+        font-size: 1.75rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        margin: 2rem;
+        font-family: var(--font-base);
+        cursor: pointer;
+
+        @media screen and (max-width: 900px) {
+          margin: 2rem;
+        }
+
+        @media screen and (max-width: 450px) {
+          margin: 2rem;
+        }
+      }
+
+      .active {
+        background-color: var(--yellow-color);
+        color: var(--black-color);
+      }
+    }
+
+    .submitBtn {
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--darkGreen-color);
+      font-weight: 500;
+      font-size: 2rem;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      outline: none;
+      margin: 2rem;
+      font-family: var(--font-base);
+      cursor: pointer;
+    }
+
+    .accommodation {
+      padding-top: 2rem;
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      color: var(--darkGreen-color);
+      text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-height: 800px) {
     background: url("../../assets/images/white_paper.jpg");
     background-size: cover;
     background-position: center;
     height: 100%;
-  
-    .head-text {
-        padding-top: 6rem;
-        font-size: 5rem;
-        font-weight: 600;
-        text-align: center;
-        color: var(--darkGreen-color);
-        //text-shadow: -1px 0 var(--yellow-color);
-    
-        @media screen and (max-width: 900px) {
-            font-size: 4rem;
-        }
-        
-        @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }    
-    }
-
-    .tournament-text {
-        padding-top: 0.5rem;
-        font-size: 5.5rem;
-        font-weight: 600;
-        text-align: center;
-        color: var(--darkGreen-color);
-        //text-shadow: -1px 0 var(--yellow-color);
-        
-        @media screen and (max-width: 900px) {
-            font-size: 4rem;
-        }
-        
-         @media screen and (max-width: 450px) {
-            font-size: 3rem;
-        }
-    }
-
-    .date-text {
-        font-size: 2.25rem;
-        font-weight: 600;
-        text-align: center;
-        color: var(--darkGreen-color);
-        //text-shadow: -1px 0 black;
-
-        @media screen and (max-width: 900px) {
-            font-size: 3rem;
-        }
-
-        @media screen and (max-width: 450px) {
-            font-size: 1.5rem;
-        }
-    }
-    
-    .app__signUp-form  {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    
-
-        input {
-            display: block;
-            margin: 1rem auto;
-            width: 25rem;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: var(--white-color);
-
-            font-size: 1.5rem;
-            font-family: "Old Standard TT", serif;
-            color: #282828;
-            
-    
-            transition: all 0.3 ease-in-out;
-
-                
-                padding: 0.95rem;
-                border: none;
-                border-radius: 7px;
-                background-color: var(--white-color);
-    
-                font-family: var(--font-base);
-                color: var(--darkGreen-color);
-                outline: none;
-
-                @media screen and (max-width: 900px) {
-                    width: 50%;
-                }
-
-                @media screen and (max-width: 450px) {
-                    width: 90%;
-                }
-            
-
-        }
-    
-
-
-        .info-text {
-            font-size: 2rem;
-            font-weight: 500;
-            text-align: center;
-            text-justify: inter-word;
-            color: var(--darkGreen-color);
-            text-shadow: -1px 0 black;
-            line-height: 1.5;
-            margin: 15px 300px 15px;
-
-            @media screen and (max-width: 1200px) {
-                font-size: 2.25rem;
-                margin: 10px 70px 10px;
-            }
-        
-            @media screen and (max-width: 450px) {
-                font-size: 1.75rem;
-                margin: 10px;
-            }
-
-        }
-
-    
-        h5 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            text-align: center;
-            color: var(--darkGreen-color);
-
-            @media screen and (max-width: 900px) {
-            font-size: 2.5rem;
-            }
-            
-            @media screen and (max-width: 450px) {
-            font-size: 2rem;
-            }
-        }
-
-        
-    
-        .button_list {
-            justify-content: flex-start;
-            margin-bottom: 0.5rem;
-
-            @media screen and (max-width: 900px) {
-                flex-direction: column;
-            }
-        
-            @media screen and (max-width: 450px) {
-                flex-direction: column;
-            }
-            
-            button  {
-                // text-align: center;
-                // justify-content: flex-start;
-                padding: 1rem 2rem;
-                border-radius: 10px;
-                border: none;
-                background-color: var(--darkGreen-color);
-                font-weight: 500;
-                font-size: 1.75rem;
-                color: var(--white-color);
-                text-shadow: -1px 0 black;
-                outline: none;
-                margin: 2rem;
-                font-family: var(--font-base);
-                cursor: pointer;
-
-                @media screen and (max-width: 900px) {
-                    margin: 2rem;
-                }
-            
-                @media screen and (max-width: 450px) {
-                    margin: 2rem;
-                }
-            }
-            
-        }
-
-        .submitBtn {
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            border: none;
-            background-color: var(--darkGreen-color);
-            font-weight: 500;
-            font-size: 2rem;
-            color: var(--white-color);
-            text-shadow: -1px 0 black;
-            outline: none;
-            margin: 2rem;
-            font-family: var(--font-base);
-            cursor: pointer;
-            
-            
-        }
-
-        .accommodation {
-            padding-top: 2rem;
-            font-size: 2rem;
-            font-weight: 800;
-            text-align: center;
-            color: var(--darkGreen-color);
-            text-decoration: underline;
-        }
-
-    }
-    
-    @media screen and (max-height: 800px) {
-        background: url("../../assets/images/white_paper.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 100%; 
-      }
-
+  }
 }

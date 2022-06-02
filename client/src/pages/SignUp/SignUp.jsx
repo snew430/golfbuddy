@@ -81,12 +81,13 @@ const SignUp = () => {
     setIsFormSubmitted(true);
   };
 
-
   return (
     <div id="signUp">
       <h2 className="head-text">Sign Up for</h2>
       <h2 className="tournament-text"> {tournament.name} </h2>
-      <h4 className="date-text">{tournament.startDate} - {tournament.endDate}</h4>
+      <h4 className="date-text">
+        {tournament.startDate} - {tournament.endDate}
+      </h4>
 
       {!isFormSubmitted ? (
         <div className="app__signUp-form">
@@ -128,6 +129,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
+              className={lodging === "Single" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Single"
             >
@@ -136,6 +138,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
+              className={lodging === "Double" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Double"
             >
@@ -144,6 +147,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
+              className={lodging === "Golf Only" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Golf Only"
             >
@@ -167,17 +171,20 @@ const SignUp = () => {
             ""
           )}
 
-          <h5 className="date-text">All payments are due: {tournament.paymentDue} </h5>  
+          <h5 className="date-text">
+            All payments are due: {tournament.paymentDue}{" "}
+          </h5>
 
           <p className="info-text">
-          Please send payments through Venmo @John-McKenna-145 or mail a check
-          to
-          <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+            Please send payments through Venmo @John-McKenna-145 or mail a check
+            to
+            <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
           <motion.div
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}>
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
+          >
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
