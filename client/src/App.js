@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, Routes } from "react-router-dom";
 
 import {
   ApolloClient,
@@ -18,6 +18,7 @@ import {
   SignUp,
   Home,
   Administration,
+  NoMatch
 } from "./pages";
 
 import {
@@ -70,7 +71,7 @@ function App() {
             <Route path="/new-trip" element={<NewTrip />} />
             <Route path="/administrationhome" element={<AdminHome />} />
             <Route path="/message" element={<Message />} />
-            {/* <Route path="*" element={<NoMatch />} /> */}
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
       </Router>

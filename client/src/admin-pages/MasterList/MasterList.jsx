@@ -57,15 +57,22 @@ const MasterList = () => {
           <div className="master-list">
             <Master players={players} refetchPlayers={refetch} />
           </div>
+
           <motion.div
             className="app__flex"
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.7 }}
           >
             <button onClick={() => toggleModal()}>Add New Player</button>
-            <Link to="../Message">
-              <button>Email the Players</button>
-            </Link>
+          </motion.div>
+          
+          <motion.div
+            className="app__flex"
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
+          >
+            <Link to="../Message"><button>Email the Players</button></Link>
+            
           </motion.div>
         </div>
       </div>
