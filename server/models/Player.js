@@ -30,7 +30,6 @@ const playerSchema = new Schema({
   },
   lodging: {
     type: String,
-    required: true,
   },
 });
 

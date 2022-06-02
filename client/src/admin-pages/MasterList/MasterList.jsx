@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./MasterList.scss";
 import Master from "../../components/Master/Master";
 import { useQuery } from "@apollo/react-hooks";
 import { motion } from "framer-motion";
+import Modal from "../../components/Modal/Modal";
 
 import { QUERY_PLAYERS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const MasterList = () => {
-  const { data: playerData } = useQuery(QUERY_PLAYERS);
+  const { data: playerData, refetch } = useQuery(QUERY_PLAYERS);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const players = playerData?.players || [];
 
   const loggedIn = Auth.loggedIn();
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const player = {
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    preferredRoomate: "",
+    lodging: "",
+  };
 
   if (!loggedIn) {
     return (
@@ -26,21 +42,34 @@ const MasterList = () => {
   }
 
   return (
-    <div id="masterList">
-      <div className="background">
-        <h2 className="head-text">Master List</h2>
-        <div className="master-list">
-          <Master players={players} />
+    <>
+      {isModalOpen && (
+        <Modal
+          player={player}
+          onClose={toggleModal}
+          update_add={"Add"}
+          refetchPlayers={refetch}
+        />
+      )}
+      <div id="masterList">
+        <div className="background">
+          <h2 className="head-text">Master List</h2>
+          <div className="master-list">
+            <Master players={players} refetchPlayers={refetch} />
+          </div>
+          <motion.div
+            className="app__flex"
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
+          >
+            <button onClick={() => toggleModal()}>Add New Player</button>
+            <Link to="../Message">
+              <button>Email the Players</button>
+            </Link>
+          </motion.div>
         </div>
-        <motion.div className="app__flex"
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}>
-          <Link to="../Message">
-            <button>Email the Players</button>
-          </Link>
-        </motion.div>
       </div>
-    </div>
+    </>
   );
 };
 

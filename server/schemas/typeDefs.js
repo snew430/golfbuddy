@@ -62,7 +62,7 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       phoneNumber: String!
-      lodging: String!
+      lodging: String
       preferredRoomate: String
     ): Player
     updatePlayer(
@@ -72,7 +72,7 @@ const typeDefs = gql`
       email: String!
       phoneNumber: String!
       preferredRoomate: String
-      lodging: String!
+      lodging: String
     ): Player
     deletePlayer(id: ID!): Player
     addCourse(name: String!, address: String!, website: String!): Course

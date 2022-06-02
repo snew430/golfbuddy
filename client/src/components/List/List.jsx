@@ -86,7 +86,14 @@ const List = ({ players, status, trip, refetchPlayers }) => {
 
   return (
     <>
-      {isModalOpen && <Modal player={currentPlayer} onClose={toggleModal} />}
+      {isModalOpen && (
+        <Modal
+          player={currentPlayer}
+          onClose={toggleModal}
+          update_add={"Update"}
+          refetchPlayers={refetchPlayers}
+        />
+      )}
       <table>
         <thead>
           <tr>
