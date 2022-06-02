@@ -26,7 +26,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
   const handleSubmit = async (update_add) => {
     const id = player._id;
 
-    if (update_add === "update") {
+    if (update_add === "Update") {
       try {
         updatePlayer({
           variables: {
