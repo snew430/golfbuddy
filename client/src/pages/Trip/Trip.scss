@@ -2,7 +2,7 @@
   background: url("../../assets/images/ball_on_green.jpg");
   background-size: cover;
   background-position: center;
-  height: 100%;
+  min-height: 100vh;
 
   .background {
     background-color: rgba(105, 105, 105, 0.6);

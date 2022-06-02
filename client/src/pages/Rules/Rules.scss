@@ -2,8 +2,8 @@
     background: url("../../assets/images/golf_green2.jpg");
     background-size: cover;
     background-position: center;
-    height: 100%;
-
+    min-height: 100vh;
+    
     .background {
         background-color: rgba(4, 57, 39, 0.8);
     }
