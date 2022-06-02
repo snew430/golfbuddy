@@ -12,7 +12,7 @@
   .head-text {
     padding-top: 6rem;
     font-size: 5rem;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
     color: var(--white-color);
     text-shadow: -2px 0 black;
@@ -91,10 +91,13 @@
       color: var(--white-color);
       text-shadow: -1px 0 black;
       outline: none;
-      margin: 2rem;
+      margin: 2rem 0 0 0;
       font-family: var(--font-base);
       cursor: pointer;
-      
+  }
+
+  .final-btn {
+    margin-bottom: 2rem;
   }
   
   .delete-button {
