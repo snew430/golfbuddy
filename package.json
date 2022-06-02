@@ -22,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/snew430/golfbuddy/issues"
   },
-  "homepage": "https://github.com/snew430/golfbuddy#readme",
   "dependencies": {
     "concurrently": "^7.2.0",
     "framer-motion": "^6.3.4",
