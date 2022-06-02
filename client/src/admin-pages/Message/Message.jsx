@@ -30,8 +30,6 @@ const Message = () => {
   const handleSendEmail = async (e) => {
     const { subject, message } = formData;
 
-
-
     let recipients = "";
 
     let list;
@@ -45,17 +43,18 @@ const Message = () => {
       recipients += `${player.email},`;
     });
 
-
-
-
-    try {
-      await sendMessage({
-        variables: { recipients, subject, message },
-      });
-    } catch (err) {
-      console.error(err);
+    if (subject !== "" && message !== "") {
+      try {
+        await sendMessage({
+          variables: { recipients, subject, message },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+      setIsFormSubmitted(true);
+    } else {
+      console.log("WONT SEND");
     }
-    setIsFormSubmitted(true);
   };
 
   if (!loggedIn) {
@@ -76,9 +75,11 @@ const Message = () => {
       <div className="background">
         <h2 className="head-text">Email the Players</h2>
         {!isFormSubmitted ? (
-          <motion.div className="app__flex"
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}>
+          <motion.div
+            className="app__flex"
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
+          >
             <div className="app__flex email-form">
               <div className="app__flex">
                 <input
