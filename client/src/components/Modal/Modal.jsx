@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CgCloseO } from 'react-icons/cg';
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_PLAYER, ADD_PLAYER } from "../../utils/mutations";
 import "./Modal.scss";
@@ -65,11 +66,11 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
   };
 
   return (
-    <div className="app__modal__backdrop">
-      <div className="app__modal__container">
-        <div onClick={onClose} className="close">
-          X
-        </div>
+    <div id="modal">
+      <div className="app__form">
+      <div onClick={onClose} className="close">
+        <CgCloseO /> 
+      </div>
         {update_add === "Update" ? (
           <h3>
             Update {player.firstName} {player.lastName}
@@ -77,7 +78,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
         ) : (
           <h3>Add New Player</h3>
         )}
-        <div className="input-field">
+        <div >
           <h4>First Name: </h4>
           <input
             type="text"
@@ -88,7 +89,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
           />
         </div>
 
-        <div className="input-field">
+        <div>
           <h4>Last Name: </h4>
           <input
             type="text"
@@ -98,7 +99,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
             onChange={handleChangeInput}
           />
         </div>
-        <div className="input-field">
+        <div>
           <h4>Email: </h4>
           <input
             type="email"
@@ -108,7 +109,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
             onChange={handleChangeInput}
           />
         </div>
-        <div className="input-field">
+        <div>
           <h4>Phone: </h4>
           <input
             type="phone"
@@ -121,7 +122,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
 
         {update_add === "Update" ? (
           <>
-            <div className="input-field">
+            <div>
               <h4>Preferred Roomate: </h4>
               <input
                 type="preferredRoomate"
@@ -131,7 +132,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className="input-field">
+            <div>
               <h4>Logding: </h4>
               <input
                 type="lodging"
@@ -145,14 +146,15 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
         ) : (
           ""
         )}
-
-        <button
-          type="button"
-          className="submitBtn"
-          onClick={() => handleSubmit(update_add)}
-        >
-          {update_add}
-        </button>
+        <div className="app__flex">
+          <button
+            type="button"
+            className="submitBtn"
+            onClick={() => handleSubmit(update_add)}
+          >
+            {update_add}
+          </button>
+        </div>
       </div>
     </div>
   );
