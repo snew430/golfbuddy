@@ -14,7 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 import {
   Rules,
   History,
-  Tournament,
+  Trip,
   SignUp,
   Home,
   Administration,
@@ -23,7 +23,7 @@ import {
 import {
   PlayerList,
   MasterList,
-  NewTournament,
+  NewTrip,
   AdminHome,
   Message,
 } from "./admin-pages";
@@ -59,15 +59,15 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/tournament" element={<Tournament />} />
+            <Route path="/trip" element={<Trip />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/administration" element={<Administration />} />
             <Route path="/playerlist" element={<PlayerList />} />
             <Route path="/masterlist" element={<MasterList />} />
-            <Route path="/tourney" element={<Tournament />} />
-            <Route path="/new-tournament" element={<NewTournament />} />
+            <Route path="/trip" element={<Trip />} />
+            <Route path="/new-trip" element={<NewTrip />} />
             <Route path="/administrationhome" element={<AdminHome />} />
             <Route path="/message" element={<Message />} />
             {/* <Route path="*" element={<NoMatch />} /> */}

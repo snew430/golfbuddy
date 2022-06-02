@@ -16,7 +16,7 @@ export const QUERY_PLAYERS = gql`
 
 export const QUERY_ACTIVE_PLAYERS = gql`
   {
-    tournaments {
+    trips {
       playersActive {
         _id
         firstName
@@ -32,7 +32,7 @@ export const QUERY_ACTIVE_PLAYERS = gql`
 
 export const QUERY_WAITLIST_PLAYERS = gql`
   {
-    tournaments {
+    trips {
       playersWaitlist {
         _id
         firstName
@@ -46,9 +46,9 @@ export const QUERY_WAITLIST_PLAYERS = gql`
   }
 `;
 
-export const QUERY_TOURNAMENT_PLAYERS = gql`
+export const QUERY_TRIP_PLAYERS = gql`
   {
-    tournaments {
+    trips {
       playersActive {
         _id
         firstName
@@ -93,9 +93,9 @@ export const QUERY_HOTELS = gql`
   }
 `;
 
-export const QUERY_TOURNAMENTS = gql`
+export const QUERY_TRIPS = gql`
   {
-    tournaments {
+    trips {
       _id
       name
       startDate
@@ -140,9 +140,9 @@ export const QUERY_TOURNAMENTS = gql`
   }
 `;
 
-export const QUERY_BASIC_TOURNAMENTS = gql`
+export const QUERY_BASIC_TRIPS = gql`
   {
-    tournaments {
+    trips {
       _id
       name
       startDate
@@ -169,9 +169,9 @@ export const QUERY_BASIC_TOURNAMENTS = gql`
   }
 `;
 
-export const QUERY_TOURNAMENT = gql`
-  query tournament($tournamentId: ID!) {
-    tournament(id: $tournamentId) {
+export const QUERY_TRIP = gql`
+  query trip($tripId: ID!) {
+    trip(id: $tripId) {
       _id
       name
       startDate
@@ -216,9 +216,9 @@ export const QUERY_TOURNAMENT = gql`
   }
 `;
 
-export const QUERY_BASIC_TOURNAMENT = gql`
-  query tournament($tournamentId: ID!) {
-    tournament(id: $tournamentId) {
+export const QUERY_BASIC_TRIP = gql`
+  query trip($tripId: ID!) {
+    trip(id: $tripId) {
       _id
       name
       startDate

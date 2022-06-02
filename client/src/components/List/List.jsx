@@ -10,7 +10,7 @@ import { removePlayerId } from "../../utils/localStorage";
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
-const List = ({ players, status, tournament, refetchPlayers }) => {
+const List = ({ players, status, trip, refetchPlayers }) => {
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,11 +33,11 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     try {
       if (status === "active") {
         await deleteActive({
-          variables: { tournament, player },
+          variables: { trip, player },
         });
       } else if (status === "waitlist") {
         await deleteWaitlist({
-          variables: { tournament, player },
+          variables: { trip, player },
         });
       }
       // upon success, remove player's id from localStorage
@@ -57,10 +57,10 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     if (status === "waitlist") {
       try {
         await deleteWaitlist({
-          variables: { player, tournament },
+          variables: { player, trip },
         });
         await moveToActive({
-          variables: { player, tournament },
+          variables: { player, trip },
         });
       } catch (err) {
         console.error(err);
@@ -68,10 +68,10 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
     } else if (status === "active") {
       try {
         await deleteActive({
-          variables: { player, tournament },
+          variables: { player, trip },
         });
         await moveToWaitlist({
-          variables: { player, tournament },
+          variables: { player, trip },
         });
       } catch (err) {
         console.error(err);
@@ -86,7 +86,14 @@ const List = ({ players, status, tournament, refetchPlayers }) => {
 
   return (
     <>
-      {isModalOpen && <Modal player={currentPlayer} onClose={toggleModal} />}
+      {isModalOpen && (
+        <Modal
+          player={currentPlayer}
+          onClose={toggleModal}
+          update_add={"Update"}
+          refetchPlayers={refetchPlayers}
+        />
+      )}
       <table>
         <thead>
           <tr>

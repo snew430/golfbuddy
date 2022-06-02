@@ -1,2 +1,1239 @@
-@import url(https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap);:root{--font-base:"Old Standard TT",serif;--primary-color:#b4cf66;--secondary-color:#ff5a33;--green-color:#44803f;--darkGreen-color:#146152;--yellow-color:#ffec5c;--black-color:#030303;--lightGray-color:#e4e4e4;--gray-color:#6b7688;--brown-color:#46364a;--white-color:#fff}*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}#tournament{background:url(/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg);background-position:50%;background-size:cover;height:100%;padding:6rem 2rem 0}#tournament .background{background-color:hsla(0,0%,41%,.45)}#tournament .trip-details{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-evenly}@media screen and (max-width:900px){#tournament .trip-details{flex-direction:column}}@media screen and (max-width:450px){#tournament .trip-details{flex-direction:column}}#tournament a,#tournament h2,#tournament h3,#tournament h4,#tournament p{color:var(--white-color);font-size:6rem;font-weight:800;text-align:center;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#tournament a,#tournament h2,#tournament h3,#tournament h4,#tournament p{font-size:4rem}}@media screen and (max-width:450px){#tournament a,#tournament h2,#tournament h3,#tournament h4,#tournament p{font-size:3rem}}#tournament h3{font-size:4rem}@media screen and (max-width:900px){#tournament h3{font-size:4rem}}@media screen and (max-width:450px){#tournament h3{font-size:3rem}}#tournament h4{font-size:3rem;padding:1rem}@media screen and (max-width:900px){#tournament h4{font-size:4rem}}@media screen and (max-width:450px){#tournament h4{font-size:3rem}}#tournament a,#tournament p{font-size:2.25rem;padding:.25rem}@media screen and (max-width:900px){#tournament a,#tournament p{font-size:4rem}}@media screen and (max-width:450px){#tournament a,#tournament p{font-size:3rem}}#tournament .info-text{line-height:1.5;margin:40px 300px 15px;text-justify:inter-word}@media screen and (max-width:900px){#tournament .info-text{font-size:1.6rem;margin:40px 70px 10px}}@media screen and (max-width:450px){#tournament .info-text{font-size:1.25rem;margin:20px 10px 10px}}#tournament button{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:2rem;font-weight:500;margin:2rem;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}#tournament .administrator{background-color:var(--secondary-color);font-size:1.5rem;padding:.5rem 1rem}#signUp{background:url(/static/media/white_paper.1fb415ab365cac81397d.jpg);background-position:50%;background-size:cover;height:100%;width:100%}#signUp .head-text{color:var(--darkGreen-color);font-size:5rem;font-weight:800;padding-top:6rem;text-align:center;text-shadow:-1px 0 var(--yellow-color)}@media screen and (max-width:900px){#signUp .head-text{font-size:4rem}}@media screen and (max-width:450px){#signUp .head-text{font-size:3rem}}#signUp .tournament-text{color:var(--darkGreen-color);font-size:5.5rem;font-weight:400;padding-top:3rem;text-align:center;text-shadow:-1px 0 var(--yellow-color)}@media screen and (max-width:900px){#signUp .tournament-text{font-size:3rem}}@media screen and (max-width:450px){#signUp .tournament-text{font-size:2rem}}#signUp .course-text{color:var(--darkGreen-color);font-size:4rem;font-weight:400;padding-top:2rem;text-align:center;text-shadow:-1px 0 var(--yellow-color)}@media screen and (max-width:900px){#signUp .course-text{font-size:3rem}}@media screen and (max-width:450px){#signUp .course-text{font-size:2rem}}#signUp .date-text{color:var(--darkGreen-color);font-size:1.5rem;font-weight:400;padding-top:1.5rem;text-align:center;text-shadow:-1px 0 var(--yellow-color)}@media screen and (max-width:900px){#signUp .date-text{font-size:3rem}}@media screen and (max-width:450px){#signUp .date-text{font-size:2rem}}#signUp .app__signUp-cards{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-evenly;margin:4rem 2rem 2rem}#signUp .app__signUp-cards .app__signUp-card{align-items:center;background-color:var(--white-color);border-radius:10px;cursor:pointer;display:flex;flex-direction:row;justify-content:center;margin:1rem 0;min-width:290px;padding:0;transition:all .3s ease-in-out}#signUp .app__signUp-cards .app__signUp-card a{font-weight:500;text-decoration:none}#signUp .app__signUp-cards .app__signUp-card:hover{box-shadow:0 0 25px #fff}@media screen and (max-width:450px){#signUp .app__signUp-cards .app__signUp-card{width:100%}}@media screen and (max-width:768px){#signUp .app__signUp-cards{width:100%}}#signUp .app__signUp-form{display:flex;flex-direction:column;justify-content:center;margin:1rem 10rem;text-align:center}#signUp .app__signUp-form input,#signUp .app__signUp-form textarea{background-color:var(--white-color);border:none;border-radius:10px;border-radius:7px;color:var(--darkGreen-color);cursor:pointer;font-family:var(--font-base);margin:.75rem 0;outline:none;padding:.95rem;transition:all .3 ease-in-out}#signUp .app__signUp-form textarea{height:170px}@media screen and (max-width:900px){#signUp .app__signUp-form{margin:2rem}}@media screen and (max-width:450px){#signUp .app__signUp-form{margin:2rem}}#signUp .app__signUp-form .button_list{justify-content:flex-start;margin-bottom:1rem}@media screen and (max-width:900px){#signUp .app__signUp-form .button_list{flex-direction:column}}@media screen and (max-width:450px){#signUp .app__signUp-form .button_list{flex-direction:column}}#signUp .app__signUp-form .button_list button{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:1.75rem;font-weight:500;margin:2rem;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#signUp .app__signUp-form .button_list button{margin:2rem}}@media screen and (max-width:450px){#signUp .app__signUp-form .button_list button{margin:2rem}}#signUp .app__signUp-form .submitBtn{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:2rem;font-weight:500;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}#signUp .app__signUp-form .accommodation{color:var(--darkGreen-color);font-size:2rem;font-weight:800;padding-top:2rem;text-align:center;text-decoration:underline}@media screen and (max-width:768px){#signUp{margin:1rem 10px;width:100%}}#rules{background:url(/static/media/golf_green2.64970060558016fd022a.jpg);background-position:50%;background-size:cover;height:100%}#rules .background{background-color:rgba(4,57,39,.8)}#rules .head-text{color:var(--white-color);font-size:7rem;font-weight:800;padding-top:6rem;text-align:center;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#rules .head-text{font-size:4rem}}@media screen and (max-width:450px){#rules .head-text{font-size:3rem}}#rules .rules-content{align-items:center;display:flex;flex-direction:column;justify-content:center;padding:.25rem}#rules .rules-content h6{border-bottom:5px;color:var(--yellow-color);font-size:2.25rem;font-weight:500;margin:.75rem;padding:.25rem 1rem;text-align:center;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#rules .rules-content{font-size:1.5rem}#rules .rules-content h6{padding:.25rem .5rem}}@media screen and (max-width:450px){#rules .rules-content{font-size:1.5 rem}}#rules .p-text{color:var(--white-color);font-size:2rem;font-weight:300;line-height:1.5;margin:0 300px;text-align:center;text-justify:inter-word;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#rules .p-text{font-size:1.55rem;margin:0 70px}}@media screen and (max-width:450px){#rules .p-text{font-size:1.25rem;margin:10px}}#rules .info-text{color:var(--white-color);font-size:2rem;font-weight:300;line-height:1.5;margin:40px 300px 15px;text-align:center;text-justify:inter-word;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#rules .info-text{font-size:1.6rem;margin:40px 70px 10px}}@media screen and (max-width:450px){#rules .info-text{font-size:1.25rem;margin:20px 10px 10px}}#rules h3{color:var(--white-color);font-size:2.5rem;font-weight:500;padding-bottom:2rem;padding-top:1rem;text-align:center;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#rules h3{font-size:1.75rem}}@media screen and (max-width:450px){#rules h3{font-size:1.25rem}}#home{background:url(/static/media/golf_ball_green.127cfd034f36f27451fd.jpg);background-position:50%;background-size:cover;height:100vh;padding:6rem 2rem 0}#home .head-text-home{color:var(--white-color);font-size:9rem;font-weight:800;padding-top:4rem;text-align:center;text-shadow:-2px 0 #000}@media screen and (max-width:900px){#home .head-text-home{font-size:6rem}}@media screen and (max-width:450px){#home .head-text-home{font-size:3rem}}#home button{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:1.75rem;font-weight:500;margin:2rem 0 0;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#home{background:url(/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg);background-position:50%;background-size:cover;height:100vh;width:100%}}#administration{background:url(/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg);background-position:100%;background-size:cover;height:100vh;padding:6rem 2rem 0}#administration .head-text{background-color:hsla(0,0%,41%,.15);color:var(--white-color);font-size:7rem;font-weight:800;padding-top:4rem;text-align:center;text-shadow:-2px 0 #000}@media screen and (max-width:900px){#administration .head-text{font-size:6rem}}@media screen and (max-width:450px){#administration .head-text{font-size:3rem}}#administration form{display:flex;flex-direction:column;justify-content:center;width:25rem}@media screen and (max-width:450px){#administration form{width:100%}}#administration form input{color:#282828;font-family:Old Standard TT,serif;font-size:1.5rem;margin:1rem;padding:1rem}#administration button{background-color:var(--secondary-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:1.75rem;font-weight:500;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}#playerList{background:url(/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg);background-position:50%;background-size:cover;height:100vh}#playerList .background{background-color:rgba(4,57,39,.8);height:100vh}#playerList .head-text{color:var(--white-color);font-size:6rem;font-weight:800;padding-top:6rem;text-align:center;text-shadow:-2px 0 #000}@media screen and (max-width:900px){#playerList .head-text{font-size:3.75rem}}@media screen and (max-width:450px){#playerList .head-text{font-size:3rem}}#playerList .player-list{display:flex;justify-content:space-evenly}#playerList .player-list td,#playerList .player-list th{color:var(--yellow-color);font-size:3.5rem;margin:.75rem;padding:.25rem 1rem;text-align:center;text-shadow:-1px 0 #000}#playerList .player-list td{color:var(--white-color);font-size:2rem;margin:.25rem;text-shadow:-1px 0 #000}@media only screen and (max-width:450px){#playerList .player-list thead th{display:none}#playerList .player-list td{display:block;font-size:1.35rem}#playerList .player-list td:first-child{color:var(--yellow-color);font-size:xx-large}}#newTourmament{background:url(/static/media/white_paper.1fb415ab365cac81397d.jpg);background-position:50%;background-size:cover;height:100%;width:100%}#newTourmament .head-text{color:var(--darkGreen-color);font-size:5.5rem;font-weight:800;padding-top:6rem;text-align:center;text-shadow:-1px 0 var(--yellow-color)}@media screen and (max-width:900px){#newTourmament .head-text{font-size:4rem}}@media screen and (max-width:450px){#newTourmament .head-text{font-size:3rem}}#newTourmament .app__newTourmament-cards{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-evenly;margin:4rem 2rem 2rem}#newTourmament .app__newTourmament-cards .app__newTourmament-card{align-items:center;background-color:var(--white-color);border-radius:10px;cursor:pointer;display:flex;flex-direction:row;justify-content:center;margin:1rem 0;min-width:290px;padding:0;transition:all .3s ease-in-out}#newTourmament .app__newTourmament-cards .app__newTourmament-card a{font-weight:500;text-decoration:none}#newTourmament .app__newTourmament-cards .app__newTourmament-card:hover{box-shadow:0 0 25px #fff}@media screen and (max-width:450px){#newTourmament .app__newTourmament-cards .app__newTourmament-card{width:100%}}@media screen and (max-width:768px){#newTourmament .app__newTourmament-cards{width:100%}}#newTourmament .app__newTourmament-form{display:flex;flex-direction:column;justify-content:center;margin:1rem 10rem;text-align:center}#newTourmament .app__newTourmament-form input,#newTourmament .app__newTourmament-form textarea{background-color:var(--white-color);border:none;border-radius:10px;border-radius:7px;color:var(--darkGreen-color);cursor:pointer;font-family:var(--font-base);margin:.75rem 0;outline:none;padding:.95rem;transition:all .3 ease-in-out}#newTourmament .app__newTourmament-form textarea{height:170px}@media screen and (max-width:900px){#newTourmament .app__newTourmament-form{margin:2rem}}@media screen and (max-width:450px){#newTourmament .app__newTourmament-form{margin:2rem}}#newTourmament .app__newTourmament-form .button_list{justify-content:flex-start;margin-bottom:1rem}@media screen and (max-width:900px){#newTourmament .app__newTourmament-form .button_list{flex-direction:column}}@media screen and (max-width:450px){#newTourmament .app__newTourmament-form .button_list{flex-direction:column}}#newTourmament .app__newTourmament-form .button_list button{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:1.75rem;font-weight:500;margin:2rem;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#newTourmament .app__newTourmament-form .button_list button{margin:2rem}}@media screen and (max-width:450px){#newTourmament .app__newTourmament-form .button_list button{margin:2rem}}#newTourmament .app__newTourmament-form .submitBtn{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:2rem;font-weight:500;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}#newTourmament .app__newTourmament-form .accommodation{color:var(--darkGreen-color);font-size:2rem;font-weight:800;padding-top:2rem;text-align:center;text-decoration:underline}@media screen and (max-width:768px){#newTourmament{margin:1rem 10px;width:100%}}#masterList{background:url(/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg);background-position:50%;background-size:cover;height:100vh}#masterList .background{background-color:rgba(4,57,39,.8);height:100vh}#masterList .head-text{color:var(--white-color);font-size:6rem;font-weight:800;padding-top:6rem;text-align:center;text-shadow:-2px 0 #000}@media screen and (max-width:900px){#masterList .head-text{font-size:3.75rem}}@media screen and (max-width:450px){#masterList .head-text{font-size:3rem}}#masterList .master-list{display:flex;justify-content:space-evenly}#masterList .master-list td,#masterList .master-list th{color:var(--yellow-color);font-size:3.5rem;margin:.75rem;padding:.25rem 1rem;text-align:center;text-shadow:-1px 0 #000}#masterList .master-list td{color:var(--white-color);font-size:2rem;margin:.25rem;text-shadow:-1px 0 #000}@media only screen and (max-width:450px){#masterList .master-list thead th{display:none}#masterList .master-list td{display:block;font-size:1.35rem}#masterList .master-list td:first-child{color:var(--yellow-color);font-size:xx-large}}#adminHome{background:url(/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg);background-position:50%;background-size:cover;height:100vh;padding:6rem 2rem 0}#adminHome .head-text-home{background-color:hsla(0,0%,41%,.15);color:var(--white-color);font-size:9rem;font-weight:800;padding-top:4rem;text-align:center;text-shadow:-2px 0 #000}@media screen and (max-width:900px){#adminHome .head-text-home{font-size:6rem}}@media screen and (max-width:450px){#adminHome .head-text-home{font-size:3rem}}#adminHome button{background-color:var(--secondary-color);border:none;border-radius:10px;color:var(--white-color);cursor:pointer;font-family:var(--font-base);font-size:2rem;font-weight:500;margin:2rem 0 0;outline:none;padding:1rem 2rem;text-shadow:-1px 0 #000}@media screen and (max-width:900px){#adminHome{background:url(/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg);background-position:50%;background-size:cover;height:100vh;width:100%}}.app__navbar{align-items:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);background:hsla(0,0%,100%,.5);border:1px solid hsla(0,0%,100%,.18);display:flex;justify-content:space-between;padding:1rem 2rem;position:fixed;width:100%;z-index:2}.app__navbar-links{align-items:center;display:flex;flex:1 1;justify-content:center;list-style:none}.app__navbar-links li{cursor:pointer;flex-direction:column;margin:0 1rem}.app__navbar-links li div{background:transparent;border-radius:50%;height:5px;margin-bottom:5px;width:5px}.app__navbar-links li a{color:var(--darkGreen-color);flex-direction:column;font-weight:500;text-decoration:none;text-shadow:-1px 0 #000;text-transform:uppercase;transition:all .3s ease-in-out}.app__navbar-links li a:hover{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);padding:.5rem 1rem}@media screen and (max-width:900px){.app__navbar-links{display:none}}.app__navbar-menu{align-items:center;background-color:var(--secondary-color);border-radius:50%;display:flex;height:35px;justify-content:center;position:relative;width:35px}.app__navbar-menu svg{color:var(--white-color);height:70%;width:70%}.app__navbar-menu div{align-items:flex-end;background:url(/static/media/white_paper.1fb415ab365cac81397d.jpg);background-position:50%;background-size:cover;bottom:0;box-shadow:0 0 20px hsla(0,0%,66%,.15);display:flex;flex-direction:column;height:100vh;justify-content:flex-end;padding:1rem;position:fixed;right:0;top:0;width:80%;z-index:5}.app__navbar-menu div svg{color:var(--secondary-color);height:35px;margin:.5rem 1rem;width:35px}.app__navbar-menu div ul{align-items:flex-start;display:flex;flex-direction:column;height:100%;justify-content:flex-start;list-style:none;margin:0;padding:0;width:100%}.app__navbar-menu div ul li{margin:1rem}.app__navbar-menu div ul li a{color:var(--darkGreen-color);font-size:1.75rem;font-weight:500;text-decoration:none;text-shadow:-1px 0 #000;text-transform:uppercase;transition:all .3s ease-in-out}.app__navbar-menu div ul li a:hover{background-color:var(--darkGreen-color);border:none;border-radius:10px;color:var(--white-color);padding:.5rem 1rem}@media screen and (min-width:900px){.app__navbar-menu div{display:none}}.app__navbar-menu ul{align-items:flex-start;display:flex;flex-direction:column;height:100%;justify-content:flex-start;list-style:none;margin:0;padding:0;width:100%}.app__navbar-menu ul li{margin:1rem}.app__navbar-menu ul li a{color:var(--yellow-color);font-size:1rem;font-weight:500;text-decoration:none;text-shadow:-1px 0 #000;text-transform:uppercase;transition:all .3s ease-in-out}.app__navbar-menu ul li a:hover{color:var(--secondary-color)}@media screen and (min-width:900px){.app__navbar-menu{display:none}}.app{background-color:var(--primary-color);font-family:var(--font-base)}.app__whitebg{background-color:var(--white-color)}.app__primarybg{background-color:var(--primary-color)}.app__container{display:flex;flex-direction:row;min-height:100vh;width:100%}.app__flex{align-items:center;display:flex;justify-content:center}.app__wrapper{flex:1 1;flex-direction:column;padding:4rem 2rem;width:100%}@media screen and (max-width:450px){.app__wrapper{padding:4rem 1rem 2rem}}.head-text{color:var(--black-color);font-size:2.75rem;font-weight:800;text-align:center;text-transform:capitalize}.head-text span{color:var(--secondary-color)}@media screen and (min-width:2000px){.head-text{font-size:4rem}}@media screen and (max-width:450px){.head-text{font-size:2rem}}.p-text{color:var(--gray-color);font-size:.8rem;line-height:1.5;text-align:left}@media screen and (min-width:900px){.p-text{font-size:1.75rem}}.bold-text{color:var(--black-color);font-size:1rem;font-weight:800;text-align:left}@media screen and (min-width:2000px){.bold-text{font-size:2rem}}@media screen and (max-width:450px){.bold-text{font-size:.9rem}}.app__social{flex-direction:column;justify-content:flex-end;padding:1rem}.app__social,.app__social div{align-items:center;display:flex}.app__social div{background-color:var(--white-color);border:1px solid var(--lightGray-color);border-radius:50%;height:40px;justify-content:center;margin:.25rem 0;transition:all .3s ease-in-out;width:40px}.app__social div svg{color:var(--gray-color);height:15px;width:15px}.app__social div:hover{background-color:var(--secondary-color);border-color:var(--secondary-color)}.app__social div:hover svg{color:var(--white-color)}@media screen and (min-width:2000px){.app__social div{height:70px;margin:.5rem 0;width:70px}.app__social div svg{height:30px;width:30px}}.app__navigation{align-items:center;display:flex;flex-direction:column;justify-content:center;padding:1rem}.app__navigation .app__navigation-dot{background-color:#cbcbcb;border-radius:50%;height:10px;margin:.5rem;transition:background-color .2s ease-in-out;width:10px}.app__navigation .app__navigation-dot:hover{background-color:var(--secondary-color)}@media screen and (min-width:2000px){.app__navigation .app__navigation-dot{height:20px;width:20px}}@media screen and (max-width:500px){.app__navigation,.app__social{display:none}.copyright{padding:2rem}}
+@import url(https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap);
+:root {
+  --font-base: "Old Standard TT", serif;
+  --primary-color: #b4cf66;
+  --secondary-color: #ff5a33;
+  --green-color: #44803f;
+  --darkGreen-color: #146152;
+  --yellow-color: #ffec5c;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #6b7688;
+  --brown-color: #46364a;
+  --white-color: #fff;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+#trip {
+  background: url(/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100%;
+  padding: 6rem 2rem 0;
+}
+#trip .background {
+  background-color: hsla(0, 0%, 41%, 0.45);
+}
+#trip .trip-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 900px) {
+  #trip .trip-details {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip .trip-details {
+    flex-direction: column;
+  }
+}
+#trip a,
+#trip h2,
+#trip h3,
+#trip h4,
+#trip p {
+  color: var(--white-color);
+  font-size: 6rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #trip a,
+  #trip h2,
+  #trip h3,
+  #trip h4,
+  #trip p {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip a,
+  #trip h2,
+  #trip h3,
+  #trip h4,
+  #trip p {
+    font-size: 3rem;
+  }
+}
+#trip h3 {
+  font-size: 4rem;
+}
+@media screen and (max-width: 900px) {
+  #trip h3 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip h3 {
+    font-size: 3rem;
+  }
+}
+#trip h4 {
+  font-size: 3rem;
+  padding: 1rem;
+}
+@media screen and (max-width: 900px) {
+  #trip h4 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip h4 {
+    font-size: 3rem;
+  }
+}
+#trip a,
+#trip p {
+  font-size: 2.25rem;
+  padding: 0.25rem;
+}
+@media screen and (max-width: 900px) {
+  #trip a,
+  #trip p {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip a,
+  #trip p {
+    font-size: 3rem;
+  }
+}
+#trip .info-text {
+  line-height: 1.5;
+  margin: 40px 300px 15px;
+  text-justify: inter-word;
+}
+@media screen and (max-width: 900px) {
+  #trip .info-text {
+    font-size: 1.6rem;
+    margin: 40px 70px 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #trip .info-text {
+    font-size: 1.25rem;
+    margin: 20px 10px 10px;
+  }
+}
+#trip button {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+#trip .administrator {
+  background-color: var(--secondary-color);
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+#signUp {
+  background: url(/static/media/white_paper.1fb415ab365cac81397d.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+#signUp .head-text {
+  color: var(--darkGreen-color);
+  font-size: 5rem;
+  font-weight: 800;
+  padding-top: 6rem;
+  text-align: center;
+  text-shadow: -1px 0 var(--yellow-color);
+}
+@media screen and (max-width: 900px) {
+  #signUp .head-text {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .head-text {
+    font-size: 3rem;
+  }
+}
+#signUp .trip-text {
+  color: var(--darkGreen-color);
+  font-size: 5.5rem;
+  font-weight: 400;
+  padding-top: 3rem;
+  text-align: center;
+  text-shadow: -1px 0 var(--yellow-color);
+}
+@media screen and (max-width: 900px) {
+  #signUp .trip-text {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .trip-text {
+    font-size: 2rem;
+  }
+}
+#signUp .course-text {
+  color: var(--darkGreen-color);
+  font-size: 4rem;
+  font-weight: 400;
+  padding-top: 2rem;
+  text-align: center;
+  text-shadow: -1px 0 var(--yellow-color);
+}
+@media screen and (max-width: 900px) {
+  #signUp .course-text {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .course-text {
+    font-size: 2rem;
+  }
+}
+#signUp .date-text {
+  color: var(--darkGreen-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-top: 1.5rem;
+  text-align: center;
+  text-shadow: -1px 0 var(--yellow-color);
+}
+@media screen and (max-width: 900px) {
+  #signUp .date-text {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .date-text {
+    font-size: 2rem;
+  }
+}
+#signUp .app__signUp-cards {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 4rem 2rem 2rem;
+}
+#signUp .app__signUp-cards .app__signUp-card {
+  align-items: center;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+  min-width: 290px;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+#signUp .app__signUp-cards .app__signUp-card a {
+  font-weight: 500;
+  text-decoration: none;
+}
+#signUp .app__signUp-cards .app__signUp-card:hover {
+  box-shadow: 0 0 25px #fff;
+}
+@media screen and (max-width: 450px) {
+  #signUp .app__signUp-cards .app__signUp-card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #signUp .app__signUp-cards {
+    width: 100%;
+  }
+}
+#signUp .app__signUp-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 10rem;
+  text-align: center;
+}
+#signUp .app__signUp-form input,
+#signUp .app__signUp-form textarea {
+  background-color: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  border-radius: 7px;
+  color: var(--darkGreen-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  margin: 0.75rem 0;
+  outline: none;
+  padding: 0.95rem;
+  transition: all 0.3 ease-in-out;
+}
+#signUp .app__signUp-form textarea {
+  height: 170px;
+}
+@media screen and (max-width: 900px) {
+  #signUp .app__signUp-form {
+    margin: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .app__signUp-form {
+    margin: 2rem;
+  }
+}
+#signUp .app__signUp-form .button_list {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 900px) {
+  #signUp .app__signUp-form .button_list {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .app__signUp-form .button_list {
+    flex-direction: column;
+  }
+}
+#signUp .app__signUp-form .button_list button {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #signUp .app__signUp-form .button_list button {
+    margin: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #signUp .app__signUp-form .button_list button {
+    margin: 2rem;
+  }
+}
+#signUp .app__signUp-form .submitBtn {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: 500;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+#signUp .app__signUp-form .accommodation {
+  color: var(--darkGreen-color);
+  font-size: 2rem;
+  font-weight: 800;
+  padding-top: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  #signUp {
+    margin: 1rem 10px;
+    width: 100%;
+  }
+}
+#rules {
+  background: url(/static/media/golf_green2.64970060558016fd022a.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100%;
+}
+#rules .background {
+  background-color: rgba(4, 57, 39, 0.8);
+}
+#rules .head-text {
+  color: var(--white-color);
+  font-size: 7rem;
+  font-weight: 800;
+  padding-top: 6rem;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #rules .head-text {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #rules .head-text {
+    font-size: 3rem;
+  }
+}
+#rules .rules-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.25rem;
+}
+#rules .rules-content h6 {
+  border-bottom: 5px;
+  color: var(--yellow-color);
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin: 0.75rem;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #rules .rules-content {
+    font-size: 1.5rem;
+  }
+  #rules .rules-content h6 {
+    padding: 0.25rem 0.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #rules .rules-content {
+    font-size: 1.5 rem;
+  }
+}
+#rules .p-text {
+  color: var(--white-color);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 300px;
+  text-align: center;
+  text-justify: inter-word;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #rules .p-text {
+    font-size: 1.55rem;
+    margin: 0 70px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #rules .p-text {
+    font-size: 1.25rem;
+    margin: 10px;
+  }
+}
+#rules .info-text {
+  color: var(--white-color);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 40px 300px 15px;
+  text-align: center;
+  text-justify: inter-word;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #rules .info-text {
+    font-size: 1.6rem;
+    margin: 40px 70px 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #rules .info-text {
+    font-size: 1.25rem;
+    margin: 20px 10px 10px;
+  }
+}
+#rules h3 {
+  color: var(--white-color);
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #rules h3 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #rules h3 {
+    font-size: 1.25rem;
+  }
+}
+#home {
+  background: url(/static/media/golf_ball_green.127cfd034f36f27451fd.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100vh;
+  padding: 6rem 2rem 0;
+}
+#home .head-text-home {
+  color: var(--white-color);
+  font-size: 9rem;
+  font-weight: 800;
+  padding-top: 4rem;
+  text-align: center;
+  text-shadow: -2px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #home .head-text-home {
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #home .head-text-home {
+    font-size: 3rem;
+  }
+}
+#home button {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 2rem 0 0;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #home {
+    background: url(/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg);
+    background-position: 50%;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+}
+#administration {
+  background: url(/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg);
+  background-position: 100%;
+  background-size: cover;
+  height: 100vh;
+  padding: 6rem 2rem 0;
+}
+#administration .head-text {
+  background-color: hsla(0, 0%, 41%, 0.15);
+  color: var(--white-color);
+  font-size: 7rem;
+  font-weight: 800;
+  padding-top: 4rem;
+  text-align: center;
+  text-shadow: -2px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #administration .head-text {
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #administration .head-text {
+    font-size: 3rem;
+  }
+}
+#administration form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25rem;
+}
+@media screen and (max-width: 450px) {
+  #administration form {
+    width: 100%;
+  }
+}
+#administration form input {
+  color: #282828;
+  font-family: Old Standard TT, serif;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+#administration button {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 1.75rem;
+  font-weight: 500;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+#playerList {
+  background: url(/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100vh;
+}
+#playerList .background {
+  background-color: rgba(4, 57, 39, 0.8);
+  height: 100vh;
+}
+#playerList .head-text {
+  color: var(--white-color);
+  font-size: 6rem;
+  font-weight: 800;
+  padding-top: 6rem;
+  text-align: center;
+  text-shadow: -2px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #playerList .head-text {
+    font-size: 3.75rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #playerList .head-text {
+    font-size: 3rem;
+  }
+}
+#playerList .player-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+#playerList .player-list td,
+#playerList .player-list th {
+  color: var(--yellow-color);
+  font-size: 3.5rem;
+  margin: 0.75rem;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+#playerList .player-list td {
+  color: var(--white-color);
+  font-size: 2rem;
+  margin: 0.25rem;
+  text-shadow: -1px 0 #000;
+}
+@media only screen and (max-width: 450px) {
+  #playerList .player-list thead th {
+    display: none;
+  }
+  #playerList .player-list td {
+    display: block;
+    font-size: 1.35rem;
+  }
+  #playerList .player-list td:first-child {
+    color: var(--yellow-color);
+    font-size: xx-large;
+  }
+}
+#newTourmament {
+  background: url(/static/media/white_paper.1fb415ab365cac81397d.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+#newTourmament .head-text {
+  color: var(--darkGreen-color);
+  font-size: 5.5rem;
+  font-weight: 800;
+  padding-top: 6rem;
+  text-align: center;
+  text-shadow: -1px 0 var(--yellow-color);
+}
+@media screen and (max-width: 900px) {
+  #newTourmament .head-text {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #newTourmament .head-text {
+    font-size: 3rem;
+  }
+}
+#newTourmament .app__newTourmament-cards {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 4rem 2rem 2rem;
+}
+#newTourmament .app__newTourmament-cards .app__newTourmament-card {
+  align-items: center;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+  min-width: 290px;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+#newTourmament .app__newTourmament-cards .app__newTourmament-card a {
+  font-weight: 500;
+  text-decoration: none;
+}
+#newTourmament .app__newTourmament-cards .app__newTourmament-card:hover {
+  box-shadow: 0 0 25px #fff;
+}
+@media screen and (max-width: 450px) {
+  #newTourmament .app__newTourmament-cards .app__newTourmament-card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #newTourmament .app__newTourmament-cards {
+    width: 100%;
+  }
+}
+#newTourmament .app__newTourmament-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 10rem;
+  text-align: center;
+}
+#newTourmament .app__newTourmament-form input,
+#newTourmament .app__newTourmament-form textarea {
+  background-color: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  border-radius: 7px;
+  color: var(--darkGreen-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  margin: 0.75rem 0;
+  outline: none;
+  padding: 0.95rem;
+  transition: all 0.3 ease-in-out;
+}
+#newTourmament .app__newTourmament-form textarea {
+  height: 170px;
+}
+@media screen and (max-width: 900px) {
+  #newTourmament .app__newTourmament-form {
+    margin: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #newTourmament .app__newTourmament-form {
+    margin: 2rem;
+  }
+}
+#newTourmament .app__newTourmament-form .button_list {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 900px) {
+  #newTourmament .app__newTourmament-form .button_list {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  #newTourmament .app__newTourmament-form .button_list {
+    flex-direction: column;
+  }
+}
+#newTourmament .app__newTourmament-form .button_list button {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #newTourmament .app__newTourmament-form .button_list button {
+    margin: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #newTourmament .app__newTourmament-form .button_list button {
+    margin: 2rem;
+  }
+}
+#newTourmament .app__newTourmament-form .submitBtn {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: 500;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+#newTourmament .app__newTourmament-form .accommodation {
+  color: var(--darkGreen-color);
+  font-size: 2rem;
+  font-weight: 800;
+  padding-top: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  #newTourmament {
+    margin: 1rem 10px;
+    width: 100%;
+  }
+}
+#masterList {
+  background: url(/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100vh;
+}
+#masterList .background {
+  background-color: rgba(4, 57, 39, 0.8);
+  height: 100vh;
+}
+#masterList .head-text {
+  color: var(--white-color);
+  font-size: 6rem;
+  font-weight: 800;
+  padding-top: 6rem;
+  text-align: center;
+  text-shadow: -2px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #masterList .head-text {
+    font-size: 3.75rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #masterList .head-text {
+    font-size: 3rem;
+  }
+}
+#masterList .master-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+#masterList .master-list td,
+#masterList .master-list th {
+  color: var(--yellow-color);
+  font-size: 3.5rem;
+  margin: 0.75rem;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  text-shadow: -1px 0 #000;
+}
+#masterList .master-list td {
+  color: var(--white-color);
+  font-size: 2rem;
+  margin: 0.25rem;
+  text-shadow: -1px 0 #000;
+}
+@media only screen and (max-width: 450px) {
+  #masterList .master-list thead th {
+    display: none;
+  }
+  #masterList .master-list td {
+    display: block;
+    font-size: 1.35rem;
+  }
+  #masterList .master-list td:first-child {
+    color: var(--yellow-color);
+    font-size: xx-large;
+  }
+}
+#adminHome {
+  background: url(/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 100vh;
+  padding: 6rem 2rem 0;
+}
+#adminHome .head-text-home {
+  background-color: hsla(0, 0%, 41%, 0.15);
+  color: var(--white-color);
+  font-size: 9rem;
+  font-weight: 800;
+  padding-top: 4rem;
+  text-align: center;
+  text-shadow: -2px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #adminHome .head-text-home {
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #adminHome .head-text-home {
+    font-size: 3rem;
+  }
+}
+#adminHome button {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 2rem 0 0;
+  outline: none;
+  padding: 1rem 2rem;
+  text-shadow: -1px 0 #000;
+}
+@media screen and (max-width: 900px) {
+  #adminHome {
+    background: url(/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg);
+    background-position: 50%;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+}
+.app__navbar {
+  align-items: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: hsla(0, 0%, 100%, 0.5);
+  border: 1px solid hsla(0, 0%, 100%, 0.18);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+.app__navbar-links {
+  align-items: center;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  list-style: none;
+}
+.app__navbar-links li {
+  cursor: pointer;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+.app__navbar-links li div {
+  background: transparent;
+  border-radius: 50%;
+  height: 5px;
+  margin-bottom: 5px;
+  width: 5px;
+}
+.app__navbar-links li a {
+  color: var(--darkGreen-color);
+  flex-direction: column;
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: -1px 0 #000;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.app__navbar-links li a:hover {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 900px) {
+  .app__navbar-links {
+    display: none;
+  }
+}
+.app__navbar-menu {
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  position: relative;
+  width: 35px;
+}
+.app__navbar-menu svg {
+  color: var(--white-color);
+  height: 70%;
+  width: 70%;
+}
+.app__navbar-menu div {
+  align-items: flex-end;
+  background: url(/static/media/white_paper.1fb415ab365cac81397d.jpg);
+  background-position: 50%;
+  background-size: cover;
+  bottom: 0;
+  box-shadow: 0 0 20px hsla(0, 0%, 66%, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 80%;
+  z-index: 5;
+}
+.app__navbar-menu div svg {
+  color: var(--secondary-color);
+  height: 35px;
+  margin: 0.5rem 1rem;
+  width: 35px;
+}
+.app__navbar-menu div ul {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.app__navbar-menu div ul li {
+  margin: 1rem;
+}
+.app__navbar-menu div ul li a {
+  color: var(--darkGreen-color);
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: -1px 0 #000;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.app__navbar-menu div ul li a:hover {
+  background-color: var(--darkGreen-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--white-color);
+  padding: 0.5rem 1rem;
+}
+@media screen and (min-width: 900px) {
+  .app__navbar-menu div {
+    display: none;
+  }
+}
+.app__navbar-menu ul {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.app__navbar-menu ul li {
+  margin: 1rem;
+}
+.app__navbar-menu ul li a {
+  color: var(--yellow-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: -1px 0 #000;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.app__navbar-menu ul li a:hover {
+  color: var(--secondary-color);
+}
+@media screen and (min-width: 900px) {
+  .app__navbar-menu {
+    display: none;
+  }
+}
+.app {
+  background-color: var(--primary-color);
+  font-family: var(--font-base);
+}
+.app__whitebg {
+  background-color: var(--white-color);
+}
+.app__primarybg {
+  background-color: var(--primary-color);
+}
+.app__container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+}
+.app__flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.app__wrapper {
+  flex: 1 1;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+@media screen and (max-width: 450px) {
+  .app__wrapper {
+    padding: 4rem 1rem 2rem;
+  }
+}
+.head-text {
+  color: var(--black-color);
+  font-size: 2.75rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: capitalize;
+}
+.head-text span {
+  color: var(--secondary-color);
+}
+@media screen and (min-width: 2000px) {
+  .head-text {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .head-text {
+    font-size: 2rem;
+  }
+}
+.p-text {
+  color: var(--gray-color);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+}
+@media screen and (min-width: 900px) {
+  .p-text {
+    font-size: 1.75rem;
+  }
+}
+.bold-text {
+  color: var(--black-color);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: left;
+}
+@media screen and (min-width: 2000px) {
+  .bold-text {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .bold-text {
+    font-size: 0.9rem;
+  }
+}
+.app__social {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.app__social,
+.app__social div {
+  align-items: center;
+  display: flex;
+}
+.app__social div {
+  background-color: var(--white-color);
+  border: 1px solid var(--lightGray-color);
+  border-radius: 50%;
+  height: 40px;
+  justify-content: center;
+  margin: 0.25rem 0;
+  transition: all 0.3s ease-in-out;
+  width: 40px;
+}
+.app__social div svg {
+  color: var(--gray-color);
+  height: 15px;
+  width: 15px;
+}
+.app__social div:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.app__social div:hover svg {
+  color: var(--white-color);
+}
+@media screen and (min-width: 2000px) {
+  .app__social div {
+    height: 70px;
+    margin: 0.5rem 0;
+    width: 70px;
+  }
+  .app__social div svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+.app__navigation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+.app__navigation .app__navigation-dot {
+  background-color: #cbcbcb;
+  border-radius: 50%;
+  height: 10px;
+  margin: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+  width: 10px;
+}
+.app__navigation .app__navigation-dot:hover {
+  background-color: var(--secondary-color);
+}
+@media screen and (min-width: 2000px) {
+  .app__navigation .app__navigation-dot {
+    height: 20px;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .app__navigation,
+  .app__social {
+    display: none;
+  }
+  .copyright {
+    padding: 2rem;
+  }
+}
 /*# sourceMappingURL=main.d74818a4.css.map*/

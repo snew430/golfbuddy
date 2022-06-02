@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.scss";
 import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_BASIC_TOURNAMENTS } from "../../utils/queries";
+import { QUERY_BASIC_TRIP } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
 
 const SignUp = () => {
@@ -17,13 +17,13 @@ const SignUp = () => {
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const { data: basicTourney } = useQuery(QUERY_BASIC_TOURNAMENTS);
+  const { data: basicTourney } = useQuery(QUERY_BASIC_TRIP);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
   const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
-  const tournament = basicTourney?.tournaments[0] || [];
+  const trip = basicTourney?.trips[0] || [];
 
-  const { activePlayerCount, maxPlayers } = tournament;
+  const { activePlayerCount, maxPlayers } = trip;
 
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
@@ -34,12 +34,12 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
-    const tournamentId = tournament._id;
+    const tripId = trip._id;
     if (status === "active") {
       try {
         addPlayer({
           variables: {
-            tournamentId,
+            tripId,
             firstName,
             lastName,
             email,
@@ -55,7 +55,7 @@ const SignUp = () => {
       try {
         addWaitlistPlayer({
           variables: {
-            tournamentId,
+            tripId,
             firstName,
             lastName,
             email,
@@ -81,12 +81,13 @@ const SignUp = () => {
     setIsFormSubmitted(true);
   };
 
-
   return (
     <div id="signUp">
       <h2 className="head-text">Sign Up for</h2>
-      <h2 className="tournament-text"> {tournament.name} </h2>
-      <h4 className="date-text">{tournament.startDate} - {tournament.endDate}</h4>
+      <h2 className="trip-text"> {trip.name} </h2>
+      <h4 className="date-text">
+        {trip.startDate} - {trip.endDate}
+      </h4>
 
       {!isFormSubmitted ? (
         <div className="app__signUp-form">
@@ -128,26 +129,29 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
+              className={lodging === "Single" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Single"
             >
-              Single ${tournament.singlePrice}
+              Single ${trip.singlePrice}
             </button>
             <button
               name="lodging"
               type="button"
+              className={lodging === "Double" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Double"
             >
-              Double ${tournament.doublePrice}
+              Double ${trip.doublePrice}
             </button>
             <button
               name="lodging"
               type="button"
+              className={lodging === "Golf Only" ? "active" : "inactive"}
               onClick={handleChangeInput}
               value="Golf Only"
             >
-              Golf Only ${tournament.golfOnlyPrice}
+              Golf Only ${trip.golfOnlyPrice}
             </button>
           </div>
 
@@ -167,24 +171,27 @@ const SignUp = () => {
             ""
           )}
 
-          <h5 className="date-text">All payments are due: {tournament.paymentDue} </h5>  
+          <h5 className="date-text">
+            All payments are due: {trip.paymentDue}{" "}
+          </h5>
 
           <p className="info-text">
-          Please send payments through Venmo @John-McKenna-145 or mail a check
-          to
-          <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+            Please send payments through Venmo @John-McKenna-145 or mail a check
+            to
+            <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
           <motion.div
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}>
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
+          >
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
                 className="submitBtn"
                 onClick={() => handleSubmit("active")}
               >
-                Sign Up for Tournament
+                Sign Up for the Trip
               </button>
             )}
             <button

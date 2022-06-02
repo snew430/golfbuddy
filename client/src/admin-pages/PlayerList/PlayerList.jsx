@@ -5,14 +5,14 @@ import List from "../../components/List/List";
 import { motion } from "framer-motion";
 import { useQuery } from "@apollo/react-hooks";
 
-import { QUERY_TOURNAMENTS } from "../../utils/queries";
+import { QUERY_TRIPS } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-  const { data: tournamentData, refetch } = useQuery(QUERY_TOURNAMENTS);
+  const { data: tripData, refetch } = useQuery(QUERY_TRIPS);
 
-  const tournament = tournamentData?.tournaments[0] || [];
+  const trip = tripData?.trips[0] || [];
 
   const loggedIn = Auth.loggedIn();
 
@@ -28,28 +28,28 @@ const PlayerList = () => {
   return (
     <div id="playerList">
       <div className="background">
-        <h2 className="head-text">Players Going to {tournament.name}</h2>
+        <h2 className="head-text">Players Going to {trip.name}</h2>
         <div className="player-list">
           <List
-            players={tournament.playersActive}
+            players={trip.playersActive}
             status={"active"}
-            tournament={tournament._id}
+            trip={trip._id}
             refetchPlayers={refetch}
           />
         </div>
         <h2 className="secondary-text">Waitlisted Players</h2>
         <div className="player-list">
           <List
-            players={tournament.playersWaitlist}
+            players={trip.playersWaitlist}
             status={"waitlist"}
-            tournament={tournament._id}
+            trip={trip._id}
             refetchPlayers={refetch}
           />
         </div>
-        <motion.div 
-        className="app__flex"
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
+        <motion.div
+          className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
         >
           <Link to="../Message">
             <button>Email the Players</button>

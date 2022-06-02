@@ -5,7 +5,7 @@ import { removePlayerId } from "../../utils/localStorage";
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
-const Master = ({ players }) => {
+const Master = ({ players, refetchPlayers }) => {
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletePlayer] = useMutation(DELETE_PLAYER);
@@ -33,6 +33,7 @@ const Master = ({ players }) => {
     } catch (err) {
       console.error(err);
     }
+    refetchPlayers();
   };
 
   // create function that accepts the player's mongo _id value as param and deletes the player from the database
@@ -40,7 +41,14 @@ const Master = ({ players }) => {
   return (
     <>
       {" "}
-      {isModalOpen && <Modal player={currentPlayer} onClose={toggleModal} />}
+      {isModalOpen && (
+        <Modal
+          player={currentPlayer}
+          onClose={toggleModal}
+          update_add="Update"
+          refetchPlayers={refetchPlayers}
+        />
+      )}
       <table>
         <thead>
           <tr>

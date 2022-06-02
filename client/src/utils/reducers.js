@@ -1,12 +1,12 @@
-import { MAKE_ACTIVE_TOURNAMENT } from "./actions";
+import { MAKE_ACTIVE_TRIP } from "./actions";
 import { useReducer } from "react";
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case MAKE_ACTIVE_TOURNAMENT:
+    case MAKE_ACTIVE_TRIP:
       return {
         ...state,
-        currentTournament: [...action.currentTournament],
+        currentTrip: [...action.currentTrip],
       };
     default:
       return state;
