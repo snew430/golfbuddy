@@ -14,7 +14,8 @@ export const ADD_PLAYER = gql`
     $lastName: String!
     $email: String!
     $phoneNumber: String!
-    $lodging: String!
+    $lodging: String
+    $preferredRoomate: String
   ) {
     addPlayer(
       firstName: $firstName
@@ -22,6 +23,7 @@ export const ADD_PLAYER = gql`
       email: $email
       phoneNumber: $phoneNumber
       lodging: $lodging
+      preferredRoomate: $preferredRoomate
     ) {
       _id
       firstName
@@ -29,6 +31,7 @@ export const ADD_PLAYER = gql`
       email
       phoneNumber
       lodging
+      preferredRoomate
     }
   }
 `;
@@ -183,6 +186,7 @@ export const ADD_ACTIVE_PLAYER = gql`
     $lastName: String!
     $email: String!
     $phoneNumber: String!
+    $preferredRoomate: String
     $lodging: String!
   ) {
     addPlayerToActiveTrip(
@@ -191,6 +195,7 @@ export const ADD_ACTIVE_PLAYER = gql`
       lastName: $lastName
       email: $email
       phoneNumber: $phoneNumber
+      preferredRoomate: $preferredRoomate
       lodging: $lodging
     ) {
       _id
@@ -201,6 +206,7 @@ export const ADD_ACTIVE_PLAYER = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
@@ -216,6 +222,7 @@ export const ADD_CURRENT_TO_ACTIVE = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
@@ -231,6 +238,7 @@ export const REMOVE_ACTIVE_PLAYER = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
@@ -238,8 +246,24 @@ export const REMOVE_ACTIVE_PLAYER = gql`
 `;
 
 export const ADD_WAITLIST_PLAYER = gql`
-  mutation addPlayerToWaitlistTrip($player: ID!, $trip: ID!) {
-    addPlayerToWaitlistTrip(player: $player, trip: $trip) {
+  mutation addPlayerToWaitlistTrip(
+    $tripId: ID!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $phoneNumber: String!
+    $preferredRoomate: String
+    $lodging: String!
+  ) {
+    addPlayerToWaitlistTrip(
+      tripId: $tripId
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      phoneNumber: $phoneNumber
+      preferredRoomate: $preferredRoomate
+      lodging: $lodging
+    ) {
       _id
       name
       playersWaitlist {
@@ -248,6 +272,7 @@ export const ADD_WAITLIST_PLAYER = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
@@ -263,6 +288,7 @@ export const ADD_CURRENT_TO_WAITLIST = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
@@ -278,6 +304,7 @@ export const REMOVE_WAITLIST_PLAYER = gql`
         lastName
         email
         phoneNumber
+        preferredRoomate
         lodging
       }
     }
