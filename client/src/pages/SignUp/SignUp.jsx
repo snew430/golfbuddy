@@ -157,7 +157,7 @@ const SignUp = () => {
 
           {lodging === "Double" ? (
             <>
-              <h3>Do you have a preferred roomate?</h3>
+              <h4 className="info-text">Do you have a preferred roomate?</h4>
 
               <input
                 type="preferredRoomate"
