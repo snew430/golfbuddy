@@ -22,11 +22,15 @@ const Trip = () => {
           {trip.startDate} - {trip.endDate}
         </h3>
 
-        <div className="app__flex">
+        <motion.div 
+          className="app__flex"
+          whileHover={{scale: 1.1}}
+        >
           <Link to="../SignUp">
             <button>Sign Up for this Trip</button>
           </Link>
-        </div>
+
+        </motion.div>
 
         <motion.div
           className="trip-details"
@@ -34,13 +38,12 @@ const Trip = () => {
           transition={{ duration: 0.7 }}
         >
           <div>
-            <h4>
-              We are staying at <br /> {trip.hotels[0].name}
-            </h4>
+            <h4>Hotel</h4>
+            <h5>{trip.hotels[0].name}</h5>
             <p className="p-text">{trip.hotels[0].address}</p>
             <p className="p-text">
               <a
-                className="p-text"
+                className="p-text link"
                 href={trip.hotels[0].website}
                 rel="noreferrer"
                 target="_blank"
@@ -57,7 +60,7 @@ const Trip = () => {
             <p className="p-text">
               Day One: <br />{" "}
               <a
-                className="p-text"
+                className="p-text link"
                 href={trip.courses[0].website}
                 rel="noreferrer"
                 target="_blank"
@@ -68,7 +71,7 @@ const Trip = () => {
             <p className="p-text">
               Day Two: <br />{" "}
               <a
-                className="p-text"
+                className="p-text link"
                 href={trip.courses[1].website}
                 rel="noreferrer"
                 target="_blank"
@@ -79,7 +82,7 @@ const Trip = () => {
             <p className="p-text">
               Day Three: <br />{" "}
               <a
-                className="p-text"
+                className="p-text link"
                 href={trip.courses[2].website}
                 rel="noreferrer"
                 target="_blank"
@@ -89,14 +92,16 @@ const Trip = () => {
             </p>
             <p className="p-text">
               Day Four: <br />{" "}
-              <a className="p-text" href={trip.courses[0].website}>
+              <a 
+                className="p-text link" 
+                href={trip.courses[0].website}>
                 {trip.courses[0].name}
               </a>
             </p>
           </div>
         </motion.div>
 
-        <h4>All payments are due: {trip.paymentDue} </h4>
+        <h5>All payments are due: {trip.paymentDue} </h5>
 
         <p className="info-text">
           Please send payments through Venmo @John-McKenna-145 or mail a check
@@ -111,7 +116,7 @@ const Trip = () => {
           always have a few last-minute drops due to individual circumstances.
         </p>
 
-        <p className="info-text">
+        <p className="info-text last">
           We are looking forward to a great trip, and hope you will join us!
         </p>
       </div>
