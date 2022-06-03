@@ -12,6 +12,7 @@ const Home = () => {
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.7 }}
+        whileHover={{scale: 1.1}}
         className="app__flex"
       >
         <Link to="../SignUp">
