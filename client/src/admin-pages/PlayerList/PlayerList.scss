@@ -61,13 +61,90 @@
       text-align: center;
     }
 
-    td,
-    a {
+    td, a {
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
       font-size: 2rem;
       text-decoration: none;
+
+      .delete {
+        font-size: 3rem;
+        color: white;
+        padding: 8px;
+        background-color: red;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .edit {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #6495ed;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .plus {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #74c365;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .minus {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #ffc40c;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .hovertext {
+        position: relative;
+        border-bottom: 1px dotted black;
+      }
+      
+      .hovertext:before {
+        content: attr(data-hover);
+        visibility: hidden;
+        opacity: 0;
+        width: 70px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 1rem;
+        padding: 2px 0;
+        transition: opacity 1s ease-in-out;
+      
+        position: absolute;
+        z-index: 1;
+        bottom: 235%;
+        left: 50%;
+        margin-left: -35px;
+      }
+      
+      .hovertext:hover:before {
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
     @media only screen and (max-width: 1700px) {
@@ -79,7 +156,7 @@
       }
     }
 
-    @media only screen and (max-width: 1250px) {
+    @media only screen and (max-width: 1350px) {
       thead th {
         display: none;
       }
@@ -141,35 +218,4 @@
     font-family: var(--font-base);
     cursor: pointer;
   }
-
-  .delete-button {
-    padding: 0.3rem 0.75rem;
-    border-radius: 10px;
-    border: none;
-    background-color: red;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--white-color);
-    text-shadow: -1px 0 black;
-    outline: none;
-    margin: 1rem;
-    font-family: var(--font-base);
-    cursor: pointer;
-  }
-
-  .edit-button {
-    padding: 0.3rem 0.75rem;
-    border-radius: 10px;
-    border: none;
-    background-color: #6495ed;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--white-color);
-    text-shadow: -1px 0 black;
-    outline: none;
-    margin: 1rem;
-    font-family: var(--font-base);
-    cursor: pointer;
-  }
-
 }

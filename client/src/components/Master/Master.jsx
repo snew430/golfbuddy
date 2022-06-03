@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { DELETE_PLAYER } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
+import { FaTrashAlt } from 'react-icons/fa';
+import { BsPencilSquare } from 'react-icons/bs';
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
@@ -70,18 +72,18 @@ const Master = ({ players, refetchPlayers }) => {
                 <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
               </td>
               <td>
-                <button
-                  className="delete-button"
-                  onClick={() => handleDeletePlayer(player._id)}
-                >
-                  Delete
-                </button>
-                <button
-                  className="edit-button"
+                <span class="hovertext" data-hover="Delete">
+                  <FaTrashAlt
+                    className="tooltip delete"
+                    onClick={() => handleDeletePlayer(player._id)}
+                  />
+                </span>
+              <span class="hovertext" data-hover="Edit">
+                <BsPencilSquare
+                  className="edit"
                   onClick={() => toggleModal(player)}
-                >
-                  Edit
-                </button>
+                />
+              </span>
               </td>
             </tr>
           ))}

@@ -180,6 +180,12 @@ const SignUp = () => {
             <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
+          <p className="info-text">
+            The cost of the tirp includes: <br /> 
+            Accomodations, Green Fees, Hotel Breakfast,
+            and Prize Money  
+          </p>
+
           <motion.div
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.7 }}

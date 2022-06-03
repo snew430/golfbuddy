@@ -7,6 +7,10 @@ import {
   ADD_CURRENT_TO_WAITLIST,
 } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
+import { FaTrashAlt } from 'react-icons/fa';
+import { BsPencilSquare, BsPlusLg } from 'react-icons/bs';
+import { FiMinusCircle } from 'react-icons/fi';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
@@ -119,28 +123,39 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-                <div className="app__flex">
-                  <button
-                    className="delete-button"
-                    onClick={() => handleDeletePlayer(player._id, status)}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="edit-button"
+                <span class="hovertext" data-hover="Delete">
+                    <FaTrashAlt
+                      className="tooltip delete"
+                      onClick={() => handleDeletePlayer(player._id)}
+                    />
+                </span>
+                <span class="hovertext" data-hover="Edit">
+                  <BsPencilSquare
+                    className="edit"
                     onClick={() => toggleModal(player)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="edit-button"
+                  />
+                </span>
+                {status === "waitlist" ?
+                <span 
+                  className="hovertext" 
+                  data-hover="Add to Trip"
+                >
+                  <FaPlus
+                    className="plus"
                     onClick={() => handleMovePlayer(player._id, status)}
-                  >
-                    {status === "waitlist"
-                      ? "Move to Active"
-                      : "Move to Waitlist"}
-                  </button>
-                </div>
+                  />
+                </span>
+                :  
+                <span 
+                    className="hovertext" 
+                    data-hover="Move to Waitlist"
+                >
+                  <FaMinus
+                    className="minus"
+                      onClick={() => handleMovePlayer(player._id, status)}
+                    />
+                </span>
+                }
               </td>
             </tr>
           ))}

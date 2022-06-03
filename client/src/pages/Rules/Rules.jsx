@@ -30,8 +30,7 @@ const Rules = () => {
           <p className='info-text'>
             We have assigned the foursomes for Sunday and Wednesday's Ryder Cup Round.
             If there is a foursome group you want to play with on Monday or Tuesday, please let us know
-            when we meet Sunday morning, or by clicking the "Create a Foursome" button below. If there's
-            someone you want to play with, here's your chance!
+            when we meet Sunday morning. If there's someone you want to play with, here's your chance!
           </p>
           <p className='info-text'>
             If you would like to take part in other daily competitions,
