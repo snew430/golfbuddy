@@ -62,8 +62,8 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       phoneNumber: String!
-      lodging: String
       preferredRoomate: String
+      lodging: String
     ): Player
     updatePlayer(
       id: ID!

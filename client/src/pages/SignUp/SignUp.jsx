@@ -35,6 +35,15 @@ const SignUp = () => {
 
   const handleSubmit = async (status) => {
     const tripId = trip._id;
+    console.log(
+      tripId,
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      preferredRoomate,
+      lodging
+    );
     if (status === "active") {
       try {
         addPlayer({
@@ -176,14 +185,14 @@ const SignUp = () => {
           </h5>
 
           <p className="info-text">
-            Please send payments through Venmo @John-McKenna-145 or mail a check to
+            Please send payments through Venmo @John-McKenna-145 or mail a check
+            to
             <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
           <p className="info-text">
-            The cost of the tirp includes: <br /> 
-            Accomodations, Green Fees, Hotel Breakfast,
-            and Prize Money  
+            The cost of the tirp includes: <br />
+            Accomodations, Green Fees, Hotel Breakfast, and Prize Money
           </p>
 
           <motion.div
