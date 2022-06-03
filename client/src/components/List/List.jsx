@@ -114,7 +114,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
                 <a href={`mailto:${player.email}`}>{player.email}</a>
               </td>
               <td>
-                <a href={`tel:+${player.phoneNumber}`}>{player.phoneNumber}</a>
+                <a href={`tel:${player.phoneNumber}`}>{player.phoneNumber}</a>
               </td>
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
