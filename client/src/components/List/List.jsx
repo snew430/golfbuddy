@@ -9,7 +9,6 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 import { FaTrashAlt } from 'react-icons/fa';
 import { BsPencilSquare, BsPlusLg } from 'react-icons/bs';
-import { FiMinusCircle } from 'react-icons/fi';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
@@ -124,10 +123,10 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.preferredRoomate}</td>
               <td>
                 <span class="hovertext" data-hover="Delete">
-                    <FaTrashAlt
-                      className="tooltip delete"
-                      onClick={() => handleDeletePlayer(player._id)}
-                    />
+                  <FaTrashAlt
+                    className="delete"
+                    onClick={() => handleDeletePlayer(player._id, status)}
+                  />
                 </span>
                 <span class="hovertext" data-hover="Edit">
                   <BsPencilSquare
