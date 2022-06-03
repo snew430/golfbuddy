@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.89b4dabc.css",
-    "main.js": "/static/js/main.1546f8b5.js",
-    "static/media/golf_green2.jpg": "/static/media/golf_green2.64970060558016fd022a.jpg",
-    "static/media/golf_course_sky2.jpg": "/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg",
-    "static/media/ball_on_tee2.jpg": "/static/media/ball_on_tee2.f14fd844562004467520.jpg",
-    "static/media/golf_ball_green.jpg": "/static/media/golf_ball_green.127cfd034f36f27451fd.jpg",
-    "static/media/golf_ball_green_center.jpg": "/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg",
-    "static/media/white_paper.jpg": "/static/media/white_paper.1fb415ab365cac81397d.jpg",
-    "static/media/sand_trap.jpg": "/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg",
-    "static/media/ball_on_green.jpg": "/static/media/ball_on_green.cbb8cc8e2c0df7893fda.jpg",
-    "static/media/bucket_of_balls.jpg": "/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg",
-    "index.html": "/index.html",
-    "main.89b4dabc.css.map": "/static/css/main.89b4dabc.css.map",
-    "main.1546f8b5.js.map": "/static/js/main.1546f8b5.js.map"
+    "main.css": "/golfbuddy/static/css/main.459117bd.css",
+    "main.js": "/golfbuddy/static/js/main.1546f8b5.js",
+    "static/media/golf_green2.jpg": "/golfbuddy/static/media/golf_green2.64970060558016fd022a.jpg",
+    "static/media/golf_course_sky2.jpg": "/golfbuddy/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg",
+    "static/media/ball_on_tee2.jpg": "/golfbuddy/static/media/ball_on_tee2.f14fd844562004467520.jpg",
+    "static/media/golf_ball_green.jpg": "/golfbuddy/static/media/golf_ball_green.127cfd034f36f27451fd.jpg",
+    "static/media/golf_ball_green_center.jpg": "/golfbuddy/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg",
+    "static/media/white_paper.jpg": "/golfbuddy/static/media/white_paper.1fb415ab365cac81397d.jpg",
+    "static/media/sand_trap.jpg": "/golfbuddy/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg",
+    "static/media/ball_on_green.jpg": "/golfbuddy/static/media/ball_on_green.cbb8cc8e2c0df7893fda.jpg",
+    "static/media/bucket_of_balls.jpg": "/golfbuddy/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg",
+    "index.html": "/golfbuddy/index.html",
+    "main.459117bd.css.map": "/golfbuddy/static/css/main.459117bd.css.map",
+    "main.1546f8b5.js.map": "/golfbuddy/static/js/main.1546f8b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.89b4dabc.css",
+    "static/css/main.459117bd.css",
     "static/js/main.1546f8b5.js"
   ]
 }
