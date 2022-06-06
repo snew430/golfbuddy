@@ -114,12 +114,14 @@ export const QUERY_TRIPS = gql`
         name
         address
         website
+        phoneNumber
       }
       hotels {
         _id
         name
         address
         website
+        phoneNumber
       }
       maxPlayers
       playersActive {
