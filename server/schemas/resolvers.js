@@ -386,6 +386,15 @@ const resolvers = {
       });
       return Admin;
     },
+
+    paidPlayer: async (parent, { player, paid }) => {
+      const updatedPlayer = Player.findOneAndUpdate(
+        { _id: player },
+        { paid: paid },
+        { new: true }
+      );
+      return updatedPlayer;
+    },
   },
 };
 

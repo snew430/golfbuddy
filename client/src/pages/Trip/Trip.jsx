@@ -8,7 +8,7 @@ import { QUERY_TRIPS } from "../../utils/queries";
 const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_TRIPS);
   const trip = tripData?.trips[0] || [];
-  console.log(trip);
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -22,14 +22,10 @@ const Trip = () => {
           {trip.startDate} - {trip.endDate}
         </h3>
 
-        <motion.div 
-          className="app__flex"
-          whileHover={{scale: 1.1}}
-        >
+        <motion.div className="app__flex" whileHover={{ scale: 1.1 }}>
           <Link to="../SignUp">
             <button>Sign Up for this Trip</button>
           </Link>
-
         </motion.div>
 
         <motion.div
@@ -92,9 +88,7 @@ const Trip = () => {
             </p>
             <p className="p-text">
               Day Four: <br />{" "}
-              <a 
-                className="p-text link" 
-                href={trip.courses[0].website}>
+              <a className="p-text link" href={trip.courses[0].website}>
                 {trip.courses[0].name}
               </a>
             </p>

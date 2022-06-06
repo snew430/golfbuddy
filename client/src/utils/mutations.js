@@ -322,3 +322,14 @@ export const SEND_MESSAGE = gql`
     }
   }
 `;
+
+export const PAID_PLAYER = gql`
+  mutation paidPlayer($player: ID!, $paid: Boolean!) {
+    paidPlayer(player: $player, paid: $paid) {
+      _id
+      firstName
+      lastName
+      paid
+    }
+  }
+`;

@@ -5,13 +5,16 @@ import {
   REMOVE_WAITLIST_PLAYER,
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
+  PAID_PLAYER,
 } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
-import { FaTrashAlt } from 'react-icons/fa';
-import { BsPencilSquare, BsPlusLg } from 'react-icons/bs';
-import { FaPlus, FaMinus } from 'react-icons/fa';
+
+import { FaTrashAlt } from "react-icons/fa";
+import { BsPencilSquare } from "react-icons/bs";
+import { FaPlus, FaMinus, FaDollarSign } from "react-icons/fa";
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
+import "./List.scss";
 
 const List = ({ players, status, trip, refetchPlayers }) => {
   const [currentPlayer, setCurrentPlayer] = useState();
@@ -21,6 +24,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
   const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
   const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
   const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
+  const [paidPlayer] = useMutation(PAID_PLAYER);
 
   const toggleModal = (player) => {
     setCurrentPlayer(player);
@@ -83,6 +87,23 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     refetchPlayers();
   };
 
+  const handlePaid = async (player, paid) => {
+    paid = !paid;
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+    try {
+      await paidPlayer({
+        variables: { player, paid },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    refetchPlayers();
+  };
+
   if (!players || !players.length) {
     return <h4>No Players on the List</h4>;
   }
@@ -122,39 +143,41 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-                <span class="hovertext" data-hover="Delete">
+                <span className="hovertext" data-hover="Paid or Unpaid">
+                  <FaDollarSign
+                    className={player.paid ? "paid money" : "unpaid money"}
+                    onClick={() => handlePaid(player._id, player.paid)}
+                  />
+                </span>
+              </td>
+              <td>
+                <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt
                     className="delete"
                     onClick={() => handleDeletePlayer(player._id, status)}
                   />
                 </span>
-                <span class="hovertext" data-hover="Edit">
+                <span className="hovertext" data-hover="Edit">
                   <BsPencilSquare
                     className="edit"
                     onClick={() => toggleModal(player)}
                   />
                 </span>
-                {status === "waitlist" ?
-                <span 
-                  className="hovertext" 
-                  data-hover="Add to Trip"
-                >
-                  <FaPlus
-                    className="plus"
-                    onClick={() => handleMovePlayer(player._id, status)}
-                  />
-                </span>
-                :  
-                <span 
-                    className="hovertext" 
-                    data-hover="Move to Waitlist"
-                >
-                  <FaMinus
-                    className="minus"
+                {status === "waitlist" ? (
+                  <span className="hovertext" data-hover="Add to Trip">
+                    <FaPlus
+                      className="plus"
                       onClick={() => handleMovePlayer(player._id, status)}
                     />
-                </span>
-                }
+                  </span>
+                ) : (
+                  <span className="hovertext" data-hover="Move to Waitlist">
+                    <FaMinus
+                      className="minus"
+                      onClick={() => handleMovePlayer(player._id, status)}
+                    />
+                  </span>
+                )}
               </td>
             </tr>
           ))}

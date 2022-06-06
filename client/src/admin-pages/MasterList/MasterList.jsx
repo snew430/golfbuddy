@@ -14,6 +14,7 @@ const MasterList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const players = playerData?.players || [];
+  console.log(players);
 
   const loggedIn = Auth.loggedIn();
 
@@ -65,14 +66,15 @@ const MasterList = () => {
           >
             <button onClick={() => toggleModal()}>Add New Player</button>
           </motion.div>
-          
+
           <motion.div
             className="app__flex"
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.7 }}
           >
-            <Link to="../Message"><button className="final-btn">Email the Players</button></Link>
-            
+            <Link to="../Message">
+              <button className="final-btn">Email the Players</button>
+            </Link>
           </motion.div>
         </div>
       </div>
