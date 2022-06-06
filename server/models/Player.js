@@ -31,6 +31,10 @@ const playerSchema = new Schema({
   lodging: {
     type: String,
   },
+  paid: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 //add paid to default false?

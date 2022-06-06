@@ -17,23 +17,27 @@ db.once("open", async () => {
     name: "Rum Pointe Seaside Golf Links",
     address: "7000 Rum Pointe Lane Berin, Maryland 21811",
     website: "https://rumpointe.com/",
+    phoneNumber: "4106291414",
   });
   const course2 = await Course.create({
     name: "GlenRiddle Golf Club - War Admiral",
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
+    phoneNumber: "4102132325",
   });
 
   const course3 = await Course.create({
     name: "GlenRiddle Golf Club - Man O' War",
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
+    phoneNumber: "4102132325",
   });
 
   const hotel1 = await Hotel.create({
     name: "The Grand Hotel",
     address: "2100 N. Baltimore Avenue, Ocean City, Md. 21842",
     website: "https://grandhoteloceancity.com/",
+    phoneNumber: "4102896191",
   });
 
   const player1 = await Player.create({

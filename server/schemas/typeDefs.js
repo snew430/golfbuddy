@@ -17,18 +17,21 @@ const typeDefs = gql`
     phoneNumber: String
     preferredRoomate: String
     lodging: String
+    paid: Boolean
   }
   type Course {
     _id: ID
     name: String
     address: String
     website: String
+    phoneNumber: String
   }
   type Hotel {
     _id: ID
     name: String
     address: String
     website: String
+    phoneNumber: String
   }
   type Trip {
     _id: ID
@@ -74,9 +77,13 @@ const typeDefs = gql`
       preferredRoomate: String
       lodging: String
     ): Player
+
     deletePlayer(id: ID!): Player
+
     addCourse(name: String!, address: String!, website: String!): Course
+
     addHotel(name: String!, address: String!, website: String!): Hotel
+
     addTrip(
       name: String!
       startDate: String!
@@ -137,6 +144,8 @@ const typeDefs = gql`
     removeHotelFromTrip(hotel: ID!, trip: ID!): Trip
 
     sendMessage(recipients: String!, subject: String!, message: String!): Admin
+
+    paidPlayer(player: ID!, paid: Boolean!): Player
   }
 `;
 

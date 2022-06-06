@@ -10,6 +10,7 @@ export const QUERY_PLAYERS = gql`
       phoneNumber
       preferredRoomate
       lodging
+      paid
     }
   }
 `;
@@ -25,6 +26,7 @@ export const QUERY_ACTIVE_PLAYERS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
     }
   }
@@ -41,6 +43,7 @@ export const QUERY_WAITLIST_PLAYERS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
     }
   }
@@ -57,6 +60,7 @@ export const QUERY_TRIP_PLAYERS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
       playersWaitlist {
         _id
@@ -66,6 +70,7 @@ export const QUERY_TRIP_PLAYERS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
     }
   }
@@ -109,12 +114,14 @@ export const QUERY_TRIPS = gql`
         name
         address
         website
+        phoneNumber
       }
       hotels {
         _id
         name
         address
         website
+        phoneNumber
       }
       maxPlayers
       playersActive {
@@ -125,6 +132,7 @@ export const QUERY_TRIPS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
       activePlayerCount
       playersWaitlist {
@@ -135,6 +143,7 @@ export const QUERY_TRIPS = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
     }
   }
@@ -201,6 +210,7 @@ export const QUERY_TRIP = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
       activePlayerCount
       playersWaitlist {
@@ -211,6 +221,7 @@ export const QUERY_TRIP = gql`
         phoneNumber
         preferredRoomate
         lodging
+        paid
       }
     }
   }

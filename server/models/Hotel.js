@@ -16,6 +16,10 @@ const hotelSchema = new Schema({
     type: String,
     required: true,
   },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
 });
 
 const Hotel = mongoose.model("Hotel", hotelSchema);

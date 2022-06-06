@@ -8,6 +8,7 @@ import { QUERY_TRIPS } from "../../utils/queries";
 const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_TRIPS);
   const trip = tripData?.trips[0] || [];
+
   console.log(trip);
 
   if (loading) {
@@ -22,14 +23,10 @@ const Trip = () => {
           {trip.startDate} - {trip.endDate}
         </h3>
 
-        <motion.div 
-          className="app__flex"
-          whileHover={{scale: 1.1}}
-        >
+        <motion.div className="app__flex" whileHover={{ scale: 1.1 }}>
           <Link to="../SignUp">
             <button>Sign Up for this Trip</button>
           </Link>
-
         </motion.div>
 
         <motion.div
@@ -51,53 +48,42 @@ const Trip = () => {
                 {trip.hotels[0].website}
               </a>
             </p>
+            <p className="p-text">
+              <a
+                className="p-text link"
+                href={`tel:${trip.hotels[0].phoneNumber}`}
+                rel="noreferrer"
+              >
+                Telephone :{trip.hotels[0].phoneNumber}
+              </a>
+            </p>
             <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>
             <p className="p-text">Price for Double Room: ${trip.doublePrice}</p>
             <p className="p-text">Golf Only Price: ${trip.golfOnlyPrice}</p>
           </div>
           <div>
             <h4>Courses</h4>
-            <p className="p-text">
-              Day One: <br />{" "}
-              <a
-                className="p-text link"
-                href={trip.courses[0].website}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {trip.courses[0].name}
-              </a>
-            </p>
-            <p className="p-text">
-              Day Two: <br />{" "}
-              <a
-                className="p-text link"
-                href={trip.courses[1].website}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {trip.courses[1].name}
-              </a>
-            </p>
-            <p className="p-text">
-              Day Three: <br />{" "}
-              <a
-                className="p-text link"
-                href={trip.courses[2].website}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {trip.courses[2].name}
-              </a>
-            </p>
-            <p className="p-text">
-              Day Four: <br />{" "}
-              <a 
-                className="p-text link" 
-                href={trip.courses[0].website}>
-                {trip.courses[0].name}
-              </a>
-            </p>
+            {trip.courses.map((course, i) => (
+              <p className="p-text" key={course._id}>
+                Day {i + 1}: <br />
+                <a
+                  className="p-text link"
+                  href={course.website}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {course.name}
+                </a>
+                <br />
+                <a
+                  className="p-text link"
+                  href={`tel:${course.phoneNumber}`}
+                  rel="noreferrer"
+                >
+                  Phone Number: {course.phoneNumber}
+                </a>
+              </p>
+            ))}
           </div>
         </motion.div>
 
