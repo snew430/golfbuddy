@@ -90,7 +90,11 @@ const Trip = () => {
         <h5>All payments are due: {trip.paymentDue} </h5>
 
         <p className="info-text">
-          Please send payments through Venmo @John-McKenna-145 or mail a check
+          Please send payments through Venmo 
+          <br />
+         <a href='https://account.venmo.com/u/John-McKenna-145'>@John-McKenna-145</a> 
+          < br />
+          or mail a check
           to
           <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
         </p>
