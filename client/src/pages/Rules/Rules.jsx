@@ -1,6 +1,8 @@
 import React from 'react';
 import './Rules.scss'
 import { motion } from "framer-motion";
+import { CreatePDFfromHTML } from '../../utils/downloadPDF';
+
 const Rules = () => {
   return (
     <div id='rules'>
@@ -39,6 +41,9 @@ const Rules = () => {
             All wagers will be explained in detail before we tee off.
           </p>
           <h3>Please reach out to us if you have questions. <br />We are looking forward to a great trip!</h3>
+          <div className='app__flex'>
+            <button onClick={ () => CreatePDFfromHTML() }>Download Printable Rules</button>
+          </div>
         </div>
     </div>
   );
