@@ -5,7 +5,7 @@ import List from "../../components/List/List";
 import { motion } from "framer-motion";
 import { useQuery } from "@apollo/react-hooks";
 
-import { exportCSVplayer } from "../../utils/exportCSV";
+import { exportCSVplayer, exportCSVwaitlist } from "../../utils/exportCSV";
 
 import { QUERY_TRIPS } from "../../utils/queries";
 
@@ -56,6 +56,14 @@ const PlayerList = () => {
           transition={{ duration: 0.7 }}
         >
           <button onClick={ () => exportCSVplayer() } >Download Player List</button>
+        </motion.div>
+
+        <motion.div
+          className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
+        >
+          <button onClick={ () => exportCSVwaitlist() } >Download Waitlist</button>
         </motion.div>
         
         <motion.div
