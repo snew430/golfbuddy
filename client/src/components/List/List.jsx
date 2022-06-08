@@ -10,8 +10,8 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 
 import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare, BsCheckSquare } from "react-icons/bs";
-import { FaPlus, FaMinus, FaDollarSign } from "react-icons/fa";
+import { BsPencilSquare, BsCheckSquare, BsCurrencyDollar } from "react-icons/bs";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import { FiXSquare } from "react-icons/fi";
 
 import Modal from "../../components/Modal/Modal";
@@ -146,7 +146,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>
               <span className="hovertext" data-hover="Paid or Unpaid">
                   { player.paid ?
-                  <BsCheckSquare 
+                  <BsCurrencyDollar 
                     className="plus"
                     onClick={() => handlePaid(player._id, player.paid)}
                   />
