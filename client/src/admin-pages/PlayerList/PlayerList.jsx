@@ -5,6 +5,8 @@ import List from "../../components/List/List";
 import { motion } from "framer-motion";
 import { useQuery } from "@apollo/react-hooks";
 
+import { exportCSVplayer, exportCSVwaitlist } from "../../utils/exportCSV";
+
 import { QUERY_TRIPS } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
@@ -25,6 +27,7 @@ const PlayerList = () => {
       </div>
     );
   }
+
   return (
     <div id="playerList">
       <div className="background">
@@ -46,14 +49,32 @@ const PlayerList = () => {
             refetchPlayers={refetch}
           />
         </div>
+
+        <motion.div
+          className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
+        >
+          <button onClick={ () => exportCSVplayer() } >Download Player List</button>
+        </motion.div>
+
+        <motion.div
+          className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
+        >
+          <button onClick={ () => exportCSVwaitlist() } >Download Waitlist</button>
+        </motion.div>
+        
         <motion.div
           className="app__flex"
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.7 }}
         >
           <Link to="../Message">
-            <button>Email the Players</button>
+            <button className="final">Email the Players</button>
           </Link>
+
         </motion.div>
       </div>
     </div>
