@@ -43,7 +43,7 @@ const typeDefs = gql`
     doublePrice: Int
     golfOnlyPrice: Int
     courses: [Course]
-    hotels: [Hotel]
+    hotels: Hotel
     maxPlayers: Int
     playersActive: [Player]
     activePlayerCount: Int
@@ -93,6 +93,26 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
       golfOnlyPrice: Int!
+      hotelName: String!
+      hotelAddress: String!
+      hotelWebsite: String!
+      hotelPhoneNumber: String!
+      courseOneName: String!
+      courseOneAddress: String!
+      courseOneWebsite: String!
+      courseOnePhoneNumber: String!
+      courseTwoName: String!
+      courseTwoAddress: String!
+      courseTwoWebsite: String!
+      courseTwoPhoneNumber: String!
+      courseThreeName: String!
+      courseThreeAddress: String!
+      courseThreeWebsite: String!
+      courseThreePhoneNumber: String!
+      courseFourName: String!
+      courseFourAddress: String!
+      courseFourWebsite: String!
+      courseFourPhoneNumber: String!
     ): Trip
 
     editTrip(
@@ -106,6 +126,7 @@ const typeDefs = gql`
       doublePrice: Int
       golfOnlyPrice: Int
     ): Trip
+
     deleteTrip(id: ID!): Trip
 
     addPlayerToActiveTrip(
@@ -143,7 +164,12 @@ const typeDefs = gql`
 
     removeHotelFromTrip(hotel: ID!, trip: ID!): Trip
 
-    sendMessage(recipients: String!, subject: String!, message: String!): Admin
+    sendMessage(
+      recipients: String!
+      subject: String!
+      message: String!
+      file: String
+    ): Admin
 
     paidPlayer(player: ID!, paid: Boolean!): Player
   }

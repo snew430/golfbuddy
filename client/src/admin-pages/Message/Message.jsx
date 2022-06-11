@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./Message.scss";
 import Auth from "../../utils/auth";
@@ -10,7 +11,6 @@ const Message = () => {
   const [formData, setFormData] = useState({ subject: "", message: "" });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
-
   const { loading: allPlayersLoading, data: emailMasterlist } =
     useQuery(QUERY_PLAYERS);
   const { loading: activePlayersLoading, data: emailPlayers } =
@@ -18,6 +18,13 @@ const Message = () => {
 
   const masterList = emailMasterlist?.players || [];
   const activeList = emailPlayers?.trips[0].playersActive || [];
+
+  const [attachment, setAttachment] = useState(null);
+
+  const onFileChange = (event) => {
+    console.log(event.target.files[0]);
+    setAttachment(event.target.files[0].name);
+  };
 
   const { subject, message } = formData;
   const loggedIn = Auth.loggedIn();
@@ -43,10 +50,12 @@ const Message = () => {
       recipients += `${player.email},`;
     });
 
+    console.log(attachment);
+
     if (subject !== "" && message !== "") {
       try {
         await sendMessage({
-          variables: { recipients, subject, message },
+          variables: { recipients, subject, message, attachment },
         });
       } catch (err) {
         console.error(err);
@@ -100,6 +109,7 @@ const Message = () => {
                   onChange={handleChangeInput}
                 />
               </div>
+              <input type="file" name="attach" onChange={onFileChange} />
               <button type="button" name="trip" onClick={handleSendEmail}>
                 Send to Trip Players
               </button>

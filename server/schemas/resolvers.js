@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Admin, Player, Course, Hotel, Trip } = require("../models");
 const { signToken } = require("../utils/auth");
+const fs = require("fs");
 
 require("dotenv").config();
 let nodemailer = require("nodemailer");
@@ -96,7 +97,49 @@ const resolvers = {
     //LOGIN REQUIRED
     addTrip: async (parent, args, context) => {
       if (context.user) {
-        const trip = await Trip.create(args);
+        const hotel = await Hotel.create({
+          name: args.hotelName,
+          address: args.hotelAddress,
+          website: args.hotelWebsite,
+          phoneNumber: args.hotelPhoneNumber,
+        });
+        const course1 = await Course.create({
+          name: args.courseOneName,
+          address: args.courseOneAddress,
+          website: args.courseOneWebsite,
+          phoneNumber: args.courseOnePhoneNumber,
+        });
+        const course2 = await Course.create({
+          name: args.courseTwoName,
+          address: args.courseTwoAddress,
+          website: args.courseTwoWebsite,
+          phoneNumber: args.courseTwoPhoneNumber,
+        });
+        const course3 = await Course.create({
+          name: args.courseThreeName,
+          address: args.courseThreeAddress,
+          website: args.courseThreeWebsite,
+          phoneNumber: args.courseThreePhoneNumber,
+        });
+        const course4 = await Course.create({
+          name: args.courseFourName,
+          address: args.courseFourAddress,
+          website: args.courseFourWebsite,
+          phoneNumber: args.courseFourPhoneNumber,
+        });
+
+        const trip = await Trip.create({
+          name: args.name,
+          startDate: args.startDate,
+          endDate: args.endDate,
+          paymentDue: args.paymentDue,
+          singlePrice: args.singlePrice,
+          doublePrice: args.doublePrice,
+          golfOnlyPrice: args.golfOnlyPrice,
+          courses: [course1, course2, course3],
+          hotels: hotel,
+          maxPlayers: args.maxPlayers,
+        });
         return trip;
       }
       throw new AuthenticationError("Not logged in");
@@ -352,7 +395,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    sendMessage: async (parent, { recipients, subject, message }) => {
+    sendMessage: async (parent, { recipients, subject, message, file }) => {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -375,7 +418,12 @@ const resolvers = {
         to: recipients,
         subject: subject,
         text: message,
+        attachments: [
+          { filename: "attachment", content: fs.createReadStream(file) },
+        ],
       };
+
+      console.log(mail);
 
       transporter.sendMail(mail, (err, data) => {
         if (err) {
