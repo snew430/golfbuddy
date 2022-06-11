@@ -14,20 +14,20 @@ const resolvers = {
     courses: async () => {
       return await Course.find();
     },
-    hotels: async () => {
+    hotel: async () => {
       return await Hotel.find();
     },
     trips: async () => {
       return await Trip.find()
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
     },
     trip: async (parent, { id }) => {
       return await Trip.findById(id)
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
     },
@@ -137,7 +137,7 @@ const resolvers = {
           doublePrice: args.doublePrice,
           golfOnlyPrice: args.golfOnlyPrice,
           courses: [course1, course2, course3],
-          hotels: hotel,
+          hotel: hotel,
           maxPlayers: args.maxPlayers,
         });
         return trip;
@@ -194,7 +194,7 @@ const resolvers = {
         { new: true, runValidators: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -213,7 +213,7 @@ const resolvers = {
           { new: true }
         )
           .populate("courses")
-          .populate("hotels")
+          .populate("hotel")
           .populate("playersActive")
           .populate("playersWaitlist");
 
@@ -234,7 +234,7 @@ const resolvers = {
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -272,7 +272,7 @@ const resolvers = {
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -290,7 +290,7 @@ const resolvers = {
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -309,7 +309,7 @@ const resolvers = {
           { new: true }
         )
           .populate("courses")
-          .populate("hotels")
+          .populate("hotel")
           .populate("playersActive")
           .populate("playersWaitlist");
 
@@ -332,7 +332,7 @@ const resolvers = {
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -350,7 +350,7 @@ const resolvers = {
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -364,13 +364,13 @@ const resolvers = {
         { _id: trip },
         {
           $push: {
-            hotels: hotelToAdd,
+            hotel: hotelToAdd,
           },
         },
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 
@@ -382,13 +382,13 @@ const resolvers = {
         { _id: trip },
         {
           $pull: {
-            hotels: { _id: hotel },
+            hotel: { _id: hotel },
           },
         },
         { new: true }
       )
         .populate("courses")
-        .populate("hotels")
+        .populate("hotel")
         .populate("playersActive")
         .populate("playersWaitlist");
 

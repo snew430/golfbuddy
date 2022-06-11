@@ -11,7 +11,7 @@ const NewTrip = () => {
     startDate: "",
     endDate: "",
     courses: "",
-    hotels: "",
+    hotel: "",
     maxPlayers: "",
     paymentDue: "",
     singlePrice: "",
@@ -28,7 +28,7 @@ const NewTrip = () => {
     startDate,
     endDate,
     courses,
-    hotels,
+    hotel,
     paymentDue,
     maxPlayers,
     singlePrice,
@@ -62,7 +62,7 @@ const NewTrip = () => {
       startDate,
       endDate,
       courses,
-      hotels,
+      hotel,
       paymentDue,
       maxPlayers,
       singlePrice,
@@ -77,7 +77,7 @@ const NewTrip = () => {
           startDate,
           endDate,
           courses,
-          hotels,
+          hotel,
           maxPlayers,
           paymentDue,
           singlePrice,
@@ -94,7 +94,7 @@ const NewTrip = () => {
       startDate: "",
       endDate: "",
       courses: "",
-      hotels: "",
+      hotel: "",
       maxPlayers: "",
       paymentDue: "",
       singlePrice: "",
@@ -146,8 +146,8 @@ const NewTrip = () => {
           <input
             type="text"
             placeholder="Hotel"
-            name="hotels"
-            value={hotels}
+            name="hotel"
+            value={hotel}
             onChange={handleChangeInput}
           />
 

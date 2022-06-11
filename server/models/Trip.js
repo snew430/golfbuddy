@@ -45,7 +45,7 @@ const tripSchema = new Schema(
         ref: "Course",
       },
     ],
-    hotels: [
+    hotel: [
       {
         type: Schema.Types.ObjectId,
         ref: "Hotel",

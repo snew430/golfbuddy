@@ -36,25 +36,25 @@ const Trip = () => {
         >
           <div>
             <h4>Hotel</h4>
-            <h5>{trip.hotels[0].name}</h5>
-            <p className="p-text">{trip.hotels[0].address}</p>
+            <h5>{trip.hotel.name}</h5>
+            <p className="p-text">{trip.hotel.address}</p>
             <p className="p-text">
               <a
                 className="p-text link"
-                href={trip.hotels[0].website}
+                href={trip.hotel.website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {trip.hotels[0].website}
+                {trip.hotel.website}
               </a>
             </p>
             <p className="p-text">
               <a
                 className="p-text link"
-                href={`tel:${trip.hotels[0].phoneNumber}`}
+                href={`tel:${trip.hotel.phoneNumber}`}
                 rel="noreferrer"
               >
-                Telephone :{trip.hotels[0].phoneNumber}
+                Telephone :{trip.hotel.phoneNumber}
               </a>
             </p>
             <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>

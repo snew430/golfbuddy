@@ -87,9 +87,9 @@ export const QUERY_COURSES = gql`
   }
 `;
 
-export const QUERY_HOTELS = gql`
+export const QUERY_hotel = gql`
   {
-    hotels {
+    hotel {
       _id
       name
       website
@@ -116,7 +116,7 @@ export const QUERY_TRIPS = gql`
         website
         phoneNumber
       }
-      hotels {
+      hotel {
         _id
         name
         address
@@ -166,7 +166,7 @@ export const QUERY_BASIC_TRIPS = gql`
         address
         website
       }
-      hotels {
+      hotel {
         _id
         name
         address
@@ -195,7 +195,7 @@ export const QUERY_TRIP = gql`
         address
         website
       }
-      hotels {
+      hotel {
         _id
         name
         address
@@ -244,7 +244,7 @@ export const QUERY_BASIC_TRIP = gql`
         address
         website
       }
-      hotels {
+      hotel {
         _id
         name
         address

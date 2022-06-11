@@ -135,7 +135,7 @@ export const EDIT_TRIP = gql`
         website
         address
       }
-      hotels {
+      hotel {
         _id
         name
         website

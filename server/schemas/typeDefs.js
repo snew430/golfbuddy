@@ -43,7 +43,7 @@ const typeDefs = gql`
     doublePrice: Int
     golfOnlyPrice: Int
     courses: [Course]
-    hotels: Hotel
+    hotel: Hotel
     maxPlayers: Int
     playersActive: [Player]
     activePlayerCount: Int
@@ -53,7 +53,7 @@ const typeDefs = gql`
   type Query {
     players: [Player]
     courses: [Course]
-    hotels: [Hotel]
+    hotel: [Hotel]
     trips: [Trip]
     trip(id: ID!): Trip
   }
