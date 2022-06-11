@@ -255,3 +255,52 @@ export const QUERY_BASIC_TRIP = gql`
     }
   }
 `;
+
+export const QUERY_ACTIVE_TRIP = gql`
+  query trip($tripId: ID!) {
+    trip(id: $tripId) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      singlePrice
+      doublePrice
+      golfOnlyPrice
+      courses {
+        _id
+        name
+        address
+        website
+      }
+      hotel {
+        _id
+        name
+        address
+        website
+      }
+      maxPlayers
+      playersActive {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+        paid
+      }
+      activePlayerCount
+      playersWaitlist {
+        _id
+        firstName
+        lastName
+        email
+        phoneNumber
+        preferredRoomate
+        lodging
+        paid
+      }
+    }
+  }
+`;

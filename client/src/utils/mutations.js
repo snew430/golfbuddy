@@ -379,3 +379,12 @@ export const ADD_TRIP = gql`
     }
   }
 `;
+
+export const MAKE_TRIP_ACTIVE = gql`
+  mutation changeTripToActive($changeTripToActiveId: ID!) {
+    changeTripToActive(id: $changeTripToActiveId) {
+      _id
+      name
+    }
+  }
+`;

@@ -63,6 +63,10 @@ const tripSchema = new Schema(
         ref: "Player",
       },
     ],
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     toJSON: {

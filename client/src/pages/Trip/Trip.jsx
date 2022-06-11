@@ -8,8 +8,8 @@ import { QUERY_TRIPS } from "../../utils/queries";
 const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_TRIPS);
   const trip = tripData?.trips[0] || [];
+  console.log(tripData);
 
-  console.log(trip);
 
   if (loading) {
     return <div>Loading...</div>;

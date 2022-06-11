@@ -74,7 +74,7 @@ db.once("open", async () => {
     lodging: "Golf Only",
   });
 
-  const trip = await Trip.create({
+  const trip1 = await Trip.create({
     name: "Fall 2022 Trip",
     startDate: "10/16/2022",
     endDate: "10/19/2022",
@@ -87,6 +87,23 @@ db.once("open", async () => {
     maxPlayers: 30,
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],
+    active: true,
+  });
+
+  const trip2 = await Trip.create({
+    name: "Spring 2023 Trip",
+    startDate: "4/16/2023",
+    endDate: "4/19/2023",
+    paymentDue: "1/01/2023",
+    singlePrice: 400,
+    doublePrice: 200,
+    golfOnlyPrice: 200,
+    courses: [course1, course2, course3],
+    hotel: [hotel1],
+    maxPlayers: 30,
+    playersActive: [player1, player2, player3],
+    playersWaitlist: [player4],
+    active: false,
   });
 
   console.log("DATA SEEDED");

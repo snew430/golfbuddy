@@ -31,6 +31,17 @@ const resolvers = {
         .populate("playersActive")
         .populate("playersWaitlist");
     },
+    activeTrip: async () => {
+      const activeTrip = await (
+        await Trip.find()
+          .populate("courses")
+          .populate("hotel")
+          .populate("playersActive")
+          .populate("playersWaitlist")
+      ).filter((trip) => trip.active === true);
+
+      return activeTrip[0];
+    },
   },
   Mutation: {
     login: async (parent, { email, password }) => {
@@ -156,6 +167,20 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
+    changeTripToActive: async (parent, { id }, context) => {
+      const activeTrip = (await Trip.find()).filter(
+        (trip) => trip.active === true
+      );
+
+      await Trip.findByIdAndUpdate(
+        activeTrip[0].id,
+        { active: false },
+        { new: true }
+      );
+
+      return await Trip.findByIdAndUpdate(id, { active: true }, { new: true });
+    },
+    // ===========================================
     //LOGIN REQUIRED
     deleteTrip: async (parent, { id }, context) => {
       if (context.user) {
