@@ -145,40 +145,6 @@ export const EDIT_TRIP = gql`
   }
 `;
 
-export const ADD_TRIP = gql`
-  mutation addTrip(
-    $name: String!
-    $startDate: String!
-    $endDate: String!
-    $paymentDue: String!
-    $maxPlayers: Int!
-    $singlePrice: Int!
-    $doublePrice: Int!
-    $golfOnlyPrice: Int!
-  ) {
-    addTrip(
-      name: $name
-      startDate: $startDate
-      endDate: $endDate
-      paymentDue: $paymentDue
-      maxPlayers: $maxPlayers
-      singlePrice: $singlePrice
-      doublePrice: $doublePrice
-      golfOnlyPrice: $golfOnlyPrice
-    ) {
-      _id
-      name
-      startDate
-      endDate
-      paymentDue
-      maxPlayers
-      singlePrice
-      doublePrice
-      golfOnlyPrice
-    }
-  }
-`;
-
 export const ADD_ACTIVE_PLAYER = gql`
   mutation addPlayerToActiveTrip(
     $tripId: ID!
@@ -316,8 +282,14 @@ export const SEND_MESSAGE = gql`
     $recipients: String!
     $subject: String!
     $message: String!
+    $file: String
   ) {
-    sendMessage(recipients: $recipients, subject: $subject, message: $message) {
+    sendMessage(
+      recipients: $recipients
+      subject: $subject
+      message: $message
+      file: $file
+    ) {
       _id
     }
   }
@@ -330,6 +302,80 @@ export const PAID_PLAYER = gql`
       firstName
       lastName
       paid
+    }
+  }
+`;
+
+export const ADD_TRIP = gql`
+  mutation (
+    $name: String!
+    $startDate: String!
+    $endDate: String!
+    $paymentDue: String!
+    $maxPlayers: Int!
+    $singlePrice: Int!
+    $doublePrice: Int!
+    $golfOnlyPrice: Int!
+    $hotelName: String!
+    $hotelAddress: String!
+    $hotelWebsite: String!
+    $hotelPhoneNumber: String!
+    $courseOneName: String!
+    $courseOneAddress: String!
+    $courseOneWebsite: String!
+    $courseOnePhoneNumber: String!
+    $courseTwoName: String!
+    $courseTwoAddress: String!
+    $courseTwoWebsite: String!
+    $courseTwoPhoneNumber: String!
+    $courseThreeName: String!
+    $courseThreeAddress: String!
+    $courseThreeWebsite: String!
+    $courseThreePhoneNumber: String!
+    $courseFourName: String!
+    $courseFourAddress: String!
+    $courseFourWebsite: String!
+    $courseFourPhoneNumber: String!
+  ) {
+    addTrip(
+      name: $name
+      startDate: $startDate
+      endDate: $endDate
+      paymentDue: $paymentDue
+      maxPlayers: $maxPlayers
+      singlePrice: $singlePrice
+      doublePrice: $doublePrice
+      golfOnlyPrice: $golfOnlyPrice
+      hotelName: $hotelName
+      hotelAddress: $hotelAddress
+      hotelWebsite: $hotelWebsite
+      hotelPhoneNumber: $hotelPhoneNumber
+      courseOneName: $courseOneName
+      courseOneAddress: $courseOneAddress
+      courseOneWebsite: $courseOneWebsite
+      courseOnePhoneNumber: $courseOnePhoneNumber
+      courseTwoName: $courseTwoName
+      courseTwoAddress: $courseTwoAddress
+      courseTwoWebsite: $courseTwoWebsite
+      courseTwoPhoneNumber: $courseTwoPhoneNumber
+      courseThreeName: $courseThreeName
+      courseThreeAddress: $courseThreeAddress
+      courseThreeWebsite: $courseThreeWebsite
+      courseThreePhoneNumber: $courseThreePhoneNumber
+      courseFourName: $courseFourName
+      courseFourAddress: $courseFourAddress
+      courseFourWebsite: $courseFourWebsite
+      courseFourPhoneNumber: $courseFourPhoneNumber
+    ) {
+      _id
+      name
+      startDate
+      endDate
+      paymentDue
+      maxPlayers
+      singlePrice
+      doublePrice
+      golfOnlyPrice
     }
   }
 `;
