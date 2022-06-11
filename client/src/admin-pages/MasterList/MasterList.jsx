@@ -6,6 +6,8 @@ import { useQuery } from "@apollo/react-hooks";
 import { motion } from "framer-motion";
 import Modal from "../../components/Modal/Modal";
 
+import { exportCSVmaster } from "../../utils/exportCSV";
+
 import { QUERY_PLAYERS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
@@ -65,6 +67,14 @@ const MasterList = () => {
             transition={{ duration: 0.7 }}
           >
             <button onClick={() => toggleModal()}>Add New Player</button>
+          </motion.div>
+
+          <motion.div
+          className="app__flex"
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
+          >
+            <button onClick={ () => exportCSVmaster() } >Download Master List</button>
           </motion.div>
 
           <motion.div

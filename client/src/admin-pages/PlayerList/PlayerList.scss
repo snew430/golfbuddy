@@ -116,6 +116,18 @@
         outline-color: var(--gray-color);
       }
 
+      .grey {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #909090;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
       .hovertext {
         position: relative;
         border-bottom: 1px dotted black;
@@ -214,8 +226,12 @@
     color: var(--white-color);
     text-shadow: -1px 0 black;
     outline: none;
-    margin: 2rem;
+    margin: 2rem 0 0 0;
     font-family: var(--font-base);
     cursor: pointer;
+  }
+
+  .final{
+    margin-bottom: 2rem;
   }
 }

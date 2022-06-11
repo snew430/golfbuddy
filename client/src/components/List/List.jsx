@@ -10,11 +10,12 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 
 import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare } from "react-icons/bs";
-import { FaPlus, FaMinus, FaDollarSign } from "react-icons/fa";
+import { BsPencilSquare, BsCheckSquare, BsCurrencyDollar } from "react-icons/bs";
+import { FaPlus, FaMinus } from "react-icons/fa";
+import { FiXSquare } from "react-icons/fi";
+
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
-import "./List.scss";
 
 const List = ({ players, status, trip, refetchPlayers }) => {
   const [currentPlayer, setCurrentPlayer] = useState();
@@ -143,14 +144,19 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-                <span className="hovertext" data-hover="Paid or Unpaid">
-                  <FaDollarSign
-                    className={player.paid ? "paid money" : "unpaid money"}
+              <span className="hovertext" data-hover="Paid or Unpaid">
+                  { player.paid ?
+                  <BsCurrencyDollar 
+                    className="plus"
                     onClick={() => handlePaid(player._id, player.paid)}
                   />
+                  :
+                  <FiXSquare 
+                    className="grey"
+                    onClick={() => handlePaid(player._id, player.paid)}
+                  />
+                  }
                 </span>
-              </td>
-              <td>
                 <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt
                     className="delete"

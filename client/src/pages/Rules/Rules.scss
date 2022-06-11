@@ -3,6 +3,7 @@
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    max-height: 100%;
     
     .background {
         background-color: rgba(4, 57, 39, 0.8);
@@ -33,7 +34,7 @@
         flex-direction: column;
         padding: 0.25rem;
 
-        h6 {
+        h4 {
             margin: 0.75rem;
             padding: 0.25rem 1rem;
             color: var(--yellow-color);
@@ -108,7 +109,6 @@
         color: var(--white-color);
         text-shadow: -1px 0 black;
         padding-top: 1rem;
-        padding-bottom: 2rem;
 
         @media screen and (max-width: 900px) {
         font-size: 1.75rem;
@@ -117,5 +117,20 @@
         @media screen and (max-width: 450px) {
         font-size: 1.25rem;
         }
+    }
+
+    button {
+        padding: 0.75rem 1.5rem;
+        margin: 1.5rem 0 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 2rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        font-family: var(--font-base);
+        cursor: pointer;
     }
 }
