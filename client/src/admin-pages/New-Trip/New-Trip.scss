@@ -2,16 +2,15 @@
   background: url("../../assets/images/white_paper.jpg");
   background-size: cover;
   background-position: center;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
 
   .head-text {
     padding-top: 6rem;
-    font-size: 5.5rem;
-    font-weight: 800, bolder;
+    font-size: 5rem;
+    font-weight: 600;
     text-align: center;
     color: var(--darkGreen-color);
-    text-shadow: -1px 0 var(--yellow-color);
+    //text-shadow: -1px 0 var(--yellow-color);
 
     @media screen and (max-width: 900px) {
       font-size: 4rem;
@@ -23,18 +22,56 @@
   }
 
   .app__newTrip-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1rem 10rem;
-    text-align: center;
 
-    input,
-    textarea {
-      margin: 0.75rem 0;
+    h2 {
+      font-size: 2.75rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--darkGreen-color);
+
+      @media screen and (max-width: 450px) {
+        font-size: 2rem;
+      }
+    }
+    
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    
+        .item{
+          width: 190px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          margin: 2rem;
+
+          @media screen and (min-width: 2000px) {
+            width: 370px;
+            margin: 2rem 4rem;
+    
+            img {
+                height: 320px;
+            }
+        }
+      
+        }
+
+      input {
+      display: block;
+      margin: 1rem auto;
+      width: 25rem;
       border-radius: 10px;
       cursor: pointer;
       background-color: var(--white-color);
+
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: "Old Standard TT", serif;
+      color: #282828;
 
       transition: all 0.3 ease-in-out;
 
@@ -46,41 +83,39 @@
       font-family: var(--font-base);
       color: var(--darkGreen-color);
       outline: none;
+
+      @media screen and (max-width: 900px) {
+        width: 50%;
+      }
+
+      @media screen and (max-width: 450px) {
+        width: 90%;
+      }
     }
 
-    textarea {
-      height: 170px;
-    }
-
+    
     @media screen and (max-width: 900px) {
-      margin: 2rem;
+      width: 50%;
     }
 
     @media screen and (max-width: 450px) {
-      margin: 2rem;
-    }
-
-    &:hover {
-      box-shadow: 0 0 25px var(--white-color);
-    }
-
-    .submitBtn {
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      border: none;
-      background-color: var(--darkGreen-color);
-      font-weight: 500;
-      font-size: 2rem;
-      color: var(--white-color);
-      text-shadow: -1px 0 black;
-      outline: none;
-      // margin: 2rem 0 0 0;
-      font-family: var(--font-base);
-      cursor: pointer;
+      width: 90%;
     }
   }
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    margin: 1rem 10px;
-  }
+
+    button {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 2rem;
+        color: var(--white-color);
+        text-shadow: -1px 0 black;
+        outline: none;
+        margin: 2rem;
+        font-family: var(--font-base);
+        cursor: pointer;
+      }
+    }
 }
