@@ -111,8 +111,10 @@ const NewTrip = () => {
 
       {!isFormSubmitted ? (
         <div className="app__newTrip-form">
-            <div className="item">
-              <h2>Basic Information</h2>
+
+          <h2>Trip Information</h2>
+            
+            <div>
               <input
                 type="text"
                 placeholder="Trip Name"
@@ -144,152 +146,156 @@ const NewTrip = () => {
               />
             </div>
 
-            <div className="item">
-              <h2>Course One Information</h2>
+            <h2>Course One Information</h2>
+
+            <div>
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Course One"
                 name="courseOneName"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Address"
+                placeholder="Course One Address"
                 name="courseOneAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Website"
+                placeholder="Course One Website"
                 name="courseOneWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Phone Number"
+                placeholder="Course One Phone Number"
                 name="courseOnePhoneNumber"
                 onChange={handleChangeInput}
               />
             </div>
 
-            <div className="item">
-              <h2>Course Two Information</h2>
+            <h2>Course Two Information</h2>
+            
+            <div>  
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Course Two"
                 name="courseTwoName"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Address"
+                placeholder="Course Two Address"
                 name="courseTwoAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Website"
+                placeholder="Course Two Website"
                 name="courseTwoWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Phone Number"
+                placeholder="Course Two Phone Number"
                 name="courseTwoPhoneNumber"
                 onChange={handleChangeInput}
               />
             </div>
 
-            <div className="item">
-              <h2>Course Three Information</h2>
+            <h2>Course Three Information</h2>
+            
+            <div>  
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Course Three"
                 name="courseThreeName"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Address"
+                placeholder="Course Three Address"
                 name="courseThreeAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Website"
+                placeholder="Course Three Website"
                 name="courseThreeWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Phone Number"
+                placeholder="Course Three Phone Number"
                 name="courseThreePhoneNumber"
                 onChange={handleChangeInput}
               />
             </div>
 
-            <div className="item">
-              <h2>Course Four Information</h2>
+            <h2>Course Four Information</h2>
+            
+            <div>  
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Course Four"
                 name="courseFourName"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Address"
+                placeholder="Course Four Address"
                 name="courseFourAddress"
                 onChange={handleChangeInput}
               />
+              <br />
               <input
                 type="text"
-                placeholder="Course Website"
+                placeholder="Course Four Website"
                 name="courseFourWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Phone Number"
+                placeholder="Course Four Phone Number"
                 name="courseFourPhoneNumber"
                 onChange={handleChangeInput}
               />
             </div>
 
+            <h2>Hotel Information</h2>
+          
+            <div>
+              <input
+                type="text"
+                placeholder="Hotel Name"
+                name="hotelName"
+                onChange={handleChangeInput}
+              />
+              <input
+                type="text"
+                placeholder="Hotel Address"
+                name="hotelAddress"
+                onChange={handleChangeInput}
+              />
+              <input
+                type="text"
+                placeholder="Hotel Phone Number"
+                name="hotelPhoneNumber"
+                onChange={handleChangeInput}
+              />
+              <input
+                type="text"
+                placeholder="Hotel Website"
+                name="hotelWebsite"
+                onChange={handleChangeInput}
+              />
+            </div>
 
-
-          <div className="item">
-          <h2>Hotel Information</h2>
-            <input
-              type="text"
-              placeholder="Hotel Name"
-              name="hotelName"
-              onChange={handleChangeInput}
-            />
-            <input
-              type="text"
-              placeholder="Hotel Address"
-              name="hotelAddress"
-              onChange={handleChangeInput}
-            />
-            <input
-              type="text"
-              placeholder="Hotel Phone Number"
-              name="hotelPhoneNumber"
-              onChange={handleChangeInput}
-            />
-            <input
-              type="text"
-              placeholder="Hotel Website"
-              name="hotelWebsite"
-              onChange={handleChangeInput}
-            />
-          </div>
-
-
-
-          <div className="item">
             <h2>Payment Information</h2>
+          
+          <div >
+           
             <input
                 type="text"
                 placeholder="Payment Due Date"
