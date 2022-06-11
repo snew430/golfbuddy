@@ -3,13 +3,12 @@ import "./Trip.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_TRIPS } from "../../utils/queries";
+import { QUERY_ACTIVE_TRIP } from "../../utils/queries";
 
 const Trip = () => {
-  const { loading, data: tripData } = useQuery(QUERY_TRIPS);
-  const trip = tripData?.trips[0] || [];
+  const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
+  const trip = tripData?.activeTrip || [];
   console.log(tripData);
-
 
   if (loading) {
     return <div>Loading...</div>;

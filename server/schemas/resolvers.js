@@ -40,6 +40,7 @@ const resolvers = {
           .populate("playersWaitlist")
       ).filter((trip) => trip.active === true);
 
+      console.log(activeTrip);
       return activeTrip[0];
     },
   },

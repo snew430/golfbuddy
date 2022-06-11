@@ -257,8 +257,8 @@ export const QUERY_BASIC_TRIP = gql`
 `;
 
 export const QUERY_ACTIVE_TRIP = gql`
-  query trip($tripId: ID!) {
-    trip(id: $tripId) {
+  query activeTrip {
+    activeTrip {
       _id
       name
       startDate
