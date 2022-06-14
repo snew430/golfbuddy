@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const hotelSchema = new Schema({
+const hotelchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -22,6 +22,6 @@ const hotelSchema = new Schema({
   },
 });
 
-const Hotel = mongoose.model("Hotel", hotelSchema);
+const Hotel = mongoose.model("Hotel", hotelchema);
 
 module.exports = Hotel;
