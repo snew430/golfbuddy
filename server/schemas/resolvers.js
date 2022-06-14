@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Admin, Player, Course, Hotel, Trip } = require("../models");
+const { Admin, Player, Course, Hotel, Trip, Info } = require("../models");
 const { signToken } = require("../utils/auth");
 const fs = require("fs");
 
@@ -30,6 +30,9 @@ const resolvers = {
         .populate("hotels")
         .populate("playersActive")
         .populate("playersWaitlist");
+    },
+    info: async () => {
+      return await Info.find();
     },
   },
   Mutation: {
@@ -442,6 +445,32 @@ const resolvers = {
         { new: true }
       );
       return updatedPlayer;
+    },
+
+    addInfo: async (parent, { subject, body }) => {
+      const info = await Info.find();
+      const length = info.length;
+
+      const player = await Info.create({
+        subject: subject,
+        body: body,
+        place: length + 1,
+      });
+
+      return player;
+    },
+
+    editInfo: async (parent, args, context) => {
+      return await Info.findByIdAndUpdate(args.id, args, {
+        new: true,
+        runValidators: true,
+      });
+    },
+
+    deleteInfo: async (parent, { id }, context) => {
+      return await Info.findByIdAndDelete(id, {
+        new: true,
+      });
     },
   },
 };

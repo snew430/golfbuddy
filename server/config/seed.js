@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { Admin, Hotel, Course, Player, Trip } = require("../models");
+const { Admin, Hotel, Course, Player, Trip, Info } = require("../models");
 
 db.once("open", async () => {
   await Admin.deleteMany();
@@ -7,6 +7,7 @@ db.once("open", async () => {
   await Course.deleteMany();
   await Player.deleteMany();
   await Trip.deleteMany();
+  await Info.deleteMany();
 
   const admin = await Admin.create({
     email: process.env.EMAIL,
@@ -87,6 +88,34 @@ db.once("open", async () => {
     maxPlayers: 30,
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],
+  });
+
+  await Info.create({
+    subject: "Senior Tees",
+    body: "We are all using the tees that are 5800 yards and shorter.",
+    place: 0,
+  });
+
+  await Info.create({
+    subject: "Max Stroke on Any Hole is Par plus 3",
+    body: "On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.",
+    place: 1,
+  });
+
+  await Info.create({
+    subject: "Balls Hit Out of Bounds, into the Water, or Any Other Hazard",
+    body: `Play the ball laterally and add a stroke (if in the water, drop on other side). Provisional balls not necessary.
+
+For unplayable sand traps: ok to move the ball to where it can be played, but it cannot be closer to the pin.
+
+Ok to roll the ball in the fairway, lift and clean is ok.`,
+    place: 2,
+  });
+
+  await Info.create({
+    subject: "Putts: Gimmes are Ok",
+    body: `Player must add a stroke for the gimme.`,
+    place: 3,
   });
 
   console.log("DATA SEEDED");

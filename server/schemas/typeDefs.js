@@ -50,12 +50,20 @@ const typeDefs = gql`
     playersWaitlist: [Player]
   }
 
+  type Info {
+    _id: ID
+    subject: String
+    body: String
+    place: Int
+  }
+
   type Query {
     players: [Player]
     courses: [Course]
     hotels: [Hotel]
     trips: [Trip]
     trip(id: ID!): Trip
+    info: [Info]
   }
 
   type Mutation {
@@ -172,6 +180,10 @@ const typeDefs = gql`
     ): Admin
 
     paidPlayer(player: ID!, paid: Boolean!): Player
+
+    addInfo(subject: String!, body: String!): Info
+    editInfo(id: ID!, subject: String, body: String, place: Int): Info
+    deleteInfo(id: ID!): Info
   }
 `;
 
