@@ -43,11 +43,12 @@ const typeDefs = gql`
     doublePrice: Int
     golfOnlyPrice: Int
     courses: [Course]
-    hotels: Hotel
+    hotel: Hotel
     maxPlayers: Int
     playersActive: [Player]
     activePlayerCount: Int
     playersWaitlist: [Player]
+    active: Boolean
   }
 
   type Info {
@@ -60,14 +61,16 @@ const typeDefs = gql`
   type Query {
     players: [Player]
     courses: [Course]
-    hotels: [Hotel]
+    hotel: [Hotel]
     trips: [Trip]
     trip(id: ID!): Trip
     info: [Info]
+    activeTrip: Trip
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
+
     addPlayer(
       firstName: String!
       lastName: String!
@@ -76,6 +79,7 @@ const typeDefs = gql`
       preferredRoomate: String
       lodging: String
     ): Player
+
     updatePlayer(
       id: ID!
       firstName: String!
@@ -133,9 +137,31 @@ const typeDefs = gql`
       singlePrice: Int
       doublePrice: Int
       golfOnlyPrice: Int
+      hotelName: String
+      hotelAddress: String
+      hotelWebsite: String
+      hotelPhoneNumber: String
+      courseOneName: String
+      courseOneAddress: String
+      courseOneWebsite: String
+      courseOnePhoneNumber: String
+      courseTwoName: String
+      courseTwoAddress: String
+      courseTwoWebsite: String
+      courseTwoPhoneNumber: String
+      courseThreeName: String
+      courseThreeAddress: String
+      courseThreeWebsite: String
+      courseThreePhoneNumber: String
+      courseFourName: String
+      courseFourAddress: String
+      courseFourWebsite: String
+      courseFourPhoneNumber: String
     ): Trip
 
     deleteTrip(id: ID!): Trip
+
+    changeTripToActive(id: ID!): Trip
 
     addPlayerToActiveTrip(
       tripId: ID!

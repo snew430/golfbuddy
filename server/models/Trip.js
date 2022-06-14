@@ -45,7 +45,7 @@ const tripSchema = new Schema(
         ref: "Course",
       },
     ],
-    hotels: [
+    hotel: [
       {
         type: Schema.Types.ObjectId,
         ref: "Hotel",
@@ -63,6 +63,10 @@ const tripSchema = new Schema(
         ref: "Player",
       },
     ],
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     toJSON: {

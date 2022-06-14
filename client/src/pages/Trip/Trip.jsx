@@ -3,13 +3,12 @@ import "./Trip.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_TRIPS } from "../../utils/queries";
+import { QUERY_ACTIVE_TRIP } from "../../utils/queries";
 
 const Trip = () => {
-  const { loading, data: tripData } = useQuery(QUERY_TRIPS);
-  const trip = tripData?.trips[0] || [];
-
-  console.log(trip);
+  const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
+  const trip = tripData?.activeTrip || [];
+  console.log(tripData);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,25 +35,25 @@ const Trip = () => {
         >
           <div>
             <h4>Hotel</h4>
-            <h5>{trip.hotels[0].name}</h5>
-            <p className="p-text">{trip.hotels[0].address}</p>
+            <h5>{trip.hotel.name}</h5>
+            <p className="p-text">{trip.hotel.address}</p>
             <p className="p-text">
               <a
                 className="p-text link"
-                href={trip.hotels[0].website}
+                href={trip.hotel.website}
                 rel="noreferrer"
                 target="_blank"
               >
-                {trip.hotels[0].website}
+                {trip.hotel.website}
               </a>
             </p>
             <p className="p-text">
               <a
                 className="p-text link"
-                href={`tel:${trip.hotels[0].phoneNumber}`}
+                href={`tel:${trip.hotel.phoneNumber}`}
                 rel="noreferrer"
               >
-                Telephone :{trip.hotels[0].phoneNumber}
+                Telephone :{trip.hotel.phoneNumber}
               </a>
             </p>
             <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>
@@ -90,7 +89,11 @@ const Trip = () => {
         <h5>All payments are due: {trip.paymentDue} </h5>
 
         <p className="info-text">
-          Please send payments through Venmo @John-McKenna-145 or mail a check
+          Please send payments through Venmo 
+          <br />
+         <a href='https://account.venmo.com/u/John-McKenna-145'>@John-McKenna-145</a> 
+          < br />
+          or mail a check
           to
           <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
         </p>

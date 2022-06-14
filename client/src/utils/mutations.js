@@ -135,7 +135,7 @@ export const EDIT_TRIP = gql`
         website
         address
       }
-      hotels {
+      hotel {
         _id
         name
         website
@@ -376,6 +376,15 @@ export const ADD_TRIP = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+    }
+  }
+`;
+
+export const MAKE_TRIP_ACTIVE = gql`
+  mutation changeTripToActive($changeTripToActiveId: ID!) {
+    changeTripToActive(id: $changeTripToActiveId) {
+      _id
+      name
     }
   }
 `;
