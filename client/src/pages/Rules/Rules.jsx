@@ -19,7 +19,7 @@ const Rules = () => {
             <h6>Senior Tees</h6>
                 <p className='p-text'>We are all using the tees that are 5800 yards and shorter.</p>
             <h6>Max Stroke on Any Hole is Par plus 3</h6>
-                <p className='p-text'>On a par 3, max is 6, par 6 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.</p>
+                <p className='p-text'>On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.</p>
             <h6> Balls Hit Out of Bounds, into the Water, or Any Other Hazard</h6>
                 <p className='p-text'>Play the ball laterally and add a stroke (if in the water, drop on other side). Provisional balls not necessary.</p>
                 <p className='p-text'>For unplayable sand traps: ok to move the ball to where it can be played, but it cannot be closer to the pin.</p>
