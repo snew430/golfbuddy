@@ -40,6 +40,69 @@ const Rules = () => {
             They oversee OPTIONAL daily wagers at an additonal fee.
             All wagers will be explained in detail before we tee off.
           </p>
+          <motion.div className='rules-content'
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}>
+          <h2 className='head-text'>Ryder Cup</h2>
+          <h6>
+          We have two teams each with a different color shirt (one team Black and one White). 
+          </h6>
+          <br />
+          <p className='p-text'>
+          •	Each foursome will have two players from each team. 
+          <br />
+          •	The format is 3 six-hole competitions. Each 6-hole format is worth one point for the winning team for a total of 3 points. 
+          <br />
+          •	There are no strokes given, as foursomes are matched by players with similar averages.
+          <br />
+          •	Teams will be announced prior to the trip. 
+          <br/>
+          </p>
+          <h6>Holes #1-6 Scramble: Captains Choice</h6>  <br />
+          <p className='p-text'>
+          Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.
+          </p> 
+          <br />
+          <h6>Holes #7-12 Alternate Shot</h6>
+          <br />
+          <p className='p-text'>
+          On each hole, both players will tee off, and select the best shot. From that point, the 
+          OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side. 
+          </p>
+          <br />
+          <h6>Holes #13-18 (Better Ball) Play your own Ball</h6>
+          <br />
+          <p className='p-text'>
+          Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. 
+
+          In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied. 
+          <br/>
+          <br />
+          There are two options when the total number of players is uneven. The committee will choose which option will be used. 
+          <br />
+          </p>
+          <br />
+          <h6>Option #1 3 Man Rover</h6>
+          <br />
+          <p className='p-text'>
+          •	One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). 
+          •	The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.)
+          •	For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. 
+          •	There is no format or scoring change in each of the 3 competitions 
+          </p>
+          <br />
+          <br />
+          <h6>Option #2 Solo Player (one guy vs. two guys)</h6>
+          <br />
+          <p className='p-text'>
+          Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. 
+
+          Alternate Shot:     Solo player hits two drives then chooses and plays one ball until it is holed. 
+	        
+          Better Ball:	          The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball. 
+
+          </p>
+          </motion.div>
           <h3>Please reach out to us if you have questions. <br />We are looking forward to a great trip!</h3>
         </div>
 
