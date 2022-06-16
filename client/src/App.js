@@ -18,7 +18,8 @@ import {
   SignUp,
   Home,
   Administration,
-  NoMatch
+  NoMatch,
+  Login,
 } from "./pages";
 
 import {
@@ -51,7 +52,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -64,6 +64,7 @@ function App() {
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/administration" element={<Administration />} />
             <Route path="/playerlist" element={<PlayerList />} />
             <Route path="/masterlist" element={<MasterList />} />

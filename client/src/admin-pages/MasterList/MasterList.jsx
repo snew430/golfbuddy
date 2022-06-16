@@ -18,7 +18,7 @@ const MasterList = () => {
   const players = playerData?.players || [];
   console.log(players);
 
-  const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.adminLogIn();
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);

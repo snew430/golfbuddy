@@ -51,12 +51,20 @@ const typeDefs = gql`
     active: Boolean
   }
 
+  type Info {
+    _id: ID
+    subject: String
+    body: String
+    place: Int
+  }
+
   type Query {
     players: [Player]
     courses: [Course]
     hotel: [Hotel]
     trips: [Trip]
     trip(id: ID!): Trip
+    info: [Info]
     activeTrip: Trip
   }
 
@@ -198,6 +206,10 @@ const typeDefs = gql`
     ): Admin
 
     paidPlayer(player: ID!, paid: Boolean!): Player
+
+    addInfo(subject: String!, body: String!): Info
+    editInfo(id: ID!, subject: String, body: String, place: Int): Info
+    deleteInfo(id: ID!): Info
   }
 `;
 

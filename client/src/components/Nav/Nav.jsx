@@ -8,6 +8,7 @@ import "./Nav.scss";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const admin = Auth.adminLogIn();
   const loggedIn = Auth.loggedIn();
 
   const logout = (event) => {
@@ -19,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <ul className="app__navbar-links">
-        {loggedIn ? (
+        {admin ? (
           <>
             <li className="app__flex p-text">
               <Link to={"/administrationhome"}>Home</Link>
@@ -40,6 +41,9 @@ const Navbar = () => {
             </li>
           </>
         ) : (
+          <></>
+        )}
+        {loggedIn ? (
           <>
             {["home", "trip", "rules"].map((item) => (
               <li className="app__flex p-text" key={`link-${item}`}>
@@ -50,6 +54,8 @@ const Navbar = () => {
               <Link to={"/administration"}>Admin Login</Link>
             </li>
           </>
+        ) : (
+          <></>
         )}
       </ul>
 
@@ -63,7 +69,7 @@ const Navbar = () => {
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {loggedIn ? (
+              {admin ? (
                 <>
                   <li className="app__flex">
                     <Link
@@ -89,10 +95,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="app__flex">
-                    <Link
-                      to={"/new-trip"}
-                      onClick={() => setToggle(false)}
-                    >
+                    <Link to={"/new-trip"} onClick={() => setToggle(false)}>
                       Create New Trip
                     </Link>
                   </li>
@@ -103,6 +106,9 @@ const Navbar = () => {
                   </li>
                 </>
               ) : (
+                <></>
+              )}
+              {loggedIn ? (
                 <>
                   {["home", "trip", "rules"].map((item) => (
                     <li className="app__flex p-text" key={`link-${item}`}>
@@ -120,6 +126,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </>
+              ) : (
+                <></>
               )}
             </ul>
           </motion.div>
