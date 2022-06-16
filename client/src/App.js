@@ -18,7 +18,7 @@ import {
   SignUp,
   Home,
   Administration,
-  NoMatch
+  NoMatch,
 } from "./pages";
 
 import {
@@ -27,6 +27,7 @@ import {
   NewTrip,
   AdminHome,
   Message,
+  ManageTrips,
 } from "./admin-pages";
 
 import { Nav } from "./components";
@@ -72,6 +73,7 @@ function App() {
             <Route path="/administrationhome" element={<AdminHome />} />
             <Route path="/message" element={<Message />} />
             <Route path="*" element={<NoMatch />} />
+            <Route path="/managetrips" element={<ManageTrips />} />
           </Routes>
         </div>
       </Router>

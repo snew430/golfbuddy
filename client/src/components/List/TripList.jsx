@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import {
+
+
+  //We don't need these for triplist
   REMOVE_ACTIVE_PLAYER,
-  REMOVE_WAITLIST_PLAYER,
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
-  PAID_PLAYER,
   MAKE_TRIP_ACTIVE,
 } from "../../utils/mutations";
-import { removeTripId } from "../../utils/localStorage";
+// import { removeTripId } from "../../utils/localStorage";
 
 import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare, BsCheckSquare, BsCurrencyDollar } from "react-icons/bs";
+import { BsPencilSquare, BsCurrencyDollar } from "react-icons/bs";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FiXSquare } from "react-icons/fi";
 
 import Modal from "../../components/Modal/Modal";
 import Auth from "../../utils/auth";
 
-const List = ({ players, status, trip, refetchPlayers }) => {
+const List = ({ status, trip, refetchTrips }) => {
   const [currentTrip, setCurrentTrip] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [deleteActive] = useMutation(REMOVE_ACTIVE_PLAYER);
-  const [deleteWaitlist] = useMutation(REMOVE_WAITLIST_PLAYER);
+
   const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
   const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
-  const [paidPlayer] = useMutation(PAID_PLAYER);
+
   const [makeTripActive] = useMutation(MAKE_TRIP_ACTIVE);
 
   const toggleModal = (trip) => {
@@ -43,15 +44,12 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     try {
       if (status === "active") {
         await deleteActive({
-          variables: { trip, player },
+          variables: { trip },
         });
-      } else if (status === "waitlist") {
-        await deleteWaitlist({
-          variables: { trip, player },
-        });
+      
       }
       // upon success, remove player's id from localStorage
-      removeTripId(trip);
+      // removeTripId(trip);
       refetchTrips();
     } catch (err) {
       console.error(err);
@@ -66,9 +64,6 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     }
     if (status === "waitlist") {
       try {
-        await deleteWaitlist({
-          variables: { player, trip },
-        });
         await moveToActive({
           variables: { player, trip },
         });
@@ -87,27 +82,27 @@ const List = ({ players, status, trip, refetchPlayers }) => {
         console.error(err);
       }
     }
-    refetchPlayers();
+    refetchTrips();
   };
 
-  const handlePaid = async (trip, paid) => {
-    paid = !paid;
+  const handleActive = async (trip, active) => {
+    active = !active;
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
     try {
-      await paidTrip({
-        variables: { trip, paid },
+      await active({
+        variables: { trip },
       });
     } catch (err) {
       console.error(err);
     }
-    refetchPlayers();
+    refetchTrips();
   };
 
-  if (!trips || !trips.length) {
+  if (!trip || !trip.length) {
     return <h4>No Trips Available</h4>;
   }
 
@@ -115,10 +110,10 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     <>
       {isModalOpen && (
         <Modal
-          player={currentTrip}
+          trip={currentTrip}
           onClose={toggleModal}
           update_add={"Update"}
-          refetchPlayers={refetchPlayers}
+          refetchTrips={refetchTrips}
         />
       )}
       <table>
@@ -132,7 +127,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
           </tr>
         </thead>
         <tbody>
-          {players.map((player) => (
+          {trip.map((player) => (
             <tr key={player._id}>
               <td>
                 {player.firstName} {player.lastName}
@@ -147,42 +142,42 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.preferredRoomate}</td>
               <td>
               <span className="hovertext" data-hover="Paid or Unpaid">
-                  { player.paid ?
+                  { trip.active ?
                   <BsCurrencyDollar 
                     className="plus"
-                    onClick={() => handlePaid(player._id, player.paid)}
+                    onClick={() => handleActive(trip._id, trip.active)}
                   />
                   :
                   <FiXSquare 
                     className="grey"
-                    onClick={() => handlePaid(player._id, player.paid)}
+                    onClick={() => handleActive(trip._id, trip.active)}
                   />
                   }
                 </span>
                 <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt
                     className="delete"
-                    onClick={() => handleDeletePlayer(player._id, status)}
+                    onClick={() => handleDeleteTrip(trip._id, status)}
                   />
                 </span>
                 <span className="hovertext" data-hover="Edit">
                   <BsPencilSquare
                     className="edit"
-                    onClick={() => toggleModal(player)}
+                    onClick={() => toggleModal(trip)}
                   />
                 </span>
                 {status === "waitlist" ? (
                   <span className="hovertext" data-hover="Add to Trip">
                     <FaPlus
                       className="plus"
-                      onClick={() => handleMovePlayer(player._id, status)}
+                      onClick={() => handleMovePlayer(trip._id, status)}
                     />
                   </span>
                 ) : (
                   <span className="hovertext" data-hover="Move to Waitlist">
                     <FaMinus
                       className="minus"
-                      onClick={() => handleMovePlayer(player._id, status)}
+                      onClick={() => handleMovePlayer(trip._id, status)}
                     />
                   </span>
                 )}
