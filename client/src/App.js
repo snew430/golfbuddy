@@ -73,8 +73,8 @@ function App() {
             <Route path="/new-trip" element={<NewTrip />} />
             <Route path="/administrationhome" element={<AdminHome />} />
             <Route path="/message" element={<Message />} />
-            <Route path="*" element={<NoMatch />} />
             <Route path="/managetrips" element={<ManageTrips />} />
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
       </Router>

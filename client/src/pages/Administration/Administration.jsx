@@ -8,7 +8,7 @@ import { LOGIN_USER } from "../../utils/mutations";
 const Administration = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
-  const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.adminLogIn();
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -55,9 +55,11 @@ const Administration = () => {
           </p>
         </div>
       )}
-      <motion.div className="app__flex"
-      whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.7 }}>
+      <motion.div
+        className="app__flex"
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+      >
         <form onSubmit={handleFormSubmit}>
           <input
             placeholder="Administrator Email"

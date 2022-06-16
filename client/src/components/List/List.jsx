@@ -10,7 +10,11 @@ import {
 import { removePlayerId } from "../../utils/localStorage";
 
 import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare, BsCheckSquare, BsCurrencyDollar } from "react-icons/bs";
+import {
+  BsPencilSquare,
+  BsCheckSquare,
+  BsCurrencyDollar,
+} from "react-icons/bs";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FiXSquare } from "react-icons/fi";
 
@@ -90,7 +94,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
 
   const handlePaid = async (player, paid) => {
     paid = !paid;
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const token = Auth.adminLogIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
@@ -144,18 +148,18 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-              <span className="hovertext" data-hover="Paid or Unpaid">
-                  { player.paid ?
-                  <BsCurrencyDollar 
-                    className="plus"
-                    onClick={() => handlePaid(player._id, player.paid)}
-                  />
-                  :
-                  <FiXSquare 
-                    className="grey"
-                    onClick={() => handlePaid(player._id, player.paid)}
-                  />
-                  }
+                <span className="hovertext" data-hover="Paid or Unpaid">
+                  {player.paid ? (
+                    <BsCurrencyDollar
+                      className="plus"
+                      onClick={() => handlePaid(player._id, player.paid)}
+                    />
+                  ) : (
+                    <FiXSquare
+                      className="grey"
+                      onClick={() => handlePaid(player._id, player.paid)}
+                    />
+                  )}
                 </span>
                 <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt

@@ -80,7 +80,6 @@ const Rules = () => {
           </h4>
 
           transition={{ duration: 0.7 }}
-        >
           <br />
           <p className="p-text">
             • Each foursome will have two players from each team.
