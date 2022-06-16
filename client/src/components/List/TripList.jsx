@@ -6,6 +6,7 @@ import {
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
   PAID_PLAYER,
+  MAKE_TRIP_ACTIVE,
 } from "../../utils/mutations";
 import { removeTripId } from "../../utils/localStorage";
 
@@ -26,6 +27,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
   const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
   const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
   const [paidPlayer] = useMutation(PAID_PLAYER);
+  const [makeTripActive] = useMutation(MAKE_TRIP_ACTIVE);
 
   const toggleModal = (trip) => {
     setCurrentTrip(trip);
