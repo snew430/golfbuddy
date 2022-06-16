@@ -12,11 +12,11 @@ const Home = () => {
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.7 }}
-        whileHover={{scale: 1.1}}
+        whileHover={{ scale: 1.1 }}
         className="app__flex"
       >
-        <Link to="../SignUp">
-          <button>Sign Up for the Next Trip</button>
+        <Link to="../login">
+          <button>Log In for the Next Trip</button>
         </Link>
       </motion.div>
     </div>

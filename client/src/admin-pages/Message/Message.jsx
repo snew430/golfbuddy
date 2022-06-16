@@ -27,7 +27,7 @@ const Message = () => {
   };
 
   const { subject, message } = formData;
-  const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.adminLogIn();
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;

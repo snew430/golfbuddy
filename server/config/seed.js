@@ -14,6 +14,11 @@ db.once("open", async () => {
     password: process.env.PASS,
   });
 
+  const TripPlayers = await Admin.create({
+    email: process.env.PLAYEREMAIL,
+    password: process.env.PLAYERPASS,
+  });
+
   const course1 = await Course.create({
     name: "Rum Pointe Seaside Golf Links",
     address: "7000 Rum Pointe Lane Berin, Maryland 21811",
