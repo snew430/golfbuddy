@@ -160,6 +160,7 @@ export const QUERY_BASIC_TRIPS = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      active
       courses {
         _id
         name

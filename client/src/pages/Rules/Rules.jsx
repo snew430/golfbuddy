@@ -72,13 +72,15 @@ const Rules = () => {
         <motion.div
           className="rules-content"
           whileInView={{ opacity: [0, 1] }}
+
+          transition={{ duration: 0.7 }}>
+          <h2 className='head-text'>Ryder Cup</h2>
+          <h4>
+          We have two teams each with a different color shirt (one team Black and one White). 
+          </h4>
+
           transition={{ duration: 0.7 }}
         >
-          <h2 className="head-text">Ryder Cup</h2>
-          <h6>
-            We have two teams each with a different color shirt (one team Black
-            and one White).
-          </h6>
           <br />
           <p className="p-text">
             • Each foursome will have two players from each team.
@@ -98,8 +100,13 @@ const Rules = () => {
             from that spot. Players will repeat until the ball is holed. There
             will be one score for each side.
           </p>
+          <h4>Holes #1-6 Scramble: Captains Choice</h4>  <br />
+          <p className='p-text'>
+          Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.
+          </p> 
+
           <br />
-          <h6>Holes #7-12 Alternate Shot</h6>
+          <h4>Holes #7-12 Alternate Shot</h4>
           <br />
           <p className="p-text">
             On each hole, both players will tee off, and select the best shot.
@@ -108,7 +115,7 @@ const Rules = () => {
             will be one score for each side.
           </p>
           <br />
-          <h6>Holes #13-18 (Better Ball) Play your own Ball</h6>
+          <h4>Holes #13-18 (Better Ball) Play your own Ball</h4>
           <br />
           <p className="p-text">
             Both players tee off and each plays his own ball into the hole. For
@@ -123,7 +130,7 @@ const Rules = () => {
             <br />
           </p>
           <br />
-          <h6>Option #1 3 Man Rover</h6>
+          <h4>Option #1 3 Man Rover</h4>
           <br />
           <p className="p-text">
             • One person plays for the white team, the second plays for the
@@ -137,7 +144,7 @@ const Rules = () => {
           </p>
           <br />
           <br />
-          <h6>Option #2 Solo Player (one guy vs. two guys)</h6>
+          <h4>Option #2 Solo Player (one guy vs. two guys)</h4>
           <br />
           <p className="p-text">
             Captain’s Choice: Solo player hits two balls and chooses which ball
