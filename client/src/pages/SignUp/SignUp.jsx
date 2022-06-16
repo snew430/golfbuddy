@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_TRIPS } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const SignUp = () => {
   const [formData, setformData] = useState({
@@ -27,6 +28,18 @@ const SignUp = () => {
 
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
+
+    const loggedIn = Auth.loggedIn();
+
+    if (!loggedIn) {
+      return (
+        <div>
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </div>
+      );
+    }
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;

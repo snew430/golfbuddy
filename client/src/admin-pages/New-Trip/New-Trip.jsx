@@ -75,7 +75,7 @@ const NewTrip = () => {
     courseFourPhoneNumber,
   } = formData;
 
-  const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.adminLogIn();
 
   if (!loggedIn) {
     return (

@@ -16,7 +16,7 @@ const PlayerList = () => {
 
   const trip = tripData?.trips[0] || [];
 
-  const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.adminLogIn();
 
   if (!loggedIn) {
     return (
