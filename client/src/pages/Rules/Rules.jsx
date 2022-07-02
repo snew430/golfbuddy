@@ -72,15 +72,14 @@ const Rules = () => {
         <motion.div
           className="rules-content"
           whileInView={{ opacity: [0, 1] }}
-
-          transition={{ duration: 0.7 }}>
-          <h2 className='head-text'>Ryder Cup</h2>
-          <h4>
-          We have two teams each with a different color shirt (one team Black and one White). 
-          </h4>
-
           transition={{ duration: 0.7 }}
         >
+          <h2 className="head-text">Ryder Cup</h2>
+          <h4>
+            We have two teams each with a different color shirt (one team Black
+            and one White).
+          </h4>
+          transition={{ duration: 0.7 }}
           <br />
           <p className="p-text">
             • Each foursome will have two players from each team.
@@ -100,11 +99,12 @@ const Rules = () => {
             from that spot. Players will repeat until the ball is holed. There
             will be one score for each side.
           </p>
-          <h4>Holes #1-6 Scramble: Captains Choice</h4>  <br />
-          <p className='p-text'>
-          Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.
-          </p> 
-
+          <h4>Holes #1-6 Scramble: Captains Choice</h4> <br />
+          <p className="p-text">
+            Both players will tee off, go to whatever shot is the best and play
+            from that spot. Players will repeat until the ball is holed. There
+            will be one score for each side.
+          </p>
           <br />
           <h4>Holes #7-12 Alternate Shot</h4>
           <br />
