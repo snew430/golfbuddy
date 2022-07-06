@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_TRIPS } from "../../utils/queries";
 import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import Refunds from "../../assets/2022_Spring_Refund.xls";
 
 const SignUp = () => {
   const [formData, setformData] = useState({
@@ -196,10 +197,20 @@ const SignUp = () => {
             <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
+          <p className="info-text">Disclaimer: You may be entitled to a refund from last trip 
+            <br/> Please check document below
+          </p>
+
+          <a className="app__flex" href={Refunds} target='blank' rel="noopener noreferrer">
+            <button className="refundBtn">Refunds</button>
+          </a>
+
           <p className="info-text">
             The cost of the tirp includes: <br />
             Accomodations, Green Fees, Hotel Breakfast, and Prize Money
           </p>
+          
+
 
           <motion.div
             whileInView={{ opacity: [0, 1] }}
