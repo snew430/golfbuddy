@@ -98,9 +98,6 @@ const NewTrip = () => {
     } else {
       setformData({ ...formData, [name]: value });
     }
-    for (let data in formData) {
-      console.log(data);
-    }
   };
 
   const handleSubmit = () => {

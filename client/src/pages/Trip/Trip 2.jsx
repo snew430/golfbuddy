@@ -9,7 +9,6 @@ import Auth from "../../utils/auth";
 const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || [];
-  console.log(tripData);
 
   const loggedIn = Auth.loggedIn();
 

@@ -41,7 +41,6 @@ const NewTrip = () => {
 
   const [addTrip] = useMutation(ADD_TRIP);
 
-  console.log(formData);
   let input = false;
 
   const {
@@ -98,9 +97,6 @@ const NewTrip = () => {
       setformData({ ...formData, [name]: parseInt(value) });
     } else {
       setformData({ ...formData, [name]: value });
-    }
-    for (let data in formData) {
-      console.log(data);
     }
   };
 

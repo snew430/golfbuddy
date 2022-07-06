@@ -59,8 +59,6 @@ const Message = () => {
         console.error(err);
       }
       setIsFormSubmitted(true);
-    } else {
-      console.log("WONT SEND");
     }
   };
 
