@@ -21,7 +21,7 @@ const AdminHome = () => {
     <div id="adminHome">
       <h2 className="head-text-home">Hello Administrator</h2>
       <motion.div
-        className="flex"
+        className="flex-wrap"
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.8 }}
       >
