@@ -24,12 +24,16 @@ db.once("open", async () => {
     address: "7000 Rum Pointe Lane Berin, Maryland 21811",
     website: "https://rumpointe.com/",
     phoneNumber: "4106291414",
+    //11am
   });
+
+
   const course2 = await Course.create({
     name: "GlenRiddle Golf Club - War Admiral",
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
     phoneNumber: "4102132325",
+    //9am
   });
 
   const course3 = await Course.create({
@@ -37,6 +41,15 @@ db.once("open", async () => {
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
     phoneNumber: "4102132325",
+    //9am
+  });
+
+  const course4 = await Course.create({
+    name: "Hooper's Landing",
+    address: "1019 W Locust Street, Seaford, Delaware 19973",
+    website: "https://www.hooperslanding.com/",
+    phoneNumber: "3026292890",
+    //9am
   });
 
   const hotel1 = await Hotel.create({
@@ -85,9 +98,9 @@ db.once("open", async () => {
     startDate: "10/16/2022",
     endDate: "10/19/2022",
     paymentDue: "07/01/2022",
-    singlePrice: 150,
-    doublePrice: 100,
-    golfOnlyPrice: 50,
+    singlePrice: 560,
+    doublePrice: 460,
+    golfOnlyPrice: 360,
     courses: [course1, course2, course3],
     hotel: hotel1,
     maxPlayers: 30,
