@@ -1,0 +1,174 @@
+#trip {
+  background: url("../../assets/images/ball_on_green.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  .background {
+    background-color: rgba(105, 105, 105, 0.75);
+  }
+
+  .trip-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 450px) {
+      flex-direction: column;
+    }
+  }
+
+  .head-text {
+    padding-top: 6rem;
+    font-size: 6rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+
+    @media screen and (max-width: 900px) {
+      font-size: 5rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  h3 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: 900px) {
+      font-size: 1.75rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .link {
+    &:hover {
+      color: var(--secondary-color);
+      background-color: var(--white-color);
+      padding: 8px;
+      border-radius: 2px;
+      font-weight: 800;
+      text-shadow: none;
+    }
+  }
+
+  h4 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+
+
+    @media screen and (max-width: 900px) {
+      font-size: 2.5rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
+  }
+
+  h5 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    padding-top: 2rem;
+
+
+    @media screen and (max-width: 900px) {
+      font-size: 2.5rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
+  }
+
+  .p-text {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-justify: inter-word;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    text-decoration: none;
+    line-height: 1.5;
+    padding: 0.75rem;
+
+    @media screen and (max-width: 900px) {
+      font-size: 1.55rem;
+      margin: 0 15px;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.25rem;
+      margin: 10px;
+    }
+  }
+
+  .info-text {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-justify: inter-word;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    line-height: 1.5;
+    margin: 15px 300px 0px;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 2.25rem;
+      margin: 10px 70px 10px;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.75rem;
+      margin: 10px 10px 10px;
+    }
+  }
+
+  .last{
+    padding-bottom: 2rem;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--darkGreen-color);
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    outline: none;
+    margin: 1rem 0rem 2rem;
+    font-family: var(--font-base);
+    cursor: pointer;
+  }
+
+  .administrator {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,237 @@
+#manageTrips {
+  background: url("../../assets/images/bucket_of_balls.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  .background {
+    background-color: rgba(4, 57, 39, 0.8);
+    min-height: 100vh;
+  }
+
+  .head-text {
+    padding-top: 6rem;
+    font-size: 5rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -2px 0 black;
+
+    @media screen and (max-width: 1250px) {
+      font-size: 3.75rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  .secondary-text {
+    padding-top: 2rem;
+    font-size: 5rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -2px 0 black;
+
+    @media screen and (max-width: 1250px) {
+      font-size: 3.75rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
+  .trip-list {
+    display: flex;
+    justify-content: space-evenly;
+
+    table {
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      margin: 0.5rem;
+      padding: 0.25rem 0.65rem;
+      color: var(--yellow-color);
+      text-shadow: -1px 0 black;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    td, a {
+      margin: 0.25rem;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      font-size: 2rem;
+      text-decoration: none;
+
+      .delete {
+        font-size: 3rem;
+        color: white;
+        padding: 8px;
+        background-color: red;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .edit {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #6495ed;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .plus {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #74c365;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .minus {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #ffc40c;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .grey {
+        font-size: 3rem;
+        color: var(--white-color);
+        padding: 8px;
+        background-color: #909090;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: var(--gray-color);
+      }
+
+      .hovertext {
+        position: relative;
+        border-bottom: 1px dotted black;
+      }
+      
+      .hovertext:before {
+        content: attr(data-hover);
+        visibility: hidden;
+        opacity: 0;
+        width: 70px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 1rem;
+        padding: 2px 0;
+        transition: opacity 1s ease-in-out;
+      
+        position: absolute;
+        z-index: 1;
+        bottom: 235%;
+        left: 50%;
+        margin-left: -35px;
+      }
+      
+      .hovertext:hover:before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @media only screen and (max-width: 1700px) {
+      th {
+        font-size: 2rem;
+      }
+      td {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media only screen and (max-width: 1350px) {
+      thead th {
+        display: none;
+      }
+
+      td {
+        display: block;
+        font-size: 3rem;
+      }
+
+      td:first-child {
+        color: var(--yellow-color);
+        font-size: 4rem;
+      }
+    }
+
+    @media only screen and (max-width: 450px) {
+      thead th {
+        display: none;
+      }
+
+      td {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      td:first-child {
+        color: var(--yellow-color);
+        font-size: xx-large;
+      }
+    }
+  }
+
+  h4 {
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    font-size: 3rem;
+    padding-top: 1rem;
+
+    @media screen and (max-width: 1250px) {
+      font-size: 3.5rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--white-color);
+    text-shadow: -1px 0 black;
+    outline: none;
+    margin: 2rem 0 0 0;
+    font-family: var(--font-base);
+    cursor: pointer;
+  }
+
+  .final{
+    margin-bottom: 2rem;
+  }
+}

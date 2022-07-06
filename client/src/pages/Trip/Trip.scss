@@ -76,7 +76,6 @@
     color: var(--white-color);
     text-shadow: -1px 0 black;
 
-
     @media screen and (max-width: 900px) {
       font-size: 2.5rem;
     }
@@ -93,7 +92,6 @@
     color: var(--white-color);
     text-shadow: -1px 0 black;
     padding-top: 2rem;
-
 
     @media screen and (max-width: 900px) {
       font-size: 2.5rem;
@@ -145,9 +143,13 @@
       font-size: 1.75rem;
       margin: 10px 10px 10px;
     }
+
+    a {
+      color: var(--yellow-color);
+    }
   }
 
-  .last{
+  .last {
     padding-bottom: 2rem;
   }
 

@@ -6,6 +6,12 @@
   background-position: center;
   height: 100vh;
 
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .head-text-home {
     padding-top: 4rem;
     font-size: 6rem;
