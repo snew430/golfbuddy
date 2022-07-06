@@ -48,15 +48,6 @@ const SignUp = () => {
 
   const handleSubmit = async (status) => {
     const tripId = trip._id;
-    console.log(
-      tripId,
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      preferredRoomate,
-      lodging
-    );
     if (status === "active") {
       try {
         addPlayer({
