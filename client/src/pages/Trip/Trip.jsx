@@ -104,7 +104,9 @@ const Trip = () => {
         <p className="info-text">
           Please send payments through Venmo
           <br />
-          <a href="https://account.venmo.com/u/John-McKenna-145">
+          <a
+            href="https://account.venmo.com/u/John-McKenna-145"
+          >
             @John-McKenna-145
           </a>
           <br />

@@ -22,7 +22,6 @@ const Message = () => {
   const [attachment, setAttachment] = useState(null);
 
   const onFileChange = (event) => {
-    console.log(event.target.files[0]);
     setAttachment(event.target.files[0].name);
   };
 
@@ -50,7 +49,6 @@ const Message = () => {
       recipients += `${player.email},`;
     });
 
-    console.log(attachment);
 
     if (subject !== "" && message !== "") {
       try {

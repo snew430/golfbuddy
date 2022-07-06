@@ -27,7 +27,7 @@ const Home = () => {
         ) : (
           <>
             <Link to="../login">
-              <button>Log In for the Next Trip</button>
+              <button>Log In to Sign Up for the Next Trip</button>
             </Link>
           </>
         )}

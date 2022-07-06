@@ -16,6 +16,7 @@ const Rules = () => {
       </div>
     );
   }
+  
   return (
     <div id="rules">
       <div className="background" id="printRules">
@@ -79,7 +80,6 @@ const Rules = () => {
             We have two teams each with a different color shirt (one team Black
             and one White).
           </h4>
-          transition={{ duration: 0.7 }}
           <br />
           <p className="p-text">
             • Each foursome will have two players from each team.
@@ -93,7 +93,7 @@ const Rules = () => {
             • Teams will be announced prior to the trip.
             <br />
           </p>
-          <h6>Holes #1-6 Scramble: Captains Choice</h6> <br />
+          <h4>Holes #1-6 Scramble: Captains Choice</h4> <br />
           <p className="p-text">
             Both players will tee off, go to whatever shot is the best and play
             from that spot. Players will repeat until the ball is holed. There

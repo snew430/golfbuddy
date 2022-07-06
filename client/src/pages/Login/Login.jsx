@@ -62,14 +62,14 @@ const Login = () => {
       >
         <form onSubmit={handleFormSubmit}>
           <input
-            placeholder="username"
+            placeholder="Email"
             name="email"
-            type="email"
+            type="text"
             value={formState.email}
             onChange={handleChange}
           />
           <input
-            placeholder="password"
+            placeholder="Password"
             name="password"
             type="password"
             value={formState.password}

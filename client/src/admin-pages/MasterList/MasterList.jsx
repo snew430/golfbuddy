@@ -16,7 +16,6 @@ const MasterList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const players = playerData?.players || [];
-  console.log(players);
 
   const loggedIn = Auth.adminLogIn();
 

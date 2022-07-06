@@ -41,7 +41,6 @@ const NewTrip = () => {
 
   const [addTrip] = useMutation(ADD_TRIP);
 
-  console.log(formData);
   let input = false;
 
   const {
