@@ -98,6 +98,18 @@ export const QUERY_hotel = gql`
   }
 `;
 
+export const QUERY_RULES = gql`
+  {
+    info {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;
+
 export const QUERY_TRIPS = gql`
   {
     trips {

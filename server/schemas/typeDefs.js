@@ -53,6 +53,7 @@ const typeDefs = gql`
 
   type Info {
     _id: ID
+    header: String
     subject: String
     body: String
     place: Int

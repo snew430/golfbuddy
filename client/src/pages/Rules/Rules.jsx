@@ -1,10 +1,16 @@
 import React from "react";
 import "./Rules.scss";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
+import { useQuery } from "@apollo/client";
+import { QUERY_RULES } from "../../utils/queries";
 import { CreatePDFfromHTML } from "../../utils/downloadPDF";
 import Auth from "../../utils/auth";
 
 const Rules = () => {
+  const { loading, data: rulesData } = useQuery(QUERY_RULES);
+  const rules = rulesData?.info || [];
+  console.log(rules);
+
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {
@@ -16,7 +22,7 @@ const Rules = () => {
       </div>
     );
   }
-  
+
   return (
     <div id="rules">
       <div className="background" id="printRules">
@@ -29,7 +35,34 @@ const Rules = () => {
           Each day has prize money, so make sure to bring your A game. You have
           already anteed up when you paid for your golf.
         </p>
-        <motion.div
+        {rules.map((rule) =>
+          rule.subject === "Rules & Regulations" ? (
+            <>
+              <h4 className="h4-text" key={rule._id}>
+                {rule.header}
+              </h4>
+              <p className="p-text">{rule.body}</p>
+            </>
+          ) : (
+            <></>
+          )
+        )}
+
+        <h2 className="head-text">Ryder Cup</h2>
+        {rules.map((rule) =>
+          rule.subject === "Ryder Cup" ? (
+            <>
+              <h4 className="h4-text" key={rule._id}>
+                {rule.header}
+              </h4>
+              <p className="p-text">{rule.body}</p>
+            </>
+          ) : (
+            <></>
+          )
+        )}
+
+        {/* <motion.div
           className="rules-content"
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.7 }}
@@ -154,7 +187,7 @@ const Rules = () => {
             balls separately marked to distinguish each ball. Takes the score of
             the better ball.
           </p>
-        </motion.div>
+        </motion.div> */}
         <h3>
           Please reach out to us if you have questions. <br />
           We are looking forward to a great trip!
