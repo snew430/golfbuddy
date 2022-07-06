@@ -75,7 +75,7 @@ const Rules = () => {
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="head-text">Ryder Cup</h2>
+          <h2 className="secondary-text">Ryder Cup</h2>
           <h4>
             We have two teams each with a different color shirt (one team Black
             and one White).
