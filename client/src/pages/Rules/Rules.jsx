@@ -32,9 +32,7 @@ const Rules = () => {
           already anteed up when you paid for your golf.
         </p>
 
-        <div
-          className="rules-content"
-        >
+        <div className="rules-content">
 
           <h4>Senior Tees</h4>
 
@@ -83,69 +81,70 @@ const Rules = () => {
           wagers at an additonal fee. All wagers will be explained in detail
           before we tee off.
         </p>
-        <div
-          className="rules-content"
-        >
+        <div className="rules-content">
+
           <h2 className="secondary-text">Ryder Cup</h2>
 
           <h4>
-            We have two teams each with a different color shirt 
+            We have two teams distinguished by different color shirts 
             <br />
             Team Black & Team White
           </h4>
 
-          <br />
           <p className="p-text">
             Each foursome will have two players from each team.
             <br />
             The format is 3 six-hole competitions. Each 6-hole format is worth
             one point for the winning team for a total of 3 points.
             <br />
-            There are no strokes given, as foursomes are matched by players
+            There are no strokes given. Foursomes are matched by players
             with similar averages.
             <br />
             Teams will be announced prior to the trip.
             <br />
           </p>
-          <h4>Holes #1-6 Scramble: Captains Choice</h4> <br />
+
+          <h4>Holes #1-6 Scramble: Captains Choice</h4> 
+
           <p className="p-text">
-            Both players will tee off, go to whatever shot is the best and play
+            Both players will tee off, go to whatever shot is the best, and play
             from that spot. Players will repeat until the ball is holed. There
             will be one score for each side.
           </p>
-          <h4>Holes #1-6 Scramble: Captains Choice</h4> <br />
+
+          <h4>Holes #1-6 Scramble: Captains Choice</h4>
+
           <p className="p-text">
-            Both players will tee off, go to whatever shot is the best and play
+            Both players will tee off, go to whatever shot is the best, and play
             from that spot. Players will repeat until the ball is holed. There
             will be one score for each side.
           </p>
-          <br />
+
           <h4>Holes #7-12 Alternate Shot</h4>
-          <br />
+
           <p className="p-text">
-            On each hole, both players will tee off, and select the best shot.
+            On each hole, both players will tee off and select the best shot.
             From that point, the OTHER player (from the pair) will play the next
             shot. Players will alternate shots until the ball is holed. There
             will be one score for each side.
           </p>
-          <br />
+
           <h4>Holes #13-18 (Better Ball) Play your own Ball</h4>
-          <br />
+
           <p className="p-text">
             Both players tee off and each plays his own ball into the hole. For
             each hole the better of the two scores of the pair will be the team
             score. In addition, please track the total numbers of holes won in
             the round. We will use this at the end of the competition in case
             the teams are tied.
-            <br />
+
             <br />
             There are two options when the total number of players is uneven.
             The committee will choose which option will be used.
-            <br />
           </p>
-          <br />
+
           <h4>Option #1 3 Man Rover</h4>
-          <br />
+
           <p className="p-text">
             One person plays for the white team, the second plays for the
             black team, and the third is a rover (playing for both black & white team)
@@ -157,12 +156,11 @@ const Rules = () => {
             three holes. 
             <br />
             There is no format or scoring change in each of the 3
-            competitions
+            competitions.
           </p>
-          <br />
-          <br />
+
           <h4>Option #2 Solo Player (one guy vs two guys)</h4>
-          <br />
+          
           <p className="p-text">
             Captain’s Choice: Solo player hits two balls and chooses which ball
             he then plays. He does this throughout until the ball is holed.
@@ -174,6 +172,7 @@ const Rules = () => {
             balls separately marked to distinguish each ball. Takes the score of
             the better ball.
           </p>
+
         </div>
         <h3>
           Please reach out to us if you have questions. <br />
