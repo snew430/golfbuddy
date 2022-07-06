@@ -87,21 +87,24 @@ const Rules = () => {
           className="rules-content"
         >
           <h2 className="secondary-text">Ryder Cup</h2>
+
           <h4>
-            We have two teams each with a different color shirt (one team Black
-            and one White).
+            We have two teams each with a different color shirt 
+            <br />
+            Team Black & Team White
           </h4>
+
           <br />
           <p className="p-text">
-            • Each foursome will have two players from each team.
+            Each foursome will have two players from each team.
             <br />
-            • The format is 3 six-hole competitions. Each 6-hole format is worth
+            The format is 3 six-hole competitions. Each 6-hole format is worth
             one point for the winning team for a total of 3 points.
             <br />
-            • There are no strokes given, as foursomes are matched by players
+            There are no strokes given, as foursomes are matched by players
             with similar averages.
             <br />
-            • Teams will be announced prior to the trip.
+            Teams will be announced prior to the trip.
             <br />
           </p>
           <h4>Holes #1-6 Scramble: Captains Choice</h4> <br />
@@ -144,24 +147,30 @@ const Rules = () => {
           <h4>Option #1 3 Man Rover</h4>
           <br />
           <p className="p-text">
-            • One person plays for the white team, the second plays for the
-            black team, and the third is a rover (playing on both white and
-            black teams). • The format is the same 3 six-hole competitions
-            stated above (captain’s choice, alternate shot and better ball.) •
-            For each of the 3 formats, the rover partners with the white team
+            One person plays for the white team, the second plays for the
+            black team, and the third is a rover (playing for both black & white team)
+            <br />
+            The format is the same 3 six-hole competitions: captain’s choice, alternate shot and better ball 
+            <br />
+            For each of the formats, the rover partners with the white team
             player for three holes, then partners with the black team player for
-            three holes. • There is no format or scoring change in each of the 3
+            three holes. 
+            <br />
+            There is no format or scoring change in each of the 3
             competitions
           </p>
           <br />
           <br />
-          <h4>Option #2 Solo Player (one guy vs. two guys)</h4>
+          <h4>Option #2 Solo Player (one guy vs two guys)</h4>
           <br />
           <p className="p-text">
             Captain’s Choice: Solo player hits two balls and chooses which ball
             he then plays. He does this throughout until the ball is holed.
+            <br />
             Alternate Shot: Solo player hits two drives then chooses and plays
-            one ball until it is holed. Better Ball: The solo player plays two
+            one ball until it is holed.
+            <br />
+            Better Ball: The solo player plays two
             balls separately marked to distinguish each ball. Takes the score of
             the better ball.
           </p>
