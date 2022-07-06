@@ -88,7 +88,7 @@ const Trip = () => {
                 </a>
                 <br />
                 <a
-                  className="p-text link"
+                  className="p-text"
                   href={`tel:${course.phoneNumber}`}
                   rel="noreferrer"
                 >
