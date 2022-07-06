@@ -51,30 +51,12 @@ const PlayerList = () => {
         </div>
 
         <motion.div
-          className="app__flex"
+          className="flex-wrap"
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.7 }}
         >
-          <button onClick={ () => exportCSVplayer() } >Download Player List</button>
-        </motion.div>
-
-        <motion.div
-          className="app__flex"
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}
-        >
-          <button onClick={ () => exportCSVwaitlist() } >Download Waitlist</button>
-        </motion.div>
-        
-        <motion.div
-          className="app__flex"
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}
-        >
-          <Link to="../Message">
-            <button className="final">Email the Players</button>
-          </Link>
-
+            <button onClick={ () => exportCSVplayer() } >Download Player List</button>
+            <button onClick={ () => exportCSVwaitlist() } >Download Waitlist</button>
         </motion.div>
       </div>
     </div>

@@ -61,29 +61,12 @@ const MasterList = () => {
           </div>
 
           <motion.div
-            className="app__flex"
+            className="flex-wrap"
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.7 }}
           >
             <button onClick={() => toggleModal()}>Add New Player</button>
-          </motion.div>
-
-          <motion.div
-          className="app__flex"
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}
-          >
             <button onClick={ () => exportCSVmaster() } >Download Master List</button>
-          </motion.div>
-
-          <motion.div
-            className="app__flex"
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.7 }}
-          >
-            <Link to="../Message">
-              <button className="final-btn">Email the Players</button>
-            </Link>
           </motion.div>
         </div>
       </div>

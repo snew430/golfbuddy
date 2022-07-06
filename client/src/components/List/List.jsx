@@ -148,7 +148,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-                <span className="hovertext" data-hover="Paid or Unpaid">
+                <span className="hovertext" data-hover="Paid/ Unpaid">
                   {player.paid ? (
                     <BsCurrencyDollar
                       className="plus"

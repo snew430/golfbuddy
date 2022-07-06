@@ -145,12 +145,15 @@
       font-size: 2rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
-      margin: 2rem 0 0 0;
+      margin: 2rem;
       font-family: var(--font-base);
       cursor: pointer;
   }
 
-  .final-btn {
-    margin-bottom: 2rem;
+  .flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }
