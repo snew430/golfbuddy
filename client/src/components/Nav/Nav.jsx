@@ -28,15 +28,6 @@ const Navbar = () => {
             <li className="app__flex p-text">
               <Link to={"/administrationhome"}>Admin Home</Link>
             </li>
-            <li className="app__flex p-text">
-              <Link to={"/playerlist"}>Player List</Link>
-            </li>
-            <li className="app__flex p-text">
-              <Link to={"/masterlist"}>Master List</Link>
-            </li>
-            <li className="app__flex p-text">
-              <Link to={"/message"}>Email</Link>
-            </li>
           </>
         ) : (
           <>
