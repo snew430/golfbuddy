@@ -9,6 +9,18 @@
     background-color: rgba(4, 57, 39, 0.8);
   }
 
+  .delete {
+    font-size: 3rem;
+    color: white;
+    padding: 8px;
+    background-color: red;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    outline-style: solid;
+    outline-color: var(--gray-color);
+  }
+
   .head-text {
     padding-top: 6rem;
     font-size: 6rem;
@@ -53,90 +65,89 @@
     }
 
     .head-text {
-        padding-top: 6rem;
-        font-size: 6rem;
-        font-weight: 800;
-        text-align: center;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-    
-        @media screen and (max-width: 900px) {
-          font-size: 5rem;
-        }
-    
-        @media screen and (max-width: 450px) {
-          font-size: 3rem;
-        }
-    }
-  
-    .secondary-text {
-        padding-top: 2rem;
+      padding-top: 6rem;
+      font-size: 6rem;
+      font-weight: 800;
+      text-align: center;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+
+      @media screen and (max-width: 900px) {
         font-size: 5rem;
-        font-weight: 800;
-        text-align: center;
-        color: var(--white-color);
-        text-shadow: -2px 0 black;
+      }
 
-        @media screen and (max-width: 1250px) {
-        font-size: 3.75rem;
-        }
-
-        @media screen and (max-width: 450px) {
+      @media screen and (max-width: 450px) {
         font-size: 3rem;
-        }
+      }
     }
-    
+
+    .secondary-text {
+      padding-top: 2rem;
+      font-size: 5rem;
+      font-weight: 800;
+      text-align: center;
+      color: var(--white-color);
+      text-shadow: -2px 0 black;
+
+      @media screen and (max-width: 1250px) {
+        font-size: 3.75rem;
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 3rem;
+      }
+    }
+
     .rules-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 0.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0.25rem;
 
-        h4 {
-            margin: 0.75rem;
-            padding: 0.25rem 1rem;
-            color: var(--yellow-color);
-            text-shadow: -1px 0 black;
-            border-bottom: 5px;
-            font-size: 2.5rem;
-            font-weight: 500;
-            text-align: center;
-            
-        }
-    
-        @media screen and (max-width: 900px) {
-            font-size: 1.5rem;
+      h4 {
+        margin: 0.75rem;
+        padding: 0.25rem 1rem;
+        color: var(--yellow-color);
+        text-shadow: -1px 0 black;
+        border-bottom: 5px;
+        font-size: 2.5rem;
+        font-weight: 500;
+        text-align: center;
+      }
 
-            h6 {
-                padding: 0.25rem 0.5rem;
-            }
+      @media screen and (max-width: 900px) {
+        font-size: 1.5rem;
+
+        h6 {
+          padding: 0.25rem 0.5rem;
         }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 1.5 rem;
-        }
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 1.5 rem;
+      }
     }
 
     .p-text {
-        font-size: 2.25rem;
-        font-weight: 300;
-        text-align: center;
-        text-justify: inter-word;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        line-height: 1.5;
-        margin: 10px 275px;
+      font-size: 2.25rem;
+      font-weight: 300;
+      text-align: center;
+      text-justify: inter-word;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      line-height: 1.5;
+      margin: 10px 275px;
 
-        @media screen and (max-width: 900px) {
-            font-size: 1.55rem;
-            margin: 0 70px;
-        }
-    
-        @media screen and (max-width: 450px) {
-            font-size: 1.25rem;
-            margin: 10px;
-        }
+      @media screen and (max-width: 900px) {
+        font-size: 1.55rem;
+        margin: 0 70px;
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 1.25rem;
+        margin: 10px;
+      }
     }
   }
 
@@ -170,20 +181,20 @@
     padding-top: 1rem;
 
     h3 {
-        font-size: 2.75rem;
-        font-weight: 500;
-        text-align: center;
-        color: var(--white-color);
-        text-shadow: -1px 0 black;
-        padding-top: 1rem;
+      font-size: 2.75rem;
+      font-weight: 500;
+      text-align: center;
+      color: var(--white-color);
+      text-shadow: -1px 0 black;
+      padding-top: 1rem;
 
-        @media screen and (max-width: 900px) {
+      @media screen and (max-width: 900px) {
         font-size: 1.75rem;
-        }
-        
-        @media screen and (max-width: 450px) {
+      }
+
+      @media screen and (max-width: 450px) {
         font-size: 1.25rem;
-        }
+      }
     }
 
     @media screen and (max-width: 450px) {

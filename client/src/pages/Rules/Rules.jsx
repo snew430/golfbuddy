@@ -32,13 +32,9 @@ const Rules = () => {
   const loggedIn = Auth.loggedIn();
   const admin = Auth.adminLogIn();
 
-  const handleAddRule = async (subject) => {
+  const handleAddRule = async (subject) => {};
 
-  };
-
-  const handleEditRule = async (editInfoId) => {
-    
-  };
+  const handleEditRule = async (editInfoId) => {};
 
   const handleDeleteRule = async (deleteInfoId) => {
     console.log(deleteInfoId);
@@ -77,7 +73,7 @@ const Rules = () => {
     <div id="rules">
       <div className="background" id="printRules">
         <h2 className="head-text">Rules & Regulations</h2>
-        {admin ? (
+        {/* {admin ? (
           <>
             <span className="hovertext" data-hover="Add Rule">
               <FaTrashAlt
@@ -88,7 +84,7 @@ const Rules = () => {
           </>
         ) : (
           <></>
-        )}
+        )} */}
         <div className="rules-content">
           <p className="p-text">
             Welcome to the guys joining us for the first time! <br />
@@ -103,37 +99,28 @@ const Rules = () => {
           {rules.map((rule) =>
             rule.subject === "Rules & Regulations" ? (
               <div data-id={rule._id}>
-                <h4 className="h4-text">{rule.header}</h4>
-                {admin ? (
-                  <>
-                    <span className="hovertext" data-hover="Delete">
-                      <FaTrashAlt
-                        className="delete"
-                        onClick={() => handleDeleteRule(rule._id)}
-                      />
-                    </span>
-                    <span className="hovertext" data-hover="Edit">
+                <h4 className="h4-text">
+                  {rule.header}
+                  {/* {admin ? (
+                    <>
+                      <span className="hovertext" data-hover="Delete">
+                        <FaTrashAlt
+                          className="delete"
+                          onClick={() => handleDeleteRule(rule._id)}
+                        />
+                      </span>
+                      <span className="hovertext" data-hover="Edit">
                       <BsPencilSquare
                         className="edit"
                         onClick={() => handleEditRule(rule._id)}
                       />
                     </span>
-                    <span className="hovertext" data-hover="Swap Up">
-                      <FaArrowUp
-                        className="swap"
-                        onClick={(e) => handleSwapRule(rule._id, e)}
-                      />
-                    </span>
-                    <span className="hovertext" data-hover="Swap Down">
-                      <FaArrowDown
-                        className="swap"
-                        onClick={(e) => handleSwapRule(rule._id, e)}
-                      />
-                    </span>
-                  </>
-                ) : (
-                  <></>
-                )}
+                    </>
+                  ) : (
+                    <></>
+                  )} */}
+                </h4>
+
                 <p className="p-text">{rule.body}</p>
               </div>
             ) : (
@@ -148,6 +135,24 @@ const Rules = () => {
                 <h4 className="h4-text" key={rule._id}>
                   {rule.header}
                 </h4>
+                {/* {admin ? (
+                  <>
+                    <span className="hovertext" data-hover="Delete">
+                      <FaTrashAlt
+                        className="delete"
+                        onClick={() => handleDeleteRule(rule._id)}
+                      />
+                    </span>
+                    <span className="hovertext" data-hover="Edit">
+                      <BsPencilSquare
+                        className="edit"
+                        onClick={() => handleEditRule(rule._id)}
+                      />
+                    </span>
+                  </>
+                ) : (
+                  <></>
+                )} */}
                 <p className="p-text">{rule.body}</p>
               </>
             ) : (
