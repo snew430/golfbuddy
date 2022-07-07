@@ -4,9 +4,7 @@ import "./PlayerList.scss";
 import List from "../../components/List/List";
 import { motion } from "framer-motion";
 import { useQuery } from "@apollo/react-hooks";
-
 import { exportCSVplayer, exportCSVwaitlist } from "../../utils/exportCSV";
-
 import { QUERY_TRIPS } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
@@ -20,10 +18,12 @@ const PlayerList = () => {
 
   if (!loggedIn) {
     return (
-      <div>
-        You need to log in first. Don't cheat by looking at something you're not
-        supposed to. <br />
-        Makes me think you cheat at golf too...
+      <div className="cheat-container">
+        <h3 className="cheat-text">
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </h3>
       </div>
     );
   }

@@ -388,3 +388,63 @@ export const MAKE_TRIP_ACTIVE = gql`
     }
   }
 `;
+
+export const ADD_INFO = gql`
+  mutation addInfo($subject: String, $header: String, $body: String!) {
+    addInfo(subject: $subject, header: $header, body: $body) {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;
+
+export const DELETE_INFO = gql`
+  mutation deleteInfo($deleteInfoId: ID!) {
+    deleteInfo(id: $deleteInfoId) {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;
+
+export const EDIT_INFO = gql`
+  mutation editInfo(
+    $editInfoId: ID!
+    $subject: String
+    $header: String
+    $body: String!
+    $place: Int
+  ) {
+    editInfo(
+      id: $editInfoId
+      subject: $subject
+      header: $header
+      body: $body
+      place: $place
+    ) {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;
+
+export const SWAP_INFO_PLACE = gql`
+  mutation swapInfoPlace($firstId: ID!, $secondId: ID!) {
+    swapInfoPlace(firstID: $firstId, secondID: $secondId) {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;

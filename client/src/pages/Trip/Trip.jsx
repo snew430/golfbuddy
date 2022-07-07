@@ -10,14 +10,18 @@ const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || [];
 
+  console.log(trip);
+
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {
     return (
-      <div>
-        You need to log in first. Don't cheat by looking at something you're not
-        supposed to. <br />
-        Makes me think you cheat at golf too
+      <div className="cheat-container">
+        <h3 className="cheat-text">
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </h3>
       </div>
     );
   }
@@ -103,9 +107,7 @@ const Trip = () => {
         <p className="info-text">
           Please send payments through Venmo
           <br />
-          <a
-            href="https://account.venmo.com/u/John-McKenna-145"
-          >
+          <a href="https://account.venmo.com/u/John-McKenna-145">
             @John-McKenna-145
           </a>
           <br />

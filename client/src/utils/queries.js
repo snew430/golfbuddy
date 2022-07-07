@@ -285,12 +285,14 @@ export const QUERY_ACTIVE_TRIP = gql`
         name
         address
         website
+        phoneNumber
       }
       hotel {
         _id
         name
         address
         website
+        phoneNumber
       }
       maxPlayers
       playersActive {

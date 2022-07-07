@@ -100,7 +100,7 @@ db.once("open", async () => {
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
-    courses: [course1, course2, course3],
+    courses: [course1, course2, course3, course4],
     hotel: hotel1,
     maxPlayers: 30,
     playersActive: [player1, player2, player3],
@@ -181,42 +181,42 @@ Ok to roll the ball in the fairway, lift and clean is ok.`,
     place: 5,
   });
 
-    await Info.create({
-      subject: "Ryder Cup",
-      header: "Holes #1-6 Scramble: Captains Choice",
-      body: `Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.`,
-      place: 6,
-    });
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #1-6 Scramble: Captains Choice",
+    body: `Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.`,
+    place: 6,
+  });
 
-    await Info.create({
-      subject: "Ryder Cup",
-      header: "Holes #7-12 Alternate Shot",
-      body: `On each hole, both players will tee off, and select the best shot. From that point, the OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side.`,
-      place: 7,
-    });
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #7-12 Alternate Shot",
+    body: `On each hole, both players will tee off, and select the best shot. From that point, the OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side.`,
+    place: 7,
+  });
 
-    await Info.create({
-      subject: "Ryder Cup",
-      header: "Holes #13-18 (Better Ball) Play your own Ball",
-      body: `Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied.
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #13-18 (Better Ball) Play your own Ball",
+    body: `Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied.
 
 There are two options when the total number of players is uneven. The committee will choose which option will be used.`,
-      place: 8,
-    });
+    place: 8,
+  });
 
-    await Info.create({
-      subject: "Ryder Cup",
-      header: "Option #1 3 Man Rover",
-      body: `One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). • The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.) • For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. • There is no format or scoring change in each of the 3 competitions`,
-      place: 9,
-    });
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Option #1 3 Man Rover",
+    body: `One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). • The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.) • For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. • There is no format or scoring change in each of the 3 competitions`,
+    place: 9,
+  });
 
-    await Info.create({
-      subject: "Ryder Cup",
-      header: "Option #2 Solo Player (one guy vs. two guys)",
-      body: `Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. Alternate Shot: Solo player hits two drives then chooses and plays one ball until it is holed. Better Ball: The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball.`,
-      place: 10,
-    });
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Option #2 Solo Player (one guy vs. two guys)",
+    body: `Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. Alternate Shot: Solo player hits two drives then chooses and plays one ball until it is holed. Better Ball: The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball.`,
+    place: 10,
+  });
 
   console.log("DATA SEEDED");
 });
