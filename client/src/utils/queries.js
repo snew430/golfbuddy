@@ -98,6 +98,18 @@ export const QUERY_hotel = gql`
   }
 `;
 
+export const QUERY_RULES = gql`
+  {
+    info {
+      _id
+      subject
+      header
+      body
+      place
+    }
+  }
+`;
+
 export const QUERY_TRIPS = gql`
   {
     trips {
@@ -273,12 +285,14 @@ export const QUERY_ACTIVE_TRIP = gql`
         name
         address
         website
+        phoneNumber
       }
       hotel {
         _id
         name
         address
         website
+        phoneNumber
       }
       maxPlayers
       playersActive {

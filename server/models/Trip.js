@@ -45,12 +45,11 @@ const tripSchema = new Schema(
         ref: "Course",
       },
     ],
-    hotel: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Hotel",
-      },
-    ],
+    hotel: {
+      type: Schema.Types.ObjectId,
+      ref: "Hotel",
+    },
+
     playersActive: [
       {
         type: Schema.Types.ObjectId,

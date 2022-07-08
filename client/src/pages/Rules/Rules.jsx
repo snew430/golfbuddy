@@ -1,189 +1,171 @@
 import React from "react";
 import "./Rules.scss";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_RULES } from "../../utils/queries";
+import {
+  ADD_INFO,
+  EDIT_INFO,
+  DELETE_INFO,
+  SWAP_INFO_PLACE,
+} from "../../utils/mutations";
 import { CreatePDFfromHTML } from "../../utils/downloadPDF";
 import Auth from "../../utils/auth";
+import { BsPencilSquare } from "react-icons/bs";
+import {
+  FaPlus,
+  FaMinus,
+  FaTrashAlt,
+  FaArrowUp,
+  FaArrowDown,
+} from "react-icons/fa";
+import { FiXSquare } from "react-icons/fi";
 
 const Rules = () => {
+  const { loading, data: rulesData, refetch } = useQuery(QUERY_RULES);
+  const rules = rulesData?.info || [];
+  const [addRule] = useMutation(ADD_INFO);
+  const [editRule] = useMutation(EDIT_INFO);
+  const [deleteRule] = useMutation(DELETE_INFO);
+  const [swapRule] = useMutation(SWAP_INFO_PLACE);
+
   const loggedIn = Auth.loggedIn();
+  const admin = Auth.adminLogIn();
+
+  const handleAddRule = async (subject) => {};
+
+  const handleEditRule = async (editInfoId) => {};
+
+  const handleDeleteRule = async (deleteInfoId) => {
+    console.log(deleteInfoId);
+    try {
+      await deleteRule({
+        variables: { deleteInfoId },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    refetch();
+  };
+
+  function handleSwapRule(firstId, e) {
+    console.log(e);
+    console.log(firstId);
+    let firstSibling = e.target.parentNode.parentNode.parentNode;
+    let lastSibling = e.target.parentNode.parentNode.parentNode;
+    console.log(firstSibling);
+    console.log(lastSibling);
+  }
 
   if (!loggedIn) {
     return (
-      <div>
-        You need to log in first. Don't cheat by looking at something you're not
-        supposed to. <br />
-        Makes me think you cheat at golf too
+      <div className="cheat-container">
+        <h3 className="cheat-text">
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </h3>
       </div>
     );
   }
-  
+
   return (
     <div id="rules">
       <div className="background" id="printRules">
-
         <h2 className="head-text">Rules & Regulations</h2>
-
-        <p className="p-text">
-          Welcome to the guys joining us for the first time! <br />
-          Here's information that will make your golfing more enjoyable. <br />
-          All competition is based on what you shoot against your own handicap
-          (or what you told us you shoot). <br />
-          Each day has prize money, so make sure to bring your A game. You have
-          already anteed up when you paid for your golf.
-        </p>
-
+        {/* {admin ? (
+          <>
+            <span className="hovertext" data-hover="Add Rule">
+              <FaTrashAlt
+                className="add"
+                onClick={() => handleAddRule("Rules & Regulations")}
+              />
+            </span>
+          </>
+        ) : (
+          <></>
+        )} */}
         <div className="rules-content">
-
-          <h4>Senior Tees</h4>
-
           <p className="p-text">
-            We are all using the tees that are 5800 yards and shorter.
+            Welcome to the guys joining us for the first time! <br />
+            Here's information that will make your golfing more enjoyable.{" "}
+            <br />
+            All competition is based on what you shoot against your own handicap
+            (or what you told us you shoot). <br />
+            Each day has prize money, so make sure to bring your A game. You
+            have already anteed up when you paid for your golf.
           </p>
 
-          <h4>Max Stroke on Any Hole is Par plus 3</h4>
+          {rules.map((rule) =>
+            rule.subject === "Rules & Regulations" ? (
+              <div data-id={rule._id}>
+                <h4 className="h4-text">
+                  {rule.header}
+                  {/* {admin ? (
+                    <>
+                      <span className="hovertext" data-hover="Delete">
+                        <FaTrashAlt
+                          className="delete"
+                          onClick={() => handleDeleteRule(rule._id)}
+                        />
+                      </span>
+                      <span className="hovertext" data-hover="Edit">
+                      <BsPencilSquare
+                        className="edit"
+                        onClick={() => handleEditRule(rule._id)}
+                      />
+                    </span>
+                    </>
+                  ) : (
+                    <></>
+                  )} */}
+                </h4>
 
-          <p className="p-text">
-            On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach
-            this score, please pick up and move to the next hole.
-          </p>
+                <p className="p-text">{rule.body}</p>
+              </div>
+            ) : (
+              <></>
+            )
+          )}
 
-          <h4> Balls Hit Out of Bounds, into the Water, or Any Other Hazard</h4>
-          
-          <p className="p-text">
-            Play the ball laterally and add a stroke (if in the water, drop on
-            other side). Provisional balls not necessary.
-          </p>
-
-          <p className="p-text">
-            For unplayable sand traps: ok to move the ball to where it can be
-            played, but it cannot be closer to the pin.
-          </p>
-          
-          <p className="p-text">
-            Ok to roll the ball in the fairway, lift and clean is ok.
-          </p>
-
-          <h4>Putts: Gimmes are Ok</h4>
-
-          <p className="p-text">Player must add a stroke for the gimme.</p>
-
+          <h2 className="head-text">Ryder Cup</h2>
+          {rules.map((rule) =>
+            rule.subject === "Ryder Cup" ? (
+              <>
+                <h4 className="h4-text" key={rule._id}>
+                  {rule.header}
+                </h4>
+                {/* {admin ? (
+                  <>
+                    <span className="hovertext" data-hover="Delete">
+                      <FaTrashAlt
+                        className="delete"
+                        onClick={() => handleDeleteRule(rule._id)}
+                      />
+                    </span>
+                    <span className="hovertext" data-hover="Edit">
+                      <BsPencilSquare
+                        className="edit"
+                        onClick={() => handleEditRule(rule._id)}
+                      />
+                    </span>
+                  </>
+                ) : (
+                  <></>
+                )} */}
+                <p className="p-text">{rule.body}</p>
+              </>
+            ) : (
+              <></>
+            )
+          )}
         </div>
 
-        <p className="info-text">
-          We have assigned the foursomes for Sunday and Wednesday's Ryder Cup
-          Round. If there is a foursome group you want to play with on Monday or
-          Tuesday, please let us know when we meet Sunday morning. If there's
-          someone you want to play with, here's your chance!
-        </p>
-        <p className="info-text">
-          If you would like to take part in other daily competitions, please
-          reach out to Dr. Tim or Ken Dulaney. They oversee OPTIONAL daily
-          wagers at an additonal fee. All wagers will be explained in detail
-          before we tee off.
-        </p>
-        <div className="rules-content">
-
-          <h2 className="secondary-text">Ryder Cup</h2>
-
-          <h4>
-            We have two teams distinguished by different color shirts 
-            <br />
-            Team Black & Team White
-          </h4>
-
-          <p className="p-text">
-            Each foursome will have two players from each team.
-            <br />
-            The format is 3 six-hole competitions. Each 6-hole format is worth
-            one point for the winning team for a total of 3 points.
-            <br />
-            There are no strokes given. Foursomes are matched by players
-            with similar averages.
-            <br />
-            Teams will be announced prior to the trip.
-            <br />
-          </p>
-
-          <h4>Holes #1-6 Scramble: Captains Choice</h4> 
-
-          <p className="p-text">
-            Both players will tee off, go to whatever shot is the best, and play
-            from that spot. Players will repeat until the ball is holed. There
-            will be one score for each side.
-          </p>
-
-          <h4>Holes #1-6 Scramble: Captains Choice</h4>
-
-          <p className="p-text">
-            Both players will tee off, go to whatever shot is the best, and play
-            from that spot. Players will repeat until the ball is holed. There
-            will be one score for each side.
-          </p>
-
-          <h4>Holes #7-12 Alternate Shot</h4>
-
-          <p className="p-text">
-            On each hole, both players will tee off and select the best shot.
-            From that point, the OTHER player (from the pair) will play the next
-            shot. Players will alternate shots until the ball is holed. There
-            will be one score for each side.
-          </p>
-
-          <h4>Holes #13-18 (Better Ball) Play your own Ball</h4>
-
-          <p className="p-text">
-            Both players tee off and each plays his own ball into the hole. For
-            each hole the better of the two scores of the pair will be the team
-            score. In addition, please track the total numbers of holes won in
-            the round. We will use this at the end of the competition in case
-            the teams are tied.
-
-            <br />
-            There are two options when the total number of players is uneven.
-            The committee will choose which option will be used.
-          </p>
-
-          <h4>Option #1 3 Man Rover</h4>
-
-          <p className="p-text">
-            One person plays for the white team, the second plays for the
-            black team, and the third is a rover (playing for both black & white team)
-            <br />
-            The format is the same 3 six-hole competitions: captain’s choice, alternate shot and better ball 
-            <br />
-            For each of the formats, the rover partners with the white team
-            player for three holes, then partners with the black team player for
-            three holes. 
-            <br />
-            There is no format or scoring change in each of the 3
-            competitions.
-          </p>
-
-          <h4>Option #2 Solo Player (one guy vs two guys)</h4>
-          
-          <p className="p-text">
-            Captain’s Choice: Solo player hits two balls and chooses which ball
-            he then plays. He does this throughout until the ball is holed.
-            <br />
-            Alternate Shot: Solo player hits two drives then chooses and plays
-            one ball until it is holed.
-            <br />
-            Better Ball: The solo player plays two
-            balls separately marked to distinguish each ball. Takes the score of
-            the better ball.
-          </p>
-
+        <div className="app__flex background">
+          <button type="button" onClick={() => CreatePDFfromHTML()}>
+            Print Rules
+          </button>
         </div>
-        <h3>
-          Please reach out to us if you have questions. <br />
-          We are looking forward to a great trip!
-        </h3>
-      </div>
-
-      <div className="app__flex background">
-        <button type="button" onClick={() => CreatePDFfromHTML()}>
-          Print Rules
-        </button>
       </div>
     </div>
   );

@@ -27,7 +27,6 @@ db.once("open", async () => {
     //11am
   });
 
-
   const course2 = await Course.create({
     name: "GlenRiddle Golf Club - War Admiral",
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
@@ -101,7 +100,7 @@ db.once("open", async () => {
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
-    courses: [course1, course2, course3],
+    courses: [course1, course2, course3, course4],
     hotel: hotel1,
     maxPlayers: 30,
     playersActive: [player1, player2, player3],
@@ -126,19 +125,22 @@ db.once("open", async () => {
   });
 
   await Info.create({
-    subject: "Senior Tees",
+    subject: "Rules & Regulations",
+    header: "Senior Tees",
     body: "We are all using the tees that are 5800 yards and shorter.",
     place: 0,
   });
 
   await Info.create({
-    subject: "Max Stroke on Any Hole is Par plus 3",
+    subject: "Rules & Regulations",
+    header: "Max Stroke on Any Hole is Par plus 3",
     body: "On a par 3, max is 6, par 4 max is 7, par 5 max is 8. Once you reach this score, please pick up and move to the next hole.",
     place: 1,
   });
 
   await Info.create({
-    subject: "Balls Hit Out of Bounds, into the Water, or Any Other Hazard",
+    subject: "Rules & Regulations",
+    header: "Balls Hit Out of Bounds, into the Water, or Any Other Hazard",
     body: `Play the ball laterally and add a stroke (if in the water, drop on other side). Provisional balls not necessary.
 
 For unplayable sand traps: ok to move the ball to where it can be played, but it cannot be closer to the pin.
@@ -148,9 +150,72 @@ Ok to roll the ball in the fairway, lift and clean is ok.`,
   });
 
   await Info.create({
-    subject: "Putts: Gimmes are Ok",
+    subject: "Rules & Regulations",
+    header: "Putts: Gimmes are Ok",
     body: `Player must add a stroke for the gimme.`,
     place: 3,
+  });
+
+  await Info.create({
+    subject: "Rules & Regulations",
+    header: "",
+    body: `We have assigned the foursomes for Sunday and Wednesday's Ryder Cup Round. If there is a foursome group you want to play with on Monday or Tuesday, please let us know when we meet Sunday morning. If there's someone you want to play with, here's your chance!`,
+    place: 4,
+  });
+
+  await Info.create({
+    subject: "Rules & Regulations",
+    header: "",
+    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim or Ken Dulaney. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
+    place: 4,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header:
+      "We have two teams each with a different color shirt (one team Black and one White).",
+    body: `• Each foursome will have two players from each team.
+• The format is 3 six-hole competitions. Each 6-hole format is worth one point for the winning team for a total of 3 points.
+• There are no strokes given, as foursomes are matched by players with similar averages.
+• Teams will be announced prior to the trip.`,
+    place: 5,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #1-6 Scramble: Captains Choice",
+    body: `Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.`,
+    place: 6,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #7-12 Alternate Shot",
+    body: `On each hole, both players will tee off, and select the best shot. From that point, the OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side.`,
+    place: 7,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Holes #13-18 (Better Ball) Play your own Ball",
+    body: `Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied.
+
+There are two options when the total number of players is uneven. The committee will choose which option will be used.`,
+    place: 8,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Option #1 3 Man Rover",
+    body: `One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). • The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.) • For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. • There is no format or scoring change in each of the 3 competitions`,
+    place: 9,
+  });
+
+  await Info.create({
+    subject: "Ryder Cup",
+    header: "Option #2 Solo Player (one guy vs. two guys)",
+    body: `Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. Alternate Shot: Solo player hits two drives then chooses and plays one ball until it is holed. Better Ball: The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball.`,
+    place: 10,
   });
 
   console.log("DATA SEEDED");

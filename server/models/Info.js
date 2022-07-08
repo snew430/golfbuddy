@@ -5,7 +5,9 @@ const { Schema } = mongoose;
 const infoSchema = new Schema({
   subject: {
     type: String,
-    required: true,
+  },
+  header: {
+    type: String,
   },
   body: {
     type: String,

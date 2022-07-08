@@ -32,7 +32,8 @@ const resolvers = {
         .populate("playersWaitlist");
     },
     info: async () => {
-      return await Info.find();
+      const info = await Info.find();
+      return info.sort((a, b) => a.place - b.place);
     },
     activeTrip: async () => {
       const activeTrip = await (
@@ -42,8 +43,6 @@ const resolvers = {
           .populate("playersActive")
           .populate("playersWaitlist")
       ).filter((trip) => trip.active === true);
-
-      console.log(activeTrip);
       return activeTrip[0];
     },
   },
@@ -437,8 +436,6 @@ const resolvers = {
       transporter.verify(function (error, success) {
         if (error) {
           console.log(error);
-        } else {
-          console.log("Server is ready to take our messages!");
         }
       });
 
@@ -452,13 +449,9 @@ const resolvers = {
         ],
       };
 
-      console.log(mail);
-
       transporter.sendMail(mail, (err, data) => {
         if (err) {
           console.log(err);
-        } else {
-          console.log("success");
         }
       });
       return Admin;
@@ -473,12 +466,13 @@ const resolvers = {
       return updatedPlayer;
     },
 
-    addInfo: async (parent, { subject, body }) => {
+    addInfo: async (parent, { subject, header, body }) => {
       const info = await Info.find();
       const length = info.length;
 
       const player = await Info.create({
         subject: subject,
+        header: header,
         body: body,
         place: length + 1,
       });
@@ -495,6 +489,20 @@ const resolvers = {
 
     deleteInfo: async (parent, { id }, context) => {
       return await Info.findByIdAndDelete(id, {
+        new: true,
+      });
+    },
+
+    swapInfoPlace: async (parent, { firstID, secondID }, context) => {
+      const firstInfo = await Info.findById(firstID);
+      const secondInfo = await Info.findById(secondID);
+
+      await Info.findByIdAndUpdate(firstID, {
+        place: secondInfo.place,
+        ne: true,
+      });
+      return await Info.findByIdAndUpdate(secondID, {
+        place: firstInfo.place,
         new: true,
       });
     },

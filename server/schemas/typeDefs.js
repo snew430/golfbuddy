@@ -53,6 +53,7 @@ const typeDefs = gql`
 
   type Info {
     _id: ID
+    header: String
     subject: String
     body: String
     place: Int
@@ -207,9 +208,19 @@ const typeDefs = gql`
 
     paidPlayer(player: ID!, paid: Boolean!): Player
 
-    addInfo(subject: String!, body: String!): Info
-    editInfo(id: ID!, subject: String, body: String, place: Int): Info
+    addInfo(subject: String, header: String, body: String!, place: Int): Info
+
+    editInfo(
+      id: ID!
+      subject: String
+      header: String
+      body: String!
+      place: Int
+    ): Info
+
     deleteInfo(id: ID!): Info
+
+    swapInfoPlace(firstID: ID!, secondID: ID!): Info
   }
 `;
 
