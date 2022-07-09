@@ -38,6 +38,23 @@
     }
   }
 
+  .secondary-text {
+    padding-top: 2rem;
+    font-size: 5rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: -2px 0 black;
+
+    @media screen and (max-width: 1250px) {
+      font-size: 3.75rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 3rem;
+    }
+  }
+
   .h4-text {
     margin: 0.75rem;
     padding: 0.25rem 1rem;

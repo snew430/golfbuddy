@@ -128,7 +128,7 @@ const Rules = () => {
             )
           )}
 
-          <h2 className="head-text">Ryder Cup</h2>
+          <h2 className="secondary-text">Ryder Cup</h2>
           {rules.map((rule) =>
             rule.subject === "Ryder Cup" ? (
               <>
