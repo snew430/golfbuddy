@@ -62,7 +62,7 @@ const Login = () => {
       >
         <form onSubmit={handleFormSubmit}>
           <input
-            placeholder="Email"
+            placeholder="Username"
             name="email"
             type="text"
             value={formState.email}

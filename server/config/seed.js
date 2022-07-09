@@ -96,7 +96,7 @@ db.once("open", async () => {
     name: "Fall 2022 Trip",
     startDate: "10/16/2022",
     endDate: "10/19/2022",
-    paymentDue: "07/01/2022",
+    paymentDue: "08/01/2022",
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
@@ -166,7 +166,7 @@ Ok to roll the ball in the fairway, lift and clean is ok.`,
   await Info.create({
     subject: "Rules & Regulations",
     header: "",
-    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim or Ken Dulaney. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
+    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim Kerns. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
     place: 4,
   });
 
