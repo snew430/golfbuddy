@@ -209,7 +209,7 @@ const SignUp = () => {
 
           <p className="info-text">
             The cost of the tirp includes: <br />
-            Accomodations, Green Fees, Hotel Breakfast, and Prize Money
+            Accomodations, Green Fees, and Prize Money
           </p>
           
 
