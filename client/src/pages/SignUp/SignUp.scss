@@ -189,7 +189,10 @@
 
     
     a {
-      text-decoration: none;
+      color: var(--secondary-color);
+      padding: 5px;
+      text-shadow: none;
+      font-weight: bold;
     }
 
     .submitBtn {

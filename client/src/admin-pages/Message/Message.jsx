@@ -106,13 +106,11 @@ const Message = () => {
                   onChange={handleChangeInput}
                 />
               </div>
-              <input type="file" name="attach" onChange={onFileChange} />
-              <button type="button" name="trip" onClick={handleSendEmail}>
-                Send to Trip Players
-              </button>
-              <button type="button" name="master" onClick={handleSendEmail}>
-                Send to Master List
-              </button>
+              <div className="flex-wrap">
+                <button type="button" name="trip" onClick={handleSendEmail}>Send to Trip Players</button>
+                <button type="button" name="master" onClick={handleSendEmail}>Send to Master List</button>
+              </div>
+              
             </div>
           </motion.div>
         ) : (

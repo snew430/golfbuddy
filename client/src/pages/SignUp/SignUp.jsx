@@ -192,12 +192,12 @@ const SignUp = () => {
           </h5>
 
           <p className="info-text">
-            Please send payments through Venmo{" "}
-            <a href="https://account.venmo.com/u/John-McKenna-145">
-              @John-McKenna-145
-            </a>{" "}
-            or mail a check to
-            <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+            Please send payments through Venmo 
+              <a href="https://account.venmo.com/u/John-McKenna-145">@John-McKenna-14</a> 
+
+                 or mail a check to
+              <br /> 
+            John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
           <p className="info-text">
@@ -216,7 +216,7 @@ const SignUp = () => {
 
           <p className="info-text">
             The cost of the trip includes: <br />
-            Accomodations, Green Fees, Hotel Breakfast, and Prize Money
+            Accomodations, Green Fees, and Prize Money
           </p>
 
           <motion.div
