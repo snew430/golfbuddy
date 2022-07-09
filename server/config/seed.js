@@ -166,7 +166,7 @@ Ok to roll the ball in the fairway, lift and clean is ok.`,
   await Info.create({
     subject: "Rules & Regulations",
     header: "",
-    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim or Ken Dulaney. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
+    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim Kerns. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
     place: 4,
   });
 
