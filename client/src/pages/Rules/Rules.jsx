@@ -161,7 +161,7 @@ const Rules = () => {
           )}
         </div>
 
-        <div className="app__flex background">
+        <div className="app__flex">
           <button type="button" onClick={() => CreatePDFfromHTML()}>
             Print Rules
           </button>
