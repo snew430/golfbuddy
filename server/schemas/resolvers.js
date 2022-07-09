@@ -428,7 +428,7 @@ const resolvers = {
         service: "gmail",
         auth: {
           user: process.env.EMAIL,
-          pass: process.env.PASS,
+          pass: process.env.NODEPASS,
         },
       });
 
@@ -444,9 +444,9 @@ const resolvers = {
         to: recipients,
         subject: subject,
         text: message,
-        attachments: [
-          { filename: "attachment", content: fs.createReadStream(file) },
-        ],
+        // attachments: [
+        //   { filename: "attachment", content: fs.createReadStream(file) },
+        // ],
       };
 
       transporter.sendMail(mail, (err, data) => {

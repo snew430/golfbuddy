@@ -3,7 +3,11 @@ import "./SignUp.scss";
 import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_TRIPS } from "../../utils/queries";
-import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
+import {
+  ADD_ACTIVE_PLAYER,
+  ADD_WAITLIST_PLAYER,
+  SEND_MESSAGE,
+} from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import Refunds from "../../assets/2022_Spring_Refund.xls";
 
@@ -16,8 +20,11 @@ const SignUp = () => {
     preferredRoomate: "",
     lodging: "",
   });
-
+  const [signupMessage, setSignupMessage] = useState(
+    "You are signed up. See you on the course!"
+  );
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [sendMessage] = useMutation(SEND_MESSAGE);
 
   const { data: basicTourney } = useQuery(QUERY_TRIPS);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
@@ -50,10 +57,23 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
+    console.log(status);
     const tripId = trip._id;
+    const [recipients, subject, message] = [
+      email,
+      "Welcome to the Trip!",
+      "Thank you for signing up for the next golf trip",
+    ];
     if (status === "active") {
       try {
-        addPlayer({
+        await sendMessage({
+          variables: {
+            recipients,
+            subject,
+            message,
+          },
+        });
+        await addPlayer({
           variables: {
             tripId,
             firstName,
@@ -69,6 +89,14 @@ const SignUp = () => {
       }
     } else {
       try {
+        setSignupMessage("You are now on the waitlist");
+        await sendMessage({
+          variables: {
+            recipients,
+            subject,
+            message,
+          },
+        });
         addWaitlistPlayer({
           variables: {
             tripId,
@@ -83,6 +111,7 @@ const SignUp = () => {
       } catch (err) {
         console.error(err);
       }
+      console.log(email);
     }
 
     setformData({
@@ -192,11 +221,12 @@ const SignUp = () => {
           </h5>
 
           <p className="info-text">
-            Please send payments through Venmo 
-              <a href="https://account.venmo.com/u/John-McKenna-145">@John-McKenna-14</a> 
-
-                 or mail a check to
-              <br /> 
+            Please send payments through Venmo
+            <a href="https://account.venmo.com/u/John-McKenna-145">
+              @John-McKenna-14
+            </a>
+            or mail a check to
+            <br />
             John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
@@ -243,7 +273,7 @@ const SignUp = () => {
         </div>
       ) : (
         <div>
-          <h3 className="head-text">See You On The Course!</h3>
+          <h3 className="head-text">{signupMessage}</h3>
         </div>
       )}
     </div>
