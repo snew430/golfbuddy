@@ -30,19 +30,19 @@ const SignUp = () => {
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
 
-    const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.loggedIn();
 
-    if (!loggedIn) {
-      return (
-        <div className="cheat-container">
-          <h3 className="cheat-text">
-            You need to log in first. Don't cheat by looking at something you're
-            not supposed to. <br />
-            Makes me think you cheat at golf too
-          </h3>
-        </div>
-      );
-    }
+  if (!loggedIn) {
+    return (
+      <div className="cheat-container">
+        <h3 className="cheat-text">
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </h3>
+      </div>
+    );
+  }
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -192,27 +192,32 @@ const SignUp = () => {
           </h5>
 
           <p className="info-text">
-            Please send payments through Venmo <a href="https://account.venmo.com/u/John-McKenna-145">
-            @John-McKenna-145
-          </a> or mail a check
-            to
+            Please send payments through Venmo{" "}
+            <a href="https://account.venmo.com/u/John-McKenna-145">
+              @John-McKenna-145
+            </a>{" "}
+            or mail a check to
             <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
-          <p className="info-text">Disclaimer: You may be entitled to a refund from last trip 
-            <br/> Please check document below
+          <p className="info-text">
+            Disclaimer: You may be entitled to a refund from last trip
+            <br /> Please check document below
           </p>
 
-          <a className="app__flex" href={Refunds} target='blank' rel="noopener noreferrer">
+          <a
+            className="app__flex"
+            href={Refunds}
+            target="blank"
+            rel="noopener noreferrer"
+          >
             <button className="refundBtn">Refunds</button>
           </a>
 
           <p className="info-text">
-            The cost of the tirp includes: <br />
+            The cost of the trip includes: <br />
             Accomodations, Green Fees, Hotel Breakfast, and Prize Money
           </p>
-          
-
 
           <motion.div
             whileInView={{ opacity: [0, 1] }}

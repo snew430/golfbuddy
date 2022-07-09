@@ -96,7 +96,7 @@ db.once("open", async () => {
     name: "Fall 2022 Trip",
     startDate: "10/16/2022",
     endDate: "10/19/2022",
-    paymentDue: "07/01/2022",
+    paymentDue: "08/01/2022",
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
@@ -159,14 +159,14 @@ Ok to roll the ball in the fairway, lift and clean is ok.`,
   await Info.create({
     subject: "Rules & Regulations",
     header: "",
-    body: `We have assigned the foursomes for Sunday and Wednesday's Ryder Cup Round. If there is a foursome group you want to play with on Monday or Tuesday, please let us know when we meet Sunday morning. If there's someone you want to play with, here's your chance!`,
+    body: `We will set the foursomes for Sunday, and Wednesday’s Ryder Cup’s Round. On Monday and Tuesday, YOU CAN PICK YOUR OWN FOURSOME when we meet on Sunday morning. IF THERE'S SOMEONE YOU WANT TO PLAY WITH HERE'S YOUR CHANCE.`,
     place: 4,
   });
 
   await Info.create({
     subject: "Rules & Regulations",
     header: "",
-    body: `If you would like to take part in other daily competitions, please reach out to Dr. Tim or Ken Dulaney. They oversee OPTIONAL daily wagers at an additonal fee. All wagers will be explained in detail before we tee off.`,
+    body: `IN ADDITION, there are Other Daily Competitions operated by Dr. Tim. The competitions are an additional fee which you can choose to play or not. He will explain before we tee off what’s cooked up for competitive play. `,
     place: 4,
   });
 
