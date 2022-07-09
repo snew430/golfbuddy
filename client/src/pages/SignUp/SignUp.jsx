@@ -208,7 +208,7 @@ const SignUp = () => {
           </a>
 
           <p className="info-text">
-            The cost of the tirp includes: <br />
+            The cost of the trip includes: <br />
             Accomodations, Green Fees, and Prize Money
           </p>
           
