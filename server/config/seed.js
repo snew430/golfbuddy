@@ -96,7 +96,7 @@ db.once("open", async () => {
     name: "Fall 2022 Trip",
     startDate: "10/16/2022",
     endDate: "10/19/2022",
-    paymentDue: "07/01/2022",
+    paymentDue: "08/01/2022",
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
