@@ -57,12 +57,12 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
-    console.log(status);
+
     const tripId = trip._id;
     const [recipients, subject, message] = [
       email,
       "Welcome to the Trip!",
-      "Thank you for signing up for the next golf trip",
+      "You're signed up for the fall trip. Your money is due August 1 to secure your spot.",
     ];
     if (status === "active") {
       try {
@@ -111,7 +111,7 @@ const SignUp = () => {
       } catch (err) {
         console.error(err);
       }
-      console.log(email);
+
     }
 
     setformData({
@@ -246,7 +246,10 @@ const SignUp = () => {
 
           <p className="info-text">
             The cost of the trip includes: <br />
-            Accomodations, Green Fees, and Prize Money
+            Accomodations, Green Fees, and Prize Money. <br />
+            Money received after due date is subject to $25 late fee. <br />
+            For canceled reservations, we will do our best to return your money
+            but that is subject to course and hotel cancelation fees.
           </p>
 
           <motion.div

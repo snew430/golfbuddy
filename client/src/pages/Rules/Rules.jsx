@@ -37,7 +37,6 @@ const Rules = () => {
   const handleEditRule = async (editInfoId) => {};
 
   const handleDeleteRule = async (deleteInfoId) => {
-    console.log(deleteInfoId);
     try {
       await deleteRule({
         variables: { deleteInfoId },
@@ -49,12 +48,10 @@ const Rules = () => {
   };
 
   function handleSwapRule(firstId, e) {
-    console.log(e);
-    console.log(firstId);
+
     let firstSibling = e.target.parentNode.parentNode.parentNode;
     let lastSibling = e.target.parentNode.parentNode.parentNode;
-    console.log(firstSibling);
-    console.log(lastSibling);
+
   }
 
   if (!loggedIn) {

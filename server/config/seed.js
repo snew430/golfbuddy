@@ -9,12 +9,12 @@ db.once("open", async () => {
   await Trip.deleteMany();
   await Info.deleteMany();
 
-  const admin = await Admin.create({
+  await Admin.create({
     email: process.env.EMAIL,
     password: process.env.PASS,
   });
 
-  const TripPlayers = await Admin.create({
+  await Admin.create({
     email: process.env.PLAYEREMAIL,
     password: process.env.PLAYERPASS,
   });
