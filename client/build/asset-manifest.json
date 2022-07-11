@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c8d7be89.css",
+    "main.js": "/static/js/main.6e305cc3.js",
+    "static/media/golf_green2.jpg": "/static/media/golf_green2.64970060558016fd022a.jpg",
+    "static/media/golf_course_sky2.jpg": "/static/media/golf_course_sky2.4e7245b34372c4a46fab.jpg",
+    "static/media/ball_on_tee2.jpg": "/static/media/ball_on_tee2.f14fd844562004467520.jpg",
+    "static/media/golf_ball_green.jpg": "/static/media/golf_ball_green.127cfd034f36f27451fd.jpg",
+    "static/media/golf_ball_green_center.jpg": "/static/media/golf_ball_green_center.c9c8f1266f1f903855fb.jpg",
+    "static/media/white_paper.jpg": "/static/media/white_paper.1fb415ab365cac81397d.jpg",
+    "static/media/sand_trap.jpg": "/static/media/sand_trap.742ecd25ab18de5e4dc9.jpg",
+    "static/media/birdseye.jpg": "/static/media/birdseye.f2e631f0d45ee2133e85.jpg",
+    "static/media/ball_on_green.jpg": "/static/media/ball_on_green.cbb8cc8e2c0df7893fda.jpg",
+    "static/media/bucket_of_balls.jpg": "/static/media/bucket_of_balls.e6ffbd36eb2253f7a11e.jpg",
+    "static/media/2022_Spring_Refund.xls": "/static/media/2022_Spring_Refund.50093c1aa0625ed64478.xls",
+    "index.html": "/index.html",
+    "main.c8d7be89.css.map": "/static/css/main.c8d7be89.css.map",
+    "main.6e305cc3.js.map": "/static/js/main.6e305cc3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8d7be89.css",
+    "static/js/main.6e305cc3.js"
+  ]
+}
