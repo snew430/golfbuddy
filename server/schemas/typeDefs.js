@@ -94,7 +94,12 @@ const typeDefs = gql`
 
     deletePlayer(id: ID!): Player
 
-    addCourse(name: String!, address: String!, website: String!): Course
+    addCourse(
+      name: String!
+      address: String!
+      website: String!
+      teeTime: String!
+    ): Course
 
     addHotel(name: String!, address: String!, website: String!): Hotel
 
@@ -115,18 +120,22 @@ const typeDefs = gql`
       courseOneAddress: String!
       courseOneWebsite: String!
       courseOnePhoneNumber: String!
+      courseOneTeeTime: String!
       courseTwoName: String!
       courseTwoAddress: String!
       courseTwoWebsite: String!
       courseTwoPhoneNumber: String!
+      courseTneTeeTime: String!
       courseThreeName: String!
       courseThreeAddress: String!
       courseThreeWebsite: String!
       courseThreePhoneNumber: String!
+      courseThreeTeeTime: String!
       courseFourName: String!
       courseFourAddress: String!
       courseFourWebsite: String!
       courseFourPhoneNumber: String!
+      courseFourTeeTime: String!
     ): Trip
 
     editTrip(
@@ -147,18 +156,22 @@ const typeDefs = gql`
       courseOneAddress: String
       courseOneWebsite: String
       courseOnePhoneNumber: String
+      courseOneTeeTime: String
       courseTwoName: String
       courseTwoAddress: String
       courseTwoWebsite: String
       courseTwoPhoneNumber: String
+      courseTwoTeeTime: String
       courseThreeName: String
       courseThreeAddress: String
       courseThreeWebsite: String
       courseThreePhoneNumber: String
+      courseThreeTeeTime: String
       courseFourName: String
       courseFourAddress: String
       courseFourWebsite: String
       courseFourPhoneNumber: String
+      courseFourTeeTime: String
     ): Trip
 
     deleteTrip(id: ID!): Trip
