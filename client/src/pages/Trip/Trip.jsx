@@ -64,11 +64,11 @@ const Trip = () => {
             </p>
             <p className="p-text">
               <a
-                className="p-text link"
+                className="p-text"
                 href={`tel:${trip.hotel.phoneNumber}`}
                 rel="noreferrer"
               >
-                Telephone :{trip.hotel.phoneNumber}
+                Phone Number: {trip.hotel.phoneNumber}
               </a>
             </p>
             <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>
@@ -79,7 +79,7 @@ const Trip = () => {
             <h4>Courses</h4>
             {trip.courses.map((course, i) => (
               <p className="p-text" key={course._id}>
-                Day {i + 1}: <br />
+                Day {i + 1} <br />
                 <a
                   className="p-text link"
                   href={course.website}
@@ -112,6 +112,17 @@ const Trip = () => {
           <br />
           or mail a check to
           <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+        </p>
+
+        <p className="info-text">
+          Money received after due date is subject to $25 late fee.
+        </p>
+
+        <p className="info-text">
+          If you cancel at any time after payment for a trip, you may be subject to a termination fee.
+          <br/>
+          The fee will depend on whether the committee can find a replacement golfer, or if we can get money back from the hotel or courses that require payment several weeks in advance of the start of the trip. 
+          Any money that you have left after the termination fee can be applied to future trips.
         </p>
 
         <p className="info-text">

@@ -21,7 +21,7 @@ const Home = () => {
         {loggedIn ? (
           <div className="buttons">
             <Link to="../trip">
-              <button>Trip Info</button>
+              <button>Trip Information</button>
             </Link>
           </div>
         ) : (
