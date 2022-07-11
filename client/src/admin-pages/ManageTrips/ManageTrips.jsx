@@ -18,8 +18,6 @@ const ManageTrips = () => {
 
   const trips = tripData?.trips || [];
 
-  console.log(trips);
-
   const loggedIn = Auth.loggedIn();
 
   const handleActiveClick = async (changeTripToActiveId) => {

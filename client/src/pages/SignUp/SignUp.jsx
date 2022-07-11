@@ -3,7 +3,11 @@ import "./SignUp.scss";
 import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { QUERY_TRIPS } from "../../utils/queries";
-import { ADD_ACTIVE_PLAYER, ADD_WAITLIST_PLAYER } from "../../utils/mutations";
+import {
+  ADD_ACTIVE_PLAYER,
+  ADD_WAITLIST_PLAYER,
+  SEND_MESSAGE,
+} from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import Refunds from "../../assets/2022_Spring_Refund.xls";
 
@@ -16,8 +20,11 @@ const SignUp = () => {
     preferredRoomate: "",
     lodging: "",
   });
-
+  const [signupMessage, setSignupMessage] = useState(
+    "You are signed up. See you on the course!"
+  );
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [sendMessage] = useMutation(SEND_MESSAGE);
 
   const { data: basicTourney } = useQuery(QUERY_TRIPS);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
@@ -30,19 +37,19 @@ const SignUp = () => {
   const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
     formData;
 
-    const loggedIn = Auth.loggedIn();
+  const loggedIn = Auth.loggedIn();
 
-    if (!loggedIn) {
-      return (
-        <div className="cheat-container">
-          <h3 className="cheat-text">
-            You need to log in first. Don't cheat by looking at something you're
-            not supposed to. <br />
-            Makes me think you cheat at golf too
-          </h3>
-        </div>
-      );
-    }
+  if (!loggedIn) {
+    return (
+      <div className="cheat-container">
+        <h3 className="cheat-text">
+          You need to log in first. Don't cheat by looking at something you're
+          not supposed to. <br />
+          Makes me think you cheat at golf too
+        </h3>
+      </div>
+    );
+  }
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -50,10 +57,23 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
+
     const tripId = trip._id;
+    const [recipients, subject, message] = [
+      email,
+      "Welcome to the Trip!",
+      "You're signed up for the fall trip. Your money is due August 1 to secure your spot.",
+    ];
     if (status === "active") {
       try {
-        addPlayer({
+        await sendMessage({
+          variables: {
+            recipients,
+            subject,
+            message,
+          },
+        });
+        await addPlayer({
           variables: {
             tripId,
             firstName,
@@ -69,6 +89,14 @@ const SignUp = () => {
       }
     } else {
       try {
+        setSignupMessage("You are now on the waitlist");
+        await sendMessage({
+          variables: {
+            recipients,
+            subject,
+            message,
+          },
+        });
         addWaitlistPlayer({
           variables: {
             tripId,
@@ -83,6 +111,7 @@ const SignUp = () => {
       } catch (err) {
         console.error(err);
       }
+
     }
 
     setformData({
@@ -192,28 +221,36 @@ const SignUp = () => {
           </h5>
 
           <p className="info-text">
-            Please send payments through Venmo 
-              <a href="https://account.venmo.com/u/John-McKenna-145">@John-McKenna-14</a> 
-
-                 or mail a check to
-              <br /> 
+            Please send payments through Venmo
+            <a href="https://account.venmo.com/u/John-McKenna-145">
+              @John-McKenna-14
+            </a>
+            or mail a check to
+            <br />
             John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
           </p>
 
-          <p className="info-text">Disclaimer: You may be entitled to a refund from last trip 
-            <br/> Please check document below
+          <p className="info-text">
+            Disclaimer: You may be entitled to a refund from last trip
+            <br /> Please check document below
           </p>
 
-          <a className="app__flex" href={Refunds} target='blank' rel="noopener noreferrer">
+          <a
+            className="app__flex"
+            href={Refunds}
+            target="blank"
+            rel="noopener noreferrer"
+          >
             <button className="refundBtn">Refunds</button>
           </a>
 
           <p className="info-text">
             The cost of the trip includes: <br />
-            Accomodations, Green Fees, and Prize Money
+            Accomodations, Green Fees, and Prize Money. <br />
+            Money received after due date is subject to $25 late fee. <br />
+            For canceled reservations, we will do our best to return your money
+            but that is subject to course and hotel cancelation fees.
           </p>
-          
-
 
           <motion.div
             whileInView={{ opacity: [0, 1] }}
@@ -239,7 +276,7 @@ const SignUp = () => {
         </div>
       ) : (
         <div>
-          <h3 className="head-text">See You On The Course!</h3>
+          <h3 className="head-text">{signupMessage}</h3>
         </div>
       )}
     </div>
