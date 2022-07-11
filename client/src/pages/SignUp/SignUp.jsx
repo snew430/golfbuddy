@@ -231,6 +231,15 @@ const SignUp = () => {
           </p>
 
           <p className="info-text">
+            Money received after due date is subject to $25 late fee.
+          </p>
+
+          <p className="info-text">
+            The cost of the trip includes: <br />
+            Accomodations, Green Fees, and Prize Money.
+          </p>
+
+          <p className="info-text">
             Disclaimer: You may be entitled to a refund from last trip
             <br /> Please check document below
           </p>
@@ -245,11 +254,10 @@ const SignUp = () => {
           </a>
 
           <p className="info-text">
-            The cost of the trip includes: <br />
-            Accomodations, Green Fees, and Prize Money. <br />
-            Money received after due date is subject to $25 late fee. <br />
-            For canceled reservations, we will do our best to return your money
-            but that is subject to course and hotel cancelation fees.
+
+          If you cancel at any time after payment for a trip, you may be subject to a termination fee.
+          <br/>
+          We will do our best to return your money, but returns are subject to course and hotel cancelation fees.
           </p>
 
           <motion.div
