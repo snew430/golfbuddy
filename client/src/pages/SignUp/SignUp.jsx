@@ -229,6 +229,15 @@ const SignUp = () => {
           </p>
 
           <p className="info-text">
+            Money received after due date is subject to $25 late fee.
+          </p>
+
+          <p className="info-text">
+            The cost of the trip includes: <br />
+            Accomodations, Green Fees, and Prize Money.
+          </p>
+
+          <p className="info-text">
             Disclaimer: You may be entitled to a refund from last trip
             <br /> Please check document below
           </p>
@@ -243,17 +252,10 @@ const SignUp = () => {
           </a>
 
           <p className="info-text">
-            The cost of the trip includes: <br />
-            Accomodations, Green Fees, and Prize Money. <br />
-          </p>
 
-          <p id="cancelation-policy">
-            If you cancel at any time after payment for a trip, you may be
-            subject to a termination fee. The fee will depend on whether the
-            committee can find a replacement golfer, or if we can get money back
-            from the hotel or courses that require payment several weeks in
-            advance of the start of the trip. Any money that you have left after
-            the termination fee can be applied to future trips.
+          If you cancel at any time after payment for a trip, you may be subject to a termination fee.
+          <br/>
+          We will do our best to return your money, but returns are subject to course and hotel cancelation fees.
           </p>
 
           <motion.div
