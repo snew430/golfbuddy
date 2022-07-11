@@ -25,6 +25,7 @@ const typeDefs = gql`
     address: String
     website: String
     phoneNumber: String
+    teeTime: String
   }
   type Hotel {
     _id: ID
