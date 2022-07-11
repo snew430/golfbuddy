@@ -80,6 +80,7 @@ const Trip = () => {
             {trip.courses.map((course, i) => (
               <p className="p-text" key={course._id}>
                 Day {i + 1} <br />
+                <p className="p-text">{course.teeTime}</p>
                 <a
                   className="p-text link"
                   href={course.website}

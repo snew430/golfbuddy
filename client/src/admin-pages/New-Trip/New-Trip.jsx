@@ -275,6 +275,12 @@ const NewTrip = () => {
               />
               <input
                 type="text"
+                placeholder="Tee Time"
+                name="courseOneTeeTime"
+                onChange={handleChangeInput}
+              />
+              <input
+                type="text"
                 placeholder="Course One Address"
                 name="courseOneAddress"
                 onChange={handleChangeInput}
@@ -298,6 +304,12 @@ const NewTrip = () => {
                 type="text"
                 placeholder="Course Two"
                 name="courseTwoName"
+                onChange={handleChangeInput}
+              />
+             <input
+                type="text"
+                placeholder="Tee Time"
+                name="courseTwoTeeTime"
                 onChange={handleChangeInput}
               />
               <input
@@ -329,6 +341,12 @@ const NewTrip = () => {
               />
               <input
                 type="text"
+                placeholder="Tee Time"
+                name="courseThreeTeeTime"
+                onChange={handleChangeInput}
+              />
+              <input
+                type="text"
                 placeholder="Course Three Address"
                 name="courseThreeAddress"
                 onChange={handleChangeInput}
@@ -352,6 +370,12 @@ const NewTrip = () => {
                 type="text"
                 placeholder="Course Four"
                 name="courseFourName"
+                onChange={handleChangeInput}
+              />
+             <input
+                type="text"
+                placeholder="Tee Time"
+                name="courseFourTeeTime"
                 onChange={handleChangeInput}
               />
               <input
