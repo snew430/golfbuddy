@@ -83,6 +83,7 @@ export const QUERY_COURSES = gql`
       name
       website
       address
+      teeTime
     }
   }
 `;
@@ -127,6 +128,7 @@ export const QUERY_TRIPS = gql`
         address
         website
         phoneNumber
+        teeTime
       }
       hotel {
         _id
@@ -178,6 +180,7 @@ export const QUERY_BASIC_TRIPS = gql`
         name
         address
         website
+        teeTime
       }
       hotel {
         _id
@@ -207,6 +210,7 @@ export const QUERY_TRIP = gql`
         name
         address
         website
+        teeTime
       }
       hotel {
         _id
@@ -256,6 +260,7 @@ export const QUERY_BASIC_TRIP = gql`
         name
         address
         website
+        teeTime
       }
       hotel {
         _id
@@ -286,6 +291,7 @@ export const QUERY_ACTIVE_TRIP = gql`
         address
         website
         phoneNumber
+        teeTime
       }
       hotel {
         _id

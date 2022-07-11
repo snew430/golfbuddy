@@ -10,7 +10,6 @@ const Trip = () => {
   const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || [];
 
-
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {
@@ -80,7 +79,7 @@ const Trip = () => {
             {trip.courses.map((course, i) => (
               <p className="p-text" key={course._id}>
                 Day {i + 1} <br />
-                <p className="p-text">{course.teeTime}</p>
+                <p className="p-text">Start Time: {course.teeTime}</p>
                 <a
                   className="p-text link"
                   href={course.website}
@@ -120,10 +119,14 @@ const Trip = () => {
         </p>
 
         <p className="info-text">
-          If you cancel at any time after payment for a trip, you may be subject to a termination fee.
-          <br/>
-          The fee will depend on whether the committee can find a replacement golfer, or if we can get money back from the hotel or courses that require payment several weeks in advance of the start of the trip. 
-          Any money that you have left after the termination fee can be applied to future trips.
+          If you cancel at any time after payment for a trip, you may be subject
+          to a termination fee.
+          <br />
+          The fee will depend on whether the committee can find a replacement
+          golfer, or if we can get money back from the hotel or courses that
+          require payment several weeks in advance of the start of the trip. Any
+          money that you have left after the termination fee can be applied to
+          future trips.
         </p>
 
         <p className="info-text">

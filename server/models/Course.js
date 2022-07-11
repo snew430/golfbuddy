@@ -20,6 +20,10 @@ const courseSchema = new Schema({
     type: String,
     required: true,
   },
+  teeTime: {
+    type: String,
+    required: true,
+  },
 });
 
 const Course = mongoose.model("Course", courseSchema);

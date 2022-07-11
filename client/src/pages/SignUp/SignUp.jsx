@@ -57,7 +57,6 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
-
     const tripId = trip._id;
     const [recipients, subject, message] = [
       email,
@@ -111,7 +110,6 @@ const SignUp = () => {
       } catch (err) {
         console.error(err);
       }
-
     }
 
     setformData({

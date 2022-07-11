@@ -24,7 +24,8 @@ db.once("open", async () => {
     address: "7000 Rum Pointe Lane Berin, Maryland 21811",
     website: "https://rumpointe.com/",
     phoneNumber: "4106291414",
-    //11am
+    teeTime: "11:00 AM",
+
   });
 
   const course2 = await Course.create({
@@ -32,7 +33,8 @@ db.once("open", async () => {
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
     phoneNumber: "4102132325",
-    //9am
+    teeTime: "9:00 AM",
+
   });
 
   const course3 = await Course.create({
@@ -40,7 +42,8 @@ db.once("open", async () => {
     address: "11501 Maid at Arms Lane Berlin, Maryland 21811",
     website: "https://glenriddlegolf.com/",
     phoneNumber: "4102132325",
-    //9am
+    teeTime: "9:00 AM",
+
   });
 
   const course4 = await Course.create({
@@ -48,7 +51,8 @@ db.once("open", async () => {
     address: "1019 W Locust Street, Seaford, Delaware 19973",
     website: "https://www.hooperslanding.com/",
     phoneNumber: "3026292890",
-    //9am
+    teeTime: "9:00 AM",
+
   });
 
   const hotel1 = await Hotel.create({

@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  
+
   .head-text {
     padding-top: 6rem;
     font-size: 5rem;
@@ -114,6 +114,26 @@
       }
     }
 
+    #cancelation-policy {
+      border: 5px solid;
+      color: var(--darkGreen-color);
+      padding: 20px;
+      width: 80%;
+      text-align: center;
+      text-shadow: -1px 0 black;
+      line-height: 1.5;
+      margin: 15px 150px 15px;
+      font-size: 1.5rem;
+
+      @media screen and (max-width: 1200px) {
+        margin: 10px 70px 10px;
+      }
+
+      @media screen and (max-width: 450px) {
+        margin: 10px;
+      }
+    }
+
     h5 {
       font-size: 3.5rem;
       font-weight: 600;
@@ -142,8 +162,6 @@
       }
 
       button {
-        // text-align: center;
-        // justify-content: flex-start;
         padding: 1rem 2rem;
         border-radius: 10px;
         border: none;
@@ -172,7 +190,7 @@
       }
     }
 
-    .refundBtn{
+    .refundBtn {
       padding: 1rem 2rem;
       border-radius: 10px;
       border: none;
@@ -187,7 +205,6 @@
       cursor: pointer;
     }
 
-    
     a {
       color: var(--secondary-color);
       padding: 5px;
@@ -220,7 +237,7 @@
     }
   }
 
-  a { 
+  a {
     color: var(--primary-color);
   }
 }
