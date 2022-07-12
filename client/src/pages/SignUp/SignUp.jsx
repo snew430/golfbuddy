@@ -221,7 +221,7 @@ const SignUp = () => {
           <p className="info-text">
             Please send payments through Venmo
             <a href="https://account.venmo.com/u/John-McKenna-145">
-              @John-McKenna-14
+              @John-McKenna-145
             </a>
             or mail a check to
             <br />
@@ -252,10 +252,11 @@ const SignUp = () => {
           </a>
 
           <p className="info-text">
-
-          If you cancel at any time after payment for a trip, you may be subject to a termination fee.
-          <br/>
-          We will do our best to return your money, but returns are subject to course and hotel cancelation fees.
+            If you cancel at any time after payment for a trip, you may be
+            subject to a termination fee.
+            <br />
+            We will do our best to return your money, but returns are subject to
+            course and hotel cancelation fees.
           </p>
 
           <motion.div
