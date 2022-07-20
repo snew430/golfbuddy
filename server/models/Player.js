@@ -6,23 +6,22 @@ const bcrypt = require("bcrypt");
 const playerSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
   },
   lastName: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   phoneNumber: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
   preferredRoomate: {

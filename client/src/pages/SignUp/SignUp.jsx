@@ -96,6 +96,15 @@ const SignUp = () => {
             message,
           },
         });
+        console.log(
+          tripId,
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          preferredRoomate,
+          lodging
+        );
         addWaitlistPlayer({
           variables: {
             tripId,
