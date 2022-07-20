@@ -17,12 +17,12 @@ const playerSchema = new Schema({
   email: {
     type: String,
     // required: true,
-    unique: true,
+    // unique: true,
   },
   phoneNumber: {
     type: String,
     // required: true,
-    unique: true,
+    // unique: true,
   },
   preferredRoomate: {
     type: String,
