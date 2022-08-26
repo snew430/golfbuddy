@@ -1,7 +1,7 @@
 #home {
-  padding: 6rem 2rem 0rem;
+  padding: 3rem 2rem 0rem;
 
-  background: url("../../assets/images/golf_ball_green.jpg");
+  background: url('../../assets/images/golf_ball_green.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -46,9 +46,30 @@
 
   @media screen and (max-width: 900px) {
     width: 100%;
-    background: url("../../assets/images/golf_ball_green_center.jpg");
+    background: url('../../assets/images/golf_ball_green_center.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
   }
+}
+
+.pdfs {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page p {
+  position: absolute;
+  text-align: center;
+  right: 46%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgba(2, 87, 66, 0.593);
 }
