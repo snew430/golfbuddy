@@ -1,25 +1,25 @@
-import React from "react";
-import "./Rules.scss";
+import React from 'react';
+import './Rules.scss';
 // import { motion } from "framer-motion";
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_RULES } from "../../utils/queries";
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_RULES } from '../../utils/queries';
 import {
   ADD_INFO,
   EDIT_INFO,
   DELETE_INFO,
   SWAP_INFO_PLACE,
-} from "../../utils/mutations";
-import { CreatePDFfromHTML } from "../../utils/downloadPDF";
-import Auth from "../../utils/auth";
-import { BsPencilSquare } from "react-icons/bs";
+} from '../../utils/mutations';
+import { CreatePDFfromHTML } from '../../utils/downloadPDF';
+import Auth from '../../utils/auth';
+import { BsPencilSquare } from 'react-icons/bs';
 import {
   FaPlus,
   FaMinus,
   FaTrashAlt,
   FaArrowUp,
   FaArrowDown,
-} from "react-icons/fa";
-import { FiXSquare } from "react-icons/fi";
+} from 'react-icons/fa';
+import { FiXSquare } from 'react-icons/fi';
 
 const Rules = () => {
   const { loading, data: rulesData, refetch } = useQuery(QUERY_RULES);
@@ -48,10 +48,8 @@ const Rules = () => {
   };
 
   function handleSwapRule(firstId, e) {
-
     let firstSibling = e.target.parentNode.parentNode.parentNode;
     let lastSibling = e.target.parentNode.parentNode.parentNode;
-
   }
 
   if (!loggedIn) {
@@ -70,22 +68,26 @@ const Rules = () => {
     <div id="rules">
       <div className="background" id="printRules">
         <h2 className="head-text">Rules & Regulations</h2>
-        {/* {admin ? (
-          <>
-            <span className="hovertext" data-hover="Add Rule">
-              <FaTrashAlt
-                className="add"
-                onClick={() => handleAddRule("Rules & Regulations")}
-              />
-            </span>
-          </>
-        ) : (
-          <></>
-        )} */}
+        <div className="video-div">
+          <h3>
+            If you don't feel like reading, heres a video to sum up this entire
+            page...
+          </h3>
+          <iframe
+            width="795"
+            height="447"
+            src="https://www.youtube.com/embed/30B7RYcorGQ"
+            title="Irish Golf Vs American Golf"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
         <div className="rules-content">
           <p className="p-text">
             Welcome to the guys joining us for the first time! <br />
-            Here's information that will make your golfing more enjoyable.{" "}
+            Here's information that will make your golfing more enjoyable.{' '}
             <br />
             All competition is based on what you shoot against your own handicap
             (or what you told us you shoot). <br />
@@ -94,29 +96,9 @@ const Rules = () => {
           </p>
 
           {rules.map((rule) =>
-            rule.subject === "Rules & Regulations" ? (
+            rule.subject === 'Rules & Regulations' ? (
               <div data-id={rule._id}>
-                <h4 className="h4-text">
-                  {rule.header}
-                  {/* {admin ? (
-                    <>
-                      <span className="hovertext" data-hover="Delete">
-                        <FaTrashAlt
-                          className="delete"
-                          onClick={() => handleDeleteRule(rule._id)}
-                        />
-                      </span>
-                      <span className="hovertext" data-hover="Edit">
-                      <BsPencilSquare
-                        className="edit"
-                        onClick={() => handleEditRule(rule._id)}
-                      />
-                    </span>
-                    </>
-                  ) : (
-                    <></>
-                  )} */}
-                </h4>
+                <h4 className="h4-text">{rule.header}</h4>
 
                 <p className="p-text">{rule.body}</p>
               </div>
@@ -127,29 +109,11 @@ const Rules = () => {
 
           <h2 className="secondary-text">Ryder Cup</h2>
           {rules.map((rule) =>
-            rule.subject === "Ryder Cup" ? (
+            rule.subject === 'Ryder Cup' ? (
               <>
                 <h4 className="h4-text" key={rule._id}>
                   {rule.header}
                 </h4>
-                {/* {admin ? (
-                  <>
-                    <span className="hovertext" data-hover="Delete">
-                      <FaTrashAlt
-                        className="delete"
-                        onClick={() => handleDeleteRule(rule._id)}
-                      />
-                    </span>
-                    <span className="hovertext" data-hover="Edit">
-                      <BsPencilSquare
-                        className="edit"
-                        onClick={() => handleEditRule(rule._id)}
-                      />
-                    </span>
-                  </>
-                ) : (
-                  <></>
-                )} */}
                 <p className="p-text">{rule.body}</p>
               </>
             ) : (

@@ -1,5 +1,5 @@
 #rules {
-  background: url("../../assets/images/golf_green2.jpg");
+  background: url('../../assets/images/golf_green2.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -232,5 +232,20 @@
     outline: none;
     font-family: var(--font-base);
     cursor: pointer;
+  }
+}
+
+.video-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.video-div iframe {
+  margin-top: 20px;
+  @media screen and (max-width: 800px) {
+    width: 50%;
+    height: auto;
   }
 }
