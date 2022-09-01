@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Admin {
@@ -60,6 +60,12 @@ const typeDefs = gql`
     place: Int
   }
 
+  type Note {
+    _id: ID
+    header: String
+    body: String
+  }
+
   type Query {
     players: [Player]
     courses: [Course]
@@ -68,6 +74,7 @@ const typeDefs = gql`
     trip(id: ID!): Trip
     info: [Info]
     activeTrip: Trip
+    note: [Note]
   }
 
   type Mutation {
@@ -235,6 +242,8 @@ const typeDefs = gql`
     deleteInfo(id: ID!): Info
 
     swapInfoPlace(firstID: ID!, secondID: ID!): Info
+
+    updateNote(header: String, body: String): Note
   }
 `;
 

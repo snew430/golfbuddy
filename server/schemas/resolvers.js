@@ -1,10 +1,10 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { Admin, Player, Course, Hotel, Trip, Info } = require("../models");
-const { signToken } = require("../utils/auth");
-const fs = require("fs");
+const { AuthenticationError } = require('apollo-server-express');
+const { Admin, Player, Course, Hotel, Trip, Info, Note } = require('../models');
+const { signToken } = require('../utils/auth');
+const fs = require('fs');
 
-require("dotenv").config();
-let nodemailer = require("nodemailer");
+require('dotenv').config();
+let nodemailer = require('nodemailer');
 
 const resolvers = {
   Query: {
@@ -19,17 +19,17 @@ const resolvers = {
     },
     trips: async () => {
       return await Trip.find()
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
     },
     trip: async (parent, { id }) => {
       return await Trip.findById(id)
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
     },
     info: async () => {
       const info = await Info.find();
@@ -38,12 +38,16 @@ const resolvers = {
     activeTrip: async () => {
       const activeTrip = await (
         await Trip.find()
-          .populate("courses")
-          .populate("hotel")
-          .populate("playersActive")
-          .populate("playersWaitlist")
+          .populate('courses')
+          .populate('hotel')
+          .populate('playersActive')
+          .populate('playersWaitlist')
       ).filter((trip) => trip.active === true);
       return activeTrip[0];
+    },
+    note: async () => {
+      const note = await Note.find();
+      return note;
     },
   },
   Mutation: {
@@ -51,13 +55,13 @@ const resolvers = {
       const user = await Admin.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
@@ -78,7 +82,7 @@ const resolvers = {
           runValidators: true,
         });
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     deletePlayer: async (parent, { id }, context) => {
@@ -87,7 +91,7 @@ const resolvers = {
           new: true,
         });
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     //LOGIN REQUIRED
@@ -96,7 +100,7 @@ const resolvers = {
         const course = await Course.create(args);
         return course;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     //LOGIN REQUIRED
@@ -105,7 +109,7 @@ const resolvers = {
         const hotel = await Hotel.create(args);
         return hotel;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     //LOGIN REQUIRED
@@ -156,7 +160,7 @@ const resolvers = {
         });
         return trip;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     //LOGIN REQUIRED
@@ -167,7 +171,7 @@ const resolvers = {
           runValidators: true,
         });
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
 
     changeTripToActive: async (parent, { id }, context) => {
@@ -221,10 +225,10 @@ const resolvers = {
         },
         { new: true, runValidators: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -240,10 +244,10 @@ const resolvers = {
           },
           { new: true }
         )
-          .populate("courses")
-          .populate("hotel")
-          .populate("playersActive")
-          .populate("playersWaitlist");
+          .populate('courses')
+          .populate('hotel')
+          .populate('playersActive')
+          .populate('playersWaitlist');
 
         return updatedTrip;
       } catch (error) {
@@ -261,10 +265,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -299,10 +303,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -317,10 +321,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -336,10 +340,10 @@ const resolvers = {
           },
           { new: true }
         )
-          .populate("courses")
-          .populate("hotel")
-          .populate("playersActive")
-          .populate("playersWaitlist");
+          .populate('courses')
+          .populate('hotel')
+          .populate('playersActive')
+          .populate('playersWaitlist');
 
         return updatedTrip;
       } catch (error) {
@@ -359,10 +363,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -377,10 +381,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -397,10 +401,10 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
@@ -415,17 +419,17 @@ const resolvers = {
         },
         { new: true }
       )
-        .populate("courses")
-        .populate("hotel")
-        .populate("playersActive")
-        .populate("playersWaitlist");
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
 
       return updatedTrip;
     },
 
     sendMessage: async (parent, { recipients, subject, message, file }) => {
       let transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: 'gmail',
         auth: {
           user: process.env.EMAIL,
           pass: process.env.NODEPASS,
@@ -505,6 +509,11 @@ const resolvers = {
         place: firstInfo.place,
         new: true,
       });
+    },
+
+    updateNote: async (parent, args, context) => {
+      await Note.deleteMany();
+      return Note.create(args);
     },
   },
 };

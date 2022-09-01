@@ -325,3 +325,12 @@ export const QUERY_ACTIVE_TRIP = gql`
     }
   }
 `;
+
+export const QUERY_NOTE = gql`
+  {
+    note {
+      header
+      body
+    }
+  }
+`;

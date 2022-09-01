@@ -1,15 +1,15 @@
-import React from "react";
-import "./App.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from 'react';
+import './App.scss';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
+} from '@apollo/client';
 
-import { setContext } from "@apollo/client/link/context";
+import { setContext } from '@apollo/client/link/context';
 
 import {
   Rules,
@@ -20,7 +20,8 @@ import {
   Administration,
   NoMatch,
   Login,
-} from "./pages";
+  Info,
+} from './pages';
 
 import {
   PlayerList,
@@ -29,20 +30,20 @@ import {
   AdminHome,
   Message,
   ManageTrips,
-} from "./admin-pages";
+} from './admin-pages';
 
-import { Nav } from "./components";
+import { Nav } from './components';
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -62,6 +63,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/trip" element={<Trip />} />
+            <Route path="/info" element={<Info />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/history" element={<History />} />
             <Route path="/signup" element={<SignUp />} />
