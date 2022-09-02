@@ -281,19 +281,19 @@ const NewTrip = () => {
               />
               <input
                 type="text"
-                placeholder="Course One Address"
+                placeholder="Course Address"
                 name="courseOneAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course One Website"
+                placeholder="Course Website"
                 name="courseOneWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course One Phone Number"
+                placeholder="Course Phone Number"
                 name="courseOnePhoneNumber"
                 onChange={handleChangeInput}
               />
@@ -314,19 +314,19 @@ const NewTrip = () => {
               />
               <input
                 type="text"
-                placeholder="Course Two Address"
+                placeholder="Course Address"
                 name="courseTwoAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Two Website"
+                placeholder="Course Website"
                 name="courseTwoWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Two Phone Number"
+                placeholder="Course Phone Number"
                 name="courseTwoPhoneNumber"
                 onChange={handleChangeInput}
               />
@@ -347,19 +347,19 @@ const NewTrip = () => {
               />
               <input
                 type="text"
-                placeholder="Course Three Address"
+                placeholder="Course Address"
                 name="courseThreeAddress"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Three Website"
+                placeholder="Course Website"
                 name="courseThreeWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Three Phone Number"
+                placeholder="Course Phone Number"
                 name="courseThreePhoneNumber"
                 onChange={handleChangeInput}
               />
@@ -380,20 +380,20 @@ const NewTrip = () => {
               />
               <input
                 type="text"
-                placeholder="Course Four Address"
+                placeholder="Course Address"
                 name="courseFourAddress"
                 onChange={handleChangeInput}
               />
               <br />
               <input
                 type="text"
-                placeholder="Course Four Website"
+                placeholder="Course Website"
                 name="courseFourWebsite"
                 onChange={handleChangeInput}
               />
               <input
                 type="text"
-                placeholder="Course Four Phone Number"
+                placeholder="Course Phone Number"
                 name="courseFourPhoneNumber"
                 onChange={handleChangeInput}
               />
