@@ -5,5 +5,5 @@ export { default as Rules } from './Rules/Rules';
 export { default as Home } from './Home/Home';
 export { default as Administration } from './Administration/Administration';
 export { default as Login } from './Login/Login';
-export { default as Info } from './Info/Info';
 export { default as NoMatch } from './NoMatch/NoMatch';
+export { default as Announcement } from './Announcement/Announcement';

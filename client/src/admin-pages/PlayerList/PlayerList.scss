@@ -65,11 +65,11 @@
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
-      font-size: 2rem;
+      font-size: 1.5rem;
       text-decoration: none;
 
       .delete {
-        font-size: 3rem;
+        font-size: 2rem;
         color: white;
         padding: 8px;
         background-color: red;
@@ -81,7 +81,7 @@
       }
 
       .edit {
-        font-size: 3rem;
+        font-size: 2rem;
         color: var(--white-color);
         padding: 8px;
         background-color: #6495ed;
@@ -93,7 +93,7 @@
       }
 
       .plus {
-        font-size: 3rem;
+        font-size: 2rem;
         color: var(--white-color);
         padding: 8px;
         background-color: #74c365;
@@ -105,7 +105,7 @@
       }
 
       .minus {
-        font-size: 3rem;
+        font-size: 2rem;
         color: var(--white-color);
         padding: 8px;
         background-color: #ffc40c;
@@ -117,7 +117,7 @@
       }
 
       .grey {
-        font-size: 3rem;
+        font-size: 2rem;
         color: var(--white-color);
         padding: 8px;
         background-color: #909090;
@@ -161,7 +161,7 @@
 
     @media only screen and (max-width: 1700px) {
       th {
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
       td {
         font-size: 1.6rem;
@@ -175,12 +175,12 @@
 
       td {
         display: block;
-        font-size: 3rem;
+        font-size: 1.5rem;
       }
 
       td:first-child {
         color: var(--yellow-color);
-        font-size: 4rem;
+        font-size: 3rem;
       }
     }
 
