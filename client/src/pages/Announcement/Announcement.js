@@ -37,17 +37,19 @@ const Info = ({ announcement, refetchAnnouncements}) => {
   return (
     <>
     {" "}
-    {isModalOpen && (
+
+      <div id="announcement">
+        <div className="background">
+          <div className="background2">
+            <h2 className="head-text">Announcements</h2>
+
+            {isModalOpen && (
       <NoteModal
         announcement={currentAnnouncement}
         onClose={toggleModal}
         refetchAnnouncements={refetchAnnouncements}
       />
     )}
-      <div id="announcement">
-        <div className="background">
-          <div className="background2">
-            <h2 className="head-text">Announcements</h2>
           
           {announcements.map((announcement) =>
               <div data-id={announcement._id}>

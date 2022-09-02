@@ -45,18 +45,22 @@ const NoteModal = ({ announcement, onClose, refetchAnnouncements }) => {
         <div>
             <h4>Title: </h4>
             <input
+                className="p-text"
                 type="text"
-                name="announcementHeader"
+                placeholder="Title"
+                name="header"
                 //   value={header}
                 defaultValue={announcement.header}
                 onChange={handleChangeInput}
               />
         </div>
         <div>
-        <h4>Title: </h4>
-            <input
+        <h4>Annoucement: </h4>
+            <textarea
+                className="p-text"
+                placeholder="Your Announcement"
                 type="text"
-                name="announcementBody"
+                name="body"
                 //   value={body}
                 defaultValue={announcement.body}
                 onChange={handleChangeInput}
@@ -68,7 +72,6 @@ const NoteModal = ({ announcement, onClose, refetchAnnouncements }) => {
             className="submitBtn"
             onClick={() => handleSubmit()}
           >
-            
           </button>
         </div>
       </div>
