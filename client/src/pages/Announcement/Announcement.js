@@ -7,10 +7,12 @@ import Auth from '../../utils/auth';
 
 const Info = () => {
   const { loading, data: noteData, refetch } = useQuery(QUERY_NOTE);
+  const announcements = noteData?.note || [];
   const [updateNote] = useMutation(UPDATE_NOTE);
 
   console.log(noteData);
   const loggedIn = Auth.loggedIn();
+  const admin = Auth.adminLogIn();
 
   if (!loggedIn) {
     return (
@@ -27,20 +29,17 @@ const Info = () => {
   return (
     <div id="announcement">
       <div className="background">
-        <h2 className="head-text">Announcements</h2>
+        <div className="background2">
+          <h2 className="head-text">Announcements</h2>
+        
+        {announcements.map((announcement) =>
+            <div data-id={announcement._id}>
+              <h4 className="h4-text">{announcement.header}</h4>
+              <p className="p-text">{announcement.body}</p>
+            </div>
+         )}
+         </div>
       </div>
-      {noteData.map((note) =>
-            note.subject === 'Rules & Regulations' ? (
-              <div data-id={note._id}>
-                <h4 className="h4-text">{note.header}</h4>
-
-                <p className="p-text">{note.body}</p>
-              </div>
-            ) : (
-              <></>
-            )
-          )}
-
     </div>
   );
 };
