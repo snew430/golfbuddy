@@ -9,9 +9,9 @@ import Auth from '../../utils/auth';
 const Info = ({ announcement, refetchAnnouncements}) => {
   const { loading, data: noteData, refetch } = useQuery(QUERY_NOTE);
   const announcements = noteData?.note || [];
+ 
   const [currentAnnouncement, setCurrentAnnouncement] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [updateNote] = useMutation(UPDATE_NOTE);
 
   console.log(noteData);
   const loggedIn = Auth.loggedIn();
@@ -41,7 +41,6 @@ const Info = ({ announcement, refetchAnnouncements}) => {
       <NoteModal
         announcement={currentAnnouncement}
         onClose={toggleModal}
-        update_add="Update"
         refetchAnnouncements={refetchAnnouncements}
       />
     )}
