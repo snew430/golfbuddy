@@ -42,7 +42,7 @@ const Navbar = () => {
               <Link to={'/trip'}>Trip</Link>
             </li>
             <li className="app__flex p-text">
-              <Link to={'/info'}>Info</Link>
+              <Link to={'/announcement'}>Announcements</Link>
             </li>
             <li className="app__flex p-text">
               <Link to={'/rules'}>Rules</Link>
@@ -112,7 +112,7 @@ const Navbar = () => {
                     <Link to={'/trip'}>Trip</Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/info'}>Info</Link>
+                    <Link to={'/announcement'}>Announcement</Link>
                   </li>
                   <li className="app__flex p-text">
                     <Link to={'/rules'}>Rules</Link>
