@@ -1,0 +1,16 @@
+#noteModal {
+    background-color: rgba(4, 57, 39, 0.9);
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+      
+    .close{
+      padding-top: 6rem;
+      color: white;
+      font-size: 3rem;
+    }
+}
