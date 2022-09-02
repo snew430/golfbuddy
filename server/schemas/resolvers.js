@@ -512,8 +512,7 @@ const resolvers = {
     },
 
     updateNote: async (parent, args, context) => {
-      await Note.deleteMany();
-      return Note.create(args);
+      return await Note.updateOne(args);
     },
   },
 };

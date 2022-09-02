@@ -45,17 +45,13 @@ const Home = () => {
       <div className="pdfs">
         <a href={ryderCupRules}>
           <div className="page">
+            <p>Rules</p>
             <Document
               file={ryderCupRules}
               onLoadSuccess={onDocumentLoadSuccess}
             >
               <Page pageNumber={pageNumber} height="150" />
             </Document>
-            <p>
-              RC
-              <br />
-              Rules
-            </p>
           </div>
         </a>
       </div>

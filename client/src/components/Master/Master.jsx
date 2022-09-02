@@ -42,7 +42,6 @@ const Master = ({ players, refetchPlayers }) => {
 
   return (
     <>
-      {" "}
       {isModalOpen && (
         <Modal
           player={currentPlayer}

@@ -7,14 +7,14 @@
   right: 0;
   top: 0;
   z-index: 1;
-    
-  .close{
+
+  .close {
     padding-top: 6rem;
     color: white;
     font-size: 3rem;
   }
 
-  h3{ 
+  h3 {
     font-size: 5rem;
     font-weight: 600;
     text-align: center;
@@ -30,7 +30,6 @@
     }
   }
 
-
   .app__form {
     display: flex;
     flex-direction: column;
@@ -42,12 +41,12 @@
       margin: 1rem auto;
       width: 20rem;
       border-radius: 10px;
-      cursor: pointer;
+      cursor: text;
       background-color: var(--white-color);
 
       font-size: 1.5rem;
       font-weight: 800;
-      font-family: "Old Standard TT", serif;
+      font-family: 'Old Standard TT', serif;
       color: #282828;
 
       transition: all 0.3 ease-in-out;
@@ -84,7 +83,7 @@
       }
     }
   }
-  
+
   button {
     padding: 1rem 2rem;
     border-radius: 10px;

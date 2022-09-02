@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import './Announcements.scss'
-import { useQuery, useMutation } from '@apollo/client';
-import { UPDATE_NOTE } from '../../utils/mutations';
+import './Announcements.scss';
+import { useQuery } from '@apollo/client';
 import { QUERY_NOTE } from '../../utils/queries';
 import NoteModal from '../../components/NoteModal/NoteModal';
 import Auth from '../../utils/auth';
 
-const Info = ({ announcement, refetchAnnouncements}) => {
+const Announcement = () => {
   const { loading, data: noteData, refetch } = useQuery(QUERY_NOTE);
-  const announcements = noteData?.note || [];
- 
-  const [currentAnnouncement, setCurrentAnnouncement] = useState();
+  const announcements = noteData?.note[0] || { header: '', body: '' };
+  console.log(announcements, loading);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(noteData);
   const loggedIn = Auth.loggedIn();
   const admin = Auth.adminLogIn();
 
-  const toggleModal = (announcement) => {
-    setCurrentAnnouncement(announcement);
+  const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
@@ -36,37 +33,40 @@ const Info = ({ announcement, refetchAnnouncements}) => {
 
   return (
     <>
-    {" "}
-
       <div id="announcement">
         <div className="background">
           <div className="background2">
             <h2 className="head-text">Announcements</h2>
 
             {isModalOpen && (
-      <NoteModal
-        announcement={currentAnnouncement}
-        onClose={toggleModal}
-        refetchAnnouncements={refetchAnnouncements}
-      />
-    )}
-          
-          {announcements.map((announcement) =>
-              <div data-id={announcement._id}>
-                <h4 className="h4-text">{announcement.header}</h4>
-                <p className="p-text">{announcement.body}</p>
+              <NoteModal
+                announcement={announcements}
+                onClose={toggleModal}
+                refetchAnnouncements={refetch}
+              />
+            )}
+            {loading ? (
+              <h4>Loading</h4>
+            ) : (
+              <>
+                <h4 className="h4-text">{announcements.header}</h4>
+                <p className="p-text">{announcements.body}</p>
+              </>
+            )}
+
+            {loggedIn ? (
+              <div className="app__flex">
+                {admin ? (
+                  <button type="button" onClick={() => toggleModal()}>
+                    Edit Announcement
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
-          )}
-          {loggedIn ? (
-            <div className="app__flex">
-              <button type="button" onClick={() => toggleModal(announcement)}>
-                Edit Announcement
-              </button>
-            </div>
-          ) :
-          <>
-          </>
-          }
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>
@@ -74,4 +74,4 @@ const Info = ({ announcement, refetchAnnouncements}) => {
   );
 };
 
-export default Info;
+export default Announcement;
