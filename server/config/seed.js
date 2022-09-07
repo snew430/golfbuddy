@@ -7,7 +7,7 @@ db.once('open', async () => {
   //   await Course.deleteMany();
   //   await Player.deleteMany();
   //   await Trip.deleteMany();
-  await Info.deleteMany();
+  // await Info.deleteMany();
   await Note.deleteMany();
 
   //   await Admin.create({
