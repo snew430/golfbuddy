@@ -8,7 +8,7 @@ db.once('open', async () => {
   //   await Player.deleteMany();
   //   await Trip.deleteMany();
   // await Info.deleteMany();
-  await Note.deleteMany();
+  // await Note.deleteMany();
 
   //   await Admin.create({
   //     email: process.env.EMAIL,
@@ -154,74 +154,74 @@ db.once('open', async () => {
   //     place: 2,
   //   });
 
-  await Info.create({
-    subject: 'Rules And Regulations',
-    header: 'Putts: Gimmes are Ok',
-    body: `Player must add a stroke for the gimme.`,
-    place: 3,
-  });
+  // await Info.create({
+  //   subject: 'Rules And Regulations',
+  //   header: 'Putts: Gimmes are Ok',
+  //   body: `Player must add a stroke for the gimme.`,
+  //   place: 3,
+  // });
 
-  await Info.create({
-    subject: 'Rules & Regulations',
-    header: '',
-    body: `We will set the foursomes for Sunday, and Wednesday’s Ryder Cup’s Round. On Monday and Tuesday, YOU CAN PICK YOUR OWN FOURSOME when we meet on Sunday morning. IF THERE'S SOMEONE YOU WANT TO PLAY WITH HERE'S YOUR CHANCE.`,
-    place: 4,
-  });
+  // await Info.create({
+  //   subject: 'Rules & Regulations',
+  //   header: '',
+  //   body: `We will set the foursomes for Sunday, and Wednesday’s Ryder Cup’s Round. On Monday and Tuesday, YOU CAN PICK YOUR OWN FOURSOME when we meet on Sunday morning. IF THERE'S SOMEONE YOU WANT TO PLAY WITH HERE'S YOUR CHANCE.`,
+  //   place: 4,
+  // });
 
-  await Info.create({
-    subject: 'Rules & Regulations',
-    header: '',
-    body: `IN ADDITION, there are Other Daily Competitions operated by Dr. Tim. The competitions are an additional fee which you can choose to play or not. He will explain before we tee off what’s cooked up for competitive play. `,
-    place: 4,
-  });
+  // await Info.create({
+  //   subject: 'Rules & Regulations',
+  //   header: '',
+  //   body: `IN ADDITION, there are Other Daily Competitions operated by Dr. Tim. The competitions are an additional fee which you can choose to play or not. He will explain before we tee off what’s cooked up for competitive play. `,
+  //   place: 4,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header:
-      'We have two teams each with a different color shirt (one team Black and one White).',
-    body: `• Each foursome will have two players from each team.
-  • The format is 3 six-hole competitions. Each 6-hole format is worth one point for the winning team for a total of 3 points.
-  • There are no strokes given, as foursomes are matched by players with similar averages.
-  • Teams will be announced prior to the trip.`,
-    place: 5,
-  });
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header:
+  //     'We have two teams each with a different color shirt (one team Black and one White).',
+  //   body: `• Each foursome will have two players from each team.
+  // • The format is 3 six-hole competitions. Each 6-hole format is worth one point for the winning team for a total of 3 points.
+  // • There are no strokes given, as foursomes are matched by players with similar averages.
+  // • Teams will be announced prior to the trip.`,
+  //   place: 5,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header: 'Holes #1-6 Scramble: Captains Choice',
-    body: `Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.`,
-    place: 6,
-  });
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header: 'Holes #1-6 Scramble: Captains Choice',
+  //   body: `Both players will tee off, go to whatever shot is the best and play from that spot. Players will repeat until the ball is holed. There will be one score for each side.`,
+  //   place: 6,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header: 'Holes #7-12 Alternate Shot',
-    body: `On each hole, both players will tee off, and select the best shot. From that point, the OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side.`,
-    place: 7,
-  });
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header: 'Holes #7-12 Alternate Shot',
+  //   body: `On each hole, both players will tee off, and select the best shot. From that point, the OTHER player (from the pair) will play the next shot. Players will alternate shots until the ball is holed. There will be one score for each side.`,
+  //   place: 7,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header: 'Holes #13-18 (Better Ball) Play your own Ball',
-    body: `Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied.
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header: 'Holes #13-18 (Better Ball) Play your own Ball',
+  //   body: `Both players tee off and each plays his own ball into the hole. For each hole the better of the two scores of the pair will be the team score. In addition, please track the total numbers of holes won in the round. We will use this at the end of the competition in case the teams are tied.
 
-  There are two options when the total number of players is uneven. The committee will choose which option will be used.`,
-    place: 8,
-  });
+  // There are two options when the total number of players is uneven. The committee will choose which option will be used.`,
+  //   place: 8,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header: 'Option #1 3 Man Rover',
-    body: `One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). • The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.) • For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. • There is no format or scoring change in each of the 3 competitions`,
-    place: 9,
-  });
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header: 'Option #1 3 Man Rover',
+  //   body: `One person plays for the white team, the second plays for the black team, and the third is a rover (playing on both white and black teams). • The format is the same 3 six-hole competitions stated above (captain’s choice, alternate shot and better ball.) • For each of the 3 formats, the rover partners with the white team player for three holes, then partners with the black team player for three holes. • There is no format or scoring change in each of the 3 competitions`,
+  //   place: 9,
+  // });
 
-  await Info.create({
-    subject: 'Ryder Cup',
-    header: 'Option #2 Solo Player (one guy vs. two guys)',
-    body: `Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. Alternate Shot: Solo player hits two drives then chooses and plays one ball until it is holed. Better Ball: The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball.`,
-    place: 10,
-  });
+  // await Info.create({
+  //   subject: 'Ryder Cup',
+  //   header: 'Option #2 Solo Player (one guy vs. two guys)',
+  //   body: `Captain’s Choice: Solo player hits two balls and chooses which ball he then plays. He does this throughout until the ball is holed. Alternate Shot: Solo player hits two drives then chooses and plays one ball until it is holed. Better Ball: The solo player plays two balls separately marked to distinguish each ball. Takes the score of the better ball.`,
+  //   place: 10,
+  // });
 
   await Note.create({
     header: 'Header Goes Here',
