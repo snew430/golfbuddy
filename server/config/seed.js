@@ -223,10 +223,10 @@ db.once('open', async () => {
   //   place: 10,
   // });
 
-  await Note.create({
-    header: 'Header Goes Here',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed impedit laboriosam maxime vitae reprehenderit quia enim quidem optio ut ipsum placeat numquam eum aliquid, ex rerum tempore laborum. Earum, excepturi.',
-  });
+  // await Note.create({
+  //   header: 'Header Goes Here',
+  //   body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed impedit laboriosam maxime vitae reprehenderit quia enim quidem optio ut ipsum placeat numquam eum aliquid, ex rerum tempore laborum. Earum, excepturi.',
+  // });
 
   console.log('DATA SEEDED');
 });
