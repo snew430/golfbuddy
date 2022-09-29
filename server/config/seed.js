@@ -5,7 +5,7 @@ db.once('open', async () => {
   await Admin.deleteMany();
   //   await Hotel.deleteMany();
   //   await Course.deleteMany();
-  //   await Player.deleteMany();
+  // await Player.deleteMany();
   //   await Trip.deleteMany();
   // await Info.deleteMany();
   // await Note.deleteMany();
@@ -15,10 +15,10 @@ db.once('open', async () => {
     password: process.env.PASS,
   });
 
-  //   await Admin.create({
-  //     email: process.env.PLAYEREMAIL,
-  //     password: process.env.PLAYERPASS,
-  //   });
+  await Admin.create({
+    email: process.env.PLAYEREMAIL,
+    password: process.env.PLAYERPASS,
+  });
 
   //   const course1 = await Course.create({
   //     name: "Rum Pointe Seaside Golf Links",
