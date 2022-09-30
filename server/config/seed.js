@@ -14,6 +14,7 @@ db.once('open', async () => {
     email: process.env.EMAIL,
     password: process.env.PASS,
   });
+  
 
   await Admin.create({
     email: process.env.PLAYEREMAIL,
