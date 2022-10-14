@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import ryderCupRules from '../../assets/ryder-cup-rules.pdf';
+import ryderCupGroups from '../../assets/Ryder-Fall-2022.xlsx';
+import montues4somes from '../../assets/mon-tues-4somes.docx';
 // import { Document, Page, pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
@@ -42,19 +44,36 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <div className="pdfs">
-        <a href={ryderCupRules}>
-          <div className="page">
-            <p>Rules</p>
-            <Document
-              file={ryderCupRules}
-              onLoadSuccess={onDocumentLoadSuccess}
-            >
-              <Page pageNumber={pageNumber} height="150" />
-            </Document>
-          </div>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ scale: 1.1 }}
+        className="app__flex"
+      >
+        <a href={ryderCupRules} target="_blank" rel="noreferrer">
+          <button>Ryder Cup Rules</button>
         </a>
-      </div>
+      </motion.div>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ scale: 1.1 }}
+        className="app__flex"
+      >
+        <a href={ryderCupGroups} target="_blank" rel="noreferrer">
+          <button>Ryder Cup Groups</button>
+        </a>
+      </motion.div>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ scale: 1.1 }}
+        className="app__flex"
+      >
+        <a href={montues4somes} target="_blank" rel="noreferrer">
+          <button>Mon-Tues 4Somes</button>
+        </a>
+      </motion.div>
     </div>
   );
 };
