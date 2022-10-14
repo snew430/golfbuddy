@@ -44,12 +44,12 @@
     cursor: pointer;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     width: 100%;
     background: url('../../assets/images/golf_ball_green_center.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 120vh;
   }
 }
 
@@ -72,4 +72,19 @@
   font-size: 1.5rem;
   text-decoration: none;
   color: rgba(2, 87, 66, 0.593);
+}
+
+.fileLink {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--darkGreen-color);
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--white-color);
+  text-shadow: -1px 0 black;
+  outline: none;
+  margin: 2rem 0 0 0;
+  font-family: var(--font-base);
+  cursor: pointer;
 }
