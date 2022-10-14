@@ -2,7 +2,7 @@ const db = require('./connection');
 const { Admin, Hotel, Course, Player, Trip, Info, Note } = require('../models');
 
 db.once('open', async () => {
-  await Admin.deleteMany();
+  // await Admin.deleteMany();
   //   await Hotel.deleteMany();
   //   await Course.deleteMany();
   // await Player.deleteMany();
@@ -10,16 +10,15 @@ db.once('open', async () => {
   // await Info.deleteMany();
   // await Note.deleteMany();
 
-  await Admin.create({
-    email: process.env.EMAIL,
-    password: process.env.PASS,
-  });
-  
+  // await Admin.create({
+  //   email: process.env.EMAIL,
+  //   password: process.env.PASS,
+  // });
 
-  await Admin.create({
-    email: process.env.PLAYEREMAIL,
-    password: process.env.PLAYERPASS,
-  });
+  // await Admin.create({
+  //   email: process.env.PLAYEREMAIL,
+  //   password: process.env.PLAYERPASS,
+  // });
 
   //   const course1 = await Course.create({
   //     name: "Rum Pointe Seaside Golf Links",
