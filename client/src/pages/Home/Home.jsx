@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import ryderCupRules from '../../assets/ryder-cup-rules.pdf';
-import ryderCupGroups from '../../assets/Ryder-Fall-2022.xlsx';
-import montues4somes from '../../assets/mon-tues-4somes.docx';
+import ryderCupGroups from '../../assets/Ryder-Fall-2022.pdf';
+import montues4somes from '../../assets/mon-tues-4somes.pdf';
 // import { Document, Page, pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
