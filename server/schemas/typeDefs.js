@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const {gql} = require('apollo-server-express');
 
 const typeDefs = gql`
   type Admin {
@@ -132,7 +132,7 @@ const typeDefs = gql`
       courseTwoAddress: String!
       courseTwoWebsite: String!
       courseTwoPhoneNumber: String!
-      courseTneTeeTime: String!
+      courseTwoTeeTime: String!
       courseThreeName: String!
       courseThreeAddress: String!
       courseThreeWebsite: String!

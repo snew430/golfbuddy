@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import {gql} from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -324,18 +324,22 @@ export const ADD_TRIP = gql`
     $courseOneAddress: String!
     $courseOneWebsite: String!
     $courseOnePhoneNumber: String!
+    $courseOneTeeTime: String!
     $courseTwoName: String!
     $courseTwoAddress: String!
     $courseTwoWebsite: String!
     $courseTwoPhoneNumber: String!
+    $courseTwoTeeTime: String!
     $courseThreeName: String!
     $courseThreeAddress: String!
     $courseThreeWebsite: String!
     $courseThreePhoneNumber: String!
+    $courseThreeTeeTime: String!
     $courseFourName: String!
     $courseFourAddress: String!
     $courseFourWebsite: String!
     $courseFourPhoneNumber: String!
+    $courseFourTeeTime: String!
   ) {
     addTrip(
       name: $name
@@ -354,28 +358,25 @@ export const ADD_TRIP = gql`
       courseOneAddress: $courseOneAddress
       courseOneWebsite: $courseOneWebsite
       courseOnePhoneNumber: $courseOnePhoneNumber
+      courseOneTeeTime: $courseOneTeeTime
       courseTwoName: $courseTwoName
       courseTwoAddress: $courseTwoAddress
       courseTwoWebsite: $courseTwoWebsite
       courseTwoPhoneNumber: $courseTwoPhoneNumber
+      courseTwoTeeTime: $courseTwoTeeTime
       courseThreeName: $courseThreeName
       courseThreeAddress: $courseThreeAddress
       courseThreeWebsite: $courseThreeWebsite
       courseThreePhoneNumber: $courseThreePhoneNumber
+      courseThreeTeeTime: $courseThreeTeeTime
       courseFourName: $courseFourName
       courseFourAddress: $courseFourAddress
       courseFourWebsite: $courseFourWebsite
       courseFourPhoneNumber: $courseFourPhoneNumber
+      courseFourTeeTime: $courseFourTeeTime
     ) {
       _id
       name
-      startDate
-      endDate
-      paymentDue
-      maxPlayers
-      singlePrice
-      doublePrice
-      golfOnlyPrice
     }
   }
 `;
@@ -454,6 +455,14 @@ export const UPDATE_NOTE = gql`
     updateNote(header: $header, body: $body) {
       header
       body
+    }
+  }
+`;
+
+export const DELETE_TRIP = gql`
+  mutation ($deleteTripId: ID!) {
+    deleteTrip(id: $deleteTripId) {
+      _id
     }
   }
 `;

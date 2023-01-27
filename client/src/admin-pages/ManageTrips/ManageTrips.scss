@@ -1,5 +1,5 @@
 #manageTrips {
-  background: url("../../assets/images/bucket_of_balls.jpg");
+  background: url('../../assets/images/bucket_of_balls.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -7,6 +7,10 @@
   .background {
     background-color: rgba(4, 57, 39, 0.8);
     min-height: 100vh;
+  }
+
+  .active-trip {
+    background-color: #ffc40c;
   }
 
   .head-text {
@@ -61,7 +65,8 @@
       text-align: center;
     }
 
-    td, a {
+    td,
+    a {
       margin: 0.25rem;
       color: var(--white-color);
       text-shadow: -1px 0 black;
@@ -132,7 +137,7 @@
         position: relative;
         border-bottom: 1px dotted black;
       }
-      
+
       .hovertext:before {
         content: attr(data-hover);
         visibility: hidden;
@@ -145,14 +150,14 @@
         font-size: 1rem;
         padding: 2px 0;
         transition: opacity 1s ease-in-out;
-      
+
         position: absolute;
         z-index: 1;
         bottom: 235%;
         left: 50%;
         margin-left: -35px;
       }
-      
+
       .hovertext:hover:before {
         opacity: 1;
         visibility: visible;
@@ -231,7 +236,7 @@
     cursor: pointer;
   }
 
-  .final{
+  .final {
     margin-bottom: 2rem;
   }
 }
