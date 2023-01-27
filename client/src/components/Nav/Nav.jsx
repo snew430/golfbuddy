@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import {HiMenuAlt4, HiX} from 'react-icons/hi';
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 import './Nav.scss';
@@ -76,8 +76,8 @@ const Navbar = () => {
 
         {toggle && (
           <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}
+            whileInView={{x: [300, 0]}}
+            transition={{duration: 0.85, ease: 'easeOut'}}
           >
             <HiX className="cursor-item" onClick={() => setToggle(false)} />
             <ul>
@@ -97,6 +97,9 @@ const Navbar = () => {
                   </li>
                   <li className="app__flex p-text">
                     <Link to={'/message'}>Email</Link>
+                  </li>
+                  <li className="app__flex p-text">
+                    <Link to={'/managetrips'}>Trip Manager</Link>
                   </li>
                 </>
               ) : (
@@ -125,7 +128,7 @@ const Navbar = () => {
                   </li>
                 </>
               )}
-              {admin || loggedIn ? (
+              {(admin || loggedIn) && (
                 <>
                   <li className="app__flex p-text">
                     <a href="/" onClick={logout}>
@@ -133,8 +136,6 @@ const Navbar = () => {
                     </a>
                   </li>
                 </>
-              ) : (
-                <></>
               )}
             </ul>
           </motion.div>

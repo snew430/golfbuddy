@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import {gql} from '@apollo/client';
 
 export const QUERY_PLAYERS = gql`
   {
@@ -116,6 +116,7 @@ export const QUERY_TRIPS = gql`
     trips {
       _id
       name
+      active
       startDate
       endDate
       paymentDue

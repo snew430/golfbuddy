@@ -12,12 +12,12 @@ import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 const Home = () => {
   const loggedIn = Auth.loggedIn();
 
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  // const [numPages, setNumPages] = useState(null);
+  // const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  // function onDocumentLoadSuccess({ numPages }) {
+  //   setNumPages(numPages);
+  // }
 
   return (
     <div id="home">
@@ -44,7 +44,7 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <motion.div
+      {/* <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.7 }}
         whileHover={{ scale: 1.1 }}
@@ -73,7 +73,7 @@ const Home = () => {
         <a href={montues4somes} target="_blank" rel="noreferrer">
           <button>Mon-Tues 4Somes</button>
         </a>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };

@@ -1,10 +1,11 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Admin, Player, Course, Hotel, Trip, Info, Note } = require('../models');
-const { signToken } = require('../utils/auth');
+const {AuthenticationError} = require('apollo-server-express');
+const {Admin, Player, Course, Hotel, Trip, Info, Note} = require('../models');
+const {signToken} = require('../utils/auth');
 const fs = require('fs');
 
 require('dotenv').config();
 let nodemailer = require('nodemailer');
+const {where} = require('../models/Player');
 
 const resolvers = {
   Query: {
@@ -24,7 +25,7 @@ const resolvers = {
         .populate('playersActive')
         .populate('playersWaitlist');
     },
-    trip: async (parent, { id }) => {
+    trip: async (parent, {id}) => {
       return await Trip.findById(id)
         .populate('courses')
         .populate('hotel')
@@ -36,14 +37,12 @@ const resolvers = {
       return info.sort((a, b) => a.place - b.place);
     },
     activeTrip: async () => {
-      const activeTrip = await (
-        await Trip.find()
-          .populate('courses')
-          .populate('hotel')
-          .populate('playersActive')
-          .populate('playersWaitlist')
-      ).filter((trip) => trip.active === true);
-      return activeTrip[0];
+      const activeTrip = await Trip.findOne({active: true})
+        .populate('courses')
+        .populate('hotel')
+        .populate('playersActive')
+        .populate('playersWaitlist');
+      return activeTrip;
     },
     note: async () => {
       const note = await Note.find();
@@ -51,8 +50,8 @@ const resolvers = {
     },
   },
   Mutation: {
-    login: async (parent, { email, password }) => {
-      const user = await Admin.findOne({ email });
+    login: async (parent, {email, password}) => {
+      const user = await Admin.findOne({email});
 
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
@@ -66,7 +65,7 @@ const resolvers = {
 
       const token = signToken(user);
 
-      return { token, user };
+      return {token, user};
     },
 
     addPlayer: async (parent, args) => {
@@ -85,7 +84,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    deletePlayer: async (parent, { id }, context) => {
+    deletePlayer: async (parent, {id}, context) => {
       if (context.user) {
         return await Player.findByIdAndDelete(id, {
           new: true,
@@ -126,24 +125,28 @@ const resolvers = {
           address: args.courseOneAddress,
           website: args.courseOneWebsite,
           phoneNumber: args.courseOnePhoneNumber,
+          teeTime: args.courseOneTeeTime,
         });
         const course2 = await Course.create({
           name: args.courseTwoName,
           address: args.courseTwoAddress,
           website: args.courseTwoWebsite,
           phoneNumber: args.courseTwoPhoneNumber,
+          teeTime: args.courseTwoTeeTime,
         });
         const course3 = await Course.create({
           name: args.courseThreeName,
           address: args.courseThreeAddress,
           website: args.courseThreeWebsite,
           phoneNumber: args.courseThreePhoneNumber,
+          teeTime: args.courseThreeTeeTime,
         });
         const course4 = await Course.create({
           name: args.courseFourName,
           address: args.courseFourAddress,
           website: args.courseFourWebsite,
           phoneNumber: args.courseFourPhoneNumber,
+          teeTime: args.courseFourTeeTime,
         });
 
         const trip = await Trip.create({
@@ -174,22 +177,22 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    changeTripToActive: async (parent, { id }, context) => {
+    changeTripToActive: async (parent, {id}, context) => {
       const activeTrip = (await Trip.find()).filter(
         (trip) => trip.active === true
       );
 
       await Trip.findByIdAndUpdate(
         activeTrip[0].id,
-        { active: false },
-        { new: true }
+        {active: false},
+        {new: true}
       );
 
-      return await Trip.findByIdAndUpdate(id, { active: true }, { new: true });
+      return await Trip.findByIdAndUpdate(id, {active: true}, {new: true});
     },
     // ===========================================
     //LOGIN REQUIRED
-    deleteTrip: async (parent, { id }, context) => {
+    deleteTrip: async (parent, {id}, context) => {
       if (context.user) {
         return await Trip.findByIdAndDelete(id);
       }
@@ -217,13 +220,13 @@ const resolvers = {
       });
 
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: tripId },
+        {_id: tripId},
         {
           $push: {
             playersActive: playerToAdd,
           },
         },
-        { new: true, runValidators: true }
+        {new: true, runValidators: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -233,16 +236,16 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeActivePlayer: async (parent, { player, trip }) => {
+    removeActivePlayer: async (parent, {player, trip}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
-          { _id: trip },
+          {_id: trip},
           {
             $pull: {
-              playersActive: { $in: [player] },
+              playersActive: {$in: [player]},
             },
           },
-          { new: true }
+          {new: true}
         )
           .populate('courses')
           .populate('hotel')
@@ -255,15 +258,15 @@ const resolvers = {
       }
     },
 
-    addCurrentPlayerToActive: async (parent, { player, trip }) => {
+    addCurrentPlayerToActive: async (parent, {player, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $push: {
-            playersActive: { _id: player },
+            playersActive: {_id: player},
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -295,13 +298,13 @@ const resolvers = {
       });
 
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: tripId },
+        {_id: tripId},
         {
           $push: {
             playersWaitlist: playerToAdd,
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -311,15 +314,15 @@ const resolvers = {
       return updatedTrip;
     },
 
-    addCurrentPlayerToWaitlist: async (parent, { player, trip }) => {
+    addCurrentPlayerToWaitlist: async (parent, {player, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $push: {
-            playersWaitlist: { _id: player },
+            playersWaitlist: {_id: player},
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -329,16 +332,16 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeWaitlistPlayer: async (parent, { player, trip }) => {
+    removeWaitlistPlayer: async (parent, {player, trip}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
-          { _id: trip },
+          {_id: trip},
           {
             $pull: {
-              playersWaitlist: { $in: [player] },
+              playersWaitlist: {$in: [player]},
             },
           },
-          { new: true }
+          {new: true}
         )
           .populate('courses')
           .populate('hotel')
@@ -351,17 +354,17 @@ const resolvers = {
       }
     },
 
-    addCourseToTrip: async (parent, { course, trip }) => {
+    addCourseToTrip: async (parent, {course, trip}) => {
       const courseToAdd = await Course.findById(course);
 
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $push: {
             courses: courseToAdd,
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -371,15 +374,15 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeCourseFromTrip: async (parent, { course, trip }) => {
+    removeCourseFromTrip: async (parent, {course, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $pull: {
-            courses: { _id: course },
+            courses: {_id: course},
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -389,17 +392,17 @@ const resolvers = {
       return updatedTrip;
     },
 
-    addHotelToTrip: async (parent, { hotel, trip }) => {
+    addHotelToTrip: async (parent, {hotel, trip}) => {
       const hotelToAdd = await Hotel.findById(hotel);
 
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $push: {
             hotel: hotelToAdd,
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -409,15 +412,15 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeHotelFromTrip: async (parent, { hotel, trip }) => {
+    removeHotelFromTrip: async (parent, {hotel, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
-        { _id: trip },
+        {_id: trip},
         {
           $pull: {
-            hotel: { _id: hotel },
+            hotel: {_id: hotel},
           },
         },
-        { new: true }
+        {new: true}
       )
         .populate('courses')
         .populate('hotel')
@@ -427,7 +430,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    sendMessage: async (parent, { recipients, subject, message, file }) => {
+    sendMessage: async (parent, {recipients, subject, message, file}) => {
       let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -461,16 +464,16 @@ const resolvers = {
       return Admin;
     },
 
-    paidPlayer: async (parent, { player, paid }) => {
+    paidPlayer: async (parent, {player, paid}) => {
       const updatedPlayer = Player.findOneAndUpdate(
-        { _id: player },
-        { paid: paid },
-        { new: true }
+        {_id: player},
+        {paid: paid},
+        {new: true}
       );
       return updatedPlayer;
     },
 
-    addInfo: async (parent, { subject, header, body }) => {
+    addInfo: async (parent, {subject, header, body}) => {
       const info = await Info.find();
       const length = info.length;
 
@@ -491,13 +494,13 @@ const resolvers = {
       });
     },
 
-    deleteInfo: async (parent, { id }, context) => {
+    deleteInfo: async (parent, {id}, context) => {
       return await Info.findByIdAndDelete(id, {
         new: true,
       });
     },
 
-    swapInfoPlace: async (parent, { firstID, secondID }, context) => {
+    swapInfoPlace: async (parent, {firstID, secondID}, context) => {
       const firstInfo = await Info.findById(firstID);
       const secondInfo = await Info.findById(secondID);
 
