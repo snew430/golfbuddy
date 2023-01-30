@@ -1,27 +1,23 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import React, {useState} from 'react';
+import {useMutation} from '@apollo/react-hooks';
 import {
   REMOVE_ACTIVE_PLAYER,
   REMOVE_WAITLIST_PLAYER,
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
   PAID_PLAYER,
-} from "../../utils/mutations";
-import { removePlayerId } from "../../utils/localStorage";
+} from '../../utils/mutations';
+import {removePlayerId} from '../../utils/localStorage';
 
-import { FaTrashAlt } from "react-icons/fa";
-import {
-  BsPencilSquare,
-  BsCheckSquare,
-  BsCurrencyDollar,
-} from "react-icons/bs";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import { FiXSquare } from "react-icons/fi";
+import {FaTrashAlt} from 'react-icons/fa';
+import {BsPencilSquare, BsCheckSquare, BsCurrencyDollar} from 'react-icons/bs';
+import {FaPlus, FaMinus} from 'react-icons/fa';
+import {FiXSquare} from 'react-icons/fi';
 
-import Modal from "../../components/Modal/Modal";
-import Auth from "../../utils/auth";
+import {Modal} from '../../components';
+import Auth from '../../utils/auth';
 
-const List = ({ players, status, trip, refetchPlayers }) => {
+const List = ({players, status, trip, refetchPlayers}) => {
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,13 +39,13 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     }
 
     try {
-      if (status === "active") {
+      if (status === 'active') {
         await deleteActive({
-          variables: { trip, player },
+          variables: {trip, player},
         });
-      } else if (status === "waitlist") {
+      } else if (status === 'waitlist') {
         await deleteWaitlist({
-          variables: { trip, player },
+          variables: {trip, player},
         });
       }
       // upon success, remove player's id from localStorage
@@ -66,24 +62,24 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     if (!token) {
       return false;
     }
-    if (status === "waitlist") {
+    if (status === 'waitlist') {
       try {
         await deleteWaitlist({
-          variables: { player, trip },
+          variables: {player, trip},
         });
         await moveToActive({
-          variables: { player, trip },
+          variables: {player, trip},
         });
       } catch (err) {
         console.error(err);
       }
-    } else if (status === "active") {
+    } else if (status === 'active') {
       try {
         await deleteActive({
-          variables: { player, trip },
+          variables: {player, trip},
         });
         await moveToWaitlist({
-          variables: { player, trip },
+          variables: {player, trip},
         });
       } catch (err) {
         console.error(err);
@@ -101,7 +97,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
     }
     try {
       await paidPlayer({
-        variables: { player, paid },
+        variables: {player, paid},
       });
     } catch (err) {
       console.error(err);
@@ -119,7 +115,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
         <Modal
           player={currentPlayer}
           onClose={toggleModal}
-          update_add={"Update"}
+          update_add={'Update'}
           refetchPlayers={refetchPlayers}
         />
       )}
@@ -173,7 +169,7 @@ const List = ({ players, status, trip, refetchPlayers }) => {
                     onClick={() => toggleModal(player)}
                   />
                 </span>
-                {status === "waitlist" ? (
+                {status === 'waitlist' ? (
                   <span className="hovertext" data-hover="Add to Trip">
                     <FaPlus
                       className="plus"

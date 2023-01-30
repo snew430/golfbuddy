@@ -3,20 +3,13 @@ import './Admin-Home.scss';
 import {Link} from 'react-router-dom';
 import Auth from '../../utils/auth';
 import {motion} from 'framer-motion';
+import {Cheat} from '../../components';
 
 const AdminHome = () => {
   const loggedIn = Auth.adminLogIn();
 
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   return (

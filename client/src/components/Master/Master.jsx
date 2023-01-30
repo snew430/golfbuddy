@@ -4,7 +4,7 @@ import { DELETE_PLAYER } from "../../utils/mutations";
 import { removePlayerId } from "../../utils/localStorage";
 import { FaTrashAlt } from 'react-icons/fa';
 import { BsPencilSquare } from 'react-icons/bs';
-import Modal from "../../components/Modal/Modal";
+import {Modal} from "../../components";
 import Auth from "../../utils/auth";
 
 const Master = ({ players, refetchPlayers }) => {

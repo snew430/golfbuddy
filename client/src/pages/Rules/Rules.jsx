@@ -1,28 +1,20 @@
 import React from 'react';
 import './Rules.scss';
 // import { motion } from "framer-motion";
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_RULES } from '../../utils/queries';
+import {useQuery, useMutation} from '@apollo/client';
+import {QUERY_RULES} from '../../utils/queries';
 import {
   ADD_INFO,
   EDIT_INFO,
   DELETE_INFO,
   SWAP_INFO_PLACE,
 } from '../../utils/mutations';
-import { CreatePDFfromHTML } from '../../utils/downloadPDF';
+import {Cheat} from '../../components';
+import {CreatePDFfromHTML} from '../../utils/downloadPDF';
 import Auth from '../../utils/auth';
-import { BsPencilSquare } from 'react-icons/bs';
-import {
-  FaPlus,
-  FaMinus,
-  FaTrashAlt,
-  FaArrowUp,
-  FaArrowDown,
-} from 'react-icons/fa';
-import { FiXSquare } from 'react-icons/fi';
 
 const Rules = () => {
-  const { loading, data: rulesData, refetch } = useQuery(QUERY_RULES);
+  const {loading, data: rulesData, refetch} = useQuery(QUERY_RULES);
   const rules = rulesData?.info || [];
   const [addRule] = useMutation(ADD_INFO);
   const [editRule] = useMutation(EDIT_INFO);
@@ -39,7 +31,7 @@ const Rules = () => {
   const handleDeleteRule = async (deleteInfoId) => {
     try {
       await deleteRule({
-        variables: { deleteInfoId },
+        variables: {deleteInfoId},
       });
     } catch (err) {
       console.error(err);
@@ -53,15 +45,7 @@ const Rules = () => {
   }
 
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   return (

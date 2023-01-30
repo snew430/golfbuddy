@@ -1,69 +1,62 @@
-import React, { useState } from "react";
-import "./SignUp.scss";
-import { motion } from "framer-motion";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_TRIPS } from "../../utils/queries";
+import React, {useState} from 'react';
+import './SignUp.scss';
+import {motion} from 'framer-motion';
+import {useQuery, useMutation} from '@apollo/react-hooks';
+import {QUERY_TRIPS} from '../../utils/queries';
 import {
   ADD_ACTIVE_PLAYER,
   ADD_WAITLIST_PLAYER,
   SEND_MESSAGE,
-} from "../../utils/mutations";
-import Auth from "../../utils/auth";
-import Refunds from "../../assets/2022_Spring_Refund.xls";
+} from '../../utils/mutations';
+import Auth from '../../utils/auth';
+import Refunds from '../../assets/2022_Spring_Refund.xls';
+import {Cheat} from '../../components';
 
 const SignUp = () => {
   const [formData, setformData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    preferredRoomate: "",
-    lodging: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    preferredRoomate: '',
+    lodging: '',
   });
   const [signupMessage, setSignupMessage] = useState(
-    "You are signed up. See you on the course!"
+    'You are signed up. See you on the course!'
   );
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
 
-  const { data: basicTourney } = useQuery(QUERY_TRIPS);
+  const {data: basicTourney} = useQuery(QUERY_TRIPS);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
   const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
   const trip = basicTourney?.trips[0] || [];
 
-  const { activePlayerCount, maxPlayers } = trip;
+  const {activePlayerCount, maxPlayers} = trip;
 
-  const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
+  const {firstName, lastName, email, phoneNumber, preferredRoomate, lodging} =
     formData;
 
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setformData({ ...formData, [name]: value });
+    const {name, value} = e.target;
+    setformData({...formData, [name]: value});
   };
 
   const handleSubmit = async (status) => {
     const tripId = trip._id;
     const [recipients, subject, message] = [
       email,
-      "Welcome to the Trip!",
+      'Welcome to the Trip!',
       "You're signed up for the fall trip. Your money is due August 1 to secure your spot.",
     ];
-    if (status === "active") {
+    if (status === 'active') {
       try {
         await sendMessage({
           variables: {
@@ -88,7 +81,7 @@ const SignUp = () => {
       }
     } else {
       try {
-        setSignupMessage("You are now on the waitlist");
+        setSignupMessage('You are now on the waitlist');
         await sendMessage({
           variables: {
             recipients,
@@ -122,12 +115,12 @@ const SignUp = () => {
     }
 
     setformData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      preferredRoomate: "",
-      lodging: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      preferredRoomate: '',
+      lodging: '',
     });
     // Need to remove from local storage
     setIsFormSubmitted(true);
@@ -181,7 +174,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
-              className={lodging === "Single" ? "active" : "inactive"}
+              className={lodging === 'Single' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Single"
             >
@@ -190,7 +183,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
-              className={lodging === "Double" ? "active" : "inactive"}
+              className={lodging === 'Double' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Double"
             >
@@ -199,7 +192,7 @@ const SignUp = () => {
             <button
               name="lodging"
               type="button"
-              className={lodging === "Golf Only" ? "active" : "inactive"}
+              className={lodging === 'Golf Only' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Golf Only"
             >
@@ -207,7 +200,7 @@ const SignUp = () => {
             </button>
           </div>
 
-          {lodging === "Double" ? (
+          {lodging === 'Double' ? (
             <>
               <h4 className="info-text">Do you have a preferred roomate?</h4>
 
@@ -220,11 +213,11 @@ const SignUp = () => {
               />
             </>
           ) : (
-            ""
+            ''
           )}
 
           <h5 className="date-text">
-            All payments are due: {trip.paymentDue}{" "}
+            All payments are due: {trip.paymentDue}{' '}
           </h5>
 
           <p className="info-text">
@@ -269,14 +262,14 @@ const SignUp = () => {
           </p>
 
           <motion.div
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.7 }}
+            whileInView={{opacity: [0, 1]}}
+            transition={{duration: 0.7}}
           >
             {activePlayerCount < maxPlayers && (
               <button
                 type="button"
                 className="submitBtn"
-                onClick={() => handleSubmit("active")}
+                onClick={() => handleSubmit('active')}
               >
                 Sign Up for the Trip
               </button>
@@ -284,7 +277,7 @@ const SignUp = () => {
             <button
               type="button"
               className="submitBtn"
-              onClick={() => handleSubmit("waitlist")}
+              onClick={() => handleSubmit('waitlist')}
             >
               Join the Waitlist
             </button>

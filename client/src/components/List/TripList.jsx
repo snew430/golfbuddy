@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import React, {useState} from 'react';
+import {useMutation} from '@apollo/react-hooks';
 import {
-
-
   //We don't need these for triplist
   REMOVE_ACTIVE_PLAYER,
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
   MAKE_TRIP_ACTIVE,
-} from "../../utils/mutations";
+} from '../../utils/mutations';
 // import { removeTripId } from "../../utils/localStorage";
 
-import { FaTrashAlt } from "react-icons/fa";
-import { BsPencilSquare, BsCurrencyDollar } from "react-icons/bs";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import { FiXSquare } from "react-icons/fi";
+import {FaTrashAlt} from 'react-icons/fa';
+import {BsPencilSquare, BsCurrencyDollar} from 'react-icons/bs';
+import {FaPlus, FaMinus} from 'react-icons/fa';
+import {FiXSquare} from 'react-icons/fi';
 
-import Modal from "../../components/Modal/Modal";
-import Auth from "../../utils/auth";
+import {Modal} from '../../components';
+import Auth from '../../utils/auth';
 
-const List = ({ status, trip, refetchTrips }) => {
+const List = ({status, trip, refetchTrips}) => {
   const [currentTrip, setCurrentTrip] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,11 +40,10 @@ const List = ({ status, trip, refetchTrips }) => {
     }
 
     try {
-      if (status === "active") {
+      if (status === 'active') {
         await deleteActive({
-          variables: { trip },
+          variables: {trip},
         });
-      
       }
       // upon success, remove player's id from localStorage
       // removeTripId(trip);
@@ -62,21 +59,21 @@ const List = ({ status, trip, refetchTrips }) => {
     if (!token) {
       return false;
     }
-    if (status === "waitlist") {
+    if (status === 'waitlist') {
       try {
         await moveToActive({
-          variables: { player, trip },
+          variables: {player, trip},
         });
       } catch (err) {
         console.error(err);
       }
-    } else if (status === "active") {
+    } else if (status === 'active') {
       try {
         await deleteActive({
-          variables: { player, trip },
+          variables: {player, trip},
         });
         await moveToWaitlist({
-          variables: { player, trip },
+          variables: {player, trip},
         });
       } catch (err) {
         console.error(err);
@@ -94,7 +91,7 @@ const List = ({ status, trip, refetchTrips }) => {
     }
     try {
       await active({
-        variables: { trip },
+        variables: {trip},
       });
     } catch (err) {
       console.error(err);
@@ -112,7 +109,7 @@ const List = ({ status, trip, refetchTrips }) => {
         <Modal
           trip={currentTrip}
           onClose={toggleModal}
-          update_add={"Update"}
+          update_add={'Update'}
           refetchTrips={refetchTrips}
         />
       )}
@@ -141,18 +138,18 @@ const List = ({ status, trip, refetchTrips }) => {
               <td>{player.lodging}</td>
               <td>{player.preferredRoomate}</td>
               <td>
-              <span className="hovertext" data-hover="Paid or Unpaid">
-                  { trip.active ?
-                  <BsCurrencyDollar 
-                    className="plus"
-                    onClick={() => handleActive(trip._id, trip.active)}
-                  />
-                  :
-                  <FiXSquare 
-                    className="grey"
-                    onClick={() => handleActive(trip._id, trip.active)}
-                  />
-                  }
+                <span className="hovertext" data-hover="Paid or Unpaid">
+                  {trip.active ? (
+                    <BsCurrencyDollar
+                      className="plus"
+                      onClick={() => handleActive(trip._id, trip.active)}
+                    />
+                  ) : (
+                    <FiXSquare
+                      className="grey"
+                      onClick={() => handleActive(trip._id, trip.active)}
+                    />
+                  )}
                 </span>
                 <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt
@@ -166,7 +163,7 @@ const List = ({ status, trip, refetchTrips }) => {
                     onClick={() => toggleModal(trip)}
                   />
                 </span>
-                {status === "waitlist" ? (
+                {status === 'waitlist' ? (
                   <span className="hovertext" data-hover="Add to Trip">
                     <FaPlus
                       className="plus"

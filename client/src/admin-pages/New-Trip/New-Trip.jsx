@@ -3,6 +3,7 @@ import './New-Trip.scss';
 import Auth from '../../utils/auth';
 import {useMutation} from '@apollo/react-hooks';
 import {ADD_TRIP} from '../../utils/mutations';
+import {Cheat} from '../../components';
 
 const NewTrip = () => {
   //edit form data to meet specifications from Trip query
@@ -77,15 +78,7 @@ const NewTrip = () => {
   const loggedIn = Auth.adminLogIn();
 
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   const handleChangeInput = (e) => {

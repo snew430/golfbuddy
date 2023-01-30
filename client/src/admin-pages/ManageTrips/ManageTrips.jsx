@@ -1,11 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
 import './ManageTrips.scss';
-import List from '../../components/List/TripList';
 import {motion} from 'framer-motion';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-
-// import { exportCSVplayer, exportCSVwaitlist } from "../../utils/exportCSV";
+import {EditTrip, Cheat} from '../../components';
 
 import {QUERY_BASIC_TRIPS} from '../../utils/queries';
 import {MAKE_TRIP_ACTIVE, DELETE_TRIP} from '../../utils/mutations';
@@ -16,6 +13,8 @@ const ManageTrips = () => {
   const {data: tripData, refetch} = useQuery(QUERY_BASIC_TRIPS);
   const [makeActive] = useMutation(MAKE_TRIP_ACTIVE);
   const [deleteTrip] = useMutation(DELETE_TRIP);
+  const [currentTripEdit, setCurrentTripEdit] = useState();
+  const [modalShow, setModalShow] = useState(false);
 
   const trips = tripData?.trips || [];
 
@@ -49,23 +48,24 @@ const ManageTrips = () => {
     }
   };
 
+  const handleEditTrip = (trip) => {
+    setCurrentTripEdit(trip);
+    setModalShow(true);
+  };
+
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   return (
     <div id="manageTrips">
+      {modalShow && <EditTrip trip={currentTripEdit} />}
       <div className="background">
         {trips.map((trip) => (
-          <div key={trip._id} className={`head-text ${trip.active ? "active-trip" : ""}`}>
+          <div
+            key={trip._id}
+            className={`head-text ${trip.active ? 'active-trip' : ''}`}
+          >
             <h2>{trip.name}</h2>
             <div>
               {trip.startDate} - {trip.endDate}
@@ -77,6 +77,10 @@ const ManageTrips = () => {
                 Make Active
               </button>
             )}
+            <button onClick={() => handleDeleteTrip(trip._id)}>
+              Delete Trip
+            </button>
+            <button onClick={() => handleEditTrip(trip)}>Edit Trip</button>
           </div>
         ))}
 

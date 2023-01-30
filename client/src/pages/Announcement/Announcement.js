@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './Announcements.scss';
-import { useQuery } from '@apollo/client';
-import { QUERY_NOTE } from '../../utils/queries';
-import NoteModal from '../../components/NoteModal/NoteModal';
+import {useQuery} from '@apollo/client';
+import {QUERY_NOTE} from '../../utils/queries';
+import {NoteModal, Cheat} from '../../components';
 import Auth from '../../utils/auth';
-
 const Announcement = () => {
-  const { loading, data: noteData, refetch } = useQuery(QUERY_NOTE);
-  const announcements = noteData?.note[0] || { header: '', body: '' };
+  const {loading, data: noteData, refetch} = useQuery(QUERY_NOTE);
+  const announcements = noteData?.note[0] || {header: '', body: ''};
   console.log(announcements, loading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,15 +19,7 @@ const Announcement = () => {
   };
 
   if (!loggedIn) {
-    return (
-      <div className="cheat-container">
-        <h3 className="cheat-text">
-          You need to log in first. Don't cheat by looking at something you're
-          not supposed to. <br />
-          Makes me think you cheat at golf too
-        </h3>
-      </div>
-    );
+    return <Cheat />;
   }
 
   return (
