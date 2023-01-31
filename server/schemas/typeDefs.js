@@ -186,7 +186,6 @@ const typeDefs = gql`
     changeTripToActive(id: ID!): Trip
 
     addPlayerToActiveTrip(
-      tripId: ID!
       firstName: String!
       lastName: String!
       email: String!
@@ -199,7 +198,6 @@ const typeDefs = gql`
     addCurrentPlayerToActive(player: ID!, trip: ID!): Trip
 
     addPlayerToWaitlistTrip(
-      tripId: ID!
       firstName: String!
       lastName: String!
       email: String!

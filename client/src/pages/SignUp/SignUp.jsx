@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './SignUp.scss';
 import {motion} from 'framer-motion';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-import {QUERY_TRIPS} from '../../utils/queries';
+import {QUERY_ACTIVE_TRIP} from '../../utils/queries';
 import {
   ADD_ACTIVE_PLAYER,
   ADD_WAITLIST_PLAYER,
@@ -27,11 +27,11 @@ const SignUp = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
 
-  const {data: basicTourney} = useQuery(QUERY_TRIPS);
+  const {data} = useQuery(QUERY_ACTIVE_TRIP);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
   const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
-  const trip = basicTourney?.trips[0] || [];
+  const trip = data?.activeTrip || [];
 
   const {activePlayerCount, maxPlayers} = trip;
 
@@ -66,15 +66,7 @@ const SignUp = () => {
           },
         });
         await addPlayer({
-          variables: {
-            tripId,
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            preferredRoomate,
-            lodging,
-          },
+          variables: formData,
         });
       } catch (err) {
         console.error(err);
@@ -89,25 +81,8 @@ const SignUp = () => {
             message,
           },
         });
-        console.log(
-          tripId,
-          firstName,
-          lastName,
-          email,
-          phoneNumber,
-          preferredRoomate,
-          lodging
-        );
         addWaitlistPlayer({
-          variables: {
-            tripId,
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            preferredRoomate,
-            lodging,
-          },
+          variables: formData,
         });
       } catch (err) {
         console.error(err);

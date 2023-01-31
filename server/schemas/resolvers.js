@@ -84,7 +84,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    deletePlayer: async (parent, {id}, context) => {
+    deletePlayer: async (_, {id}, context) => {
       if (context.user) {
         return await Player.findByIdAndDelete(id, {
           new: true,
@@ -94,7 +94,7 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    addCourse: async (parent, args, context) => {
+    addCourse: async (_, args, context) => {
       if (context.user) {
         const course = await Course.create(args);
         return course;
@@ -103,7 +103,7 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    addHotel: async (parent, args, context) => {
+    addHotel: async (_, args, context) => {
       if (context.user) {
         const hotel = await Hotel.create(args);
         return hotel;
@@ -112,7 +112,7 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    addTrip: async (parent, args, context) => {
+    addTrip: async (_, args, context) => {
       if (context.user) {
         const hotel = await Hotel.create({
           name: args.hotelName,
@@ -167,7 +167,7 @@ const resolvers = {
     },
 
     //LOGIN REQUIRED
-    editTrip: async (parent, args, context) => {
+    editTrip: async (_, args, context) => {
       if (context.user) {
         return await Trip.findByIdAndUpdate(args.id, args, {
           new: true,
@@ -177,18 +177,18 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    changeTripToActive: async (parent, {id}, context) => {
-      const activeTrip = (await Trip.find()).filter(
-        (trip) => trip.active === true
-      );
+    changeTripToActive: async (_, {id}, context) => {
+      try {
+        const activeTrip = await Trip.findOneAndUpdate(
+          {active: true},
+          {active: false},
+          {new: true}
+        );
 
-      await Trip.findByIdAndUpdate(
-        activeTrip[0].id,
-        {active: false},
-        {new: true}
-      );
-
-      return await Trip.findByIdAndUpdate(id, {active: true}, {new: true});
+        return await Trip.findByIdAndUpdate(id, {active: true}, {new: true});
+      } catch (error) {
+        console.log(error);
+      }
     },
     // ===========================================
     //LOGIN REQUIRED
@@ -198,29 +198,11 @@ const resolvers = {
       }
     },
 
-    addPlayerToActiveTrip: async (
-      parent,
-      {
-        tripId,
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        preferredRoomate,
-        lodging,
-      }
-    ) => {
-      const playerToAdd = await Player.create({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phoneNumber: phoneNumber,
-        preferredRoomate: preferredRoomate,
-        lodging: lodging,
-      });
+    addPlayerToActiveTrip: async (parent, args) => {
+      const playerToAdd = await Player.create(args);
 
       const updatedTrip = await Trip.findOneAndUpdate(
-        {_id: tripId},
+        {active: true},
         {
           $push: {
             playersActive: playerToAdd,
@@ -239,7 +221,7 @@ const resolvers = {
     removeActivePlayer: async (parent, {player, trip}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
-          {_id: trip},
+          {active: true},
           {
             $pull: {
               playersActive: {$in: [player]},

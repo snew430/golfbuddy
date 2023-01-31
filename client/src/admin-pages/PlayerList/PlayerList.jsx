@@ -4,13 +4,13 @@ import {List, Cheat} from '../../components';
 import {motion} from 'framer-motion';
 import {useQuery} from '@apollo/react-hooks';
 import {exportCSVplayer, exportCSVwaitlist} from '../../utils/exportCSV';
-import {QUERY_TRIPS} from '../../utils/queries';
+import {QUERY_ACTIVE_TRIP} from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const PlayerList = () => {
-  const {data: tripData, refetch} = useQuery(QUERY_TRIPS);
+  const {data: tripData, refetch} = useQuery(QUERY_ACTIVE_TRIP);
 
-  const trip = tripData?.trips[0] || [];
+  const trip = tripData?.activeTrip || [];
 
   const loggedIn = Auth.adminLogIn();
 

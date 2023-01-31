@@ -147,7 +147,6 @@ export const EDIT_TRIP = gql`
 
 export const ADD_ACTIVE_PLAYER = gql`
   mutation addPlayerToActiveTrip(
-    $tripId: ID!
     $firstName: String!
     $lastName: String!
     $email: String!
@@ -156,7 +155,6 @@ export const ADD_ACTIVE_PLAYER = gql`
     $lodging: String!
   ) {
     addPlayerToActiveTrip(
-      tripId: $tripId
       firstName: $firstName
       lastName: $lastName
       email: $email
@@ -213,7 +211,6 @@ export const REMOVE_ACTIVE_PLAYER = gql`
 
 export const ADD_WAITLIST_PLAYER = gql`
   mutation addPlayerToWaitlistTrip(
-    $tripId: ID!
     $firstName: String!
     $lastName: String!
     $email: String!
@@ -222,7 +219,6 @@ export const ADD_WAITLIST_PLAYER = gql`
     $lodging: String!
   ) {
     addPlayerToWaitlistTrip(
-      tripId: $tripId
       firstName: $firstName
       lastName: $lastName
       email: $email
