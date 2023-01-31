@@ -44,37 +44,6 @@ const NewTrip = () => {
 
   let input = false;
 
-  // const {
-  //   name,
-  //   startDate,
-  //   endDate,
-  //   paymentDue,
-  //   maxPlayers,
-  //   singlePrice,
-  //   doublePrice,
-  //   golfOnlyPrice,
-  //   hotelName,
-  //   hotelAddress,
-  //   hotelWebsite,
-  //   hotelPhoneNumber,
-  //   courseOneName,
-  //   courseOneAddress,
-  //   courseOneWebsite,
-  //   courseOnePhoneNumber,
-  //   courseTwoName,
-  //   courseTwoAddress,
-  //   courseTwoWebsite,
-  //   courseTwoPhoneNumber,
-  //   courseThreeName,
-  //   courseThreeAddress,
-  //   courseThreeWebsite,
-  //   courseThreePhoneNumber,
-  //   courseFourName,
-  //   courseFourAddress,
-  //   courseFourWebsite,
-  //   courseFourPhoneNumber,
-  // } = formData;
-
   const loggedIn = Auth.adminLogIn();
 
   if (!loggedIn) {
@@ -89,7 +58,8 @@ const NewTrip = () => {
       name === 'doublePrice' ||
       name === 'golfOnlyPrice'
     ) {
-      setformData({...formData, [name]: parseInt(value)});
+      const parsedVal = parseInt(value);
+      setformData({...formData, [name]: parsedVal});
     } else {
       setformData({...formData, [name]: value});
     }
@@ -98,75 +68,9 @@ const NewTrip = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    ///////////////////////////////add Trip specifications from Trip query
-    console.log(formData);
-    const test = {
-      name: 'test trip',
-      startDate: '10/15/2023',
-      endDate: '10/19/2023',
-      paymentDue: '9/1/2023',
-      maxPlayers: 45,
-      singlePrice: 123,
-      doublePrice: 234,
-      golfOnlyPrice: 123,
-      hotelName: 'hotel1',
-      hotelAddress: '123 main street',
-      hotelWebsite: 'hotel.com',
-      hotelPhoneNumber: '123234345',
-      courseOneName: 'course1',
-      courseOneAddress: 'course1 adress',
-      courseOneWebsite: 'course1.com',
-      courseOnePhoneNumber: '123456789',
-      courseOneTeeTime: '6am',
-      courseTwoName: 'course2',
-      courseTwoAddress: '432 main street',
-      courseTwoWebsite: 'course2.com',
-      courseTwoPhoneNumber: '123432654',
-      courseTwoTeeTime: '8am',
-      courseThreeName: 'course3',
-      courseThreeAddress: '543 main street',
-      courseThreeWebsite: 'course3.com',
-      courseThreePhoneNumber: '1234325436',
-      courseThreeTeeTime: '9am',
-      courseFourName: 'course4',
-      courseFourAddress: '654 main street',
-      courseFourWebsite: 'course3.com',
-      courseFourPhoneNumber: '5320982431',
-      courseFourTeeTime: '9am',
-    };
     try {
       addTrip({
-        variables: test,
-        // {
-        //   name,
-        //   startDate,
-        //   endDate,
-        //   maxPlayers,
-        //   paymentDue,
-        //   singlePrice,
-        //   doublePrice,
-        //   golfOnlyPrice,
-        //   hotelName,
-        //   hotelAddress,
-        //   hotelWebsite,
-        //   hotelPhoneNumber,
-        //   courseOneName,
-        //   courseOneAddress,
-        //   courseOneWebsite,
-        //   courseOnePhoneNumber,
-        //   courseTwoName,
-        //   courseTwoAddress,
-        //   courseTwoWebsite,
-        //   courseTwoPhoneNumber,
-        //   courseThreeName,
-        //   courseThreeAddress,
-        //   courseThreeWebsite,
-        //   courseThreePhoneNumber,
-        //   courseFourName,
-        //   courseFourAddress,
-        //   courseFourWebsite,
-        //   courseFourPhoneNumber,
-        // },
+        variables: formData,
       });
     } catch (err) {
       console.error(err);
