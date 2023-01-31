@@ -17,9 +17,8 @@ export const QUERY_PLAYERS = gql`
 
 export const QUERY_ACTIVE_PLAYERS = gql`
   {
-    trips {
+    activeTrip {
       playersActive {
-        _id
         firstName
         lastName
         email
@@ -34,9 +33,8 @@ export const QUERY_ACTIVE_PLAYERS = gql`
 
 export const QUERY_WAITLIST_PLAYERS = gql`
   {
-    trips {
+    activeTrip {
       playersWaitlist {
-        _id
         firstName
         lastName
         email
@@ -51,7 +49,7 @@ export const QUERY_WAITLIST_PLAYERS = gql`
 
 export const QUERY_TRIP_PLAYERS = gql`
   {
-    trips {
+    activeTrip {
       playersActive {
         _id
         firstName

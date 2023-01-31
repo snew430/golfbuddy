@@ -16,9 +16,9 @@ const Message = () => {
     useQuery(QUERY_PLAYERS);
   const {loading: activePlayersLoading, data: emailPlayers} =
     useQuery(QUERY_ACTIVE_PLAYERS);
-
+  console.log(emailPlayers);
   const masterList = emailMasterlist?.players || [];
-  const activeList = emailPlayers?.trips[0].playersActive || [];
+  const activeList = emailPlayers?.activeTrip.playersActive || [];
 
   const [attachment, setAttachment] = useState(null);
 
