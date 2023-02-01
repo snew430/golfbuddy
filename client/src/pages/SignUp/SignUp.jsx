@@ -53,7 +53,7 @@ const SignUp = () => {
     const [recipients, subject, message] = [
       email,
       'Welcome to the Trip!',
-      "You're signed up for the fall trip. Your money is March 15th to secure your spot.  If you cancel at any time after payment for a trip, you may be subject to a termination fee.We are looking forward to a great trip, and hope you will join us!",
+      "You're signed up for the fall trip. Your money is March 15th to secure your spot.  If you cancel at any time after payment for a trip, you may be subject to a termination fee.We are looking forward to a great trip, and hope you will join us! You also have the option for saturday night lodging at Alpine - cost is $85 + tax. It is booked DIRECTLY with Alpine, on a space available basis and the additional cost is in addition to the trip cost and paid directly to Alpine",
     ];
     if (status === 'active') {
       try {
