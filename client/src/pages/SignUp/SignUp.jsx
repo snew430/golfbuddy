@@ -50,11 +50,10 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (status) => {
-    const tripId = trip._id;
     const [recipients, subject, message] = [
       email,
       'Welcome to the Trip!',
-      "You're signed up for the fall trip. Your money is due August 1 to secure your spot.",
+      "You're signed up for the fall trip. Your money is March 15th to secure your spot.  If you cancel at any time after payment for a trip, you may be subject to a termination fee.We are looking forward to a great trip, and hope you will join us!",
     ];
     if (status === 'active') {
       try {
@@ -212,11 +211,6 @@ const SignUp = () => {
           <p className="info-text">
             The cost of the trip includes: <br />
             Accomodations, Green Fees, and Prize Money.
-          </p>
-
-          <p className="info-text">
-            Disclaimer: You may be entitled to a refund from last trip
-            <br /> Please check document below
           </p>
 
           <a

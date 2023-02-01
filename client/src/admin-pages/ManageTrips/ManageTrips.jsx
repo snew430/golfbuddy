@@ -59,7 +59,7 @@ const ManageTrips = () => {
 
   return (
     <div id="manageTrips">
-      {modalShow && <EditTrip trip={currentTripEdit} />}
+      {modalShow && <EditTrip trip={currentTripEdit} setModalShow ={setModalShow}/>}
       <div className="background">
         {trips.map((trip) => (
           <div
