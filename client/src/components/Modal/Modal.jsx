@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { CgCloseO } from 'react-icons/cg';
-import { useMutation } from "@apollo/react-hooks";
-import { UPDATE_PLAYER, ADD_PLAYER } from "../../utils/mutations";
-import "./Modal.scss";
+import React, {useState} from 'react';
+import {CgCloseO} from 'react-icons/cg';
+import {useMutation} from '@apollo/react-hooks';
+import {UPDATE_PLAYER, ADD_PLAYER} from '../../utils/mutations';
+import './Modal.scss';
 
-const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
+const Modal = ({player, onClose, update_add, refetchPlayers}) => {
   const [formData, setformData] = useState({
+    id: player._id,
     firstName: player.firstName,
     lastName: player.lastName,
     email: player.email,
@@ -16,29 +17,17 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
   const [updatePlayer] = useMutation(UPDATE_PLAYER);
   const [addPlayer] = useMutation(ADD_PLAYER);
 
-  const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
-    formData;
-
   const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setformData({ ...formData, [name]: value });
+    const {name, value} = e.target;
+    setformData({...formData, [name]: value});
   };
 
   const handleSubmit = async (update_add) => {
-    const id = player._id;
 
-    if (update_add === "Update") {
+    if (update_add === 'Update') {
       try {
         updatePlayer({
-          variables: {
-            id,
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            preferredRoomate,
-            lodging,
-          },
+          variables: formData,
         });
       } catch (err) {
         console.error(err);
@@ -46,21 +35,12 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
     } else {
       try {
         addPlayer({
-          variables: {
-            id,
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            preferredRoomate,
-            lodging,
-          },
+          variables: formData,
         });
       } catch (err) {
         console.error(err);
       }
     }
-
     onClose();
     refetchPlayers();
   };
@@ -68,17 +48,17 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
   return (
     <div id="modal">
       <div className="app__form">
-      <div onClick={onClose} className="close">
-        <CgCloseO /> 
-      </div>
-        {update_add === "Update" ? (
+        <div onClick={onClose} className="close">
+          <CgCloseO />
+        </div>
+        {update_add === 'Update' ? (
           <h3>
             Update {player.firstName} {player.lastName}
           </h3>
         ) : (
           <h3>Add New Player</h3>
         )}
-        <div >
+        <div>
           <h4>First Name: </h4>
           <input
             type="text"
@@ -120,7 +100,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
           />
         </div>
 
-        {update_add === "Update" ? (
+        {update_add === 'Update' ? (
           <>
             <div>
               <h4>Preferred Roomate: </h4>
@@ -144,7 +124,7 @@ const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
             </div>
           </>
         ) : (
-          ""
+          ''
         )}
         <div className="app__flex">
           <button

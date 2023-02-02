@@ -1,5 +1,5 @@
 #signUp {
-  background: url("../../assets/images/white_paper.jpg");
+  background: url('../../assets/images/white_paper.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -70,7 +70,7 @@
 
       font-size: 1.5rem;
       font-weight: 800;
-      font-family: "Old Standard TT", serif;
+      font-family: 'Old Standard TT', serif;
       color: #282828;
 
       transition: all 0.3 ease-in-out;
@@ -188,21 +188,6 @@
         background-color: var(--yellow-color);
         color: var(--black-color);
       }
-    }
-
-    .refundBtn {
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      border: none;
-      background-color: var(--secondary-color);
-      font-weight: 500;
-      font-size: 2rem;
-      color: var(--white-color);
-      text-shadow: -1px 0 black;
-      outline: none;
-      //margin: 2rem;
-      font-family: var(--font-base);
-      cursor: pointer;
     }
 
     a {

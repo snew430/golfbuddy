@@ -1,11 +1,11 @@
 import React from 'react';
-import './EditTrip.scss';
+import './Modal.scss';
 
 const EditTrip = ({trip, setModalShow}) => {
   console.log(trip);
   return (
-    <div className="edit-trip-backdrop">
-      <div className="edit-trip-modal">
+    <div className="modal-backdrop">
+      <div className="modal">
         <h1
           onClick={() => {
             setModalShow(false);

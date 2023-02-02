@@ -10,7 +10,7 @@ import {Cheat} from '../../components';
 const Trip = () => {
   const {loading, data: tripData} = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || [];
-  console.log(trip);
+
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {
@@ -44,21 +44,25 @@ const Trip = () => {
             <h4>Hotel</h4>
             <h5>{trip.hotel.name}</h5>
             <p className="p-text">{trip.hotel.address}</p>
-            <a
-              className="p-text link"
-              href={trip.hotel.website}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <p className="p-text">{trip.hotel.website}</p>
-            </a>
-            <a
-              className="p-text"
-              href={`tel:${trip.hotel.phoneNumber}`}
-              rel="noreferrer"
-            >
-              <p className="p-text">Phone Number: {trip.hotel.phoneNumber}</p>
-            </a>
+            <p className="p-text">
+              <a
+                className="p-text link"
+                href={trip.hotel.website}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {trip.hotel.website}
+              </a>
+            </p>
+            <p className="p-text">
+              <a
+                className="p-text"
+                href={`tel:${trip.hotel.phoneNumber}`}
+                rel="noreferrer"
+              >
+                Phone Number: {trip.hotel.phoneNumber}
+              </a>
+            </p>
             <p className="p-text">Price for Single Room: ${trip.singlePrice}</p>
             <p className="p-text">Price for Double Room: ${trip.doublePrice}</p>
             <p className="p-text">Golf Only Price: ${trip.golfOnlyPrice}</p>
@@ -68,6 +72,7 @@ const Trip = () => {
             {trip.courses.map((course, i) => (
               <p className="p-text" key={course._id}>
                 Day {i + 1} <br />
+                <p className="p-text">Start Time: {course.teeTime}</p>
                 <a
                   className="p-text link"
                   href={course.website}
@@ -76,7 +81,6 @@ const Trip = () => {
                 >
                   {course.name}
                 </a>
-                <p className="p-text">Start Time: {course.teeTime}</p>
                 <br />
                 <a
                   className="p-text"
@@ -89,23 +93,6 @@ const Trip = () => {
             ))}
           </div>
         </motion.div>
-
-        <p className="info-text">
-          The price of the trip includes:
-          <ul>
-            <li>
-              4 rounds of golf Sun-Mon-Tues at Alpine Lake, Wed - course TBD
-            </li>
-            <li>3 nights lodging at Alpine (except golf only option)</li>
-            <li>2 breakfasts (Mon & Tues)</li>
-            <li>1 dinner (Tues)</li>
-            <li>Use of indoor pool and workout room</li>
-            <li>
-              Hospitality room for prize money distribution and playing cards
-            </li>
-            <li>Prize money</li>
-          </ul>
-        </p>
 
         <h5>All payments are due: {trip.paymentDue} </h5>
 

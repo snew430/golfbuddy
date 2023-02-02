@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './ManageTrips.scss';
 import {motion} from 'framer-motion';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-import {EditTrip, Cheat} from '../../components';
+import {EditTrip, Cheat, ConfirmModal} from '../../components';
 
 import {QUERY_BASIC_TRIPS} from '../../utils/queries';
 import {MAKE_TRIP_ACTIVE, DELETE_TRIP} from '../../utils/mutations';
@@ -14,8 +14,13 @@ const ManageTrips = () => {
   const [makeActive] = useMutation(MAKE_TRIP_ACTIVE);
   const [deleteTrip] = useMutation(DELETE_TRIP);
   const [currentTripEdit, setCurrentTripEdit] = useState();
-  const [modalShow, setModalShow] = useState(false);
-
+  const [editModalShow, setEditModalShow] = useState(false);
+  const [deleteModalShow, setDeleteModalShow] = useState({
+    show: false,
+    id: '',
+    name: '',
+  });
+  console.log(deleteModalShow);
   const trips = tripData?.trips || [];
 
   const loggedIn = Auth.loggedIn();
@@ -50,7 +55,7 @@ const ManageTrips = () => {
 
   const handleEditTrip = (trip) => {
     setCurrentTripEdit(trip);
-    setModalShow(true);
+    setEditModalShow(true);
   };
 
   if (!loggedIn) {
@@ -59,7 +64,22 @@ const ManageTrips = () => {
 
   return (
     <div id="manageTrips">
-      {modalShow && <EditTrip trip={currentTripEdit} setModalShow ={setModalShow}/>}
+      {editModalShow && (
+        <EditTrip trip={currentTripEdit} setModalShow={setEditModalShow()} />
+      )}
+      {deleteModalShow.show && (
+        <ConfirmModal
+          exitFunction={setDeleteModalShow}
+          neededExitVars={{
+            show: false,
+            id: '',
+            name: '',
+          }}
+          purposeFunction={handleDeleteTrip}
+          neededPurpVars={deleteModalShow.id}
+          text={`Are you sure you want to delete ${deleteModalShow.name}? This can not be undone...`}
+        />
+      )}
       <div className="background">
         {trips.map((trip) => (
           <div
@@ -77,7 +97,11 @@ const ManageTrips = () => {
                 Make Active
               </button>
             )}
-            <button onClick={() => handleDeleteTrip(trip._id)}>
+            <button
+              onClick={() =>
+                setDeleteModalShow({show: true, id: trip._id, name: trip.name})
+              }
+            >
               Delete Trip
             </button>
             <button onClick={() => handleEditTrip(trip)}>Edit Trip</button>
