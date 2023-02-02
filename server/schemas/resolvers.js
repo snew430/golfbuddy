@@ -198,7 +198,15 @@ const resolvers = {
     },
 
     addPlayerToActiveTrip: async (parent, args) => {
-      const playerToAdd = await Player.create(args);
+      let playerToAdd = await Player.findOneAndUpdate(
+        {
+          firstName: args.firstName,
+          lastName: args.lastName,
+        },
+        {...args, paid: false},
+        {runValidators: true, new: true}
+      );
+      if (!playerToAdd) playerToAdd = await Player.create(args);
 
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
@@ -258,7 +266,15 @@ const resolvers = {
     },
 
     addPlayerToWaitlistTrip: async (parent, args) => {
-      const playerToAdd = await Player.create(args);
+      let playerToAdd = await Player.findOneAndUpdate(
+        {
+          firstName: args.firstName,
+          lastName: args.lastName,
+        },
+        {...args, paid: false},
+        {runValidators: true, new: true}
+      );
+      if (!playerToAdd) playerToAdd = await Player.create(args);
 
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
@@ -414,9 +430,6 @@ const resolvers = {
         to: recipients,
         subject: subject,
         text: message,
-        // attachments: [
-        //   { filename: "attachment", content: fs.createReadStream(file) },
-        // ],
       };
 
       transporter.sendMail(mail, (err, data) => {
