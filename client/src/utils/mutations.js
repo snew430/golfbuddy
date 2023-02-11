@@ -178,8 +178,8 @@ export const ADD_ACTIVE_PLAYER = gql`
 `;
 
 export const ADD_CURRENT_TO_ACTIVE = gql`
-  mutation addCurrentPlayerToActive($player: ID!, $trip: ID!) {
-    addCurrentPlayerToActive(player: $player, trip: $trip) {
+  mutation addCurrentPlayerToActive($player: ID!) {
+    addCurrentPlayerToActive(player: $player) {
       playersActive {
         _id
         firstName
@@ -194,8 +194,8 @@ export const ADD_CURRENT_TO_ACTIVE = gql`
 `;
 
 export const REMOVE_ACTIVE_PLAYER = gql`
-  mutation removeActivePlayer($player: ID!, $trip: ID!) {
-    removeActivePlayer(player: $player, trip: $trip) {
+  mutation removeActivePlayer($player: ID!) {
+    removeActivePlayer(player: $player) {
       playersActive {
         _id
         firstName
@@ -242,8 +242,8 @@ export const ADD_WAITLIST_PLAYER = gql`
 `;
 
 export const ADD_CURRENT_TO_WAITLIST = gql`
-  mutation addCurrentPlayerToWaitlist($player: ID!, $trip: ID!) {
-    addCurrentPlayerToWaitlist(player: $player, trip: $trip) {
+  mutation addCurrentPlayerToWaitlist($player: ID!) {
+    addCurrentPlayerToWaitlist(player: $player) {
       playersActive {
         _id
         firstName
@@ -258,8 +258,8 @@ export const ADD_CURRENT_TO_WAITLIST = gql`
 `;
 
 export const REMOVE_WAITLIST_PLAYER = gql`
-  mutation removeWaitlistPlayer($player: ID!, $trip: ID!) {
-    removeWaitlistPlayer(player: $player, trip: $trip) {
+  mutation removeWaitlistPlayer($player: ID!) {
+    removeWaitlistPlayer(player: $player) {
       playersWaitlist {
         _id
         firstName

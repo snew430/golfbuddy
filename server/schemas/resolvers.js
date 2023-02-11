@@ -225,7 +225,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeActivePlayer: async (parent, {player, trip}) => {
+    removeActivePlayer: async (parent, {player}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
           {active: true},
@@ -247,9 +247,9 @@ const resolvers = {
       }
     },
 
-    addCurrentPlayerToActive: async (parent, {player, trip}) => {
+    addCurrentPlayerToActive: async (parent, {player}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
-        {_id: trip},
+        {active: true},
         {
           $push: {
             playersActive: {_id: player},
@@ -311,7 +311,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeWaitlistPlayer: async (parent, {player, trip}) => {
+    removeWaitlistPlayer: async (parent, {player}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
           {active: true},

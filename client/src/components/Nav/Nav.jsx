@@ -87,53 +87,79 @@ const Navbar = () => {
               {admin ? (
                 <>
                   <li className="app__flex p-text">
-                    <Link to={'/administrationhome'}>Admin Home</Link>
+                    <Link
+                      onClick={() => setToggle(false)}
+                      to={'/administrationhome'}
+                    >
+                      Admin Home
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/playerlist'}>Player List</Link>
+                    <Link onClick={() => setToggle(false)} to={'/playerlist'}>
+                      Player List
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/masterlist'}>Master List</Link>
+                    <Link onClick={() => setToggle(false)} to={'/masterlist'}>
+                      Master List
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/message'}>Email</Link>
+                    <Link onClick={() => setToggle(false)} to={'/message'}>
+                      Email
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/managetrips'}>Trip Manager</Link>
+                    <Link onClick={() => setToggle(false)} to={'/managetrips'}>
+                      Trip Manager
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li className="app__flex p-text">
-                    <Link to={'/administration'}>Admin Login</Link>
+                    <Link
+                      onClick={() => setToggle(false)}
+                      to={'/administration'}
+                    >
+                      Admin Login
+                    </Link>
                   </li>
                 </>
               )}
               {loggedIn ? (
                 <>
                   <li className="app__flex p-text">
-                    <Link to={'/trip'}>Trip</Link>
+                    <Link onClick={() => setToggle(false)} to={'/trip'}>
+                      Trip
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/announcement'}>Announcement</Link>
+                    <Link onClick={() => setToggle(false)} to={'/announcement'}>
+                      Announcement
+                    </Link>
                   </li>
                   <li className="app__flex p-text">
-                    <Link to={'/rules'}>Rules</Link>
+                    <Link onClick={() => setToggle(false)} to={'/rules'}>
+                      Rules
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li className="app__flex p-text">
-                    <Link to={'/login'}>Players Login</Link>
+                    <Link onClick={() => setToggle(false)} to={'/login'}>
+                      Players Login
+                    </Link>
                   </li>
                 </>
               )}
               {(admin || loggedIn) && (
                 <>
                   <li className="app__flex p-text">
-                    <a href="/" onClick={logout}>
+                    <Link to={"/"} onClick={logout}>
                       Logout
-                    </a>
+                    </Link>
                   </li>
                 </>
               )}

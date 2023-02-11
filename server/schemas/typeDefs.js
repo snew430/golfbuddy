@@ -194,8 +194,8 @@ const typeDefs = gql`
       lodging: String!
     ): Trip
 
-    removeActivePlayer(player: ID!, trip: ID!): Trip
-    addCurrentPlayerToActive(player: ID!, trip: ID!): Trip
+    removeActivePlayer(player: ID!): Trip
+    addCurrentPlayerToActive(player: ID!): Trip
 
     addPlayerToWaitlistTrip(
       firstName: String!
@@ -206,9 +206,9 @@ const typeDefs = gql`
       lodging: String!
     ): Trip
 
-    removeWaitlistPlayer(player: ID!, trip: ID!): Trip
+    removeWaitlistPlayer(player: ID!): Trip
 
-    addCurrentPlayerToWaitlist(player: ID!, trip: ID!): Trip
+    addCurrentPlayerToWaitlist(player: ID!): Trip
 
     addCourseToTrip(course: ID!, trip: ID!): Trip
 
@@ -244,8 +244,5 @@ const typeDefs = gql`
     updateNote(header: String, body: String): Note
   }
 `;
-
-//move from waitlist to active
-//move from active to waitlist
 
 module.exports = typeDefs;

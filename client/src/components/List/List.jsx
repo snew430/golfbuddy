@@ -41,11 +41,11 @@ const List = ({players, status, trip, refetchPlayers}) => {
     try {
       if (status === 'active') {
         await deleteActive({
-          variables: {trip, player},
+          variables: {player},
         });
       } else if (status === 'waitlist') {
         await deleteWaitlist({
-          variables: {trip, player},
+          variables: {player},
         });
       }
       // upon success, remove player's id from localStorage
@@ -58,17 +58,17 @@ const List = ({players, status, trip, refetchPlayers}) => {
 
   const handleMovePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    console.log(player);
     if (!token) {
       return false;
     }
     if (status === 'waitlist') {
       try {
         await deleteWaitlist({
-          variables: {player, trip},
+          variables: {player},
         });
         await moveToActive({
-          variables: {player, trip},
+          variables: {player},
         });
       } catch (err) {
         console.error(err);
@@ -76,10 +76,10 @@ const List = ({players, status, trip, refetchPlayers}) => {
     } else if (status === 'active') {
       try {
         await deleteActive({
-          variables: {player, trip},
+          variables: {player},
         });
         await moveToWaitlist({
-          variables: {player, trip},
+          variables: {player},
         });
       } catch (err) {
         console.error(err);
