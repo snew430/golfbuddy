@@ -101,9 +101,9 @@
 }
 
 .modal-backdrop {
-  position: fixed;
+  position: absolute;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,5 +113,5 @@
 .modal {
   background-color: green;
   width: 50%;
-  height: 50%;
+  min-height: 50%;
 }

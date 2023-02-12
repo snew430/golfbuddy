@@ -2,6 +2,7 @@ import React from 'react';
 import './Modal.scss';
 
 const EditTrip = ({trip, setModalShow}) => {
+  console.log(trip);
   return (
     <div className="modal-backdrop">
       <div className="modal">
@@ -32,9 +33,41 @@ const EditTrip = ({trip, setModalShow}) => {
           <label htmlFor="name">Golf Only Price:</label>
           <input type="text" value={trip.golfOnlyPrice} />
           <br />
-          <button>Change Trip</button>
+          <label htmlFor="name">Max Players:</label>
+          <input type="text" value={trip.maxPlayers} />
+          <br />
+          <label htmlFor="name">Payment Due:</label>
+          <input type="text" value={trip.paymentDue} />
+          <br />
+          <button>Change Trip Info</button>
+          <label htmlFor="name">Hotel Name:</label>
+          <input type="text" value={trip.hotel.name} />
+          <br />
+          <label htmlFor="name">Hotel Address:</label>
+          <input type="text" value={trip.hotel.address} />
+          <br />
+          <label htmlFor="name">Hotel Website:</label>
+          <input type="text" value={trip.hotel.website} />
+          <br />
+          <button>Change Hotel Info</button>
+          {trip.courses.map((course) => (
+            <>
+              <label htmlFor="name">Course Name:</label>
+              <input type="text" value={course.name} />
+              <br />
+              <label htmlFor="name">Course Address:</label>
+              <input type="text" value={course.address} />
+              <br />
+              <label htmlFor="name">Course Website:</label>
+              <input type="text" value={course.website} />
+              <br />
+              <label htmlFor="name">Course Tee Time:</label>
+              <input type="text" value={course.teeTime} />
+              <br />
+              <button>Change Course Info</button>
+            </>
+          ))}
         </form>
-        
       </div>
     </div>
   );

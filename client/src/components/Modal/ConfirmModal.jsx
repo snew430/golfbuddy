@@ -6,7 +6,7 @@ const ConfirmModal = ({
   neededExitVars,
   purposeFunction,
   text,
-  neededVars,
+  neededPurpVars,
 }) => {
   return (
     <div className="modal-backdrop">
@@ -14,7 +14,7 @@ const ConfirmModal = ({
         <h3>{text}</h3>
         <button
           onClick={() => {
-            purposeFunction(neededVars);
+            purposeFunction(neededPurpVars);
           }}
         >
           Confirm

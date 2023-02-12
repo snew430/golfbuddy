@@ -20,6 +20,7 @@ const ManageTrips = () => {
     id: '',
     name: '',
   });
+  console.log(deleteModalShow);
   const trips = tripData?.trips || [];
 
   const loggedIn = Auth.loggedIn();
@@ -42,11 +43,17 @@ const ManageTrips = () => {
   };
 
   const handleDeleteTrip = async (id) => {
+    console.log(id);
     try {
       await deleteTrip({
         variables: {deleteTripId: id},
       });
       refetch();
+      setDeleteModalShow({
+        show: false,
+        id: '',
+        name: '',
+      });
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +71,7 @@ const ManageTrips = () => {
   return (
     <div id="manageTrips">
       {editModalShow && (
-        <EditTrip trip={currentTripEdit} setModalShow={setEditModalShow()} />
+        <EditTrip trip={currentTripEdit} setModalShow={setEditModalShow} />
       )}
       {deleteModalShow.show && (
         <ConfirmModal
