@@ -17,7 +17,7 @@ import {FiXSquare} from 'react-icons/fi';
 import {Modal} from '../../components';
 import Auth from '../../utils/auth';
 
-const List = ({players, status, trip, refetchPlayers}) => {
+const List = ({players, status, refetchPlayers}) => {
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,7 +58,6 @@ const List = ({players, status, trip, refetchPlayers}) => {
 
   const handleMovePlayer = async (player, status) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log(player);
     if (!token) {
       return false;
     }

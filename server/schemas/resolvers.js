@@ -211,7 +211,7 @@ const resolvers = {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
-          $push: {
+          $addToSet: {
             playersActive: playerToAdd._id,
           },
         },
@@ -231,7 +231,7 @@ const resolvers = {
           {active: true},
           {
             $pull: {
-              playersActive: {$in: [player]},
+              playersActive: player,
             },
           },
           {new: true}
@@ -251,8 +251,8 @@ const resolvers = {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
-          $push: {
-            playersActive: {_id: player},
+          $addToSet: {
+            playersActive: player,
           },
         },
         {new: true}
@@ -279,7 +279,7 @@ const resolvers = {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
-          $push: {
+          $addToSet: {
             playersWaitlist: playerToAdd._id,
           },
         },
@@ -297,8 +297,8 @@ const resolvers = {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
-          $push: {
-            playersWaitlist: {_id: player},
+          $addToSet: {
+            playersWaitlist: player,
           },
         },
         {new: true}
@@ -358,7 +358,7 @@ const resolvers = {
         {_id: trip},
         {
           $pull: {
-            courses: {_id: course},
+            courses: course,
           },
         },
         {new: true}

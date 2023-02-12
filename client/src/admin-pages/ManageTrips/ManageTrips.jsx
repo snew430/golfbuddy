@@ -20,7 +20,6 @@ const ManageTrips = () => {
     id: '',
     name: '',
   });
-  console.log(deleteModalShow);
   const trips = tripData?.trips || [];
 
   const loggedIn = Auth.loggedIn();

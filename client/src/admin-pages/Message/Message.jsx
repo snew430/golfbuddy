@@ -16,7 +16,6 @@ const Message = () => {
     useQuery(QUERY_PLAYERS);
   const {loading: activePlayersLoading, data: emailPlayers} =
     useQuery(QUERY_ACTIVE_PLAYERS);
-  console.log(emailPlayers);
   const masterList = emailMasterlist?.players || [];
   const activeList = emailPlayers?.activeTrip.playersActive || [];
 

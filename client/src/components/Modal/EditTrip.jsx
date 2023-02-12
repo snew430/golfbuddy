@@ -2,7 +2,6 @@ import React from 'react';
 import './Modal.scss';
 
 const EditTrip = ({trip, setModalShow}) => {
-  console.log(trip);
   return (
     <div className="modal-backdrop">
       <div className="modal">

@@ -27,7 +27,7 @@
   list-style: none;
 
   li {
-    margin: 0 1rem;
+    margin: 0 0.3rem;
     cursor: pointer;
 
     flex-direction: column;
@@ -38,7 +38,6 @@
       height: 5px;
       background: transparent;
       border-radius: 50%;
-
       margin-bottom: 5px;
     }
 
@@ -50,15 +49,14 @@
 
       text-transform: uppercase;
       font-weight: 500;
+      padding: 0.5rem 1rem;
 
       transition: all 0.3s ease-in-out;
 
       &:hover {
         color: var(--white-color);
         background-color: var(--darkGreen-color);
-        padding: 0.5rem 1rem;
         border-radius: 10px;
-        border: none;
       }
     }
   }
@@ -102,7 +100,7 @@
     align-items: flex-end;
     flex-direction: column;
 
-    background: url("../../assets/images/white_paper.jpg");
+    background: url('../../assets/images/white_paper.jpg');
     background-size: cover;
     background-position: center;
 

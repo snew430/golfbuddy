@@ -10,7 +10,6 @@ import {Cheat} from '../../components';
 const Trip = () => {
   const {loading, data: tripData} = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || [];
-  console.log(trip);
   const loggedIn = Auth.loggedIn();
 
   if (!loggedIn) {

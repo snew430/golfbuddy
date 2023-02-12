@@ -7,7 +7,6 @@ import Auth from '../../utils/auth';
 const Announcement = () => {
   const {loading, data: noteData, refetch} = useQuery(QUERY_NOTE);
   const announcements = noteData?.note[0] || {header: '', body: ''};
-  console.log(announcements, loading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

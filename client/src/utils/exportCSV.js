@@ -4,7 +4,6 @@ export const exportCSVwaitlist = () => {
   let csv = [];
   const rows = document.querySelectorAll("table tr");
   for (const row of rows.values()) {
-    console.log(row);
     const cells = row.querySelectorAll("td, th");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
     csv.push(rowText.join(","));
@@ -33,9 +32,7 @@ export const exportCSVwaitlist = () => {
 export const exportCSVplayer = () => {
   let csv = [];
   const rows = document.querySelectorAll("table tr");
-  console.log(rows);
   for (const row of rows.values()) {
-    console.log(row);
     const cells = row.querySelectorAll("td, th");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
     csv.push(rowText.join(","));
@@ -69,7 +66,6 @@ export const exportCSVplayer = () => {
 export const exportCSVmaster = () => {
   let csv = [];
   const rows = document.querySelectorAll("table tr");
-  console.log(rows);
   for (const row of rows.values()) {
     const cells = row.querySelectorAll("td, th");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
