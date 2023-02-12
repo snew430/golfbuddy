@@ -207,7 +207,7 @@ const SignUp = () => {
             Money received after due date is subject to $25 late fee.
           </p>
 
-          <p className="info-text">
+          {/* <p className="info-text">
             The cost of the trip includes: <br />
             Accomodations, Green Fees, and Prize Money.
           </p>
@@ -218,7 +218,7 @@ const SignUp = () => {
             <br />
             We will do our best to return your money, but returns are subject to
             course and hotel cancelation fees.
-          </p>
+          </p> */}
 
           <motion.div
             whileInView={{opacity: [0, 1]}}

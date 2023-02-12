@@ -106,7 +106,7 @@ const Trip = () => {
           </ul>
         </p>
 
-        <h5>All payments are due: {trip.paymentDue} </h5>
+        {/* <h5>All payments are due: {trip.paymentDue} </h5>
 
         <p className="info-text">
           Please send payments through Venmo
@@ -121,7 +121,7 @@ const Trip = () => {
 
         <p className="info-text">
           Money received after due date is subject to $25 late fee.
-        </p>
+        </p> */}
 
         <p className="info-text">
           If you cancel at any time after payment for a trip, you may be subject

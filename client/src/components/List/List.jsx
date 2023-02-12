@@ -150,7 +150,7 @@ const List = ({players, status, refetchPlayers}) => {
                       onClick={() => handlePaid(player._id, player.paid)}
                     />
                   ) : (
-                    <FiXSquare
+                    <BsCurrencyDollar
                       className="grey"
                       onClick={() => handlePaid(player._id, player.paid)}
                     />
