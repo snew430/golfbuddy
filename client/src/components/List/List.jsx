@@ -118,30 +118,30 @@ const List = ({players, status, refetchPlayers}) => {
           refetchPlayers={refetchPlayers}
         />
       )}
-      <table>
+      <table className={`table${status}`}>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Lodging</th>
-            <th>Roommate</th>
+            <th className={`th${status}`}>Name</th>
+            <th className={`th${status}`}>Email</th>
+            <th className={`th${status}`}>Phone</th>
+            <th className={`th${status}`}>Lodging</th>
+            <th className={`th${status}`}>Roommate</th>
           </tr>
         </thead>
         <tbody>
           {players.map((player) => (
             <tr key={player._id}>
-              <td>
+              <td className={`td${status}`}>
                 {player.firstName} {player.lastName}
               </td>
-              <td>
+              <td className={`td${status}`}>
                 <a href={`mailto:${player.email}`}>{player.email}</a>
               </td>
-              <td>
+              <td className={`td${status}`}>
                 <a href={`tel:${player.phoneNumber}`}>{player.phoneNumber}</a>
               </td>
-              <td>{player.lodging}</td>
-              <td>{player.preferredRoomate}</td>
+              <td className={`td${status}`}>{player.lodging}</td>
+              <td className={`td${status}`}>{player.preferredRoomate}</td>
               <td>
                 <span className="hovertext" data-hover="Paid/ Unpaid">
                   {player.paid ? (
