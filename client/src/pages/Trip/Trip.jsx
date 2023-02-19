@@ -75,6 +75,7 @@ const Trip = () => {
                 >
                   {course.name}
                 </a>
+                <p className="p-text">{course.address}</p>
                 <p className="p-text">Start Time: {course.teeTime}</p>
                 <br />
                 <a
