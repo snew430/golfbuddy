@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './Home.scss';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 import Auth from '../../utils/auth';
 import ryderCupRules from '../../assets/ryder-cup-rules.pdf';
-import ryderCupGroups from '../../assets/Ryder-Fall-2022.pdf';
-import montues4somes from '../../assets/mon-tues-4somes.pdf';
+import ryderCupGroups from '../../assets/RyderSpring2023.pdf';
+import montues4somes from '../../assets/4somesSpring.pdf';
 // import { Document, Page, pdfjs } from 'react-pdf';
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import {Document, Page} from 'react-pdf/dist/esm/entry.webpack';
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();
@@ -25,9 +25,9 @@ const Home = () => {
         What's My Tee Time? <br /> Golf Trips
       </h2>
       <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
-        whileHover={{ scale: 1.1 }}
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
+        whileHover={{scale: 1.1}}
         className="app__flex"
       >
         {loggedIn ? (
@@ -44,10 +44,10 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      {/* <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
-        whileHover={{ scale: 1.1 }}
+      <motion.div
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
+        whileHover={{scale: 1.1}}
         className="app__flex"
       >
         <a href={ryderCupRules} target="_blank" rel="noreferrer">
@@ -55,9 +55,9 @@ const Home = () => {
         </a>
       </motion.div>
       <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
-        whileHover={{ scale: 1.1 }}
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
+        whileHover={{scale: 1.1}}
         className="app__flex"
       >
         <a href={ryderCupGroups} target="_blank" rel="noreferrer">
@@ -65,15 +65,15 @@ const Home = () => {
         </a>
       </motion.div>
       <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
-        whileHover={{ scale: 1.1 }}
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
+        whileHover={{scale: 1.1}}
         className="app__flex"
       >
         <a href={montues4somes} target="_blank" rel="noreferrer">
           <button>Mon-Tues 4Somes</button>
         </a>
-      </motion.div> */}
+      </motion.div>
     </div>
   );
 };
