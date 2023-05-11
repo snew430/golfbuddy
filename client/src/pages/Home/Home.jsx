@@ -71,7 +71,7 @@ const Home = () => {
         className="app__flex"
       >
         <a href={montues4somes} target="_blank" rel="noreferrer">
-          <button>Mon-Tues 4Somes</button>
+          <button>Sunday 4-Somes</button>
         </a>
       </motion.div>
     </div>
