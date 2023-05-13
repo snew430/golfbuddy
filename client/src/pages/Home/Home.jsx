@@ -6,6 +6,7 @@ import Auth from '../../utils/auth';
 import ryderCupRules from '../../assets/ryder-cup-rules.pdf';
 import ryderCupGroups from '../../assets/RyderSpring2023.pdf';
 import montues4somes from '../../assets/4somesSpring.pdf';
+import roomies from '../../assets/roomies.xlsx';
 // import { Document, Page, pdfjs } from 'react-pdf';
 import {Document, Page} from 'react-pdf/dist/esm/entry.webpack';
 
@@ -72,6 +73,16 @@ const Home = () => {
       >
         <a href={montues4somes} target="_blank" rel="noreferrer">
           <button>Sunday 4-Somes</button>
+        </a>
+      </motion.div>
+      <motion.div
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
+        whileHover={{scale: 1.1}}
+        className="app__flex"
+      >
+        <a href={roomies} target="_blank" rel="noreferrer">
+          <button>Roomates</button>
         </a>
       </motion.div>
     </div>
