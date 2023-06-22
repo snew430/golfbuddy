@@ -45,46 +45,6 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={ryderCupRules} target="_blank" rel="noreferrer">
-          <button>Ryder Cup Rules</button>
-        </a>
-      </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={ryderCupGroups} target="_blank" rel="noreferrer">
-          <button>Ryder Cup Groups</button>
-        </a>
-      </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={montues4somes} target="_blank" rel="noreferrer">
-          <button>Sunday 4-Somes</button>
-        </a>
-      </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={roomies} target="_blank" rel="noreferrer">
-          <button>Roomates</button>
-        </a>
-      </motion.div>
     </div>
   );
 };
