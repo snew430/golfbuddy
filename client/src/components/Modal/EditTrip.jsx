@@ -8,6 +8,7 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
   const [formData, setFormData] = useState(trip);
   const handleChangeInput = (e) => {
     const {name, value} = e.target;
+    console.log(name, value);
     if (
       name === 'maxPlayers' ||
       name === 'singlePrice' ||
@@ -92,70 +93,70 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
           <input
             name="endDate"
             type="text"
-            value={trip.endDate}
+            value={formData.endDate}
             onChange={handleChangeInput}
           />
-          <label htmlFor="doublePriceDate">Doubles Price:</label>
+          <label htmlFor="doublePrice">Doubles Price:</label>
           <input
-            name="doublePriceDate"
+            name="doublePrice"
             type="text"
-            value={trip.doublePrice}
+            value={formData.doublePrice}
             onChange={handleChangeInput}
           />
           <label htmlFor="singlePrice">Singles Price:</label>
           <input
             name="singlePrice"
             type="text"
-            value={trip.singlePrice}
+            value={formData.singlePrice}
             onChange={handleChangeInput}
           />
           <label htmlFor="golfOnlyPrice">Golf Only Price:</label>
           <input
             name="golfOnlyPrice"
             type="text"
-            value={trip.golfOnlyPrice}
+            value={formData.golfOnlyPrice}
             onChange={handleChangeInput}
           />
           <label htmlFor="maxPlayers">Max Players:</label>
           <input
             name="maxPlayers"
             type="text"
-            value={trip.maxPlayers}
+            value={formData.maxPlayers}
             onChange={handleChangeInput}
           />
           <label htmlFor="dayOneStart">Payment Due:</label>
           <input
             name="dayOneStart"
             type="text"
-            value={trip.paymentDue}
+            value={formData.paymentDue}
             onChange={handleChangeInput}
           />
           <label htmlFor="startDate">Day 1 Start Time:</label>
           <input
             name="startDate"
             type="text"
-            value={trip.dayOneStart}
+            value={formData.dayOneStart}
             onChange={handleChangeInput}
           />
           <label htmlFor="dayTwoStart">Day 2 Start Time:</label>
           <input
             name="dayTwoStart"
             type="text"
-            value={trip.dayTwoStart}
+            value={formData.dayTwoStart}
             onChange={handleChangeInput}
           />
           <label htmlFor="dayThreeStart">Day 3 Start Time:</label>
           <input
             name="dayThreeStart"
             type="text"
-            value={trip.dayThreeStart}
+            value={formData.dayThreeStart}
             onChange={handleChangeInput}
           />
           <label htmlFor="dayFourStart">Day 4 Start Time:</label>
           <input
             name="dayFourStart"
             type="text"
-            value={trip.dayFourStart}
+            value={formData.dayFourStart}
             onChange={handleChangeInput}
           />
           <button onClick={handleFormSubmit}>Change Trip Info</button>
