@@ -9,9 +9,9 @@ import {Cheat} from '../../components';
 
 const Trip = () => {
   const {loading, data: tripData} = useQuery(QUERY_ACTIVE_TRIP);
-  const trip = tripData?.activeTrip || [];
+  const trip = tripData?.activeTrip || {};
   const loggedIn = Auth.loggedIn();
-
+  console.log(trip);
   if (!loggedIn) {
     return <Cheat />;
   }
@@ -19,6 +19,13 @@ const Trip = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const startTimes = [
+    trip.dayOneStart,
+    trip.dayTwoStart,
+    trip.dayThreeStart,
+    trip.dayFourStart,
+  ];
 
   return (
     <div id="trip">
@@ -76,7 +83,7 @@ const Trip = () => {
                   {course.name}
                 </a>
                 <p className="p-text">{course.address}</p>
-                <p className="p-text">Start Time: {course.teeTime}</p>
+                <p className="p-text">Start Time: {startTimes[i]}</p>
                 <br />
                 <a
                   className="p-text"
@@ -89,40 +96,6 @@ const Trip = () => {
             ))}
           </div>
         </motion.div>
-
-        <p className="info-text">
-          The price of the trip includes:
-          <ul>
-            <li>
-              4 rounds of golf Sun-Mon-Tues at Alpine Lake, Wed - course TBD
-            </li>
-            <li>3 nights lodging at Alpine (except golf only option)</li>
-            <li>2 breakfasts (Mon & Tues)</li>
-            <li>1 dinner (Tues)</li>
-            <li>Use of indoor pool and workout room</li>
-            <li>
-              Hospitality room for prize money distribution and playing cards
-            </li>
-            <li>Prize money</li>
-          </ul>
-        </p>
-
-        {/* <h5>All payments are due: {trip.paymentDue} </h5>
-
-        <p className="info-text">
-          Please send payments through Venmo
-          <br />
-          <a href="https://account.venmo.com/u/John-McKenna-145">
-            @John-McKenna-145
-          </a>
-          <br />
-          or mail a check to
-          <br /> John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
-        </p>
-
-        <p className="info-text">
-          Money received after due date is subject to $25 late fee.
-        </p> */}
 
         <p className="info-text">
           If you cancel at any time after payment for a trip, you may be subject

@@ -25,7 +25,6 @@ const typeDefs = gql`
     address: String
     website: String
     phoneNumber: String
-    teeTime: String
   }
   type Hotel {
     _id: ID
@@ -50,8 +49,11 @@ const typeDefs = gql`
     activePlayerCount: Int
     playersWaitlist: [Player]
     active: Boolean
+    dayOneStart: String
+    dayTwoStart: String
+    dayThreeStart: String
+    dayFourStart: String
   }
-
   type Info {
     _id: ID
     header: String
@@ -69,7 +71,7 @@ const typeDefs = gql`
   type Query {
     players: [Player]
     courses: [Course]
-    hotel: [Hotel]
+    hotels: [Hotel]
     trips: [Trip]
     trip(id: ID!): Trip
     info: [Info]
@@ -101,12 +103,7 @@ const typeDefs = gql`
 
     deletePlayer(id: ID!): Player
 
-    addCourse(
-      name: String!
-      address: String!
-      website: String!
-      teeTime: String!
-    ): Course
+    addCourse(name: String!, address: String!, website: String!): Course
 
     addHotel(name: String!, address: String!, website: String!): Hotel
 
@@ -119,30 +116,15 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
       golfOnlyPrice: Int!
-      hotelName: String!
-      hotelAddress: String!
-      hotelWebsite: String!
-      hotelPhoneNumber: String!
-      courseOneName: String!
-      courseOneAddress: String!
-      courseOneWebsite: String!
-      courseOnePhoneNumber: String!
-      courseOneTeeTime: String!
-      courseTwoName: String!
-      courseTwoAddress: String!
-      courseTwoWebsite: String!
-      courseTwoPhoneNumber: String!
-      courseTwoTeeTime: String!
-      courseThreeName: String!
-      courseThreeAddress: String!
-      courseThreeWebsite: String!
-      courseThreePhoneNumber: String!
-      courseThreeTeeTime: String!
-      courseFourName: String!
-      courseFourAddress: String!
-      courseFourWebsite: String!
-      courseFourPhoneNumber: String!
-      courseFourTeeTime: String!
+      dayOneStart: String
+      dayTwoStart: String
+      dayThreeStart: String
+      dayFourStart: String
+      hotel: ID!
+      courseOne: ID!
+      courseTwo: ID!
+      courseThree: ID!
+      courseFour: ID!
     ): Trip
 
     editTrip(
@@ -155,30 +137,10 @@ const typeDefs = gql`
       singlePrice: Int
       doublePrice: Int
       golfOnlyPrice: Int
-      hotelName: String
-      hotelAddress: String
-      hotelWebsite: String
-      hotelPhoneNumber: String
-      courseOneName: String
-      courseOneAddress: String
-      courseOneWebsite: String
-      courseOnePhoneNumber: String
-      courseOneTeeTime: String
-      courseTwoName: String
-      courseTwoAddress: String
-      courseTwoWebsite: String
-      courseTwoPhoneNumber: String
-      courseTwoTeeTime: String
-      courseThreeName: String
-      courseThreeAddress: String
-      courseThreeWebsite: String
-      courseThreePhoneNumber: String
-      courseThreeTeeTime: String
-      courseFourName: String
-      courseFourAddress: String
-      courseFourWebsite: String
-      courseFourPhoneNumber: String
-      courseFourTeeTime: String
+      dayOneStart: String
+      dayTwoStart: String
+      dayThreeStart: String
+      dayFourStart: String
     ): Trip
 
     deleteTrip(id: ID!): Trip

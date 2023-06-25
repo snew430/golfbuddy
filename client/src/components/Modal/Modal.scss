@@ -114,4 +114,10 @@
   background-color: green;
   width: 50%;
   min-height: 50%;
+  padding: 5rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
 }

@@ -2,30 +2,29 @@ const db = require('./connection');
 const {Admin, Hotel, Course, Player, Trip, Info, Note} = require('../models');
 
 db.once('open', async () => {
-  // await Admin.deleteMany();
-  //   await Hotel.deleteMany();
-  //   await Course.deleteMany();
-  // await Player.deleteMany();
-  //   await Trip.deleteMany();
-  // await Info.deleteMany();
-  // await Note.deleteMany();
+  await Admin.deleteMany();
+  await Hotel.deleteMany();
+  await Course.deleteMany();
+  await Player.deleteMany();
+  await Trip.deleteMany();
+  await Info.deleteMany();
+  await Note.deleteMany();
 
-  // await Admin.create({
-  //   email: process.env.EMAIL,
-  //   password: process.env.PASS,
-  // });
+  await Admin.create({
+    email: process.env.EMAIL,
+    password: process.env.PASS,
+  });
 
-  // await Admin.create({
-  //   email: process.env.PLAYEREMAIL,
-  //   password: process.env.PLAYERPASS,
-  // });
+  await Admin.create({
+    email: process.env.PLAYEREMAIL,
+    password: process.env.PLAYERPASS,
+  });
 
   const course1 = await Course.create({
     name: 'Rum Pointe Seaside Golf Links',
     address: '7000 Rum Pointe Lane Berin, Maryland 21811',
     website: 'https://rumpointe.com/',
     phoneNumber: '4106291414',
-    teeTime: '11:00 AM',
   });
 
   const course2 = await Course.create({
@@ -33,23 +32,14 @@ db.once('open', async () => {
     address: '11501 Maid at Arms Lane Berlin, Maryland 21811',
     website: 'https://glenriddlegolf.com/',
     phoneNumber: '4102132325',
-    teeTime: '9:00 AM',
   });
+
 
   const course3 = await Course.create({
-    name: "GlenRiddle Golf Club - Man O' War",
-    address: '11501 Maid at Arms Lane Berlin, Maryland 21811',
-    website: 'https://glenriddlegolf.com/',
-    phoneNumber: '4102132325',
-    teeTime: '9:00 AM',
-  });
-
-  const course4 = await Course.create({
     name: "Hooper's Landing",
     address: '1019 W Locust Street, Seaford, Delaware 19973',
     website: 'https://www.hooperslanding.com/',
     phoneNumber: '3026292890',
-    teeTime: '9:00 AM',
   });
 
   const hotel1 = await Hotel.create({
@@ -101,12 +91,16 @@ db.once('open', async () => {
     singlePrice: 560,
     doublePrice: 460,
     golfOnlyPrice: 360,
-    courses: [course1, course2, course3, course4],
+    courses: [course1, course2, course2, course3],
     hotel: hotel1,
     maxPlayers: 30,
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],
     active: true,
+    dayOneStart: '9:00 am',
+    dayTwoStart: '9:00 am',
+    dayThreeStart: '9:00 am',
+    dayFourStart: '9:00 am',
   });
 
   const trip2 = await Trip.create({
@@ -123,6 +117,10 @@ db.once('open', async () => {
     playersActive: [player1, player2, player3],
     playersWaitlist: [player4],
     active: false,
+    dayOneStart: '9:00 am',
+    dayTwoStart: '9:00 am',
+    dayThreeStart: '9:00 am',
+    dayFourStart: '9:00 am',
   });
 
   //   await Info.create({

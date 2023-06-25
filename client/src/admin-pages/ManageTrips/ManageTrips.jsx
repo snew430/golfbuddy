@@ -20,7 +20,6 @@ const ManageTrips = () => {
     id: '',
     name: '',
   });
-  console.log(deleteModalShow);
   const trips = tripData?.trips || [];
 
   const loggedIn = Auth.loggedIn();
@@ -71,7 +70,11 @@ const ManageTrips = () => {
   return (
     <div id="manageTrips">
       {editModalShow && (
-        <EditTrip trip={currentTripEdit} setModalShow={setEditModalShow} />
+        <EditTrip
+          trip={currentTripEdit}
+          setModalShow={setEditModalShow}
+          refetch={refetch}
+        />
       )}
       {deleteModalShow.show && (
         <ConfirmModal

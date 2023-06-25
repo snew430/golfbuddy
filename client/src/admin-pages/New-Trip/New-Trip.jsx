@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import './New-Trip.scss';
 import Auth from '../../utils/auth';
-import {useMutation} from '@apollo/react-hooks';
-import {ADD_TRIP} from '../../utils/mutations';
+import {useMutation, useQuery} from '@apollo/react-hooks';
+import {ADD_TRIP, ADD_COURSE, ADD_HOTEL} from '../../utils/mutations';
+import {QUERY_HOTELS, QUERY_COURSES} from '../../utils/queries';
 import {Cheat} from '../../components';
+import CourseHotelModal from '../../components/Modal/CourseHotelModal';
 
 const NewTrip = () => {
   //edit form data to meet specifications from Trip query
-  const [formData, setformData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     startDate: '',
     endDate: '',
@@ -16,32 +18,21 @@ const NewTrip = () => {
     singlePrice: 0,
     doublePrice: 0,
     golfOnlyPrice: 0,
-    hotelName: '',
-    hotelAddress: '',
-    hotelWebsite: '',
-    hotelPhoneNumber: '',
-    courseOneName: '',
-    courseOneAddress: '',
-    courseOneWebsite: '',
-    courseOnePhoneNumber: '',
-    courseTwoName: '',
-    courseTwoAddress: '',
-    courseTwoWebsite: '',
-    courseTwoPhoneNumber: '',
-    courseThreeName: '',
-    courseThreeAddress: '',
-    courseThreeWebsite: '',
-    courseThreePhoneNumber: '',
-    courseFourName: '',
-    courseFourAddress: '',
-    courseFourWebsite: '',
-    courseFourPhoneNumber: '',
+    hotel: '',
+    courseOne: '',
+    courseTwo: '',
+    courseThree: '',
+    courseFour: '',
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const [addTrip] = useMutation(ADD_TRIP);
-
+  const [addCourse] = useMutation(ADD_COURSE);
+  const [addHotel] = useMutation(ADD_HOTEL);
+  const {data: courses, loading: courseLoading} = useQuery(QUERY_COURSES);
+  const {data: hotels, loading: hotelLoading} = useQuery(QUERY_HOTELS);
+  const [addFunction, setAddFunction] = useState();
+  const [showModal, setShowModal] = useState(false);
   let input = false;
 
   const loggedIn = Auth.adminLogIn();
@@ -59,9 +50,9 @@ const NewTrip = () => {
       name === 'golfOnlyPrice'
     ) {
       const parsedVal = parseInt(value);
-      setformData({...formData, [name]: parsedVal});
+      setFormData({...formData, [name]: parsedVal});
     } else {
-      setformData({...formData, [name]: value});
+      setFormData({...formData, [name]: value});
     }
   };
 
@@ -76,7 +67,7 @@ const NewTrip = () => {
       console.error(err);
     }
 
-    setformData({
+    setFormData({
       name: '',
       startDate: '',
       endDate: '',
@@ -85,26 +76,11 @@ const NewTrip = () => {
       singlePrice: 0,
       doublePrice: 0,
       golfOnlyPrice: 0,
-      hotelName: '',
-      hotelAddress: '',
-      hotelWebsite: '',
-      hotelPhoneNumber: '',
-      courseOneName: '',
-      courseOneAddress: '',
-      courseOneWebsite: '',
-      courseOnePhoneNumber: '',
-      courseTwoName: '',
-      courseTwoAddress: '',
-      courseTwoWebsite: '',
-      courseTwoPhoneNumber: '',
-      courseThreeName: '',
-      courseThreeAddress: '',
-      courseThreeWebsite: '',
-      courseThreePhoneNumber: '',
-      courseFourName: '',
-      courseFourAddress: '',
-      courseFourWebsite: '',
-      courseFourPhoneNumber: '',
+      hotel: '',
+      courseOne: '',
+      courseTwo: '',
+      courseThree: '',
+      courseFour: '',
     });
 
     setIsFormSubmitted(true);
@@ -143,33 +119,6 @@ const NewTrip = () => {
                 onChange={handleChangeInput}
               />
             </div>
-            <h2>Hotel Information</h2>
-            <div>
-              <input
-                type="text"
-                placeholder="Hotel Name"
-                name="hotelName"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Hotel Address"
-                name="hotelAddress"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Hotel Phone Number"
-                name="hotelPhoneNumber"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Hotel Website"
-                name="hotelWebsite"
-                onChange={handleChangeInput}
-              />
-            </div>
             <h2>Payment Information</h2>
             <div>
               <input
@@ -197,140 +146,121 @@ const NewTrip = () => {
                 onChange={handleChangeInput}
               />
             </div>
-            <h2>Course One Information</h2>
-            <div>
-              <input
-                type="text"
-                placeholder="Course One"
-                name="courseOneName"
+            <h2>Hotel</h2>
+            <label htmlFor="">
+              <select
+                name="hotel"
+                value={formData.hotel}
                 onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Tee Time"
-                name="courseOneTeeTime"
+              >
+                {!hotelLoading &&
+                  hotels.hotels.map((hotel) => (
+                    <option value={hotel._id} key={hotel._id}>
+                      {hotel.name}, {hotel.address}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setAddFunction(addHotel);
+              }}
+            >
+              Add a Hotel to the List
+            </button>
+            <h2>Day One Course</h2>
+            <label>
+              <select
+                name="courseOne"
+                value={formData.courseOne}
                 onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Address"
-                name="courseOneAddress"
+              >
+                {!courseLoading &&
+                  courses.courses.map((course) => (
+                    <option value={course._id} key={course._id}>
+                      {course.name}, {course.address}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setAddFunction(addCourse);
+              }}
+            >
+              Add a Course to the List
+            </button>
+            <h2>Day Two Course</h2>
+            <label>
+              <select
+                name="courseTwo"
+                value={formData.courseOne}
                 onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Website"
-                name="courseOneWebsite"
+              >
+                {!courseLoading &&
+                  courses.courses.map((course) => (
+                    <option value={course._id} key={course._id}>
+                      {course.name}, {course.address}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setAddFunction(addCourse);
+              }}
+            >
+              Add a Course to the List
+            </button>
+            <h2>Day Three Course</h2>
+            <label>
+              <select
+                name="courseThree"
+                value={formData.courseOne}
                 onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Phone Number"
-                name="courseOnePhoneNumber"
+              >
+                {!courseLoading &&
+                  courses.courses.map((course) => (
+                    <option value={course._id} key={course._id}>
+                      {course.name}, {course.address}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setAddFunction(addCourse);
+              }}
+            >
+              Add a Course to the List
+            </button>
+            <h2>Day Four Course</h2>
+            <label>
+              <select
+                name="courseFour"
+                value={formData.courseOne}
                 onChange={handleChangeInput}
-              />
-            </div>
-            <h2>Course Two Information</h2>
-            <div>
-              <input
-                type="text"
-                placeholder="Course Two"
-                name="courseTwoName"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Tee Time"
-                name="courseTwoTeeTime"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Address"
-                name="courseTwoAddress"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Website"
-                name="courseTwoWebsite"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Phone Number"
-                name="courseTwoPhoneNumber"
-                onChange={handleChangeInput}
-              />
-            </div>
-            <h2>Course Three Information</h2>
-            <div>
-              <input
-                type="text"
-                placeholder="Course Three"
-                name="courseThreeName"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Tee Time"
-                name="courseThreeTeeTime"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Address"
-                name="courseThreeAddress"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Website"
-                name="courseThreeWebsite"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Phone Number"
-                name="courseThreePhoneNumber"
-                onChange={handleChangeInput}
-              />
-            </div>
-            <h2>Course Four Information</h2>
-            <div>
-              <input
-                type="text"
-                placeholder="Course Four"
-                name="courseFourName"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Tee Time"
-                name="courseFourTeeTime"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Address"
-                name="courseFourAddress"
-                onChange={handleChangeInput}
-              />
-              <br />
-              <input
-                type="text"
-                placeholder="Course Website"
-                name="courseFourWebsite"
-                onChange={handleChangeInput}
-              />
-              <input
-                type="text"
-                placeholder="Course Phone Number"
-                name="courseFourPhoneNumber"
-                onChange={handleChangeInput}
-              />
-            </div>
-
+              >
+                {!courseLoading &&
+                  courses.courses.map((course) => (
+                    <option value={course._id} key={course._id}>
+                      {course.name}, {course.address}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setAddFunction(addCourse);
+              }}
+            >
+              Add a Course to the List
+            </button>
             <div className="app__flex">
               {input ? (
                 <></>
@@ -347,6 +277,7 @@ const NewTrip = () => {
           </div>
         )}
       </div>
+      {showModal && <CourseHotelModal exitFunction={setShowModal} neededExitVars={false} purposeFunction={addFunction} />}
     </div>
   );
 };

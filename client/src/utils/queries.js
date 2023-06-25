@@ -81,14 +81,13 @@ export const QUERY_COURSES = gql`
       name
       website
       address
-      teeTime
     }
   }
 `;
 
-export const QUERY_hotel = gql`
+export const QUERY_HOTELS = gql`
   {
-    hotel {
+    hotels {
       _id
       name
       website
@@ -121,13 +120,16 @@ export const QUERY_TRIPS = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      dayOneStart
+      dayTwoStart
+      dayThreeStart
+      dayFourStart
       courses {
         _id
         name
         address
         website
         phoneNumber
-        teeTime
       }
       hotel {
         _id
@@ -173,20 +175,11 @@ export const QUERY_BASIC_TRIPS = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      dayOneStart
+      dayTwoStart
+      dayThreeStart
+      dayFourStart
       active
-      courses {
-        _id
-        name
-        address
-        website
-        teeTime
-      }
-      hotel {
-        _id
-        name
-        address
-        website
-      }
       maxPlayers
       activePlayerCount
     }
@@ -204,12 +197,15 @@ export const QUERY_TRIP = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      dayOneStart
+      dayTwoStart
+      dayThreeStart
+      dayFourStart
       courses {
         _id
         name
         address
         website
-        teeTime
       }
       hotel {
         _id
@@ -254,12 +250,15 @@ export const QUERY_BASIC_TRIP = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      dayOneStart
+      dayTwoStart
+      dayThreeStart
+      dayFourStart
       courses {
         _id
         name
         address
         website
-        teeTime
       }
       hotel {
         _id
@@ -284,13 +283,16 @@ export const QUERY_ACTIVE_TRIP = gql`
       singlePrice
       doublePrice
       golfOnlyPrice
+      dayOneStart
+      dayTwoStart
+      dayThreeStart
+      dayFourStart
       courses {
         _id
         name
         address
         website
         phoneNumber
-        teeTime
       }
       hotel {
         _id

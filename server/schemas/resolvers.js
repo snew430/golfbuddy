@@ -9,48 +9,39 @@ const {where} = require('../models/Player');
 
 const resolvers = {
   Query: {
-    players: async () => {
-      return await Player.find();
-    },
-    courses: async () => {
-      return await Course.find();
-    },
-    hotel: async () => {
-      return await Hotel.find();
-    },
-    trips: async () => {
-      return await Trip.find()
+    players: async () => await Player.find(),
+
+    courses: async () => await Course.find().sort('name'),
+
+    hotels: async () => await Hotel.find().sort('name'),
+
+    trips: async () =>
+      await Trip.find()
         .populate('courses')
         .populate('hotel')
         .populate('playersActive')
-        .populate('playersWaitlist');
-    },
-    trip: async (parent, {id}) => {
-      return await Trip.findById(id)
+        .populate('playersWaitlist'),
+    trip: async (parent, {id}) =>
+      await Trip.findById(id)
         .populate('courses')
         .populate('hotel')
         .populate('playersActive')
-        .populate('playersWaitlist');
-    },
+        .populate('playersWaitlist'),
     info: async () => {
       const info = await Info.find();
       return info.sort((a, b) => a.place - b.place);
     },
-    activeTrip: async () => {
-      const activeTrip = await Trip.findOne({active: true})
+    activeTrip: async () =>
+      await Trip.findOne({active: true})
         .populate('courses')
         .populate('hotel')
         .populate('playersActive')
-        .populate('playersWaitlist');
-      return activeTrip;
-    },
-    note: async () => {
-      const note = await Note.find();
-      return note;
-    },
+        .populate('playersWaitlist'),
+
+    note: async () => await Note.find(),
   },
   Mutation: {
-    login: async (parent, {email, password}) => {
+    login: async (_, {email, password}) => {
       const user = await Admin.findOne({email});
 
       if (!user) {
@@ -68,12 +59,12 @@ const resolvers = {
       return {token, user};
     },
 
-    addPlayer: async (parent, args) => {
+    addPlayer: async (_, args) => {
       return await Player.create(args);
     },
 
     //LOGIN REQUIRED
-    updatePlayer: async (parent, args, context) => {
+    updatePlayer: async (_, args, context) => {
       if (context.user) {
         return await Player.findByIdAndUpdate(args.id, args, {
           new: true,
@@ -113,41 +104,6 @@ const resolvers = {
     //LOGIN REQUIRED
     addTrip: async (_, args, context) => {
       if (context.user) {
-        const hotel = await Hotel.create({
-          name: args.hotelName,
-          address: args.hotelAddress,
-          website: args.hotelWebsite,
-          phoneNumber: args.hotelPhoneNumber,
-        });
-        const course1 = await Course.create({
-          name: args.courseOneName,
-          address: args.courseOneAddress,
-          website: args.courseOneWebsite,
-          phoneNumber: args.courseOnePhoneNumber,
-          teeTime: args.courseOneTeeTime,
-        });
-        const course2 = await Course.create({
-          name: args.courseTwoName,
-          address: args.courseTwoAddress,
-          website: args.courseTwoWebsite,
-          phoneNumber: args.courseTwoPhoneNumber,
-          teeTime: args.courseTwoTeeTime,
-        });
-        const course3 = await Course.create({
-          name: args.courseThreeName,
-          address: args.courseThreeAddress,
-          website: args.courseThreeWebsite,
-          phoneNumber: args.courseThreePhoneNumber,
-          teeTime: args.courseThreeTeeTime,
-        });
-        const course4 = await Course.create({
-          name: args.courseFourName,
-          address: args.courseFourAddress,
-          website: args.courseFourWebsite,
-          phoneNumber: args.courseFourPhoneNumber,
-          teeTime: args.courseFourTeeTime,
-        });
-
         const trip = await Trip.create({
           name: args.name,
           startDate: args.startDate,
@@ -156,9 +112,18 @@ const resolvers = {
           singlePrice: args.singlePrice,
           doublePrice: args.doublePrice,
           golfOnlyPrice: args.golfOnlyPrice,
-          courses: [course1._id, course2._id, course3._id, course4._id],
-          hotel: hotel._id,
+          courses: [
+            args.courseOne,
+            args.courseTwo,
+            args.courseThree,
+            args.courseFour,
+          ],
+          hotel: args.hotel,
           maxPlayers: args.maxPlayers,
+          dayOneStart: args.dayOneStart,
+          dayTwoStart: args.dayTwoStart,
+          dayThreeStart: args.dayThreeStart,
+          dayFourStart: args.dayFourStart,
         });
         return trip;
       }
@@ -168,10 +133,12 @@ const resolvers = {
     //LOGIN REQUIRED
     editTrip: async (_, args, context) => {
       if (context.user) {
-        return await Trip.findByIdAndUpdate(args.id, args, {
+        console.log(args);
+        const trip = await Trip.findByIdAndUpdate(args.id, args, {
           new: true,
           runValidators: true,
         });
+        return trip;
       }
       throw new AuthenticationError('Not logged in');
     },

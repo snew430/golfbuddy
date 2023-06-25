@@ -101,8 +101,8 @@ export const ADD_HOTEL = gql`
 `;
 
 export const EDIT_TRIP = gql`
-  mutation editTrip(
-    $id: ID!
+  mutation EditTrip(
+    $editTripId: ID!
     $name: String
     $startDate: String
     $endDate: String
@@ -111,9 +111,13 @@ export const EDIT_TRIP = gql`
     $singlePrice: Int
     $doublePrice: Int
     $golfOnlyPrice: Int
+    $dayOneStart: String
+    $dayTwoStart: String
+    $dayThreeStart: String
+    $dayFourStart: String
   ) {
     editTrip(
-      id: $id
+      id: $editTripId
       name: $name
       startDate: $startDate
       endDate: $endDate
@@ -122,25 +126,12 @@ export const EDIT_TRIP = gql`
       singlePrice: $singlePrice
       doublePrice: $doublePrice
       golfOnlyPrice: $golfOnlyPrice
+      dayOneStart: $dayOneStart
+      dayTwoStart: $dayTwoStart
+      dayThreeStart: $dayThreeStart
+      dayFourStart: $dayFourStart
     ) {
       _id
-      name
-      startDate
-      endDate
-      paymentDue
-      maxPlayers
-      courses {
-        _id
-        name
-        website
-        address
-      }
-      hotel {
-        _id
-        name
-        website
-        address
-      }
     }
   }
 `;
