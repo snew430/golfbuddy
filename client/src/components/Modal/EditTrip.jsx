@@ -124,16 +124,16 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
             value={formData.maxPlayers}
             onChange={handleChangeInput}
           />
-          <label htmlFor="dayOneStart">Payment Due:</label>
+          <label htmlFor="paymentDue">Payment Due:</label>
           <input
-            name="dayOneStart"
+            name="paymentDue"
             type="text"
             value={formData.paymentDue}
             onChange={handleChangeInput}
           />
-          <label htmlFor="startDate">Day 1 Start Time:</label>
+          <label htmlFor="dayOneStart">Day 1 Start Time:</label>
           <input
-            name="startDate"
+            name="dayOneStart"
             type="text"
             value={formData.dayOneStart}
             onChange={handleChangeInput}
