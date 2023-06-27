@@ -15,7 +15,7 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
       name === 'doublePrice' ||
       name === 'golfOnlyPrice'
     ) {
-      const parsedVal = parseInt(value);
+      const parsedVal = parseInt(value) || 0;
       setFormData({...formData, [name]: parsedVal});
     } else {
       setFormData({...formData, [name]: value});
