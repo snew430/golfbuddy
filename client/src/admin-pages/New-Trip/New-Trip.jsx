@@ -49,7 +49,7 @@ const NewTrip = () => {
       name === 'doublePrice' ||
       name === 'golfOnlyPrice'
     ) {
-      const parsedVal = parseInt(value);
+      const parsedVal = parseInt(value) || 0;
       setFormData({...formData, [name]: parsedVal});
     } else {
       setFormData({...formData, [name]: value});
@@ -277,7 +277,13 @@ const NewTrip = () => {
           </div>
         )}
       </div>
-      {showModal && <CourseHotelModal exitFunction={setShowModal} neededExitVars={false} purposeFunction={addFunction} />}
+      {showModal && (
+        <CourseHotelModal
+          exitFunction={setShowModal}
+          neededExitVars={false}
+          purposeFunction={addFunction}
+        />
+      )}
     </div>
   );
 };
