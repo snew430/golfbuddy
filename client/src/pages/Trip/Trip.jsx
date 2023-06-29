@@ -119,6 +119,27 @@ const Trip = () => {
           We are looking forward to a great trip, and hope you will join us!
         </p>
       </div>
+      <div>
+        <h3>Current Roster</h3>
+        <div>
+          <div>
+            <h4>On Trip</h4>
+            {trip.playersActive.map((player) => (
+              <p>
+                {player.firstName} {player.lastName}
+              </p>
+            ))}
+          </div>
+          <div>
+            <h4>Waitlisted</h4>
+            {trip.playersWaitlist.map((player) => (
+              <p>
+                {player.firstName} {player.lastName}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

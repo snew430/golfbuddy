@@ -188,38 +188,6 @@ const SignUp = () => {
           ) : (
             ''
           )}
-
-          <h5 className="date-text">
-            All payments are due: {trip.paymentDue}{' '}
-          </h5>
-
-          <p className="info-text">
-            Please send payments through Venmo
-            <a href="https://account.venmo.com/u/John-McKenna-145">
-              @John-McKenna-145
-            </a>
-            or mail a check to
-            <br />
-            John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
-          </p>
-
-          <p className="info-text">
-            Money received after due date is subject to $25 late fee.
-          </p>
-
-          {/* <p className="info-text">
-            The cost of the trip includes: <br />
-            Accomodations, Green Fees, and Prize Money.
-          </p>
-
-          <p className="info-text">
-            If you cancel at any time after payment for a trip, you may be
-            subject to a termination fee.
-            <br />
-            We will do our best to return your money, but returns are subject to
-            course and hotel cancelation fees.
-          </p> */}
-
           <motion.div
             whileInView={{opacity: [0, 1]}}
             transition={{duration: 0.7}}
@@ -247,6 +215,21 @@ const SignUp = () => {
           <h3 className="head-text">{signupMessage}</h3>
         </div>
       )}
+      <h5 className="date-text">All payments are due: {trip.paymentDue} </h5>
+
+      <p className="info-text">
+        Please send payments through Venmo
+        <a href="https://account.venmo.com/u/John-McKenna-145">
+          @John-McKenna-145
+        </a>
+        or mail a check to
+        <br />
+        John McKenna, 7278 Pebble Creek Drive, Elkridge, MD 21075
+      </p>
+
+      <p className="info-text">
+        Money received after due date is subject to $25 late fee.
+      </p>
     </div>
   );
 };
