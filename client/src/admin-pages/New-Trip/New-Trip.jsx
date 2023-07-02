@@ -56,34 +56,34 @@ const NewTrip = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
 
     try {
-      addTrip({
+      await addTrip({
         variables: formData,
       });
+
+      setFormData({
+        name: '',
+        startDate: '',
+        endDate: '',
+        paymentDue: '',
+        maxPlayers: 0,
+        singlePrice: 0,
+        doublePrice: 0,
+        golfOnlyPrice: 0,
+        hotel: '',
+        courseOne: '',
+        courseTwo: '',
+        courseThree: '',
+        courseFour: '',
+      });
+
+      setIsFormSubmitted(true);
     } catch (err) {
       console.error(err);
     }
-
-    setFormData({
-      name: '',
-      startDate: '',
-      endDate: '',
-      paymentDue: '',
-      maxPlayers: 0,
-      singlePrice: 0,
-      doublePrice: 0,
-      golfOnlyPrice: 0,
-      hotel: '',
-      courseOne: '',
-      courseTwo: '',
-      courseThree: '',
-      courseFour: '',
-    });
-
-    setIsFormSubmitted(true);
   };
 
   return (

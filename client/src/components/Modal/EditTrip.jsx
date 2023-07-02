@@ -8,7 +8,6 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
   const [formData, setFormData] = useState(trip);
   const handleChangeInput = (e) => {
     const {name, value} = e.target;
-    console.log(name, value);
     if (
       name === 'maxPlayers' ||
       name === 'singlePrice' ||

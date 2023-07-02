@@ -11,7 +11,6 @@ const Trip = () => {
   const {loading, data: tripData} = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || {};
   const loggedIn = Auth.loggedIn();
-  console.log(trip);
   if (!loggedIn) {
     return <Cheat />;
   }
@@ -121,7 +120,7 @@ const Trip = () => {
       </div>
       <div>
         <h3>Current Roster</h3>
-        <div>
+        <div className='roster-list'>
           <div>
             <h4>On Trip</h4>
             {trip.playersActive.map((player) => (

@@ -42,7 +42,6 @@ const ManageTrips = () => {
   };
 
   const handleDeleteTrip = async (id) => {
-    console.log(id);
     try {
       await deleteTrip({
         variables: {deleteTripId: id},

@@ -133,7 +133,6 @@ const resolvers = {
     //LOGIN REQUIRED
     editTrip: async (_, args, context) => {
       if (context.user) {
-        console.log(args);
         const trip = await Trip.findByIdAndUpdate(args.id, args, {
           new: true,
           runValidators: true,

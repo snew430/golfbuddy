@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Modal.scss';
 
-const CourseHotelModal = ({exitFunction, neededExitVars, purposeFunction}) => {
+const CourseHotelModal = ({exitFunction, purposeFunction}) => {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -20,6 +20,13 @@ const CourseHotelModal = ({exitFunction, neededExitVars, purposeFunction}) => {
   return (
     <div className="modal-backdrop">
       <div className="modal">
+        <h1
+          onClick={() => {
+            exitFunction(false);
+          }}
+        >
+          X
+        </h1>
         <label htmlFor="name">Name:</label>
         <input type="text" value={formData.name} />
         <br />
@@ -30,7 +37,7 @@ const CourseHotelModal = ({exitFunction, neededExitVars, purposeFunction}) => {
         <input type="text" value={formData.website} />
         <br />
         <button onClick={handleModalSubmit}>Add</button>
-        <button onClick={() => exitFunction(neededExitVars)}>Cancel</button>
+        <button onClick={() => exitFunction(false)}>Cancel</button>
       </div>
     </div>
   );

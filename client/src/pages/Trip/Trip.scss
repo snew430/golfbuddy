@@ -1,5 +1,5 @@
 #trip {
-  background: url("../../assets/images/ball_on_green.jpg");
+  background: url('../../assets/images/ball_on_green.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -177,5 +177,16 @@
 
   a {
     color: var(--yellow-color);
+  }
+}
+
+.roster-list {
+  display: flex;
+  justify-content: space-around;
+
+  div p {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
   }
 }

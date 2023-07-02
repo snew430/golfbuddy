@@ -37,26 +37,6 @@ export const exportCSVplayer = () => {
     const rowText = Array.from(cells).map((cell) => cell.innerText);
     csv.push(rowText.join(','));
   }
-
-  // let sortingArray = [];
-  // let mainListArray = [];
-  // sortingArray.push(csv.splice(1));
-  // console.log(sortingArray);
-  // for (let i = 0; i < sortingArray.length; i++) {
-  //   const elementArray = sortingArray[i];
-  //   console.log(elementArray);
-  //   const setString = 'Name,Email,Phone,Lodging,Roommate';
-  //   const indexOfSliceForWaitList = elementArray.indexOf(setString);
-  //   console.log(indexOfSliceForWaitList);
-  //   const array3 = csv.concat(sortingArray);
-  //   const indexOfSliceForMainList = indexOfSliceForWaitList + 1;
-  //   const mutableDataSet = array3.flat();
-
-  //   mainListArray.push(mutableDataSet.slice(0, indexOfSliceForMainList));
-  // }
-  // console.log(mainListArray);
-  // const RegisteredUsers = mainListArray.flat();
-
   const csvFile = new Blob([csv.join('\n')], {
     type: 'text/csv;charset=utf-8;',
   });
