@@ -89,17 +89,19 @@ const ManageTrips = () => {
         />
       )}
       <div className="background">
+        <div className='padding'></div>
         {trips.map((trip) => (
           <div
             key={trip._id}
             className={`head-text ${trip.active ? 'active-trip' : ''}`}
           >
+                        <div>{trip.active ? 'Active Trip' : ''}</div>
             <h2>{trip.name}</h2>
             <div>
               {trip.startDate} - {trip.endDate}
             </div>
             <div>Players: {trip.activePlayerCount}</div>
-            <div>{trip.active ? 'Active Trip' : ''}</div>
+
             {!trip.active && (
               <button onClick={() => handleActiveClick(trip._id)}>
                 Make Active
