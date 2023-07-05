@@ -95,7 +95,7 @@ const ManageTrips = () => {
             key={trip._id}
             className={`head-text ${trip.active ? 'active-trip' : ''}`}
           >
-                        <div>{trip.active ? 'Active Trip' : ''}</div>
+            <div>{trip.active ? 'Active Trip' : ''}</div>
             <h2>{trip.name}</h2>
             <div>
               {trip.startDate} - {trip.endDate}

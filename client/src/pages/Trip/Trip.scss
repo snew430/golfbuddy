@@ -58,16 +58,7 @@
     }
   }
 
-  .link {
-    &:hover {
-      color: var(--secondary-color);
-      background-color: var(--white-color);
-      padding: 8px;
-      border-radius: 2px;
-      font-weight: 800;
-      text-shadow: none;
-    }
-  }
+
 
   h4 {
     font-size: 3.5rem;
@@ -146,6 +137,19 @@
 
     a {
       color: var(--yellow-color);
+    }
+  }
+
+  .link {
+    text-align: center;
+    text-justify: inter-word;
+    &:hover {
+      color: var(--secondary-color);
+      background-color: var(--white-color);
+      padding: 8px;
+      border-radius: 2px;
+      font-weight: 800;
+      text-shadow: none;
     }
   }
 
