@@ -58,8 +58,6 @@
     }
   }
 
-
-
   h4 {
     font-size: 3.5rem;
     font-weight: 600;
@@ -113,6 +111,11 @@
       font-size: 1.25rem;
       margin: 10px;
     }
+
+  }
+
+  .less{
+    padding: 0.25rem;
   }
 
   .info-text {
@@ -126,12 +129,12 @@
     margin: 15px 300px 0px;
 
     @media screen and (max-width: 1200px) {
-      font-size: 2.25rem;
+      font-size: 1.55rem;
       margin: 10px 70px 10px;
     }
 
     @media screen and (max-width: 450px) {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       margin: 10px 10px 10px;
     }
 
@@ -151,11 +154,6 @@
       font-weight: 800;
       text-shadow: none;
     }
-  }
-
-  .last {
-    padding-bottom: 2rem;
-    font-size: 2.75rem;
   }
 
   button {
@@ -182,15 +180,14 @@
   a {
     color: var(--yellow-color);
   }
-}
 
-.roster-list {
-  display: flex;
-  justify-content: space-around;
+  .roster-list{
+    display: flex;
+    flex-direction: wrap;
+    justify-content: space-evenly;
+  }
 
-  div p {
-    color: white;
-    font-size: 2rem;
-    text-align: center;
+  .padding-bottom{
+    padding: 1rem;
   }
 }

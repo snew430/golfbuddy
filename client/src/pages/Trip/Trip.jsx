@@ -101,49 +101,59 @@ const Trip = () => {
         </motion.div>
 
         <p className="info-text">
-          If you cancel at any time after payment for a trip, you may be subject
-          to a termination fee.
-          <br />
-          The fee will depend on whether the committee can find a replacement
-          golfer, or if we can get money back from the hotel and courses that
-          require payment several weeks in advance of the start of the trip. Any
-          money remaining after the termination fee can be applied to
-          future trips.
-        </p>
-
-        <p className="info-text">
           We have a limited number of spaces for golfers. Preference is
           given to those who made our last trip followed by a first come, first
           serve basis. Once we reach capacity, we will start a waitlist. We
           always have a few last-minute drops due to individual circumstances.
         </p>
 
-        <p className="info-text last">
+        <p className="info-text">
+          If you cancel at any time after paying for a trip, you may be subject
+          to a termination fee.
+          <br />
+          The fee will depend on whether the committee can find a replacement
+          golfer or if we can be refunded from the hotel and courses that
+          require payment several weeks in advance of the start of the trip. Any
+          money remaining after the termination fee can be applied to
+          future trips.
+        </p>
+
+        <p className="info-text">
           We are looking forward to a great trip and hope you will join us!
         </p>
 
-        <div>
-          <h3>Current Roster</h3>
+        <h3>Current Roster</h3>
+
           <div className='roster-list'>
-            <div>
-              <h4>On Trip</h4>
-              {trip.playersActive.map((player) => (
-                <p>
-                  {player.firstName} {player.lastName}
-                </p>
-              ))}
-            </div>
-            <div>
-              <h4>Waitlisted</h4>
-              {trip.playersWaitlist.map((player) => (
-                <p>
-                  {player.firstName} {player.lastName}
-                </p>
-              ))}
-            </div>
+                  <div>
+                    <h4>On Trip</h4>
+                      {trip.playersActive.map((player) => (
+                        <p className='p-text less'>
+                          {player.firstName} {player.lastName}
+                        </p>
+                      ))}
+                  </div>
+
+
+                
+
+
+        <div className='padding-bottom'></div>
+
+
+                  <div>
+                    <h4>Waitlisted</h4>
+                    {trip.playersWaitlist.map((player) => (
+                        <p className='p-text less'>
+                          {player.firstName} {player.lastName}
+                        </p>
+                      ))}
+                                  </div>
           </div>
-        </div>
-      </div>
+
+        <div className='padding-bottom'></div>
+                  </div>
+                  
     </div>
   );
 };
