@@ -79,30 +79,28 @@ const Rules = () => {
             have already anteed up when you paid for your golf.
           </p>
 
-          {rules.map((rule) =>
-            rule.subject === 'Rules & Regulations' ? (
-              <div data-id={rule._id}>
-                <h4 className="h4-text">{rule.header}</h4>
+          {rules.map(
+            (rule) =>
+              rule.subject === 'Rules & Regulations' && (
+                <div data-id={rule._id} key={rule._id}>
+                  <h4 className="h4-text">{rule.header}</h4>
 
-                <p className="p-text">{rule.body}</p>
-              </div>
-            ) : (
-              <></>
-            )
+                  <p className="p-text">{rule.body}</p>
+                </div>
+              )
           )}
 
           <h2 className="secondary-text">Ryder Cup</h2>
-          {rules.map((rule) =>
-            rule.subject === 'Ryder Cup' ? (
-              <>
-                <h4 className="h4-text" key={rule._id}>
-                  {rule.header}
-                </h4>
-                <p className="p-text">{rule.body}</p>
-              </>
-            ) : (
-              <></>
-            )
+          {rules.map(
+            (rule) =>
+              rule.subject === 'Ryder Cup' && (
+                <>
+                  <h4 className="h4-text" key={rule._id}>
+                    {rule.header}
+                  </h4>
+                  <p className="p-text">{rule.body}</p>
+                </>
+              )
           )}
         </div>
 

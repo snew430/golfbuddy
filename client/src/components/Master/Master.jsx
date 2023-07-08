@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
-import { DELETE_PLAYER } from "../../utils/mutations";
-import { removePlayerId } from "../../utils/localStorage";
-import { FaTrashAlt } from 'react-icons/fa';
-import { BsPencilSquare } from 'react-icons/bs';
-import {Modal} from "../../components";
-import Auth from "../../utils/auth";
+import React, {useState} from 'react';
+import {useMutation} from '@apollo/react-hooks';
+import {DELETE_PLAYER} from '../../utils/mutations';
+import {removePlayerId} from '../../utils/localStorage';
+import {FaTrashAlt} from 'react-icons/fa';
+import {BsPencilSquare} from 'react-icons/bs';
+import {Modal} from '../../components';
+import Auth from '../../utils/auth';
 
-const Master = ({ players, refetchPlayers }) => {
+const Master = ({players, refetchPlayers}) => {
   const [currentPlayer, setCurrentPlayer] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletePlayer] = useMutation(DELETE_PLAYER);
@@ -27,7 +27,7 @@ const Master = ({ players, refetchPlayers }) => {
 
     try {
       await deletePlayer({
-        variables: { id },
+        variables: {id},
       });
 
       // upon success, remove player's id from localStorage
@@ -71,18 +71,18 @@ const Master = ({ players, refetchPlayers }) => {
                 <a href={`tel:${player.phoneNumber}`}>{player.phoneNumber}</a>
               </td>
               <td>
-                <span class="hovertext" data-hover="Delete">
+                <span className="hovertext" data-hover="Delete">
                   <FaTrashAlt
                     className="tooltip delete"
                     onClick={() => handleDeletePlayer(player._id)}
                   />
                 </span>
-              <span class="hovertext" data-hover="Edit">
-                <BsPencilSquare
-                  className="edit"
-                  onClick={() => toggleModal(player)}
-                />
-              </span>
+                <span className="hovertext" data-hover="Edit">
+                  <BsPencilSquare
+                    className="edit"
+                    onClick={() => toggleModal(player)}
+                  />
+                </span>
               </td>
             </tr>
           ))}

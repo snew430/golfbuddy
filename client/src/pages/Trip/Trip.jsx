@@ -71,7 +71,7 @@ const Trip = () => {
           <div>
             <h4>Courses</h4>
             {trip.courses.map((course, i) => (
-              <p className="p-text" key={course._id}>
+              <p className="p-text" key={course.i}>
                 Day {i + 1} <br />
                 <a
                   className="p-text link"
@@ -120,11 +120,11 @@ const Trip = () => {
       </div>
       <div>
         <h3>Current Roster</h3>
-        <div className='roster-list'>
+        <div className="roster-list">
           <div>
             <h4>On Trip</h4>
             {trip.playersActive.map((player) => (
-              <p>
+              <p key={player._id}>
                 {player.firstName} {player.lastName}
               </p>
             ))}
@@ -132,7 +132,7 @@ const Trip = () => {
           <div>
             <h4>Waitlisted</h4>
             {trip.playersWaitlist.map((player) => (
-              <p>
+              <p key={player._id}>
                 {player.firstName} {player.lastName}
               </p>
             ))}
