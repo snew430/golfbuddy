@@ -147,6 +147,7 @@ const NewTrip = () => {
               />
             </div>
             <h2>Hotel</h2>
+            <div>
             <label htmlFor="">
               <select
                 name="hotel"
@@ -157,42 +158,55 @@ const NewTrip = () => {
                   hotels.hotels.map((hotel) => (
                     <option value={hotel._id} key={hotel._id}>
                       {hotel.name}, {hotel.address}
-                    </option>
+                   </option>
                   ))}
               </select>
-            </label>
-            <button
+            </label> 
+            </div>
+           <div>
+           <button
               onClick={() => {
                 setShowModal(true);
                 setAddFunction(addHotel);
               }}
             >
-              Add a Hotel to the List
+              Create New Hotel 
             </button>
+           </div>
+            
             <h2>Day One Course</h2>
-            <label>
-              <select
-                name="courseOne"
-                value={formData.courseOne}
-                onChange={handleChangeInput}
+
+            <div>
+              <label>
+                <select
+                  name="courseOne"
+                  value={formData.courseOne}
+                  onChange={handleChangeInput}
+                >
+                  {!courseLoading &&
+                    courses.courses.map((course) => (
+                      <option value={course._id} key={course._id}>
+                        {course.name}, {course.address}
+                      </option>
+                    ))}
+                </select>
+              </label>
+            </div>
+
+            <div>
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setAddFunction(addCourse);
+                }}
               >
-                {!courseLoading &&
-                  courses.courses.map((course) => (
-                    <option value={course._id} key={course._id}>
-                      {course.name}, {course.address}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            <button
-              onClick={() => {
-                setShowModal(true);
-                setAddFunction(addCourse);
-              }}
-            >
-              Add a Course to the List
-            </button>
+                Create New Course
+              </button>
+            </div>
+
+ 
             <h2>Day Two Course</h2>
+            <div>
             <label>
               <select
                 name="courseTwo"
@@ -207,15 +221,22 @@ const NewTrip = () => {
                   ))}
               </select>
             </label>
-            <button
-              onClick={() => {
-                setShowModal(true);
-                setAddFunction(addCourse);
-              }}
-            >
-              Add a Course to the List
-            </button>
+
+            </div>
+            
+            <div>
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setAddFunction(addCourse);
+                }}
+              >
+                Create New Course
+              </button>
+            </div>
+           
             <h2>Day Three Course</h2>
+            <div>
             <label>
               <select
                 name="courseThree"
@@ -230,37 +251,47 @@ const NewTrip = () => {
                   ))}
               </select>
             </label>
+            </div>
+            <div>
             <button
               onClick={() => {
                 setShowModal(true);
                 setAddFunction(addCourse);
               }}
             >
-              Add a Course to the List
+              Create New Course
             </button>
+            </div>
+
             <h2>Day Four Course</h2>
-            <label>
-              <select
-                name="courseFour"
-                value={formData.courseOne}
-                onChange={handleChangeInput}
+
+            <div>
+              <label>
+                <select
+                  name="courseFour"
+                  value={formData.courseOne}
+                  onChange={handleChangeInput}
+                >
+                  {!courseLoading &&
+                    courses.courses.map((course) => (
+                      <option value={course._id} key={course._id}>
+                        {course.name}, {course.address}
+                      </option>
+                    ))}
+                </select>
+              </label>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setAddFunction(addCourse);
+                }}
               >
-                {!courseLoading &&
-                  courses.courses.map((course) => (
-                    <option value={course._id} key={course._id}>
-                      {course.name}, {course.address}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            <button
-              onClick={() => {
-                setShowModal(true);
-                setAddFunction(addCourse);
-              }}
-            >
-              Add a Course to the List
-            </button>
+                Create New Course
+              </button>
+            </div>
+            
             <div className="app__flex">
               {input ? (
                 <></>
