@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useMutation} from '@apollo/client';
 import {EDIT_TRIP} from '../../utils/mutations';
+import {CgCloseO} from 'react-icons/cg';
 import './Modal.scss';
 
 const EditTrip = ({trip, setModalShow, refetch}) => {
@@ -65,13 +66,12 @@ const EditTrip = ({trip, setModalShow, refetch}) => {
   return (
     <div className="modal-backdrop">
       <div className="modal">
-        <h1
+        <CgCloseO
+          className="close"
           onClick={() => {
             setModalShow(false);
           }}
-        >
-          X
-        </h1>
+        />
         <form action="" className="modalForm">
           <h2>Trip Info:</h2>
           <label htmlFor="name">Name:</label>

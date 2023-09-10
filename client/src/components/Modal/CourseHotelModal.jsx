@@ -20,7 +20,7 @@ const CourseHotelModal = ({exitFunction, purposeFunction}) => {
   return (
     <div className="modal-backdrop">
       <div className="modal">
-        <h1
+        <h1 className='close'
           onClick={() => {
             exitFunction(false);
           }}

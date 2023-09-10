@@ -1,24 +1,10 @@
-import React, {useState} from 'react';
 import './Home.scss';
 import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 import Auth from '../../utils/auth';
-import ryderCupRules from '../../assets/ryder-cup-rules.pdf';
-import ryderCupGroups from '../../assets/RyderSpring2023.pdf';
-import montues4somes from '../../assets/4somesSpring.pdf';
-import roomies from '../../assets/roomies.xlsx';
-// import { Document, Page, pdfjs } from 'react-pdf';
-import {Document, Page} from 'react-pdf/dist/esm/entry.webpack';
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();
-
-  // const [numPages, setNumPages] = useState(null);
-  // const [pageNumber, setPageNumber] = useState(1);
-
-  // function onDocumentLoadSuccess({ numPages }) {
-  //   setNumPages(numPages);
-  // }
 
   return (
     <div id="home">

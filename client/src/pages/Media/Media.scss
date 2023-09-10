@@ -1,0 +1,37 @@
+#media {
+  background: url('../../assets/images/golf_green2.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  max-height: 100%;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .video-div {
+    color: var(--secondary-color);
+    // background-color: var(--yellow-color);
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    margin: 4rem;
+    align-items: center;
+    h3 {
+      width: 20%;
+      background-color: var(--yellow-color);
+      padding: 1rem;
+    }
+    :last-child {
+      width: 70% !important;
+      margin: 1rem;
+    }
+    @media screen and(max-width: 745px) {
+      flex-direction: column;
+      h3 {
+        width: 100%;
+      }
+    }
+  }
+}

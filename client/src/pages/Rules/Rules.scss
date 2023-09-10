@@ -21,6 +21,34 @@
     outline-color: var(--gray-color);
   }
 
+  .title-switcher {
+    display: flex;
+    color: var(--gray-color);
+    justify-content: space-around;
+    padding-top: 8rem;
+
+    .topic {
+      border: 2px solid var(--gray-color);
+      padding: 1rem;
+      font-size: 2rem;
+      background-color: var(--yellow-color);
+      cursor: pointer;
+      text-align: center;
+    }
+    .current {
+      background-color: inherit;
+      border: none;
+      color: var(--white-color);
+    }
+    @media screen and (max-width: 900px) {
+      padding-top: 7rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      padding-top: 8rem;
+    }
+  }
+
   .head-text {
     padding-top: 6rem;
     font-size: 6rem;

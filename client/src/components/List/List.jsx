@@ -10,9 +10,8 @@ import {
 import {removePlayerId} from '../../utils/localStorage';
 
 import {FaTrashAlt} from 'react-icons/fa';
-import {BsPencilSquare, BsCheckSquare, BsCurrencyDollar} from 'react-icons/bs';
+import {BsPencilSquare, BsCurrencyDollar} from 'react-icons/bs';
 import {FaPlus, FaMinus} from 'react-icons/fa';
-import {FiXSquare} from 'react-icons/fi';
 
 import {Modal} from '../../components';
 import Auth from '../../utils/auth';

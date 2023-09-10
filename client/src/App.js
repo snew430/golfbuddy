@@ -21,6 +21,7 @@ import {
   NoMatch,
   Login,
   Announcement,
+  Media,
 } from './pages';
 
 import {
@@ -76,6 +77,7 @@ function App() {
             <Route path="/administrationhome" element={<AdminHome />} />
             <Route path="/message" element={<Message />} />
             <Route path="/managetrips" element={<ManageTrips />} />
+            <Route path="/media" element={<Media />} />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
