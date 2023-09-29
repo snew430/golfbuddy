@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './Rules.scss';
-// import { motion } from "framer-motion";
-import {useQuery, useMutation} from '@apollo/client';
+import {useQuery} from '@apollo/client';
 import {QUERY_RULES} from '../../utils/queries';
-import {DELETE_INFO} from '../../utils/mutations';
 import {Cheat} from '../../components';
 import {CreatePDFfromHTML} from '../../utils/downloadPDF';
 import Auth from '../../utils/auth';
@@ -12,7 +10,7 @@ const topics = ['Rules', 'Ryder Cup', 'Etiquette'];
 
 const Rules = () => {
   const [currentTopic, setCurrentTopic] = useState(topics[0]);
-  const {data: rulesData, refetch} = useQuery(QUERY_RULES);
+  const {data: rulesData} = useQuery(QUERY_RULES);
   const rules = rulesData?.info || [];
 
   const loggedIn = Auth.loggedIn();

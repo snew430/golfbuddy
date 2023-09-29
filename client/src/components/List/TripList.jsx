@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import {useMutation} from '@apollo/react-hooks';
 import {
-  //We don't need these for triplist
   REMOVE_ACTIVE_PLAYER,
   ADD_CURRENT_TO_ACTIVE,
   ADD_CURRENT_TO_WAITLIST,
-  MAKE_TRIP_ACTIVE,
 } from '../../utils/mutations';
-// import { removeTripId } from "../../utils/localStorage";
 
 import {FaTrashAlt} from 'react-icons/fa';
 import {BsPencilSquare, BsCurrencyDollar} from 'react-icons/bs';
@@ -26,8 +23,6 @@ const List = ({status, trip, refetchTrips}) => {
   const [moveToActive] = useMutation(ADD_CURRENT_TO_ACTIVE);
   const [moveToWaitlist] = useMutation(ADD_CURRENT_TO_WAITLIST);
 
-  const [makeTripActive] = useMutation(MAKE_TRIP_ACTIVE);
-
   const toggleModal = (trip) => {
     setCurrentTrip(trip);
     setIsModalOpen(!isModalOpen);
@@ -45,8 +40,6 @@ const List = ({status, trip, refetchTrips}) => {
           variables: {trip},
         });
       }
-      // upon success, remove player's id from localStorage
-      // removeTripId(trip);
       refetchTrips();
     } catch (err) {
       console.error(err);

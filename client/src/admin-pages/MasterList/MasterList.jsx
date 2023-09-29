@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
 import './MasterList.scss';
 import {Master, Modal, Cheat} from '../../components';
 import {useQuery} from '@apollo/react-hooks';

@@ -1,24 +1,21 @@
 import './Media.scss';
+import {Tweet} from 'react-twitter-widgets';
 
 const Media = () => {
   return (
     <div id="media">
+      <h1>Some of our Favorites...</h1>
       <div className="video-div">
         <h3>Are you not entertained?...</h3>
-        <blockquote className="twitter-tweet">
-          <p lang="en" dir="ltr">
-            Incase you didn’t see this peach 🍑 from Jon Rahm Rodríguez at{' '}
-            <a href="https://twitter.com/hashtag/augusta?src=hash&amp;ref_src=twsrc%5Etfw">
-              #augusta
-            </a>{' '}
-            today 😳😳{' '}
-            <a href="https://t.co/wjX1mLH6mF">pic.twitter.com/wjX1mLH6mF</a>
-          </p>
-          &mdash; Ray Boyne (@AnalysisGaa){' '}
-          <a href="https://twitter.com/AnalysisGaa/status/1326283326718664706?ref_src=twsrc%5Etfw">
-            November 10, 2020
-          </a>
-        </blockquote>
+        <Tweet
+          tweetId="1326283326718664706"
+          options={
+            {
+              // width: '70%',
+              // width: '200',
+            }
+          }
+        />
       </div>
       <div className="video-div">
         <h3>Our House, Our Rules...</h3>

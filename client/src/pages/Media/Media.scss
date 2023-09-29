@@ -9,9 +9,12 @@
   flex-direction: column;
   align-items: center;
 
+  h1 {
+    font-size: 4rem;
+    color: var(--yellow-color);
+  }
   .video-div {
     color: var(--secondary-color);
-    // background-color: var(--yellow-color);
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -24,7 +27,7 @@
       padding: 1rem;
     }
     :last-child {
-      width: 70% !important;
+      // width: 70% !important;
       margin: 1rem;
     }
     @media screen and(max-width: 745px) {

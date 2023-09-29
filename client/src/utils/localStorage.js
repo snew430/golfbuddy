@@ -3,7 +3,7 @@ export const getSavedPlayers = () => {
     ? JSON.parse(localStorage.getItem('saved_players'))
     : [];
 
-  return savePlayerIds;
+  return savedPlayerIds;
 };
 
 export const savePlayerIds = (playerIdArr) => {
@@ -15,16 +15,18 @@ export const savePlayerIds = (playerIdArr) => {
 };
 
 export const removePlayerId = (playerId) => {
-    const savePlayerIds = localStorage.getItem('saved_players')
-      ? JSON.parse(localStorage.getItem('saved_players'))
-      : null;
-  
-    if (!savePlayerIds) {
-      return false;
-    }
-  
-    const updatedSavedPlayerIds = savePlayerIds?.filter((savedPlayerId) => savedPlayerId !== playerId);
-    localStorage.setItem('saved_players', JSON.stringify(updatedSavedPlayerIds));
-  
-    return true;
+  const savePlayerIds = localStorage.getItem('saved_players')
+    ? JSON.parse(localStorage.getItem('saved_players'))
+    : null;
+
+  if (!savePlayerIds) {
+    return false;
+  }
+
+  const updatedSavedPlayerIds = savePlayerIds?.filter(
+    (savedPlayerId) => savedPlayerId !== playerId
+  );
+  localStorage.setItem('saved_players', JSON.stringify(updatedSavedPlayerIds));
+
+  return true;
 };
