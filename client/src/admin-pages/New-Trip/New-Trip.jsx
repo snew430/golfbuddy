@@ -23,6 +23,10 @@ const NewTrip = () => {
     courseTwo: '',
     courseThree: '',
     courseFour: '',
+    dayOneStart: '',
+    dayTwoStart: '',
+    dayThreeStart: '',
+    dayFourStart: '',
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -148,32 +152,32 @@ const NewTrip = () => {
             </div>
             <h2>Hotel</h2>
             <div>
-            <label htmlFor="">
-              <select
-                name="hotel"
-                value={formData.hotel}
-                onChange={handleChangeInput}
-              >
-                {!hotelLoading &&
-                  hotels.hotels.map((hotel) => (
-                    <option value={hotel._id} key={hotel._id}>
-                      {hotel.name}, {hotel.address}
-                   </option>
-                  ))}
-              </select>
-            </label> 
+              <label htmlFor="">
+                <select
+                  name="hotel"
+                  value={formData.hotel}
+                  onChange={handleChangeInput}
+                >
+                  {!hotelLoading &&
+                    hotels.hotels.map((hotel) => (
+                      <option value={hotel._id} key={hotel._id}>
+                        {hotel.name}, {hotel.address}
+                      </option>
+                    ))}
+                </select>
+              </label>
             </div>
-           <div>
-           <button
-              onClick={() => {
-                setShowModal(true);
-                setAddFunction(addHotel);
-              }}
-            >
-              Create New Hotel 
-            </button>
-           </div>
-            
+            <div>
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setAddFunction(addHotel);
+                }}
+              >
+                Create New Hotel
+              </button>
+            </div>
+
             <h2>Day One Course</h2>
 
             <div>
@@ -204,26 +208,24 @@ const NewTrip = () => {
               </button>
             </div>
 
- 
             <h2>Day Two Course</h2>
             <div>
-            <label>
-              <select
-                name="courseTwo"
-                value={formData.courseOne}
-                onChange={handleChangeInput}
-              >
-                {!courseLoading &&
-                  courses.courses.map((course) => (
-                    <option value={course._id} key={course._id}>
-                      {course.name}, {course.address}
-                    </option>
-                  ))}
-              </select>
-            </label>
-
+              <label>
+                <select
+                  name="courseTwo"
+                  value={formData.courseOne}
+                  onChange={handleChangeInput}
+                >
+                  {!courseLoading &&
+                    courses.courses.map((course) => (
+                      <option value={course._id} key={course._id}>
+                        {course.name}, {course.address}
+                      </option>
+                    ))}
+                </select>
+              </label>
             </div>
-            
+
             <div>
               <button
                 onClick={() => {
@@ -234,33 +236,33 @@ const NewTrip = () => {
                 Create New Course
               </button>
             </div>
-           
+
             <h2>Day Three Course</h2>
             <div>
-            <label>
-              <select
-                name="courseThree"
-                value={formData.courseOne}
-                onChange={handleChangeInput}
-              >
-                {!courseLoading &&
-                  courses.courses.map((course) => (
-                    <option value={course._id} key={course._id}>
-                      {course.name}, {course.address}
-                    </option>
-                  ))}
-              </select>
-            </label>
+              <label>
+                <select
+                  name="courseThree"
+                  value={formData.courseOne}
+                  onChange={handleChangeInput}
+                >
+                  {!courseLoading &&
+                    courses.courses.map((course) => (
+                      <option value={course._id} key={course._id}>
+                        {course.name}, {course.address}
+                      </option>
+                    ))}
+                </select>
+              </label>
             </div>
             <div>
-            <button
-              onClick={() => {
-                setShowModal(true);
-                setAddFunction(addCourse);
-              }}
-            >
-              Create New Course
-            </button>
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setAddFunction(addCourse);
+                }}
+              >
+                Create New Course
+              </button>
             </div>
 
             <h2>Day Four Course</h2>
@@ -291,7 +293,7 @@ const NewTrip = () => {
                 Create New Course
               </button>
             </div>
-            
+
             <div className="app__flex">
               {input ? (
                 <></>

@@ -32,36 +32,6 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={sunday4Somes} target="_blank" rel="noreferrer">
-          <button>Sunday Foursomes</button>
-        </a>
-      </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={monday4Somes} target="_blank" rel="noreferrer">
-          <button>Monday Foursomes</button>
-        </a>
-      </motion.div>
-      <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
-        className="app__flex"
-      >
-        <a href={tuesday4Somes} target="_blank" rel="noreferrer">
-          <button>Tuesday Foursomes</button>
-        </a>
-      </motion.div>
     </div>
   );
 };

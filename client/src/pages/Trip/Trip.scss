@@ -6,6 +6,17 @@
 
   .background {
     background-color: rgba(4, 57, 39, 0.55);
+    padding: 1rem;
+    padding-top: 5rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    button,
+    p {
+      padding: 0.5rem;
+    }
   }
 
   .trip-details {
@@ -111,10 +122,9 @@
       font-size: 1.25rem;
       margin: 10px;
     }
-
   }
 
-  .less{
+  .less {
     padding: 0.25rem;
   }
 
@@ -181,13 +191,13 @@
     color: var(--yellow-color);
   }
 
-  .roster-list{
+  .roster-list {
     display: flex;
     flex-direction: wrap;
     justify-content: space-evenly;
   }
 
-  .padding-bottom{
+  .padding-bottom {
     padding: 1rem;
   }
 }

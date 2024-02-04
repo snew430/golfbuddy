@@ -106,6 +106,11 @@ const SignUp = () => {
       <h4 className="date-text">
         {trip.startDate} - {trip.endDate}
       </h4>
+      <h4 className="date-text">
+        ONCE YOU COMPLETE THE FORM, PLEASE CLICK THE BUTTON THAT SAYS "Sign Up
+        for the Trip". You will know that you are registered when you receive an
+        email. If you do not receive an email, please reach out to Angelo.
+      </h4>
 
       {!isFormSubmitted ? (
         <div className="app__signUp-form">
@@ -192,7 +197,7 @@ const SignUp = () => {
             whileInView={{opacity: [0, 1]}}
             transition={{duration: 0.7}}
           >
-            {activePlayerCount < maxPlayers && (
+            {activePlayerCount < maxPlayers ? (
               <button
                 type="button"
                 className="submitBtn"
@@ -200,14 +205,15 @@ const SignUp = () => {
               >
                 Sign Up for the Trip
               </button>
+            ) : (
+              <button
+                type="button"
+                className="submitBtn"
+                onClick={() => handleSubmit('waitlist')}
+              >
+                Join the Waitlist
+              </button>
             )}
-            <button
-              type="button"
-              className="submitBtn"
-              onClick={() => handleSubmit('waitlist')}
-            >
-              Join the Waitlist
-            </button>
           </motion.div>
         </div>
       ) : (

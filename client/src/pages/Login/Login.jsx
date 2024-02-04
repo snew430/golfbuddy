@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import "./Login.scss";
-import { useMutation } from "@apollo/react-hooks";
-import { motion } from "framer-motion";
-import Auth from "../../utils/auth";
-import { LOGIN_USER } from "../../utils/mutations";
+import React, {useState} from 'react';
+import './Login.scss';
+import {useMutation} from '@apollo/react-hooks';
+import {motion} from 'framer-motion';
+import Auth from '../../utils/auth';
+import {LOGIN_USER} from '../../utils/mutations';
 
 const Login = () => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({email: '', password: ''});
+  const [login, {error}] = useMutation(LOGIN_USER);
   const loggedIn = Auth.loggedIn();
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const {name, value} = event.target;
 
     setFormState({
       ...formState,
@@ -25,8 +25,8 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const { data } = await login({
-        variables: { ...formState },
+      const {data} = await login({
+        variables: {...formState},
       });
 
       Auth.login(data.login.token);
@@ -36,13 +36,13 @@ const Login = () => {
 
     // clear form values
     setFormState({
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     });
   };
 
   if (loggedIn) {
-    window.location.assign("/trip");
+    window.location.assign('/trip');
   }
 
   return (
@@ -57,8 +57,8 @@ const Login = () => {
       )}
       <motion.div
         className="app__flex"
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
+        whileInView={{opacity: [0, 1]}}
+        transition={{duration: 0.7}}
       >
         <form onSubmit={handleFormSubmit}>
           <input

@@ -8,6 +8,10 @@ const CourseHotelModal = ({exitFunction, purposeFunction}) => {
     website: '',
   });
 
+  const handleModalChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value});
+  };
+
   const handleModalSubmit = () => {
     try {
       purposeFunction({variables: formData});
@@ -20,7 +24,8 @@ const CourseHotelModal = ({exitFunction, purposeFunction}) => {
   return (
     <div className="modal-backdrop">
       <div className="modal">
-        <h1 className='close'
+        <h1
+          className="close"
           onClick={() => {
             exitFunction(false);
           }}
@@ -28,13 +33,28 @@ const CourseHotelModal = ({exitFunction, purposeFunction}) => {
           X
         </h1>
         <label htmlFor="name">Name:</label>
-        <input type="text" value={formData.name} />
+        <input
+          type="text"
+          value={formData.name}
+          name="name"
+          onChange={handleModalChange}
+        />
         <br />
         <label htmlFor="name">Address:</label>
-        <input type="text" value={formData.address} />
+        <input
+          type="text"
+          name="address"
+          value={formData.address}
+          onChange={handleModalChange}
+        />
         <br />
         <label htmlFor="name">Website:</label>
-        <input type="text" value={formData.website} />
+        <input
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleModalChange}
+        />
         <br />
         <button onClick={handleModalSubmit}>Add</button>
         <button onClick={() => exitFunction(false)}>Cancel</button>
