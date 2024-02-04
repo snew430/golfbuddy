@@ -47,9 +47,7 @@ const Trip = () => {
         >
           <div>
             <h4>Hotel</h4>
-            <h5>
-              The Grand Grand Grand Hotel of the asesome state of maryland
-            </h5>
+            <h5>{trip.hotel.name}</h5>
             <p className="p-text">{trip.hotel.address}</p>
             <p className="p-text">
               <a
