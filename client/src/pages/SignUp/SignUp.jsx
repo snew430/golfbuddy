@@ -52,7 +52,8 @@ const SignUp = () => {
     const [recipients, subject, message] = [
       email,
       'Welcome to the Trip!',
-      "You're signed up for the fall trip. Your money is due August 1 to secure your spot.  If you cancel at any time after payment, you may be subject to a termination fee.We are looking forward to a great trip.",
+      `Thanks for joining us on our next trip. Next time you log on to front page, you should see your name on the Roster section. Check the Announcement Tab for all trip updates. Remember that money is due to Mac. 
+We look forward to seeing you again.`,
     ];
     if (status === 'active') {
       try {
