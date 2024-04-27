@@ -23,7 +23,6 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
   };
 
   const handleSubmit = async (update_add) => {
-
     if (update_add === 'Update') {
       try {
         updatePlayer({
@@ -52,11 +51,11 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
           <CgCloseO />
         </div>
         {update_add === 'Update' ? (
-          <h3>
+          <h4>
             Update {player.firstName} {player.lastName}
-          </h3>
+          </h4>
         ) : (
-          <h3>Add New Player</h3>
+          <h4>Add New Player</h4>
         )}
         <div>
           <h4>First Name: </h4>
@@ -75,7 +74,6 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
             type="text"
             defaultValue={player.lastName}
             name="lastName"
-            //   value={lastName}
             onChange={handleChangeInput}
           />
         </div>
@@ -85,7 +83,6 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
             type="email"
             defaultValue={player.email}
             name="email"
-            //   value={email}
             onChange={handleChangeInput}
           />
         </div>
@@ -108,19 +105,21 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
                 type="preferredRoomate"
                 defaultValue={player.preferredRoomate}
                 name="preferredRoomate"
-                //   value={preferredRoomate}
                 onChange={handleChangeInput}
               />
             </div>
             <div>
               <h4>Logding: </h4>
-              <input
+              <select
                 type="lodging"
                 defaultValue={player.lodging}
                 name="lodging"
-                //   value={lodging}
                 onChange={handleChangeInput}
-              />
+              >
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Golf Only">Gofl Only</option>
+              </select>
             </div>
           </>
         ) : (

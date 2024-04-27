@@ -1,14 +1,11 @@
-.modal {
+#modal {
   background-color: rgba(4, 57, 39, 0.9);
-  top: 25%;
-  left: 25%;
   overflow: auto;
-  position: fixed;
   z-index: 1;
-  background-color: green;
-  width: 50%;
-  max-height: 50%;
+  width: 100%;
+  height: 100%;
   padding: 1rem;
+  position: fixed;
 
   .close {
     padding-top: 1rem;
@@ -16,6 +13,7 @@
     font-size: 3rem;
     position: absolute;
     left: 75%;
+    top: 10%;
   }
 
   h3 {
@@ -39,6 +37,12 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-color: green;
+    height: 80%;
+    width: 75%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     input {
       display: block;

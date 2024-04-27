@@ -21,7 +21,7 @@ const resolvers = {
         .populate('hotel')
         .populate('playersActive')
         .populate('playersWaitlist'),
-    trip: async (parent, {id}) =>
+    trip: async (_, {id}) =>
       await Trip.findById(id)
         .populate('courses')
         .populate('hotel')
@@ -157,13 +157,13 @@ const resolvers = {
     },
     // ===========================================
     //LOGIN REQUIRED
-    deleteTrip: async (parent, {id}, context) => {
+    deleteTrip: async (_, {id}, context) => {
       if (context.user) {
         return await Trip.findByIdAndDelete(id);
       }
     },
 
-    addPlayerToActiveTrip: async (parent, args) => {
+    addPlayerToActiveTrip: async (_, args) => {
       let playerToAdd = await Player.findOneAndUpdate(
         {
           firstName: args.firstName,
@@ -191,7 +191,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeActivePlayer: async (parent, {player}) => {
+    removeActivePlayer: async (_, {player}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
           {active: true},
@@ -213,7 +213,7 @@ const resolvers = {
       }
     },
 
-    addCurrentPlayerToActive: async (parent, {player}) => {
+    addCurrentPlayerToActive: async (_, {player}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
@@ -231,7 +231,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    addPlayerToWaitlistTrip: async (parent, args) => {
+    addPlayerToWaitlistTrip: async (_, args) => {
       let playerToAdd = await Player.findOneAndUpdate(
         {
           firstName: args.firstName,
@@ -259,7 +259,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    addCurrentPlayerToWaitlist: async (parent, {player}) => {
+    addCurrentPlayerToWaitlist: async (_, {player}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
         {active: true},
         {
@@ -277,7 +277,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeWaitlistPlayer: async (parent, {player}) => {
+    removeWaitlistPlayer: async (_, {player}) => {
       try {
         const updatedTrip = await Trip.findOneAndUpdate(
           {active: true},
@@ -299,7 +299,7 @@ const resolvers = {
       }
     },
 
-    addCourseToTrip: async (parent, {course, trip}) => {
+    addCourseToTrip: async (_, {course, trip}) => {
       const courseToAdd = await Course.findById(course);
 
       const updatedTrip = await Trip.findOneAndUpdate(
@@ -319,7 +319,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeCourseFromTrip: async (parent, {course, trip}) => {
+    removeCourseFromTrip: async (_, {course, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
         {_id: trip},
         {
@@ -337,7 +337,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    addHotelToTrip: async (parent, {hotel, trip}) => {
+    addHotelToTrip: async (_, {hotel, trip}) => {
       const hotelToAdd = await Hotel.findById(hotel);
 
       const updatedTrip = await Trip.findOneAndUpdate(
@@ -357,7 +357,7 @@ const resolvers = {
       return updatedTrip;
     },
 
-    removeHotelFromTrip: async (parent, {hotel, trip}) => {
+    removeHotelFromTrip: async (_, {hotel, trip}) => {
       const updatedTrip = await Trip.findOneAndUpdate(
         {_id: trip},
         {
@@ -375,12 +375,12 @@ const resolvers = {
       return updatedTrip;
     },
 
-    sendMessage: async (parent, {recipients, subject, message, file}) => {
-      let transporter = nodemailer.createTransport({
-        service: 'gmail',
+    sendMessage: async (_, {recipients, subject, message, file}) => {
+      const transporter = nodemailer.createTransport({
+        service: 'outlook',
         auth: {
-          user: process.env.EMAIL,
-          pass: process.env.NODEPASS,
+          user: process.env.OUTLOOK_USERNAME,
+          pass: process.env.OUTLOOK_PASSWORD,
         },
       });
 
@@ -388,11 +388,13 @@ const resolvers = {
       transporter.verify(function (error, success) {
         if (error) {
           console.log(error);
+        } else {
+          console.log(success);
         }
       });
 
       const mail = {
-        from: process.env.EMAIL,
+        from: process.env.OUTLOOK_USERNAME,
         to: recipients,
         subject: subject,
         text: message,
@@ -406,7 +408,7 @@ const resolvers = {
       return Admin;
     },
 
-    paidPlayer: async (parent, {player, paid}) => {
+    paidPlayer: async (_, {player, paid}) => {
       const updatedPlayer = Player.findOneAndUpdate(
         {_id: player},
         {paid: paid},
@@ -415,7 +417,7 @@ const resolvers = {
       return updatedPlayer;
     },
 
-    addInfo: async (parent, {subject, header, body}) => {
+    addInfo: async (_, {subject, header, body}) => {
       const info = await Info.find();
       const length = info.length;
 
@@ -429,20 +431,20 @@ const resolvers = {
       return player;
     },
 
-    editInfo: async (parent, args, context) => {
+    editInfo: async (_, args, context) => {
       return await Info.findByIdAndUpdate(args.id, args, {
         new: true,
         runValidators: true,
       });
     },
 
-    deleteInfo: async (parent, {id}, context) => {
+    deleteInfo: async (_, {id}, context) => {
       return await Info.findByIdAndDelete(id, {
         new: true,
       });
     },
 
-    swapInfoPlace: async (parent, {firstID, secondID}, context) => {
+    swapInfoPlace: async (_, {firstID, secondID}, context) => {
       const firstInfo = await Info.findById(firstID);
       const secondInfo = await Info.findById(secondID);
 
@@ -456,7 +458,7 @@ const resolvers = {
       });
     },
 
-    updateNote: async (parent, args, context) => {
+    updateNote: async (_, args) => {
       return await Note.updateOne(args);
     },
   },
