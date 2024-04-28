@@ -1,26 +1,26 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const PlayerMobileNav = ({setToggle}) => {
+const PlayerMobileNav = ({ setToggle }) => {
   return (
     <>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/trip'}>
+        <Link onClick={() => setToggle(false)} to={"/trip"}>
           Trip
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/announcement'}>
+        <Link onClick={() => setToggle(false)} to={"/announcement"}>
           Announcement
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/rules'}>
+        <Link onClick={() => setToggle(false)} to={"/rules"}>
           Rules
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/media'}>
+        <Link onClick={() => setToggle(false)} to={"/media"}>
           Media
         </Link>
       </li>

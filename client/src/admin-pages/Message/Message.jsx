@@ -1,20 +1,20 @@
 //import axios from "axios";
-import React, {useState} from 'react';
-import './Message.scss';
-import Auth from '../../utils/auth';
-import {useQuery, useMutation} from '@apollo/react-hooks';
-import {QUERY_PLAYERS, QUERY_ACTIVE_PLAYERS} from '../../utils/queries';
-import {motion} from 'framer-motion';
-import {SEND_MESSAGE} from '../../utils/mutations';
-import {Cheat} from '../../components';
+import React, { useState } from "react";
+import "./Message.scss";
+import Auth from "../../utils/auth";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { QUERY_PLAYERS, QUERY_ACTIVE_PLAYERS } from "../../utils/queries";
+import { motion } from "framer-motion";
+import { SEND_MESSAGE } from "../../utils/mutations";
+import { Cheat } from "../../components";
 
 const Message = () => {
-  const [formData, setFormData] = useState({subject: '', message: ''});
+  const [formData, setFormData] = useState({ subject: "", message: "" });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
-  const {loading: allPlayersLoading, data: emailMasterlist} =
+  const { loading: allPlayersLoading, data: emailMasterlist } =
     useQuery(QUERY_PLAYERS);
-  const {loading: activePlayersLoading, data: emailPlayers} =
+  const { loading: activePlayersLoading, data: emailPlayers } =
     useQuery(QUERY_ACTIVE_PLAYERS);
   const masterList = emailMasterlist?.players || [];
   const activeList = emailPlayers?.activeTrip.playersActive || [];
@@ -25,22 +25,22 @@ const Message = () => {
     setAttachment(event.target.files[0].name);
   };
 
-  const {subject, message} = formData;
+  const { subject, message } = formData;
   const loggedIn = Auth.adminLogIn();
 
   const handleChangeInput = (e) => {
-    const {name, value} = e.target;
-    setFormData({...formData, [name]: value});
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSendEmail = async (e) => {
-    const {subject, message} = formData;
+    const { subject, message } = formData;
 
-    let recipients = '';
+    let recipients = "";
 
     let list;
 
-    if (e.target.name === 'trip') {
+    if (e.target.name === "trip") {
       list = activeList;
     } else {
       list = masterList;
@@ -49,10 +49,10 @@ const Message = () => {
       recipients += `${player.email},`;
     });
 
-    if (subject !== '' && message !== '') {
+    if (subject !== "" && message !== "") {
       try {
         await sendMessage({
-          variables: {recipients, subject, message, attachment},
+          variables: { recipients, subject, message, attachment },
         });
       } catch (err) {
         console.error(err);
@@ -75,8 +75,8 @@ const Message = () => {
         {!isFormSubmitted ? (
           <motion.div
             className="app__flex"
-            whileInView={{opacity: [0, 1]}}
-            transition={{duration: 0.7}}
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
           >
             <div className="app__flex email-form">
               <div className="app__flex">

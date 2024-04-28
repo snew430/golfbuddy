@@ -1,31 +1,31 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const AdminMobileNav = ({setToggle}) => {
+const AdminMobileNav = ({ setToggle }) => {
   return (
     <>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/administrationhome'}>
+        <Link onClick={() => setToggle(false)} to={"/administrationhome"}>
           Admin Home
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/playerlist'}>
+        <Link onClick={() => setToggle(false)} to={"/playerlist"}>
           Player List
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/masterlist'}>
+        <Link onClick={() => setToggle(false)} to={"/masterlist"}>
           Master List
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/message'}>
+        <Link onClick={() => setToggle(false)} to={"/message"}>
           Email
         </Link>
       </li>
       <li className="app__flex p-text">
-        <Link onClick={() => setToggle(false)} to={'/managetrips'}>
+        <Link onClick={() => setToggle(false)} to={"/managetrips"}>
           Trip Manager
         </Link>
       </li>

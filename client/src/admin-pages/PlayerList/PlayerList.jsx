@@ -1,14 +1,14 @@
-import React from 'react';
-import './PlayerList.scss';
-import {List, Cheat} from '../../components';
-import {motion} from 'framer-motion';
-import {useQuery} from '@apollo/react-hooks';
-import {exportCSVplayer, exportCSVwaitlist} from '../../utils/exportCSV';
-import {QUERY_ACTIVE_TRIP} from '../../utils/queries';
-import Auth from '../../utils/auth';
+import React from "react";
+import "./PlayerList.scss";
+import { List, Cheat } from "../../components";
+import { motion } from "framer-motion";
+import { useQuery } from "@apollo/react-hooks";
+import { exportCSVplayer, exportCSVwaitlist } from "../../utils/exportCSV";
+import { QUERY_ACTIVE_TRIP } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 const PlayerList = () => {
-  const {data: tripData, refetch} = useQuery(QUERY_ACTIVE_TRIP);
+  const { data: tripData, refetch } = useQuery(QUERY_ACTIVE_TRIP);
 
   const trip = tripData?.activeTrip || [];
 
@@ -25,7 +25,7 @@ const PlayerList = () => {
         <div className="player-list">
           <List
             players={trip.playersActive}
-            status={'active'}
+            status={"active"}
             trip={trip._id}
             refetchPlayers={refetch}
           />
@@ -34,7 +34,7 @@ const PlayerList = () => {
         <div className="player-list">
           <List
             players={trip.playersWaitlist}
-            status={'waitlist'}
+            status={"waitlist"}
             trip={trip._id}
             refetchPlayers={refetch}
           />
@@ -42,8 +42,8 @@ const PlayerList = () => {
 
         <motion.div
           className="flex-wrap"
-          whileInView={{opacity: [0, 1]}}
-          transition={{duration: 0.7}}
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
         >
           <button onClick={() => exportCSVplayer()}>
             Download Player List

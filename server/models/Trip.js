@@ -42,24 +42,24 @@ const tripSchema = new Schema(
     courses: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Course',
+        ref: "Course",
       },
     ],
     hotel: {
       type: Schema.Types.ObjectId,
-      ref: 'Hotel',
+      ref: "Hotel",
     },
 
     playersActive: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Player',
+        ref: "Player",
       },
     ],
     playersWaitlist: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Player',
+        ref: "Player",
       },
     ],
     active: {
@@ -87,7 +87,7 @@ const tripSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
-  }
+  },
 );
 
 tripSchema.virtual("activePlayerCount").get(function () {

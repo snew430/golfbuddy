@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const AdminNav = () => {
-  return (
-    <div>AdminNav</div>
-  )
-}
+  return <div>AdminNav</div>;
+};
 
-export default AdminNav
+export default AdminNav;

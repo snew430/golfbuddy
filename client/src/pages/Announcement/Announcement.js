@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import './Announcements.scss';
-import {useQuery} from '@apollo/client';
-import {QUERY_NOTE} from '../../utils/queries';
-import {NoteModal, Cheat} from '../../components';
-import Auth from '../../utils/auth';
+import React, { useState } from "react";
+import "./Announcements.scss";
+import { useQuery } from "@apollo/client";
+import { QUERY_NOTE } from "../../utils/queries";
+import { NoteModal, Cheat } from "../../components";
+import Auth from "../../utils/auth";
 const Announcement = () => {
-  const {loading, data: noteData, refetch} = useQuery(QUERY_NOTE);
-  const announcements = noteData?.note[0] || {header: '', body: ''};
+  const { loading, data: noteData, refetch } = useQuery(QUERY_NOTE);
+  const announcements = noteData?.note[0] || { header: "", body: "" };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

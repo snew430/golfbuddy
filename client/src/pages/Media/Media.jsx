@@ -1,5 +1,5 @@
-import './Media.scss';
-import {Tweet} from 'react-twitter-widgets';
+import "./Media.scss";
+import { Tweet } from "react-twitter-widgets";
 
 const Media = () => {
   return (

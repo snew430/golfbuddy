@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
-import './MasterList.scss';
-import {Master, Modal, Cheat} from '../../components';
-import {useQuery} from '@apollo/react-hooks';
-import {motion} from 'framer-motion';
-import {exportCSVmaster} from '../../utils/exportCSV';
+import React, { useState } from "react";
+import "./MasterList.scss";
+import { Master, Modal, Cheat } from "../../components";
+import { useQuery } from "@apollo/react-hooks";
+import { motion } from "framer-motion";
+import { exportCSVmaster } from "../../utils/exportCSV";
 
-import {QUERY_PLAYERS} from '../../utils/queries';
-import Auth from '../../utils/auth';
+import { QUERY_PLAYERS } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 const MasterList = () => {
-  const {data: playerData, refetch} = useQuery(QUERY_PLAYERS);
+  const { data: playerData, refetch } = useQuery(QUERY_PLAYERS);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const players = playerData?.players || [];
@@ -21,13 +21,13 @@ const MasterList = () => {
   };
 
   const player = {
-    id: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    preferredRoomate: '',
-    lodging: '',
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    preferredRoomate: "",
+    lodging: "",
   };
 
   if (!loggedIn) {
@@ -40,7 +40,7 @@ const MasterList = () => {
         <Modal
           player={player}
           onClose={toggleModal}
-          update_add={'Add'}
+          update_add={"Add"}
           refetchPlayers={refetch}
         />
       )}
@@ -53,8 +53,8 @@ const MasterList = () => {
 
           <motion.div
             className="flex-wrap"
-            whileInView={{opacity: [0, 1]}}
-            transition={{duration: 0.7}}
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.7 }}
           >
             <button onClick={() => toggleModal()}>Add New Player</button>
             <button onClick={() => exportCSVmaster()}>

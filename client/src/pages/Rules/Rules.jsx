@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
-import './Rules.scss';
-import {useQuery} from '@apollo/client';
-import {QUERY_RULES} from '../../utils/queries';
-import {Cheat} from '../../components';
-import {CreatePDFfromHTML} from '../../utils/downloadPDF';
-import Auth from '../../utils/auth';
+import React, { useState } from "react";
+import "./Rules.scss";
+import { useQuery } from "@apollo/client";
+import { QUERY_RULES } from "../../utils/queries";
+import { Cheat } from "../../components";
+import { CreatePDFfromHTML } from "../../utils/downloadPDF";
+import Auth from "../../utils/auth";
 
-const topics = ['Rules', 'Ryder Cup', 'Etiquette'];
+const topics = ["Rules", "Ryder Cup", "Etiquette"];
 
 const Rules = () => {
   const [currentTopic, setCurrentTopic] = useState(topics[0]);
-  const {data: rulesData} = useQuery(QUERY_RULES);
+  const { data: rulesData } = useQuery(QUERY_RULES);
   const rules = rulesData?.info || [];
 
   const loggedIn = Auth.loggedIn();
@@ -25,7 +25,7 @@ const Rules = () => {
         <div className="title-switcher">
           {topics.map((topic) => (
             <h2
-              className={`topic ${currentTopic === topic ? 'current' : ''}`}
+              className={`topic ${currentTopic === topic ? "current" : ""}`}
               onClick={() => setCurrentTopic(topic)}
             >
               {topic}
@@ -34,7 +34,7 @@ const Rules = () => {
         </div>
 
         <div className="rules-content">
-          {currentTopic === 'Etiquette' && (
+          {currentTopic === "Etiquette" && (
             <>
               <div>
                 <h4 className="h4-text">
@@ -191,11 +191,11 @@ const Rules = () => {
             </>
           )}
 
-          {currentTopic === 'Rules' && (
+          {currentTopic === "Rules" && (
             <>
               <p className="p-text">
                 Welcome to the guys joining us for the first time! <br />
-                Here's information that will make your golfing more enjoyable.{' '}
+                Here's information that will make your golfing more enjoyable.{" "}
                 <br />
                 All competition is based on what you shoot against your own
                 handicap (or what you told us you shoot). <br />
@@ -204,30 +204,30 @@ const Rules = () => {
               </p>
               {rules.map(
                 (rule) =>
-                  rule.subject === 'Rules & Regulations' && (
+                  rule.subject === "Rules & Regulations" && (
                     <div data-id={rule._id} key={rule._id}>
                       <h4 className="h4-text">{rule.header}</h4>
 
                       <p className="p-text">{rule.body}</p>
                     </div>
-                  )
+                  ),
               )}
             </>
           )}
 
-          {currentTopic === 'Ryder Cup' && (
+          {currentTopic === "Ryder Cup" && (
             <>
               <h2 className="secondary-text">Ryder Cup</h2>
               {rules.map(
                 (rule) =>
-                  rule.subject === 'Ryder Cup' && (
+                  rule.subject === "Ryder Cup" && (
                     <>
                       <h4 className="h4-text" key={rule._id}>
                         {rule.header}
                       </h4>
                       <p className="p-text">{rule.body}</p>
                     </>
-                  )
+                  ),
               )}
             </>
           )}

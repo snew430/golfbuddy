@@ -1,8 +1,8 @@
-import './Home.scss';
-import {motion} from 'framer-motion';
-import {Link} from 'react-router-dom';
-import Auth from '../../utils/auth';
-import {monday4Somes, tuesday4Somes, sunday4Somes} from '../../assets/files';
+import "./Home.scss";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import { monday4Somes, tuesday4Somes, sunday4Somes } from "../../assets/files";
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();
@@ -13,9 +13,9 @@ const Home = () => {
         What's My Tee Time? <br /> Golf Trips
       </h2>
       <motion.div
-        whileInView={{opacity: [0, 1]}}
-        transition={{duration: 0.7}}
-        whileHover={{scale: 1.1}}
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ scale: 1.1 }}
         className="app__flex"
       >
         {loggedIn ? (

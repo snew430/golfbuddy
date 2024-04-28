@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import './ManageTrips.scss';
-import {motion} from 'framer-motion';
-import {useQuery, useMutation} from '@apollo/react-hooks';
-import {EditTrip, Cheat, ConfirmModal} from '../../components';
+import React, { useState } from "react";
+import "./ManageTrips.scss";
+import { motion } from "framer-motion";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import { EditTrip, Cheat, ConfirmModal } from "../../components";
 
-import {QUERY_BASIC_TRIPS} from '../../utils/queries';
-import {MAKE_TRIP_ACTIVE, DELETE_TRIP} from '../../utils/mutations';
+import { QUERY_BASIC_TRIPS } from "../../utils/queries";
+import { MAKE_TRIP_ACTIVE, DELETE_TRIP } from "../../utils/mutations";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const ManageTrips = () => {
-  const {data: tripData, refetch} = useQuery(QUERY_BASIC_TRIPS);
+  const { data: tripData, refetch } = useQuery(QUERY_BASIC_TRIPS);
   const [makeActive] = useMutation(MAKE_TRIP_ACTIVE);
   const [deleteTrip] = useMutation(DELETE_TRIP);
   const [currentTripEdit, setCurrentTripEdit] = useState();
   const [editModalShow, setEditModalShow] = useState(false);
   const [deleteModalShow, setDeleteModalShow] = useState({
     show: false,
-    id: '',
-    name: '',
+    id: "",
+    name: "",
   });
   const trips = tripData?.trips || [];
 
@@ -31,7 +31,7 @@ const ManageTrips = () => {
     }
     try {
       await makeActive({
-        variables: {changeTripToActiveId},
+        variables: { changeTripToActiveId },
       });
       refetch();
     } catch (err) {
@@ -44,13 +44,13 @@ const ManageTrips = () => {
   const handleDeleteTrip = async (id) => {
     try {
       await deleteTrip({
-        variables: {deleteTripId: id},
+        variables: { deleteTripId: id },
       });
       refetch();
       setDeleteModalShow({
         show: false,
-        id: '',
-        name: '',
+        id: "",
+        name: "",
       });
     } catch (error) {
       console.log(error);
@@ -80,8 +80,8 @@ const ManageTrips = () => {
           exitFunction={setDeleteModalShow}
           neededExitVars={{
             show: false,
-            id: '',
-            name: '',
+            id: "",
+            name: "",
           }}
           purposeFunction={handleDeleteTrip}
           neededPurpVars={deleteModalShow.id}
@@ -89,13 +89,13 @@ const ManageTrips = () => {
         />
       )}
       <div className="background">
-        <div className='padding'></div>
+        <div className="padding"></div>
         {trips.map((trip) => (
           <div
             key={trip._id}
-            className={`head-text ${trip.active ? 'active-trip' : ''}`}
+            className={`head-text ${trip.active ? "active-trip" : ""}`}
           >
-            <div>{trip.active ? 'Active Trip' : ''}</div>
+            <div>{trip.active ? "Active Trip" : ""}</div>
             <h2>{trip.name}</h2>
             <div>
               {trip.startDate} - {trip.endDate}
@@ -109,7 +109,11 @@ const ManageTrips = () => {
             )}
             <button
               onClick={() =>
-                setDeleteModalShow({show: true, id: trip._id, name: trip.name})
+                setDeleteModalShow({
+                  show: true,
+                  id: trip._id,
+                  name: trip.name,
+                })
               }
             >
               Delete Trip
@@ -120,8 +124,8 @@ const ManageTrips = () => {
 
         <motion.div
           className="app__flex"
-          whileInView={{opacity: [0, 1]}}
-          transition={{duration: 0.7}}
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.7 }}
         ></motion.div>
       </div>
     </div>

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {CgCloseO} from 'react-icons/cg';
-import {useMutation} from '@apollo/react-hooks';
-import {UPDATE_PLAYER, ADD_PLAYER} from '../../utils/mutations';
-import './Modal.scss';
+import React, { useState } from "react";
+import { CgCloseO } from "react-icons/cg";
+import { useMutation } from "@apollo/react-hooks";
+import { UPDATE_PLAYER, ADD_PLAYER } from "../../utils/mutations";
+import "./Modal.scss";
 
-const Modal = ({player, onClose, update_add, refetchPlayers}) => {
+const Modal = ({ player, onClose, update_add, refetchPlayers }) => {
   const [formData, setformData] = useState({
     id: player._id,
     firstName: player.firstName,
@@ -18,12 +18,12 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
   const [addPlayer] = useMutation(ADD_PLAYER);
 
   const handleChangeInput = (e) => {
-    const {name, value} = e.target;
-    setformData({...formData, [name]: value});
+    const { name, value } = e.target;
+    setformData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (update_add) => {
-    if (update_add === 'Update') {
+    if (update_add === "Update") {
       try {
         updatePlayer({
           variables: formData,
@@ -50,7 +50,7 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
         <div onClick={onClose} className="close">
           <CgCloseO />
         </div>
-        {update_add === 'Update' ? (
+        {update_add === "Update" ? (
           <h4>
             Update {player.firstName} {player.lastName}
           </h4>
@@ -97,7 +97,7 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
           />
         </div>
 
-        {update_add === 'Update' ? (
+        {update_add === "Update" ? (
           <>
             <div>
               <h4>Preferred Roomate: </h4>
@@ -123,7 +123,7 @@ const Modal = ({player, onClose, update_add, refetchPlayers}) => {
             </div>
           </>
         ) : (
-          ''
+          ""
         )}
         <div className="app__flex">
           <button

@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import {Link} from 'react-router-dom';
-import Auth from '../../utils/auth';
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
-import './Nav.scss';
-import PlayerNav from './PlayerNav';
-import MobileNav from './MobileNav';
+import "./Nav.scss";
+import PlayerNav from "./PlayerNav";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const [adminView, setAdminView] = useState(true);
@@ -20,13 +20,13 @@ const Navbar = () => {
     <nav className="app__navbar">
       <ul className="app__navbar-links">
         <li className="app__flex p-text">
-          <Link to={'/home'}>Home</Link>
+          <Link to={"/home"}>Home</Link>
         </li>
         {admin ? (
           <>
             {adminView ? (
               <li className="app__flex p-text">
-                <Link to={'/administrationhome'}>Admin Home</Link>
+                <Link to={"/administrationhome"}>Admin Home</Link>
               </li>
             ) : (
               <PlayerNav />
@@ -34,7 +34,7 @@ const Navbar = () => {
           </>
         ) : (
           <li className="app__flex p-text">
-            <Link to={'/administration'}>Admin Login</Link>
+            <Link to={"/administration"}>Admin Login</Link>
           </li>
         )}
         {!admin && loggedIn && <PlayerNav />}
@@ -47,7 +47,7 @@ const Navbar = () => {
         ) : (
           <>
             <li className="app__flex p-text">
-              <Link to={'/login'}>Players Login</Link>
+              <Link to={"/login"}>Players Login</Link>
             </li>
           </>
         )}

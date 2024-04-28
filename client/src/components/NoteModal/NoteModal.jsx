@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { CgCloseO } from 'react-icons/cg';
-import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_NOTE } from '../../utils/mutations';
-import './NoteModal.scss';
+import React, { useState } from "react";
+import { CgCloseO } from "react-icons/cg";
+import { useMutation } from "@apollo/react-hooks";
+import { UPDATE_NOTE } from "../../utils/mutations";
+import "./NoteModal.scss";
 
 const NoteModal = ({ announcement, onClose, refetchAnnouncements }) => {
   const [formData, setformData] = useState({

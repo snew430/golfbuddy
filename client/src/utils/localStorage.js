@@ -1,6 +1,6 @@
 export const getSavedPlayers = () => {
-  const savedPlayerIds = localStorage.getItem('saved_players')
-    ? JSON.parse(localStorage.getItem('saved_players'))
+  const savedPlayerIds = localStorage.getItem("saved_players")
+    ? JSON.parse(localStorage.getItem("saved_players"))
     : [];
 
   return savedPlayerIds;
@@ -8,15 +8,15 @@ export const getSavedPlayers = () => {
 
 export const savePlayerIds = (playerIdArr) => {
   if (playerIdArr.length) {
-    localStorage.setItem('saved_players', JSON.stringify(playerIdArr));
+    localStorage.setItem("saved_players", JSON.stringify(playerIdArr));
   } else {
-    localStorage.removeItem('saved_players');
+    localStorage.removeItem("saved_players");
   }
 };
 
 export const removePlayerId = (playerId) => {
-  const savePlayerIds = localStorage.getItem('saved_players')
-    ? JSON.parse(localStorage.getItem('saved_players'))
+  const savePlayerIds = localStorage.getItem("saved_players")
+    ? JSON.parse(localStorage.getItem("saved_players"))
     : null;
 
   if (!savePlayerIds) {
@@ -24,9 +24,9 @@ export const removePlayerId = (playerId) => {
   }
 
   const updatedSavedPlayerIds = savePlayerIds?.filter(
-    (savedPlayerId) => savedPlayerId !== playerId
+    (savedPlayerId) => savedPlayerId !== playerId,
   );
-  localStorage.setItem('saved_players', JSON.stringify(updatedSavedPlayerIds));
+  localStorage.setItem("saved_players", JSON.stringify(updatedSavedPlayerIds));
 
   return true;
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import './Cheat.scss';
+import React from "react";
+import "./Cheat.scss";
 
 const Cheat = () => {
   return (

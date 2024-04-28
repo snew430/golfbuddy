@@ -1,40 +1,40 @@
-import React, {useState} from 'react';
-import './New-Trip.scss';
-import Auth from '../../utils/auth';
-import {useMutation, useQuery} from '@apollo/react-hooks';
-import {ADD_TRIP, ADD_COURSE, ADD_HOTEL} from '../../utils/mutations';
-import {QUERY_HOTELS, QUERY_COURSES} from '../../utils/queries';
-import {Cheat} from '../../components';
-import CourseHotelModal from '../../components/Modal/CourseHotelModal';
+import React, { useState } from "react";
+import "./New-Trip.scss";
+import Auth from "../../utils/auth";
+import { useMutation, useQuery } from "@apollo/react-hooks";
+import { ADD_TRIP, ADD_COURSE, ADD_HOTEL } from "../../utils/mutations";
+import { QUERY_HOTELS, QUERY_COURSES } from "../../utils/queries";
+import { Cheat } from "../../components";
+import CourseHotelModal from "../../components/Modal/CourseHotelModal";
 
 const NewTrip = () => {
   //edit form data to meet specifications from Trip query
   const [formData, setFormData] = useState({
-    name: '',
-    startDate: '',
-    endDate: '',
-    paymentDue: '',
+    name: "",
+    startDate: "",
+    endDate: "",
+    paymentDue: "",
     maxPlayers: 0,
     singlePrice: 0,
     doublePrice: 0,
     golfOnlyPrice: 0,
-    hotel: '',
-    courseOne: '',
-    courseTwo: '',
-    courseThree: '',
-    courseFour: '',
-    dayOneStart: '',
-    dayTwoStart: '',
-    dayThreeStart: '',
-    dayFourStart: '',
+    hotel: "",
+    courseOne: "",
+    courseTwo: "",
+    courseThree: "",
+    courseFour: "",
+    dayOneStart: "",
+    dayTwoStart: "",
+    dayThreeStart: "",
+    dayFourStart: "",
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [addTrip] = useMutation(ADD_TRIP);
   const [addCourse] = useMutation(ADD_COURSE);
   const [addHotel] = useMutation(ADD_HOTEL);
-  const {data: courses, loading: courseLoading} = useQuery(QUERY_COURSES);
-  const {data: hotels, loading: hotelLoading} = useQuery(QUERY_HOTELS);
+  const { data: courses, loading: courseLoading } = useQuery(QUERY_COURSES);
+  const { data: hotels, loading: hotelLoading } = useQuery(QUERY_HOTELS);
   const [addFunction, setAddFunction] = useState();
   const [showModal, setShowModal] = useState(false);
   let input = false;
@@ -46,17 +46,17 @@ const NewTrip = () => {
   }
 
   const handleChangeInput = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     if (
-      name === 'maxPlayers' ||
-      name === 'singlePrice' ||
-      name === 'doublePrice' ||
-      name === 'golfOnlyPrice'
+      name === "maxPlayers" ||
+      name === "singlePrice" ||
+      name === "doublePrice" ||
+      name === "golfOnlyPrice"
     ) {
       const parsedVal = parseInt(value) || 0;
-      setFormData({...formData, [name]: parsedVal});
+      setFormData({ ...formData, [name]: parsedVal });
     } else {
-      setFormData({...formData, [name]: value});
+      setFormData({ ...formData, [name]: value });
     }
   };
 
@@ -69,19 +69,19 @@ const NewTrip = () => {
       });
 
       setFormData({
-        name: '',
-        startDate: '',
-        endDate: '',
-        paymentDue: '',
+        name: "",
+        startDate: "",
+        endDate: "",
+        paymentDue: "",
         maxPlayers: 0,
         singlePrice: 0,
         doublePrice: 0,
         golfOnlyPrice: 0,
-        hotel: '',
-        courseOne: '',
-        courseTwo: '',
-        courseThree: '',
-        courseFour: '',
+        hotel: "",
+        courseOne: "",
+        courseTwo: "",
+        courseThree: "",
+        courseFour: "",
       });
 
       setIsFormSubmitted(true);
@@ -299,7 +299,7 @@ const NewTrip = () => {
                 <></>
               ) : (
                 <button type="button" onClick={handleSubmit}>
-                  {loading ? 'Creating Trip' : 'Create Trip'}
+                  {loading ? "Creating Trip" : "Create Trip"}
                 </button>
               )}
             </div>

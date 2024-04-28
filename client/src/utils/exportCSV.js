@@ -1,12 +1,12 @@
-import {saveAs} from 'file-saver';
+import { saveAs } from "file-saver";
 
 export const exportCSVwaitlist = () => {
   let csv = [];
-  const rows = document.querySelectorAll('.tablewaitlist tr');
+  const rows = document.querySelectorAll(".tablewaitlist tr");
   for (const row of rows.values()) {
-    const cells = row.querySelectorAll('.tdwaitlist, .thwaitlist');
+    const cells = row.querySelectorAll(".tdwaitlist, .thwaitlist");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
-    csv.push(rowText.join(','));
+    csv.push(rowText.join(","));
   }
 
   // let sortingArray = [];
@@ -23,36 +23,36 @@ export const exportCSVwaitlist = () => {
 
   // const waitListedUsers = waitListArray.flat();
 
-  const csvFile = new Blob([csv.join('\n')], {
-    type: 'text/csv;charset=utf-8;',
+  const csvFile = new Blob([csv.join("\n")], {
+    type: "text/csv;charset=utf-8;",
   });
-  saveAs(csvFile, 'waitlisted_players.csv');
+  saveAs(csvFile, "waitlisted_players.csv");
 };
 
 export const exportCSVplayer = () => {
   let csv = [];
-  const rows = document.querySelectorAll('.tableactive tr');
+  const rows = document.querySelectorAll(".tableactive tr");
   for (const row of rows.values()) {
-    const cells = row.querySelectorAll('.tdactive, .thactive');
+    const cells = row.querySelectorAll(".tdactive, .thactive");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
-    csv.push(rowText.join(','));
+    csv.push(rowText.join(","));
   }
-  const csvFile = new Blob([csv.join('\n')], {
-    type: 'text/csv;charset=utf-8;',
+  const csvFile = new Blob([csv.join("\n")], {
+    type: "text/csv;charset=utf-8;",
   });
-  saveAs(csvFile, 'player_list.csv');
+  saveAs(csvFile, "player_list.csv");
 };
 
 export const exportCSVmaster = () => {
   let csv = [];
-  const rows = document.querySelectorAll('table tr');
+  const rows = document.querySelectorAll("table tr");
   for (const row of rows.values()) {
-    const cells = row.querySelectorAll('td, th');
+    const cells = row.querySelectorAll("td, th");
     const rowText = Array.from(cells).map((cell) => cell.innerText);
-    csv.push(rowText.join(','));
+    csv.push(rowText.join(","));
   }
-  const csvFile = new Blob([csv.join('\n')], {
-    type: 'text/csv;charset=utf-8;',
+  const csvFile = new Blob([csv.join("\n")], {
+    type: "text/csv;charset=utf-8;",
   });
-  saveAs(csvFile, 'members.csv');
+  saveAs(csvFile, "members.csv");
 };

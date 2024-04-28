@@ -1,21 +1,21 @@
-import {useState} from 'react';
-import './Modal.scss';
+import { useState } from "react";
+import "./Modal.scss";
 
-const CourseHotelModal = ({exitFunction, purposeFunction}) => {
+const CourseHotelModal = ({ exitFunction, purposeFunction }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    website: '',
+    name: "",
+    address: "",
+    website: "",
   });
 
   const handleModalChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleModalSubmit = () => {
     try {
-      purposeFunction({variables: formData});
-      setFormData({name: '', address: '', website: ''});
+      purposeFunction({ variables: formData });
+      setFormData({ name: "", address: "", website: "" });
     } catch (err) {
       console.log(err);
     }

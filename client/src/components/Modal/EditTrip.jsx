@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import {useMutation} from '@apollo/client';
-import {EDIT_TRIP} from '../../utils/mutations';
-import {CgCloseO} from 'react-icons/cg';
-import './Modal.scss';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { EDIT_TRIP } from "../../utils/mutations";
+import { CgCloseO } from "react-icons/cg";
+import "./Modal.scss";
 
-const EditTrip = ({trip, setModalShow, refetch}) => {
+const EditTrip = ({ trip, setModalShow, refetch }) => {
   const [editTrip] = useMutation(EDIT_TRIP);
   const [formData, setFormData] = useState(trip);
   const handleChangeInput = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     if (
-      name === 'maxPlayers' ||
-      name === 'singlePrice' ||
-      name === 'doublePrice' ||
-      name === 'golfOnlyPrice'
+      name === "maxPlayers" ||
+      name === "singlePrice" ||
+      name === "doublePrice" ||
+      name === "golfOnlyPrice"
     ) {
       const parsedVal = parseInt(value) || 0;
-      setFormData({...formData, [name]: parsedVal});
+      setFormData({ ...formData, [name]: parsedVal });
     } else {
-      setFormData({...formData, [name]: value});
+      setFormData({ ...formData, [name]: value });
     }
   };
 
