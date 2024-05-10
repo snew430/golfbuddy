@@ -94,6 +94,13 @@
       }
     }
 
+    .error {
+      background-color: ivory;
+      border: none;
+      outline: 2px solid red;
+      border-radius: 5px;
+    }
+
     .info-text {
       font-size: 2rem;
       font-weight: 500;

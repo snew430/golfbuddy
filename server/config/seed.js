@@ -1,8 +1,8 @@
-const db = require("./connection");
-const { Admin, Hotel, Course, Player, Trip, Info, Note } = require("../models");
+const db = require('./connection');
+const {Admin, Hotel, Course, Player, Trip, Info, Note} = require('../models');
 
-db.once("open", async () => {
-  // await Admin.deleteMany();
+db.once('open', async () => {
+  await Admin.deleteMany();
   // await Hotel.deleteMany();
   // await Course.deleteMany();
   // await Player.deleteMany();
@@ -10,15 +10,15 @@ db.once("open", async () => {
   // await Info.deleteMany();
   // await Note.deleteMany();
 
-  // await Admin.create({
-  //   email: process.env.EMAIL,
-  //   password: process.env.PASS,
-  // });
+  await Admin.create({
+    email: process.env.OUTLOOK_USERNAME,
+    password: process.env.OUTLOOK_PASSWORD,
+  });
 
-  // await Admin.create({
-  //   email: process.env.PLAYEREMAIL,
-  //   password: process.env.PLAYERPASS,
-  // });
+  await Admin.create({
+    email: process.env.PLAYEREMAIL,
+    password: process.env.PLAYERPASS,
+  });
 
   // const course1 = await Course.create({
   //   name: 'Rum Pointe Seaside Golf Links',
@@ -221,5 +221,5 @@ db.once("open", async () => {
   //   body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed impedit laboriosam maxime vitae reprehenderit quia enim quidem optio ut ipsum placeat numquam eum aliquid, ex rerum tempore laborum. Earum, excepturi.',
   // });
 
-  console.log("DATA SEEDED");
+  console.log('DATA SEEDED');
 });

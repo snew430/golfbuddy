@@ -1,40 +1,48 @@
-import React, { useState } from "react";
-import "./SignUp.scss";
-import { motion } from "framer-motion";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { QUERY_ACTIVE_TRIP } from "../../utils/queries";
+import React, {useState} from 'react';
+import './SignUp.scss';
+import {motion} from 'framer-motion';
+import {useQuery, useMutation} from '@apollo/react-hooks';
+import {QUERY_ACTIVE_TRIP} from '../../utils/queries';
 import {
   ADD_ACTIVE_PLAYER,
   ADD_WAITLIST_PLAYER,
   SEND_MESSAGE,
-} from "../../utils/mutations";
-import Auth from "../../utils/auth";
-import { Cheat } from "../../components";
+} from '../../utils/mutations';
+import Auth from '../../utils/auth';
+import {Cheat} from '../../components';
 
 const SignUp = () => {
   const [formData, setformData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    preferredRoomate: "",
-    lodging: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    preferredRoomate: '',
+    lodging: '',
   });
+  const [errors, setErrors] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    phoneNumber: false,
+    lodging: false,
+  });
+
   const [signupMessage, setSignupMessage] = useState(
-    "You are signed up. See you on the course!",
+    'You are signed up. See you on the course!'
   );
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [sendMessage] = useMutation(SEND_MESSAGE);
 
-  const { data } = useQuery(QUERY_ACTIVE_TRIP);
+  const {data} = useQuery(QUERY_ACTIVE_TRIP);
   const [addPlayer] = useMutation(ADD_ACTIVE_PLAYER);
   const [addWaitlistPlayer] = useMutation(ADD_WAITLIST_PLAYER);
 
   const trip = data?.activeTrip || [];
 
-  const { activePlayerCount, maxPlayers } = trip;
+  const {activePlayerCount, maxPlayers} = trip;
 
-  const { firstName, lastName, email, phoneNumber, preferredRoomate, lodging } =
+  const {firstName, lastName, email, phoneNumber, preferredRoomate, lodging} =
     formData;
 
   const loggedIn = Auth.loggedIn();
@@ -44,18 +52,42 @@ const SignUp = () => {
   }
 
   const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setformData({ ...formData, [name]: value });
+    const {name, value} = e.target;
+    setErrors({...errors, [name]: !value});
+    setformData({...formData, [name]: value});
   };
 
   const handleSubmit = async (status) => {
+    const firstNameError = !firstName;
+    const lastNameError = !lastName;
+    const emailError = !email;
+    const phoneError = !phoneNumber;
+    const lodgingError = !lodging;
+
+    if (
+      firstNameError ||
+      lastNameError ||
+      emailError ||
+      phoneError ||
+      lodgingError
+    ) {
+      setErrors({
+        firstName: firstNameError,
+        lastName: lastNameError,
+        email: emailError,
+        phoneNumber: phoneError,
+        lodging: lodgingError,
+      });
+      return;
+    }
+
     const [recipients, subject, message] = [
       email,
-      "Welcome to the Trip!",
+      'Welcome to the Trip!',
       `Thanks for joining us on our next trip. Next time you log on to front page, you should see your name on the Roster section. Check the Announcement Tab for all trip updates. Remember that money is due to Mac. 
 We look forward to seeing you again.`,
     ];
-    if (status === "active") {
+    if (status === 'active') {
       try {
         await sendMessage({
           variables: {
@@ -72,7 +104,7 @@ We look forward to seeing you again.`,
       }
     } else {
       try {
-        setSignupMessage("You are now on the waitlist");
+        setSignupMessage('You are now on the waitlist');
         await sendMessage({
           variables: {
             recipients,
@@ -89,12 +121,12 @@ We look forward to seeing you again.`,
     }
 
     setformData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      preferredRoomate: "",
-      lodging: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      preferredRoomate: '',
+      lodging: '',
     });
     // Need to remove from local storage
     setIsFormSubmitted(true);
@@ -116,6 +148,7 @@ We look forward to seeing you again.`,
       {!isFormSubmitted ? (
         <div className="app__signUp-form">
           <input
+            className={errors.firstName ? 'error' : ''}
             type="text"
             placeholder="First Name"
             name="firstName"
@@ -124,6 +157,7 @@ We look forward to seeing you again.`,
           />
 
           <input
+            className={errors.lastName ? 'error' : ''}
             type="text"
             placeholder="Last Name"
             name="lastName"
@@ -132,6 +166,7 @@ We look forward to seeing you again.`,
           />
 
           <input
+            className={errors.email ? 'error' : ''}
             type="email"
             placeholder="Email"
             name="email"
@@ -140,6 +175,7 @@ We look forward to seeing you again.`,
           />
 
           <input
+            className={errors.phoneNumber ? 'error' : ''}
             type="phone"
             placeholder="Phone Number"
             name="phoneNumber"
@@ -148,12 +184,15 @@ We look forward to seeing you again.`,
           />
 
           <h2 className="accommodation">Accommodation Options</h2>
+          {errors.lodging && (
+            <h2 className="accommodation">Please select a button below</h2>
+          )}
 
-          <div className="button_list">
+          <div className={errors.lodging ? 'error button_list' : 'button_list'}>
             <button
               name="lodging"
               type="button"
-              className={lodging === "Single" ? "active" : "inactive"}
+              className={lodging === 'Single' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Single"
             >
@@ -162,7 +201,7 @@ We look forward to seeing you again.`,
             <button
               name="lodging"
               type="button"
-              className={lodging === "Double" ? "active" : "inactive"}
+              className={lodging === 'Double' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Double"
             >
@@ -171,7 +210,7 @@ We look forward to seeing you again.`,
             <button
               name="lodging"
               type="button"
-              className={lodging === "Golf Only" ? "active" : "inactive"}
+              className={lodging === 'Golf Only' ? 'active' : 'inactive'}
               onClick={handleChangeInput}
               value="Golf Only"
             >
@@ -179,7 +218,7 @@ We look forward to seeing you again.`,
             </button>
           </div>
 
-          {lodging === "Double" ? (
+          {lodging === 'Double' ? (
             <>
               <h4 className="info-text">Do you have a preferred roomate?</h4>
 
@@ -192,17 +231,17 @@ We look forward to seeing you again.`,
               />
             </>
           ) : (
-            ""
+            ''
           )}
           <motion.div
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.7 }}
+            whileInView={{opacity: [0, 1]}}
+            transition={{duration: 0.7}}
           >
             {activePlayerCount < maxPlayers ? (
               <button
                 type="button"
                 className="submitBtn"
-                onClick={() => handleSubmit("active")}
+                onClick={() => handleSubmit('active')}
               >
                 Sign Up for the Trip
               </button>
@@ -210,7 +249,7 @@ We look forward to seeing you again.`,
               <button
                 type="button"
                 className="submitBtn"
-                onClick={() => handleSubmit("waitlist")}
+                onClick={() => handleSubmit('waitlist')}
               >
                 Join the Waitlist
               </button>
