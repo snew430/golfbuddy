@@ -19,7 +19,7 @@ class AuthService {
       !!token &&
       !this.isTokenExpired(token) &&
       admin.data.email === 'whatsmyteetime@outlook.com'
-    ); // handwaiving here
+    );
   }
 
   isTokenExpired(token) {
