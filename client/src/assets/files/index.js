@@ -1,5 +1,5 @@
-import sunday4Somes from "./SundayFoursomesFall2023.docx";
-import monday4Somes from "./MondayFoursomesFall2023.docx";
-import tuesday4Somes from "./TuesdayFoursomesFall2023.docx";
+import monday4Somes from './MondayFoursomesSpring2024.docx';
+import tuesday4Somes from './TuesdayFoursomesSpring2024.docx';
+import wednesday4Somes from "./WednesdayFoursomesSpring2024.docx";
 
-export { sunday4Somes, monday4Somes, tuesday4Somes };
+export {monday4Somes, tuesday4Somes, wednesday4Somes};
