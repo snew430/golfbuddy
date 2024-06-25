@@ -2,7 +2,7 @@ import './Home.scss';
 import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 import Auth from '../../utils/auth';
-import {monday4Somes, tuesday4Somes, wednesday4Somes} from '../../assets/files';
+// import {monday4Somes, tuesday4Somes, wednesday4Somes} from '../../assets/files';
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();
@@ -32,7 +32,7 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <motion.div
+      {/* <motion.div
         whileInView={{opacity: [0, 1]}}
         transition={{duration: 0.7}}
         whileHover={{scale: 1.1}}
@@ -61,7 +61,7 @@ const Home = () => {
         <a href={wednesday4Somes} target="_blank" rel="noreferrer">
           <button>Wednesday Foursomes</button>
         </a>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };

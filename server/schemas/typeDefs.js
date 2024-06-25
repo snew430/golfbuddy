@@ -116,10 +116,10 @@ const typeDefs = gql`
       singlePrice: Int!
       doublePrice: Int!
       golfOnlyPrice: Int!
-      dayOneStart: String
-      dayTwoStart: String
-      dayThreeStart: String
-      dayFourStart: String
+      dayOneStart: String!
+      dayTwoStart: String!
+      dayThreeStart: String!
+      dayFourStart: String!
       hotel: ID!
       courseOne: ID!
       courseTwo: ID!

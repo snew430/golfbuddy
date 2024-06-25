@@ -294,7 +294,7 @@ export const PAID_PLAYER = gql`
 `;
 
 export const ADD_TRIP = gql`
-  mutation (
+  mutation AddTrip(
     $name: String!
     $startDate: String!
     $endDate: String!
@@ -303,30 +303,15 @@ export const ADD_TRIP = gql`
     $singlePrice: Int!
     $doublePrice: Int!
     $golfOnlyPrice: Int!
-    $hotelName: String!
-    $hotelAddress: String!
-    $hotelWebsite: String!
-    $hotelPhoneNumber: String!
-    $courseOneName: String!
-    $courseOneAddress: String!
-    $courseOneWebsite: String!
-    $courseOnePhoneNumber: String!
-    $courseOneTeeTime: String!
-    $courseTwoName: String!
-    $courseTwoAddress: String!
-    $courseTwoWebsite: String!
-    $courseTwoPhoneNumber: String!
-    $courseTwoTeeTime: String!
-    $courseThreeName: String!
-    $courseThreeAddress: String!
-    $courseThreeWebsite: String!
-    $courseThreePhoneNumber: String!
-    $courseThreeTeeTime: String!
-    $courseFourName: String!
-    $courseFourAddress: String!
-    $courseFourWebsite: String!
-    $courseFourPhoneNumber: String!
-    $courseFourTeeTime: String!
+    $hotel: ID!
+    $courseOne: ID!
+    $courseTwo: ID!
+    $courseThree: ID!
+    $courseFour: ID!
+    $dayOneStart: String!
+    $dayTwoStart: String!
+    $dayThreeStart: String!
+    $dayFourStart: String!
   ) {
     addTrip(
       name: $name
@@ -337,33 +322,17 @@ export const ADD_TRIP = gql`
       singlePrice: $singlePrice
       doublePrice: $doublePrice
       golfOnlyPrice: $golfOnlyPrice
-      hotelName: $hotelName
-      hotelAddress: $hotelAddress
-      hotelWebsite: $hotelWebsite
-      hotelPhoneNumber: $hotelPhoneNumber
-      courseOneName: $courseOneName
-      courseOneAddress: $courseOneAddress
-      courseOneWebsite: $courseOneWebsite
-      courseOnePhoneNumber: $courseOnePhoneNumber
-      courseOneTeeTime: $courseOneTeeTime
-      courseTwoName: $courseTwoName
-      courseTwoAddress: $courseTwoAddress
-      courseTwoWebsite: $courseTwoWebsite
-      courseTwoPhoneNumber: $courseTwoPhoneNumber
-      courseTwoTeeTime: $courseTwoTeeTime
-      courseThreeName: $courseThreeName
-      courseThreeAddress: $courseThreeAddress
-      courseThreeWebsite: $courseThreeWebsite
-      courseThreePhoneNumber: $courseThreePhoneNumber
-      courseThreeTeeTime: $courseThreeTeeTime
-      courseFourName: $courseFourName
-      courseFourAddress: $courseFourAddress
-      courseFourWebsite: $courseFourWebsite
-      courseFourPhoneNumber: $courseFourPhoneNumber
-      courseFourTeeTime: $courseFourTeeTime
+      hotel: $hotel
+      courseOne: $courseOne
+      courseTwo: $courseTwo
+      courseThree: $courseThree
+      courseFour: $courseFour
+      dayOneStart: $dayOneStart
+      dayTwoStart: $dayTwoStart
+      dayThreeStart: $dayThreeStart
+      dayFourStart: $dayFourStart
     ) {
       _id
-      name
     }
   }
 `;
