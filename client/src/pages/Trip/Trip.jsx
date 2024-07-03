@@ -1,14 +1,14 @@
-import React from "react";
-import "./Trip.scss";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
-import { QUERY_ACTIVE_TRIP } from "../../utils/queries";
-import Auth from "../../utils/auth";
-import { Cheat } from "../../components";
+import React from 'react';
+import './Trip.scss';
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
+import {useQuery} from '@apollo/react-hooks';
+import {QUERY_ACTIVE_TRIP} from '../../utils/queries';
+import Auth from '../../utils/auth';
+import {Cheat} from '../../components';
 
 const Trip = () => {
-  const { loading, data: tripData } = useQuery(QUERY_ACTIVE_TRIP);
+  const {loading, data: tripData} = useQuery(QUERY_ACTIVE_TRIP);
   const trip = tripData?.activeTrip || {};
   const loggedIn = Auth.loggedIn();
   if (!loggedIn) {
@@ -34,7 +34,7 @@ const Trip = () => {
           {trip.startDate} - {trip.endDate}
         </h3>
 
-        <motion.div className="app__flex" whileHover={{ scale: 1.1 }}>
+        <motion.div className="app__flex" whileHover={{scale: 1.1}}>
           <Link to="../SignUp">
             <button>Sign Up for this Trip</button>
           </Link>
@@ -42,8 +42,8 @@ const Trip = () => {
 
         <motion.div
           className="trip-details"
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}
+          whileInView={{opacity: [0, 1]}}
+          transition={{duration: 0.7}}
         >
           <div>
             <h4>Hotel</h4>
@@ -73,6 +73,13 @@ const Trip = () => {
             <p className="p-text">Golf Only Price: ${trip.golfOnlyPrice}</p>
           </div>
           <div>
+            <p className="p-highlight">
+              For those of you planning to come down early and stay at the Grand
+              the cost for the Sunday stay is $73 (same for both Single and
+              Double) add this to your Golf fee and SEND TO MAC.
+            </p>
+          </div>
+          <div>
             <h4>Courses</h4>
             {trip.courses.map((course, i) => (
               <p className="p-text" key={course.i}>
@@ -99,7 +106,6 @@ const Trip = () => {
                 >
                   Phone Number: {course.phoneNumber}
                 </a>
-                <p className="p-text">Lunch will be included on Day 1</p>
               </p>
             ))}
           </div>

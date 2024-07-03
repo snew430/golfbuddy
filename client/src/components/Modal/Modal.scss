@@ -1,20 +1,12 @@
 #modal {
   background-color: rgba(4, 57, 39, 0.9);
-  overflow: auto;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 1rem;
+  overflow: hidden;
   position: fixed;
-
-  .close {
-    padding-top: 1rem;
-    color: white;
-    font-size: 3rem;
-    position: absolute;
-    left: 75%;
-    top: 10%;
-  }
+  top: 0;
 
   h3 {
     font-size: 5rem;
@@ -38,11 +30,26 @@
     justify-content: center;
     text-align: center;
     background-color: green;
-    height: 80%;
+    height: 70%;
     width: 75%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 16%;
+    top: 25%;
+    overflow: scroll;
+    position: fixed;
+
+    .close {
+      padding-top: 1rem;
+      color: white;
+      font-size: 3rem;
+      position: sticky;
+      top: 10%;
+      cursor: pointer;
+
+      svg {
+        position: absolute;
+        left: 80%;
+      }
+    }
 
     input {
       display: block;
@@ -106,26 +113,4 @@
     font-family: var(--font-base);
     cursor: pointer;
   }
-}
-
-.modal-backdrop {
-  position: absolute;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba($color: #000000, $alpha: 0.5);
-}
-
-.modal {
-}
-
-.modalForm {
-  display: flex;
-  flex-direction: column;
-}
-
-.close {
-  cursor: pointer;
 }
