@@ -94,10 +94,7 @@ const Trip = () => {
                 </a>
                 <p className="p-text">{course.address}</p>
                 <p className="p-text">Start Time: {startTimes[i]}</p>
-                {(i === 0 || i === 1) && (
                   <p className="p-text">Format: Shotgun</p>
-                )}
-                {i === 2 && <p className="p-text">Format: Tee Times</p>}
                 <br />
                 <a
                   className="p-text"
