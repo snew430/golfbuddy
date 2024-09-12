@@ -21,6 +21,11 @@
     outline-color: var(--gray-color);
   }
 
+  .new-rule {
+    background-color: rgba(167, 122, 101, 0.5);
+    padding: 2rem 5rem;
+  }
+
   .title-switcher {
     display: flex;
     color: var(--gray-color);
@@ -182,7 +187,7 @@
       color: var(--white-color);
       text-shadow: -1px 0 black;
       line-height: 1.5;
-      margin: 10px 275px;
+      margin: 10px 10rem;
 
       @media screen and (max-width: 900px) {
         font-size: 1.55rem;
