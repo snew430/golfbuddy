@@ -10,7 +10,9 @@ const Home = () => {
   return (
     <div id="home">
       <h2 className="head-text-home">
-        What's My Tee Time? <br /> Golf Trips
+        What's My Tee Time?
+        <br />
+        Golf Trips
       </h2>
       <motion.div
         whileInView={{opacity: [0, 1]}}
@@ -32,7 +34,7 @@ const Home = () => {
           </>
         )}
       </motion.div>
-      <motion.div
+      {/* <motion.div
         whileInView={{opacity: [0, 1]}}
         transition={{duration: 0.7}}
         whileHover={{scale: 1.1}}
@@ -41,8 +43,8 @@ const Home = () => {
         <a href={monday4Somes} target="_blank" rel="noreferrer">
           <button>Monday Foursomes</button>
         </a>
-      </motion.div>
-      <motion.div
+      </motion.div> */}
+      {/* <motion.div
         whileInView={{opacity: [0, 1]}}
         transition={{duration: 0.7}}
         whileHover={{scale: 1.1}}
@@ -51,7 +53,7 @@ const Home = () => {
         <a href={tuesday4Somes} target="_blank" rel="noreferrer">
           <button>Tuesday Foursomes</button>
         </a>
-      </motion.div>
+      </motion.div> */}
       {/* <motion.div
         whileInView={{opacity: [0, 1]}}
         transition={{duration: 0.7}}

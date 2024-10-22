@@ -1,6 +1,7 @@
-#home {
-  padding: 3rem 2rem 0rem;
+$bg-img: url('../../assets/images/group.jpeg');
 
+#home {
+  padding: 3rem 2rem;
   background: url('../../assets/images/golf_ball_green.jpg');
   background-size: cover;
   background-position: center;
@@ -13,13 +14,16 @@
   }
 
   .head-text-home {
+    background-image: $bg-img;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 40%;
     padding-top: 4rem;
     font-size: 6rem;
     font-weight: 800;
     text-align: center;
     color: var(--white-color);
     text-shadow: -2px 0 black;
-
     @media screen and (max-width: 900px) {
       font-size: 5rem;
     }
